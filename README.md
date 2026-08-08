@@ -154,9 +154,9 @@ the reasoning behind them, is the companion planning document. In short:
    metrics view moved to a private repository, and the CDN styling is vendored.
 3. **Content leaves the code** - done: the archive is `data/lyceum.json` at schema
    version 2, fetched at runtime, so adding a gathering never touches HTML.
-4. **The June 2026 gathering** *(next)* - plus the new meeting tile and Storyboard view.
-5. **Go live** on GitHub Pages.
-6. **The editor** - a form that writes the record for a human to review and commit.
+4. **The June 2026 gathering** - done: the record, plus the meeting tile and Storyboard view.
+5. **Go live** on GitHub Pages - done.
+6. **The editor** *(next)* - a form that writes the record for a human to review and commit.
    No API tokens anywhere in the system.
 7. **Metrics on real numbers** - facilitator-recorded, replacing the sample data.
 8. **Runbook and the Squarespace embed.**
