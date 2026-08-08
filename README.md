@@ -5,7 +5,6 @@ PowerPoint decks with something people can browse, search, and help keep up to
 date.
 
 **Public board:** <https://praxiumlearningfoundation.github.io/education-lyceum-board/>
-(live once the Pages deploy lands - see the roadmap below)
 
 ## Why
 
@@ -117,23 +116,45 @@ Settings, not intentions:
 - **including for organization admins** - without that, the rule is advisory for
   the only people who use it
 - both CI checks must pass, and the branch must be up to date with `main`
-- linear history; no force pushes; no branch deletion
+- no force pushes, no branch deletion
+- linear history is deliberately NOT required - see the next section for why
 
-### After every promotion, fast-forward dev to main
+### Squash features into dev, but MERGE dev into main
+
+This distinction is the whole reason the branches used to fight, so it is worth
+understanding rather than just following.
+
+**A squash-merge does not merge.** It takes the branch's changes, collapses them
+into one brand-new commit, and puts that commit on the base branch. The branch's own
+commits are never joined into the base's history.
+
+For a feature branch that is fine, because the branch is deleted straight afterwards
+and never needs merging again. For `dev`, which lives on, it is not: `main` gets a
+commit `dev` has never seen, while `dev` keeps its own originals. The two branches
+then hold *identical content on unrelated history*, and git has no way to know that.
+The next promotion reports conflicts about nothing - `add/add` on a file both sides
+"created" independently, `rename/delete` where one side renamed a file and the other
+deleted it.
+
+So:
+
+| Merge | Method | Why |
+| --- | --- | --- |
+| `feature/*` -> `dev` | **Squash** | one tidy commit per concern; branch is deleted |
+| `dev` -> `main` | **Merge commit** | keeps a shared ancestor, so they can never diverge |
 
 ```sh
-git checkout dev && git fetch origin
-git reset --hard origin/main && git push --force-with-lease origin dev
+gh pr merge <n> --squash --delete-branch   # a feature into dev
+gh pr merge <n> --merge                    # dev into main
 ```
 
-This is not optional housekeeping. Because `main` requires linear history,
-promotions are squashed, which puts a commit on `main` that `dev` never receives.
-Skip this and the two branches end up holding identical content on unrelated
-history - and the *next* promotion reports add/add and rename/delete conflicts
-that have nothing to do with any real disagreement. It happened once already.
+`main` deliberately does **not** require linear history, because requiring it forces
+promotions to be squashed, which is what caused the problem. Merge commits on `main`
+are normal and are the price of a staging branch that stays in step.
 
-`dev` is a staging branch, not a parallel line of development. Keeping it equal to
-`main` between promotions costs nothing and removes the whole failure mode.
+This replaces an earlier workaround that fast-forwarded `dev` to `main` after every
+promotion. That worked, but it depended on remembering a manual step - and it was
+forgotten twice before being written down.
 
 ### Signing
 
