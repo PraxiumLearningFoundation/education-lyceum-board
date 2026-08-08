@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lyceum - Engagement Metrics (Internal)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { display: ['"Space Grotesk"','system-ui','sans-serif'] },
+    } } }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{background:#f4f6fb;font-family:'Space Grotesk',system-ui,sans-serif}
+    .bubble{cursor:default;transition:transform .3s}
+    .grid-bg{background-image:linear-gradient(#e2e8f0 1px,transparent 1px),linear-gradient(90deg,#e2e8f0 1px,transparent 1px);background-size:40px 40px}
+    .bar{transition:width .5s ease}
+  </style>
+</head>
+<body class="text-slate-800">
+  <div id="app"></div>
+  <script src="../web/data/inquiries.js"></script>
+  <script>
+  const $app=document.getElementById('app');
+  const DATA=(window.LYCEUM_DATA||[]).slice().sort((a,b)=>b.date.localeCompare(a.date));
+  const esc=s=>(s==null?'':String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])));
+  const SECTIONS=['theories','applications','sources','policies','opportunities','challenges'];
+  const isTranscribed=d=>SECTIONS.some(k=>(d[k]||[]).length);
+  const fmtDate=iso=>new Date(iso+'T00:00:00').toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+
+  // ---- engagement sources ---------------------------------------------------
+  // LIVE: reads the same localStorage the public Board writes to (comments +
+  // suggestions per inquiry). SAMPLE: deterministic illustrative numbers so the
+  // dashboard is meaningful before real activity exists.
+  let mode = 'sample'; // 'sample' | 'live'
+  function liveEng(id){
+    const c=(()=>{try{return JSON.parse(localStorage.getItem('lyc.comments.'+id))||[]}catch{return[]}})().length;
+    const s=(()=>{try{return JSON.parse(localStorage.getItem('lyc.suggest.'+id))||[]}catch{return[]}})().length;
+    return {comments:c, suggestions:s};
+  }
+  function sampleEng(id){
+    let h=0; for(const ch of id) h=(h*31+ch.charCodeAt(0))>>>0;
+    return {comments:h%9, suggestions:(h>>>3)%5};
+  }
+  const engOf = id => mode==='live' ? liveEng(id) : sampleEng(id);
+  // engagement score = comments + 2x suggestions (a suggestion is higher-effort)
+  const scoreOf = e => e.comments + 2*e.suggestions;
+
+  // per-inquiry rollup
+  function inquiryStats(){
+    return DATA.map(d=>{ const e=engOf(d.id); return {d, ...e, score:scoreOf(e)}; });
+  }
+  // per-keyword rollup
+  function keywordStats(){
+    const m={};
+    inquiryStats().forEach(s=>(s.d.tags||[]).forEach(t=>{
+      (m[t] ||= {tag:t, comments:0, suggestions:0, score:0, count:0});
+      m[t].comments+=s.comments; m[t].suggestions+=s.suggestions; m[t].score+=s.score; m[t].count++;
+    }));
+    return Object.values(m).sort((a,b)=>b.score-a.score || b.count-a.count);
+  }
+
+  const W=520,H=420,CX=260,CY=210,GA=2.399963229728653;
+  function pos(i){const r=34*Math.sqrt(i+0.6);return{x:CX+r*Math.cos(i*GA),y:CY+r*Math.sin(i*GA)};}
+
+  function render(){
+    const inq=inquiryStats().slice().sort((a,b)=>b.score-a.score);
+    const kw=keywordStats();
+    const totalC=inq.reduce((s,x)=>s+x.comments,0);
+    const totalS=inq.reduce((s,x)=>s+x.suggestions,0);
+    const totalScore=inq.reduce((s,x)=>s+x.score,0);
+    const quests=DATA.filter(d=>d.status!=='founding'&&!isTranscribed(d)).length;
+    const maxKw=Math.max(1,...kw.map(k=>k.score));
+
+    $app.innerHTML=`
+      <header class="bg-white border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 py-6 flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] uppercase tracking-widest font-bold text-white bg-slate-800 rounded px-2 py-0.5">Internal tool</span>
+              <span class="text-xs text-slate-400">staff only - not public-facing</span>
+            </div>
+            <h1 class="font-display text-3xl font-bold mt-2 text-slate-900">Engagement Metrics</h1>
+            <p class="text-slate-500 mt-1 max-w-2xl">Which keywords and inquiries are generating the most engagement across the Board - so we can steer future Lyceum topics toward what the community cares about.</p>
+          </div>
+          <div class="text-right">
+            <div class="inline-flex rounded-lg border border-slate-300 overflow-hidden text-sm">
+              <button data-mode="sample" class="px-3 py-1.5 ${mode==='sample'?'bg-indigo-600 text-white':'bg-white text-slate-600'}">Sample data</button>
+              <button data-mode="live" class="px-3 py-1.5 ${mode==='live'?'bg-indigo-600 text-white':'bg-white text-slate-600'}">Live activity</button>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-1 max-w-[15rem]">${mode==='sample'?'Illustrative numbers for demo.':'Reads real comments &amp; suggestions left on the Board.'}</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="max-w-6xl mx-auto px-6 py-6 space-y-6">
+        <section class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          ${kpi('Total engagement', totalScore, 'comments + 2x suggestions')}
+          ${kpi('Comments', totalC, 'across all inquiries')}
+          ${kpi('Suggestions', totalS, 'content / edits proposed')}
+          ${kpi('Open quests', quests, 'inquiries needing help', true)}
+        </section>
+
+        <div class="grid lg:grid-cols-5 gap-6 items-start">
+          <section class="lg:col-span-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h2 class="font-display font-bold text-slate-900">Keywords by engagement</h2>
+            <p class="text-xs text-slate-400 mb-4">Top themes ranked by total engagement score.</p>
+            <ul class="space-y-2.5">
+              ${kw.slice(0,12).map((k,i)=>`
+                <li>
+                  <div class="flex items-center justify-between text-sm mb-1">
+                    <span class="font-medium text-slate-700">${i+1}. ${esc(k.tag)}</span>
+                    <span class="text-slate-400 text-xs">${k.score} pts - ${k.comments}c / ${k.suggestions}s - ${k.count} inquiries</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-slate-100 overflow-hidden">
+                    <div class="bar h-full rounded-full" style="width:${Math.round(100*k.score/maxKw)}%;background:hsl(${235-i*9} 75% 58%)"></div>
+                  </div>
+                </li>`).join('')}
+            </ul>
+          </section>
+
+          <section class="lg:col-span-2 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h2 class="font-display font-bold text-slate-900">Engagement map</h2>
+            <p class="text-xs text-slate-400 mb-2">Bubble size = engagement per keyword.</p>
+            <svg viewBox="0 0 ${W} ${H}" class="w-full grid-bg rounded-lg" style="aspect-ratio:${W}/${H}">
+              ${kw.map((k,i)=>{
+                const p=pos(i), r=12+30*(k.score/maxKw), c=`hsl(${235-i*7} 75% 58%)`;
+                return `<g class="bubble"><title>${esc(k.tag)} - ${k.score} pts</title>
+                  <circle cx="${p.x}" cy="${p.y}" r="${r}" fill="${c}" fill-opacity="0.2" stroke="${c}" stroke-width="1.5"/>
+                  <text x="${p.x}" y="${p.y+3}" text-anchor="middle" font-size="10" fill="${c}" font-weight="700">${esc(k.tag)}</text>
+                </g>`;
+              }).join('')}
+            </svg>
+          </section>
+        </div>
+
+        <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <h2 class="font-display font-bold text-slate-900 mb-3">Inquiries by engagement</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead><tr class="text-left text-slate-400 border-b border-slate-100">
+                <th class="py-2 pr-3">Inquiry</th><th class="py-2 px-3">Date</th>
+                <th class="py-2 px-3 text-right">Comments</th><th class="py-2 px-3 text-right">Suggestions</th>
+                <th class="py-2 px-3 text-right">Score</th><th class="py-2 pl-3">Status</th>
+              </tr></thead>
+              <tbody>
+                ${inq.map(s=>`<tr class="border-b border-slate-50">
+                  <td class="py-2 pr-3 text-slate-700 max-w-md">${esc(s.d.inquiry)}</td>
+                  <td class="py-2 px-3 text-slate-400 whitespace-nowrap">${fmtDate(s.d.date)}</td>
+                  <td class="py-2 px-3 text-right">${s.comments}</td>
+                  <td class="py-2 px-3 text-right">${s.suggestions}</td>
+                  <td class="py-2 px-3 text-right font-semibold text-indigo-600">${s.score}</td>
+                  <td class="py-2 pl-3">${s.d.status==='founding'?'<span class="text-slate-400">founding</span>':isTranscribed(s.d)?'<span class="text-emerald-600">transcribed</span>':'<span class="text-amber-600">help wanted</span>'}</td>
+                </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="text-xs text-slate-400 pb-10">
+          Engagement score = comments + (2 x suggestions). In <strong>Live</strong> mode this reads the same activity people leave on the public Board (stored per browser in this MVP; a shared backend makes it organisation-wide). Internal tool - keep out of the public site.
+        </footer>
+      </main>`;
+
+    $app.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;render();}));
+  }
+
+  function kpi(label,val,sub,warn){
+    return `<div class="rounded-2xl border ${warn?'border-amber-200 bg-amber-50':'border-slate-200 bg-white'} p-4 shadow-sm">
+      <div class="font-display text-3xl font-bold ${warn?'text-amber-600':'text-indigo-600'}">${val}</div>
+      <div class="text-sm font-medium text-slate-700 mt-1">${label}</div>
+      <div class="text-[11px] text-slate-400">${sub}</div>
+    </div>`;
+  }
+
+  render();
+  </script>
+</body>
+</html>

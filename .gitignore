@@ -1,0 +1,64 @@
+# =============================================================================
+# PRIVATE MATERIAL - must never be committed
+#
+# This repository is PUBLIC. Everything committed here is world-readable, and
+# stays readable by commit reference even after a later commit deletes it.
+#
+# The raw meeting recordings and transcripts contain personal data about named
+# participants, including minors. The original slide decks carry speaker notes,
+# embedded photographs, and author metadata that has not been cleared.
+#
+# All of that material lives OUTSIDE this repository, in:
+#     ../lyceum-sources/
+# Only the curated, board-safe record in data/ belongs here.
+#
+# The CI workflow enforces these rules as well, so a mistake fails the build
+# rather than becoming permanent. Do not remove either the rules or the check.
+# =============================================================================
+
+# Raw meeting transcripts and recordings
+Lyceum*.md
+transcripts/
+*.vtt
+*.srt
+
+# Source presentation decks and office documents
+*.pptx
+*.ppt
+*.docx
+*.doc
+*.pdf
+
+# Review and distribution archives
+*.zip
+
+# Credentials and secrets - never create these in the working tree
+.env
+.env.*
+*.pem
+*.key
+.gitToken.txt
+.recovery-codes.txt
+
+# -----------------------------------------------------------------------------
+# Local tooling and editor cruft
+# -----------------------------------------------------------------------------
+
+# Claude Code session history (local working notes, not project source)
+.cc-history/
+
+# Build and preview artifacts
+_site/
+dist/
+node_modules/
+_preview_*.png
+index_preview.png
+
+# OS and editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

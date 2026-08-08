@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lyceum - Design Options for Review</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    .tab.active{background:#14171f;color:#fff}
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 h-screen flex flex-col">
+  <header class="px-5 py-3 bg-white border-b border-slate-200 shadow-sm shrink-0">
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 justify-between">
+      <div>
+        <h1 class="font-bold text-lg leading-tight">The Lyceum - Boards</h1>
+        <p class="text-xs text-slate-500">A public Board for the community, and an internal dashboard for us. Pick a tab to preview each live.</p>
+      </div>
+      <div class="flex gap-2" id="tabs">
+        <button class="tab active rounded-lg px-3 py-2 text-sm font-medium border border-slate-200" data-src="web/index.html" data-name="A">
+          Board <span class="block text-[11px] font-normal opacity-70">Public - warm card archive</span>
+        </button>
+        <button class="tab rounded-lg px-3 py-2 text-sm font-medium border border-slate-200 bg-white" data-src="web-c/index.html" data-name="C">
+          Engagement Metrics <span class="block text-[11px] font-normal opacity-70">Internal - staff only</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="px-5 py-2 bg-slate-50 border-b border-slate-200 text-sm text-slate-600 shrink-0 flex items-center justify-between">
+    <span id="blurb"></span>
+    <a id="newtab" href="web/index.html" target="_blank" class="text-indigo-600 hover:underline text-xs shrink-0 ml-4">Open this option full-screen (new tab)</a>
+  </div>
+
+  <main class="flex-1 min-h-0 bg-white">
+    <iframe id="frame" src="web/index.html" class="w-full h-full border-0" title="preview"></iframe>
+  </main>
+
+  <footer class="px-5 py-2 bg-white border-t border-slate-200 text-[11px] text-slate-400 shrink-0">
+    Both boards read the same data file (web/data/inquiries.js) - content is authored once and used in both. Needs an internet connection (styles/fonts load from a CDN).
+  </footer>
+
+  <script>
+    const blurbs = {
+      A: "Board (public): the warm, approachable card archive - live keyword search, theme labels, inquiry pages, comments, and a 'suggest an edit' form. Inquiries needing work now carry a 'Help Wanted' tag inviting the community on a quest to explore them.",
+      C: "Engagement Metrics (internal): a staff dashboard showing which keywords and inquiries draw the most engagement, so we can steer future Lyceum topics. Toggle between sample data and live Board activity."
+    };
+    const frame=document.getElementById('frame'), blurb=document.getElementById('blurb'), newtab=document.getElementById('newtab');
+    function select(btn){
+      document.querySelectorAll('.tab').forEach(t=>{t.classList.remove('active');t.classList.add('bg-white');});
+      btn.classList.add('active');btn.classList.remove('bg-white');
+      frame.src=btn.dataset.src; newtab.href=btn.dataset.src; blurb.textContent=blurbs[btn.dataset.name];
+    }
+    document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>select(b)));
+    blurb.textContent=blurbs.A;
+  </script>
+</body>
+</html>
