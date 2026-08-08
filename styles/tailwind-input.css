@@ -1,0 +1,20 @@
+/* Input for the Tailwind build. The generated board.css IS committed, so the
+   site still runs with no build step - this file only exists so the CSS can be
+   regenerated reproducibly with `npm run build:css`. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Page-level styles that were inline in the demo's <style> block. */
+html { scroll-behavior: smooth; }
+
+.fade-in { animation: fade .35s ease both; }
+@keyframes fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-in { animation: none; }
+}

@@ -3,57 +3,248 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Lyceum - Design Options for Review</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-    .tab.active{background:#14171f;color:#fff}
-  </style>
+  <title>The Lyceum - Community Inquiry Board</title>
+  <link rel="stylesheet" href="./board.css" />
 </head>
-<body class="bg-slate-100 text-slate-800 h-screen flex flex-col">
-  <header class="px-5 py-3 bg-white border-b border-slate-200 shadow-sm shrink-0">
-    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 justify-between">
-      <div>
-        <h1 class="font-bold text-lg leading-tight">The Lyceum - Boards</h1>
-        <p class="text-xs text-slate-500">A public Board for the community, and an internal dashboard for us. Pick a tab to preview each live.</p>
-      </div>
-      <div class="flex gap-2" id="tabs">
-        <button class="tab active rounded-lg px-3 py-2 text-sm font-medium border border-slate-200" data-src="web/index.html" data-name="A">
-          Board <span class="block text-[11px] font-normal opacity-70">Public - warm card archive</span>
-        </button>
-        <button class="tab rounded-lg px-3 py-2 text-sm font-medium border border-slate-200 bg-white" data-src="web-c/index.html" data-name="C">
-          Engagement Metrics <span class="block text-[11px] font-normal opacity-70">Internal - staff only</span>
-        </button>
-      </div>
-    </div>
-  </header>
+<body class="bg-lyceum-50 text-stone-800 antialiased">
+  <div id="app"></div>
 
-  <div class="px-5 py-2 bg-slate-50 border-b border-slate-200 text-sm text-slate-600 shrink-0 flex items-center justify-between">
-    <span id="blurb"></span>
-    <a id="newtab" href="web/index.html" target="_blank" class="text-indigo-600 hover:underline text-xs shrink-0 ml-4">Open this option full-screen (new tab)</a>
-  </div>
-
-  <main class="flex-1 min-h-0 bg-white">
-    <iframe id="frame" src="web/index.html" class="w-full h-full border-0" title="preview"></iframe>
-  </main>
-
-  <footer class="px-5 py-2 bg-white border-t border-slate-200 text-[11px] text-slate-400 shrink-0">
-    Both boards read the same data file (web/data/inquiries.js) - content is authored once and used in both. Needs an internet connection (styles/fonts load from a CDN).
-  </footer>
+  <!-- data source of truth -->
+  <script src="./data/inquiries.js"></script>
 
   <script>
-    const blurbs = {
-      A: "Board (public): the warm, approachable card archive - live keyword search, theme labels, inquiry pages, comments, and a 'suggest an edit' form. Inquiries needing work now carry a 'Help Wanted' tag inviting the community on a quest to explore them.",
-      C: "Engagement Metrics (internal): a staff dashboard showing which keywords and inquiries draw the most engagement, so we can steer future Lyceum topics. Toggle between sample data and live Board activity."
-    };
-    const frame=document.getElementById('frame'), blurb=document.getElementById('blurb'), newtab=document.getElementById('newtab');
-    function select(btn){
-      document.querySelectorAll('.tab').forEach(t=>{t.classList.remove('active');t.classList.add('bg-white');});
-      btn.classList.add('active');btn.classList.remove('bg-white');
-      frame.src=btn.dataset.src; newtab.href=btn.dataset.src; blurb.textContent=blurbs[btn.dataset.name];
-    }
-    document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>select(b)));
-    blurb.textContent=blurbs.A;
+  // ------------------------------------------------------------------ helpers
+  const $app = document.getElementById('app');
+  const DATA = (window.LYCEUM_DATA || []).slice().sort((a,b) => b.date.localeCompare(a.date));
+  const fmtDate = iso => new Date(iso + 'T00:00:00').toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
+  const esc = s => (s == null ? '' : String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])));
+  // sections that hold list content, in display order
+  const SECTIONS = [
+    ['theories',      'Theories / Concepts',     'Framing the issue and what we already know'],
+    ['applications',  'Application',             'How this is handled around the world'],
+    ['sources',       'Source / Input',          'What and who we need for shared understanding'],
+    ['policies',      'Regulations / References', 'Policies, laws and resources raised'],
+    ['opportunities', 'Opportunities',           'What is favourable for us'],
+    ['challenges',    'Challenges',              'The obstacles, perceived or real'],
+  ];
+  const isTranscribed = d => SECTIONS.some(([k]) => (d[k] || []).length);
+
+  // --------------------------------------------------- local "living" storage
+  // For the MVP, contributions + comments live in the browser (localStorage).
+  // In production these become API calls - see README "Way Ahead".
+  const store = {
+    comments(id){ try { return JSON.parse(localStorage.getItem('lyc.comments.'+id)) || []; } catch { return []; } },
+    addComment(id, c){ const all = store.comments(id); all.push(c); localStorage.setItem('lyc.comments.'+id, JSON.stringify(all)); },
+    suggestions(id){ try { return JSON.parse(localStorage.getItem('lyc.suggest.'+id)) || []; } catch { return []; } },
+    addSuggestion(id, s){ const all = store.suggestions(id); all.push(s); localStorage.setItem('lyc.suggest.'+id, JSON.stringify(all)); },
+  };
+
+  // ------------------------------------------------------------------ routing
+  function route(){
+    const m = (location.hash || '').match(/^#\/inquiry\/(.+)$/);
+    if (m){ const d = DATA.find(x => x.id === m[1]); if (d) return renderDetail(d); }
+    renderIndex();
+  }
+  window.addEventListener('hashchange', route);
+
+  // -------------------------------------------------------------- index page
+  let query = '';
+  function renderIndex(){
+    const q = query.trim().toLowerCase();
+    const matches = DATA.filter(d => {
+      if (!q) return true;
+      const hay = [d.inquiry, ...(d.tags||[]), ...SECTIONS.flatMap(([k]) => d[k]||[]), d.quote, d.callToAction].join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+    const done = DATA.filter(isTranscribed).length;
+
+    $app.innerHTML = `
+      <header class="bg-lyceum-900 text-lyceum-50">
+        <div class="max-w-5xl mx-auto px-6 py-12">
+          <p class="uppercase tracking-[0.3em] text-xs text-lyceum-100/80 mb-3">Praxium Learning Foundation</p>
+          <h1 class="font-serif text-4xl sm:text-5xl font-bold">The Lyceum</h1>
+          <p class="mt-3 text-lg text-lyceum-100/90 max-w-2xl">An endeavor for shared purpose in families and communities. Every gathering, we take a real question and work it through together - framing it, learning how the world handles it, and deciding who carries it forward.</p>
+          <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-lyceum-100/80">
+            <span><strong class="text-white">${DATA.length}</strong> gatherings</span>
+            <span><strong class="text-white">${done}</strong> inquiries transcribed</span>
+            <span><strong class="text-white">${DATA.filter(isQuest).length}</strong> open quests - help wanted</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="max-w-5xl mx-auto px-6 py-8">
+        <div class="mb-6">
+          <input id="search" type="search" value="${esc(query)}" placeholder="Search inquiries, themes, ideas..."
+            class="w-full rounded-lg border border-lyceum-100 bg-white px-4 py-3 text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-lyceum-700" />
+          <p class="mt-2 text-sm text-stone-500">${matches.length} of ${DATA.length} gatherings${q ? ` matching "${esc(query)}"` : ''}</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          ${matches.map(cardHTML).join('') || '<p class="text-stone-500 col-span-2 py-12 text-center">No inquiries match that search.</p>'}
+        </div>
+
+        <footer class="mt-16 border-t border-lyceum-100 pt-6 text-sm text-stone-500">
+          A living archive - anyone in the community can read, search, comment, and suggest edits. Built from the original Lyceum slide decks.
+        </footer>
+      </main>`;
+
+    const s = document.getElementById('search');
+    s.addEventListener('input', e => { query = e.target.value; renderIndex(); placeCursorEnd(document.getElementById('search')); });
+    placeCursorEnd(s);
+  }
+
+  function placeCursorEnd(el){ if(!el) return; el.focus(); const v = el.value; el.value=''; el.value=v; }
+
+  function isQuest(d){ return d.status !== 'founding' && !isTranscribed(d); }
+  function badge(d){
+    if (d.status === 'founding') return '<span class="text-xs rounded-full bg-lyceum-100 text-lyceum-800 px-2 py-0.5">Founding</span>';
+    if (isTranscribed(d))        return '<span class="text-xs rounded-full bg-emerald-100 text-emerald-800 px-2 py-0.5">Transcribed</span>';
+    return '<span class="text-xs rounded-full bg-amber-100 text-amber-800 px-2 py-0.5 font-medium">Help Wanted</span>';
+  }
+
+  function cardHTML(d){
+    return `
+      <a href="#/inquiry/${d.id}" class="block rounded-xl bg-white border border-lyceum-100 p-5 shadow-sm hover:shadow-md hover:border-lyceum-700/40 transition">
+        <div class="flex items-center justify-between mb-2">
+          <time class="text-xs uppercase tracking-wide text-stone-400">${fmtDate(d.date)}</time>
+          ${badge(d)}
+        </div>
+        <h3 class="font-serif text-lg leading-snug text-lyceum-900">${esc(d.inquiry)}</h3>
+        <div class="mt-3 flex flex-wrap gap-1.5">
+          ${(d.tags||[]).map(t => `<span class="text-xs bg-lyceum-50 border border-lyceum-100 text-lyceum-800 rounded px-2 py-0.5">${esc(t)}</span>`).join('')}
+        </div>
+        ${isQuest(d) ? `<div class="mt-3 flex items-center gap-1.5 text-xs font-medium text-amber-700">Open quest - help explore this inquiry</div>` : ''}
+      </a>`;
+  }
+
+  // -------------------------------------------------------------- detail page
+  function renderDetail(d){
+    const transcribed = isTranscribed(d);
+    $app.innerHTML = `
+      <header class="bg-lyceum-900 text-lyceum-50">
+        <div class="max-w-3xl mx-auto px-6 py-10">
+          <a href="#/" class="text-sm text-lyceum-100/80 hover:text-white">Back to all inquiries</a>
+          <p class="mt-4 uppercase tracking-[0.25em] text-xs text-lyceum-100/70">${fmtDate(d.date)} - Sequence of Inquiry</p>
+          <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">${esc(d.inquiry)}</h1>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            ${(d.tags||[]).map(t => `<span class="text-xs bg-white/10 rounded px-2 py-0.5">${esc(t)}</span>`).join('')}
+          </div>
+        </div>
+      </header>
+
+      <main class="max-w-3xl mx-auto px-6 py-8 fade-in">
+        ${!transcribed ? notYetHTML(d) : ''}
+        ${d.quote ? `<blockquote class="font-serif text-xl italic text-lyceum-800 border-l-4 border-lyceum-700 pl-5 my-2">"${esc(d.quote)}"</blockquote>` : ''}
+
+        <div class="grid gap-4 sm:grid-cols-2 mt-6">
+          ${SECTIONS.map(([k,t,sub]) => sectionHTML(d[k]||[], t, sub)).join('')}
+        </div>
+
+        ${d.callToAction ? `
+          <section class="mt-6 rounded-xl border border-amber-300 bg-amber-50 p-5">
+            <h3 class="font-semibold text-amber-900">Way Ahead - Call to Action</h3>
+            <p class="mt-1 text-amber-900/90">${esc(d.callToAction)}</p>
+            ${(d.stewards||[]).length ? `<p class="mt-2 text-sm text-amber-800">Stewards: ${d.stewards.map(esc).join(', ')}</p>` : ''}
+          </section>` : ''}
+
+        ${suggestHTML(d)}
+        ${commentsHTML(d)}
+      </main>`;
+
+    wireDetail(d);
+  }
+
+  function sectionHTML(items, title, sub){
+    return `
+      <section class="rounded-xl bg-white border border-lyceum-100 p-4 shadow-sm">
+        <h3 class="font-semibold text-lyceum-900">${title}</h3>
+        ${items.length
+          ? `<ul class="mt-2 space-y-1.5 text-sm list-disc list-inside marker:text-lyceum-700">${items.map(i => `<li>${i}</li>`).join('')}</ul>`
+          : `<p class="mt-2 text-sm text-stone-400 italic">${sub} - not captured yet.</p>`}
+      </section>`;
+  }
+
+  function notYetHTML(d){
+    return `
+      <div class="rounded-xl border border-amber-300 bg-amber-50 p-5 mb-6">
+        <div class="flex items-center gap-2">
+          <span class="text-xs rounded-full bg-amber-100 text-amber-800 px-2 py-0.5 font-medium">Help Wanted</span>
+          <h2 class="font-semibold text-amber-900">This inquiry is an open quest</h2>
+        </div>
+        <p class="mt-2 text-sm text-amber-900/90">This question was explored in the circle, but the notes still live in the old slide deck. Take up the quest: if you were there - or want to dig into it - use <strong>Suggest content</strong> below to start filling it in. Every contribution moves the inquiry forward and turns the archive into a living document.</p>
+      </div>`;
+  }
+
+  // -------------------------------------------------- suggest-an-edit (living)
+  function suggestHTML(d){
+    const subs = store.suggestions(d.id);
+    return `
+      <section class="mt-10 rounded-xl bg-white border border-lyceum-100 p-5 shadow-sm">
+        <h3 class="font-serif text-lg text-lyceum-900">Suggest content or an edit</h3>
+        <p class="text-sm text-stone-500 mt-1">Propose an addition to any part of this inquiry. Suggestions are recorded with your name and the date - the seed of community version control.</p>
+        <form id="suggest-form" class="mt-4 grid gap-3 sm:grid-cols-2">
+          <input name="name" placeholder="Your name" class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm" required />
+          <select name="section" class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm">
+            ${SECTIONS.map(([k,t]) => `<option value="${k}">${t}</option>`).join('')}
+            <option value="quote">Highlighted quote</option>
+            <option value="callToAction">Way Ahead / Call to Action</option>
+          </select>
+          <textarea name="text" placeholder="Your suggested wording..." class="sm:col-span-2 rounded-lg border border-lyceum-100 px-3 py-2 text-sm" rows="3" required></textarea>
+          <div class="sm:col-span-2"><button class="rounded-lg bg-lyceum-800 text-white px-4 py-2 text-sm hover:bg-lyceum-900">Submit suggestion</button></div>
+        </form>
+        ${subs.length ? `
+          <div class="mt-5 border-t border-lyceum-100 pt-4">
+            <h4 class="text-sm font-semibold text-stone-600 mb-2">Pending suggestions (${subs.length})</h4>
+            <ul class="space-y-2 text-sm">
+              ${subs.map(s => `<li class="rounded-lg bg-lyceum-50 p-3"><span class="font-medium">${esc(s.name)}</span> to <em>${esc(sectionLabel(s.section))}</em><br>${esc(s.text)}<div class="text-xs text-stone-400 mt-1">${esc(s.at)}</div></li>`).join('')}
+            </ul>
+          </div>` : ''}
+      </section>`;
+  }
+  function sectionLabel(k){ const f = SECTIONS.find(s => s[0]===k); return f ? f[1] : (k==='callToAction' ? 'Way Ahead' : k); }
+
+  // ----------------------------------------------------------------- comments
+  function commentsHTML(d){
+    const cs = store.comments(d.id);
+    return `
+      <section class="mt-8 rounded-xl bg-white border border-lyceum-100 p-5 shadow-sm">
+        <h3 class="font-serif text-lg text-lyceum-900">Discussion (${cs.length})</h3>
+        <form id="comment-form" class="mt-3 grid gap-3">
+          <input name="name" placeholder="Your name" class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm" required />
+          <textarea name="text" placeholder="Add your reflection or a Lima/Peru example..." class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm" rows="2" required></textarea>
+          <div><button class="rounded-lg bg-lyceum-700 text-white px-4 py-2 text-sm hover:bg-lyceum-800">Post comment</button></div>
+        </form>
+        <ul class="mt-5 space-y-3">
+          ${cs.length ? cs.map(c => `
+            <li class="border-l-2 border-lyceum-100 pl-3">
+              <div class="text-sm"><span class="font-medium text-lyceum-900">${esc(c.name)}</span> <span class="text-xs text-stone-400">- ${esc(c.at)}</span></div>
+              <p class="text-sm text-stone-700">${esc(c.text)}</p>
+            </li>`).join('')
+          : '<li class="text-sm text-stone-400 italic">No comments yet - be the first to reflect.</li>'}
+        </ul>
+      </section>`;
+  }
+
+  function wireDetail(d){
+    const today = new Date().toLocaleDateString();
+    const cf = document.getElementById('comment-form');
+    cf && cf.addEventListener('submit', e => {
+      e.preventDefault();
+      const f = e.target;
+      store.addComment(d.id, { name: f.name.value.trim(), text: f.text.value.trim(), at: today });
+      renderDetail(d);
+    });
+    const sf = document.getElementById('suggest-form');
+    sf && sf.addEventListener('submit', e => {
+      e.preventDefault();
+      const f = e.target;
+      store.addSuggestion(d.id, { name: f.name.value.trim(), section: f.section.value, text: f.text.value.trim(), at: today });
+      renderDetail(d);
+    });
+  }
+
+  // ------------------------------------------------------------------- launch
+  route();
   </script>
 </body>
 </html>

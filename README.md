@@ -18,25 +18,45 @@ to.
 ## What is here
 
 ```text
-index.html            The stakeholder-review shell (retired in the next phase)
-web/
-  index.html          The public board
-  data/inquiries.js   The archive - currently still a JS file, moving to JSON
-web-c/
-  index.html          The internal Engagement Metrics dashboard
+index.html            The public board - this repository serves exactly this
+board.css             Vendored stylesheet, generated and committed (see below)
+data/
+  inquiries.js        The archive - still a JS file, becoming JSON next phase
+styles/
+  tailwind-input.css  Source for board.css
+tailwind.config.js    Theme for the CSS build
 docs/
   DATA-NOTES.md       Content decisions, source-quality issues, privacy rules
 ```
 
-This layout is mid-migration. The target shape, and the reasoning behind it, is
-in the architecture plan (see below).
+Everything internal - the editor and the Engagement Metrics dashboard - lives in
+a separate **private** repository, not here. This repository is public and
+contains only what is meant to be public. That separation is structural, not a
+convention: there is no URL on this site that could serve an internal page,
+because the internal pages are not in this repository at all.
 
 ## Run it
 
-Open `web/index.html` in any browser. No build step, no server.
+Open `index.html` in any browser. No build step, no server, **no internet
+connection required**.
 
-Note that the page currently loads its styling from a CDN, so it needs an
-internet connection. Vendoring that locally is an early phase of the migration.
+## Styling
+
+The board is styled with Tailwind, but there is no build step to run the site:
+`board.css` is generated **and committed**. It is 13 KB, against the 407 KB
+development build the CDN was serving.
+
+Regenerate it only if you change class names in `index.html`:
+
+```sh
+npm install      # once
+npm run build:css
+```
+
+The CDN was dropped deliberately. Its own response says "cdn.tailwindcss.com
+should not be used in production", and a page inside a Squarespace frame with a
+strict content policy, or on a locked-down network, can lose its styling
+entirely when it depends on an external host.
 
 ## What the board does
 
@@ -82,10 +102,10 @@ verified.
 The full architecture and development plan, including the hosting decisions and
 the reasoning behind them, is the companion planning document. In short:
 
-1. **Repository hygiene** - clean history, guardrails, branch protection. *(this phase)*
-2. **Split public from admin** - the board becomes the public page; the editor and
-   metrics view move to a private admin repository. Vendor the CDN styling.
-3. **Content leaves the code** - the archive becomes `data/lyceum.json` at schema
+1. **Repository hygiene** - done: clean history, guardrails, branch protection.
+2. **Split public from admin** - done: the board is the site root, the editor and
+   metrics view moved to a private repository, and the CDN styling is vendored.
+3. **Content leaves the code** *(next)* - the archive becomes `data/lyceum.json` at schema
    version 2, fetched at runtime, so adding a gathering never touches HTML.
 4. **The June 2026 gathering** - plus the new meeting tile and Storyboard view.
 5. **Go live** on GitHub Pages.
