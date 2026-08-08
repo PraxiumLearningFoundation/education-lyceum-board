@@ -1,0 +1,12 @@
+{
+  "name": "education-lyceum-board",
+  "private": true,
+  "description": "The Lyceum: a searchable community inquiry archive for the Praxium Learning Foundation",
+  "scripts": {
+    "build:css": "tailwindcss -i styles/tailwind-input.css -o board.css --minify",
+    "watch:css": "tailwindcss -i styles/tailwind-input.css -o board.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
