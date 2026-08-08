@@ -258,6 +258,813 @@
       "quote": "",
       "callToAction": "",
       "stewards": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "2026-06-28-community-growth",
+      "date": "2026-06-28",
+      "inquiry": "How do we grow the Praxium learning community?",
+      "tags": [
+        "community",
+        "growth",
+        "outreach",
+        "belonging",
+        "service"
+      ],
+      "status": "transcribed",
+      "meeting": {
+        "facilitator": "Hez Jenkins",
+        "attendees": [
+          {
+            "name": "Hez Jenkins",
+            "role": "Secretary, Praxium Foundation; guide and facilitator for this Lyceum"
+          },
+          {
+            "name": "Ehren Gruber",
+            "role": "Praxium Foundation lead; normally guides the Lyceum; joined from a two-day conference on spirituality and religion in society"
+          },
+          {
+            "name": "Rachel Gruber",
+            "role": "Praxium Foundation; works on the social media presence; found the Alternative Peru partnership"
+          },
+          {
+            "name": "Chase Kubic",
+            "role": "Praxium Foundation; leads the new coaching channel and takes part in the Parents in Action channel"
+          },
+          {
+            "name": "Larry",
+            "role": "Participant; long-time Lyceum participant; retired; volunteers on building maintenance at his congregation"
+          },
+          {
+            "name": "Al Goshi",
+            "role": "Participant; retired Army; framed the evening's growth model from communications theory"
+          },
+          {
+            "name": "Ursula Wagner",
+            "role": "Participant; born in Belize; finishing a thesis on Belizean women and mother-daughter bonding"
+          }
+        ],
+        "minorsPresent": 2,
+        "locations": [
+          "Lima, Peru",
+          "Pittsburgh, Pennsylvania",
+          "Texas",
+          "Virginia",
+          "Los Angeles, California"
+        ],
+        "landAcknowledgement": "Given from Pennsylvania in place of the usual Canadian land gratitude: thanks for the Allegheny, Ohio, and Monongahela rivers, the Monongahela name translated as 'Fallen Banks', with everyone invited to consider the heritage of the ground they live on.",
+        "agenda": [
+          "Welcome, introductions, and the structural norms for a shared purpose meeting",
+          "Pre-survey of two questions, by QR code or a link in the chat",
+          "Opening presence circle with gratitude for the land",
+          "Shared understanding round on cultural background, home, and what has changed",
+          "Sequence of Inquiry on the pre-determined question, about an hour",
+          "Post-survey learning reflection questionnaire, answered anonymously",
+          "Closing circle with a final round of sharing and Praxium updates"
+        ],
+        "surveyPre": [
+          "Do you need to be helped, hugged, or heard today?",
+          "If so, how can we help you?"
+        ],
+        "surveyPost": [
+          "What spoke to you in today's Lyceum?",
+          "What topic should the next Lyceum take up?"
+        ],
+        "contextNotes": [
+          "First Lyceum in about eight months; the previous gathering was November 2025.",
+          "Hez Jenkins guided the session in place of Ehren Gruber, who normally leads.",
+          "Scheduled 3:30 to 5:00pm Pacific for about ninety minutes; the circle ran past its planned close.",
+          "Held online across time zones, from Lima, Peru to Los Angeles, California.",
+          "Follows the Praxium Foundation's first annual meeting at the beginning of June.",
+          "Topic was pre-determined, so the circle skipped deliberating on a question.",
+          "Young participants took part and were encouraged to speak throughout.",
+          "Sequence of Inquiry ran theories, application, sources and inputs, opportunities, challenges, and call to action.",
+          "A colored world map placed the circle across the Americas, Europe, and the Caribbean.",
+          "One participant first appeared under an unrecognized device name and introduced herself on mic."
+        ]
+      },
+      "theories": [
+        {
+          "text": "Coaching draws out potential through a person's own self-obtained realizations.",
+          "attribution": "Chase Kubic",
+          "at": "@23:36"
+        },
+        {
+          "text": "Contribution works best where the community lacks the skill, not where it is crowded.",
+          "attribution": "Larry",
+          "at": "@26:21"
+        },
+        {
+          "text": "The message can grow because it is essentially all about humanity.",
+          "attribution": "Chase Kubic",
+          "at": "@36:28"
+        },
+        {
+          "text": "Lived experience, more than theory, supplies the group's ideas and ways ahead.",
+          "attribution": "Chase Kubic",
+          "at": "@36:28"
+        },
+        {
+          "text": "The offering is not one program but an immersive cultural community-building event.",
+          "attribution": "Hez Jenkins",
+          "at": "@47:51"
+        },
+        {
+          "text": "Across professions, the shared need is to figure out where common ground lies.",
+          "attribution": "Ehren Gruber",
+          "at": "@49:57"
+        },
+        {
+          "text": "Families who travel can role-model the practice for families who have not considered it.",
+          "attribution": "Ehren Gruber",
+          "at": "@58:34"
+        },
+        {
+          "text": "Cross-cultural experience need not mean leaving the country; the next neighborhood serves.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:01:14"
+        },
+        {
+          "text": "Members act as ambassadors for a better community and a better tomorrow.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:02:07"
+        },
+        {
+          "text": "Immigrants already here deserve welcome, not only communities served abroad.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:04:28"
+        },
+        {
+          "text": "Communications theory: person-to-person contact is the building block, then groups, then broader online community.",
+          "attribution": "Al Goshi",
+          "at": "@1:08:28"
+        },
+        {
+          "text": "Running individual, group, and social media engagement at once grows the effort fastest.",
+          "attribution": "Al Goshi",
+          "at": "@1:08:28"
+        },
+        {
+          "text": "Messaging should be tailored per audience while the core message stays constant.",
+          "attribution": "Al Goshi",
+          "at": "@1:08:28"
+        },
+        {
+          "text": "A veteran who omits military service from LinkedIn volunteered it once common ground was named.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:14:12"
+        },
+        {
+          "text": "Service without a uniform: veterans keep serving by driving social change at home.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:14:12"
+        },
+        {
+          "text": "Human experience is universal: the same fear, joy, and need for belonging everywhere.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:25:53"
+        },
+        {
+          "text": "Whatever problem you are stuck on, someone somewhere has already lived it and has wisdom to share.",
+          "attribution": "Chase Kubic",
+          "at": "@1:27:51"
+        },
+        {
+          "text": "Three months away without a phone showed how few things truly matter.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:31:06"
+        },
+        {
+          "text": "Different places and experiences give the circle both camaraderie and broad reach.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:38:21"
+        },
+        {
+          "text": "Underneath it all, people want to be seen as good enough.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:45:51"
+        },
+        {
+          "text": "You do not have to travel the world to see the world.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:47:19"
+        },
+        {
+          "text": "Focusing on similarities and mutual help unites where wedges divide.",
+          "attribution": "Chase Kubic",
+          "at": "@1:48:09"
+        },
+        {
+          "text": "Everyone is playing the game of life; everyone will need help eventually.",
+          "attribution": "Chase Kubic",
+          "at": "@1:48:09"
+        },
+        {
+          "text": "Doing right by each other should not require laws and regulations.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:49:24"
+        },
+        {
+          "text": "The heart of the matter is having heart for service.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:50:12"
+        }
+      ],
+      "applications": [
+        {
+          "text": "The Terry Fox Run - students run laps at school to fundraise for cancer research.",
+          "attribution": "a young participant",
+          "at": "@38:49"
+        },
+        {
+          "text": "Shinrin-yoku forest bathing - an established six-month Praxium project for local learners.",
+          "attribution": "Ehren Gruber",
+          "at": "@43:56"
+        },
+        {
+          "text": "Shinrin-yoku sessions - scavenger hunts done together out in nature.",
+          "attribution": "Ehren Gruber",
+          "at": "@46:35"
+        },
+        {
+          "text": "Alternative Peru - nonprofit partner guiding excursions unlike standard Peru tourism.",
+          "attribution": "Ehren Gruber",
+          "at": "@52:47"
+        },
+        {
+          "text": "Lima - volunteering at a children's library, helping children with their homework.",
+          "attribution": "a young participant",
+          "at": "@52:47"
+        },
+        {
+          "text": "Lima - a meal in a local family's home, trading impressions of Peru.",
+          "attribution": "a young participant",
+          "at": "@52:47"
+        },
+        {
+          "text": "Lima - a visit to a place where local people build boats.",
+          "attribution": "a young participant",
+          "at": "@52:47"
+        },
+        {
+          "text": "Lima dance hall - a mix of indigenous and Latin music drew locals into conversation.",
+          "attribution": "Ehren Gruber",
+          "at": "@52:47"
+        },
+        {
+          "text": "Contact held in broken Spanish - curiosity outweighed the language barrier.",
+          "attribution": "Ehren Gruber",
+          "at": "@52:47"
+        },
+        {
+          "text": "Europe - nonprofits act as hubs turning donations into resources for people in need.",
+          "attribution": "Hez Jenkins",
+          "at": "@56:00"
+        },
+        {
+          "text": "Mexico - a youth trip that built houses in another community.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:00:35"
+        },
+        {
+          "text": "Habitat for Humanity - volunteer homebuilding within the United States.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:03:57"
+        },
+        {
+          "text": "Shoveling snow for older neighbors who cannot get out of the house.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:05:40"
+        },
+        {
+          "text": "The Bronx - one subway stop shifts Jewish, Italian, and Chinese neighborhoods.",
+          "attribution": "Larry",
+          "at": "@1:06:52"
+        },
+        {
+          "text": "Forest bathing on the road - a recreational run counted as time in nature.",
+          "attribution": "Al Goshi",
+          "at": "@1:20:12"
+        },
+        {
+          "text": "A group run as a community event - people interacting in the play of running.",
+          "attribution": "Al Goshi",
+          "at": "@1:20:12"
+        },
+        {
+          "text": "Military families - linking into a local community or religious group at each posting.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:21:28"
+        },
+        {
+          "text": "Belize - greeting strangers in passing, acknowledging presence and wanting nothing back.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:27:00"
+        }
+      ],
+      "sources": [
+        {
+          "text": "After years of groundwork, the network and the team still need building.",
+          "attribution": "Chase Kubic",
+          "at": "@1:13:01"
+        },
+        {
+          "text": "Marketing of the group's relevance, capability, and impact on humanity.",
+          "attribution": "Chase Kubic",
+          "at": "@1:13:01"
+        },
+        {
+          "text": "Common Ground Scholar collaborative - interfaith clergy network from over 200 conference participants.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:14:12"
+        },
+        {
+          "text": "Veterans groups as allies who may amplify a message of continued service.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:14:12"
+        },
+        {
+          "text": "Larry's rabbi as a conduit to other religious organizations.",
+          "attribution": "Larry",
+          "at": "@41:07"
+        },
+        {
+          "text": "A university professor as another outlet for Ehren Gruber's conference video.",
+          "attribution": "Ursula Wagner",
+          "at": "@49:49"
+        },
+        {
+          "text": "Ehren Gruber's conference video, offered for sharing without restriction.",
+          "attribution": "Ehren Gruber",
+          "at": "@49:57"
+        },
+        {
+          "text": "Social media presence on Facebook and LinkedIn, led by Rachel and Ehren Gruber.",
+          "attribution": "Hez Jenkins",
+          "at": "@42:32"
+        },
+        {
+          "text": "Existing small groups, like a Saturday running group, as invitation points.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:18:41"
+        }
+      ],
+      "policies": [
+        {
+          "text": "Praxium mission statement - fellowship through diversity.",
+          "attribution": "Ehren Gruber",
+          "at": "@46:35"
+        },
+        {
+          "text": "Kintsugi campaign - Praxium channel for dialogue on divisive issues without conflict.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:14:12"
+        },
+        {
+          "text": "Parents in Action - newest Praxium channel focused on developing and preparing children.",
+          "attribution": "Chase Kubic",
+          "at": "@23:36"
+        },
+        {
+          "text": "W.E.B. Du Bois - poem from Ghana challenging veterans to fight for democracy at home.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:14:12"
+        }
+      ],
+      "opportunities": [
+        {
+          "text": "Message of shared humanity received well, with no negative feedback so far.",
+          "attribution": "Chase Kubic",
+          "at": "@36:28"
+        },
+        {
+          "text": "Coaching for veterans transitioning to civilian life received with open arms.",
+          "attribution": "Chase Kubic",
+          "at": "@36:28"
+        },
+        {
+          "text": "Local community events and schools as an avenue to new learners.",
+          "attribution": "Ehren Gruber",
+          "at": "@38:49"
+        },
+        {
+          "text": "Bright, hand-drawn nature artwork would make flyers appealing to children.",
+          "attribution": "a young participant",
+          "at": "@43:56"
+        },
+        {
+          "text": "Naming the nature games on the flyer tells children what to expect.",
+          "attribution": "a young participant",
+          "at": "@43:56"
+        },
+        {
+          "text": "Forest bathing already draws children alongside learners in their sixties and seventies.",
+          "attribution": "Ehren Gruber",
+          "at": "@46:35"
+        },
+        {
+          "text": "Stating plainly that everyone is welcome keeps the invitation inclusive.",
+          "attribution": "a young participant",
+          "at": "@46:35"
+        },
+        {
+          "text": "Mediums beyond social media: radio spots, stadium advertising, a Praxium podcast.",
+          "attribution": "Hez Jenkins",
+          "at": "@47:51"
+        },
+        {
+          "text": "Members posting about their own place and connection to the land.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:02:07"
+        },
+        {
+          "text": "Public walk-in Lyceums need no link, computer, or internet to attend.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:10:37"
+        },
+        {
+          "text": "Kintsugi campaign shows divisive topics can be discussed without conflict.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:14:12"
+        },
+        {
+          "text": "Asking people how they would fix it converts complaint into solutions.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:21:28"
+        },
+        {
+          "text": "Greeting strangers first brings peace even when no reply comes.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:27:35"
+        },
+        {
+          "text": "A first hello costs nothing and can open an entire dialogue.",
+          "attribution": "Chase Kubic",
+          "at": "@1:27:51"
+        },
+        {
+          "text": "Priorities jar: load the largest commitments first and the rest still fits.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:31:06"
+        },
+        {
+          "text": "Writing down a daily top three cuts through competing demands.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:31:06"
+        },
+        {
+          "text": "Slowing down in nature or quiet time restores attention.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:31:06"
+        },
+        {
+          "text": "Forest bathing drew unprompted praise from a participant as very healing.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:34:51"
+        },
+        {
+          "text": "Summer timing favors outreach: families off school spend more time on social media.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:37:16"
+        },
+        {
+          "text": "Varied backgrounds give the group reach across many kinds of people.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:38:21"
+        },
+        {
+          "text": "The Lyceum already hosts political disagreement without conversations turning hostile.",
+          "attribution": "Chase Kubic",
+          "at": "@1:51:25"
+        }
+      ],
+      "challenges": [
+        {
+          "text": "Shinrin-yoku flyers reach mainly adult audiences, not children or families.",
+          "attribution": "Ehren Gruber",
+          "at": "@43:56"
+        },
+        {
+          "text": "Placing nonprofit posters in a school requires permission from the school first.",
+          "attribution": "Ehren Gruber",
+          "at": "@43:56"
+        },
+        {
+          "text": "DEI language is treated as a grenade in the United States.",
+          "attribution": "Ehren Gruber",
+          "at": "@46:35"
+        },
+        {
+          "text": "Messaging framed from an American vantage point may not translate abroad.",
+          "attribution": "Hez Jenkins",
+          "at": "@50:43"
+        },
+        {
+          "text": "Growth so far rests almost entirely on person-to-person contact.",
+          "attribution": "Al Goshi",
+          "at": "@1:08:28"
+        },
+        {
+          "text": "Complaining without offering solutions is a common default.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:24:52"
+        },
+        {
+          "text": "Greeting strangers often draws no response, even when someone takes the initiative.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:27:51"
+        },
+        {
+          "text": "Busy schedules make meaningful communication with prospective participants hard.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:29:30"
+        },
+        {
+          "text": "Crowded email inboxes bury the message among competing demands for attention.",
+          "attribution": "Larry",
+          "at": "@1:30:30"
+        },
+        {
+          "text": "International communities have shifted from working together toward what they can get.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:38:21"
+        },
+        {
+          "text": "Growing this community requires vulnerability and love, which many find difficult.",
+          "attribution": "Ursula Wagner",
+          "at": "@1:45:51"
+        },
+        {
+          "text": "Leaders who deal out division cards make divisions harder to look past.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:49:06"
+        },
+        {
+          "text": "Younger people, shaped by technology, lack practice starting unpolarized conversations.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:51:55"
+        }
+      ],
+      "quote": "It almost seems like it's a collective responsibility and a collective call to action.",
+      "quoteBy": "Ehren Gruber",
+      "callToAction": "The call to action stayed with the whole circle rather than one champion: each participant is asked to find a way to build the community in their own sphere of influence, from inviting someone to a Lyceum to watching for local events where the work can be introduced, and Hez Jenkins will follow up by email. Larry volunteered to forward Ehren's presentation video to his rabbi, a conduit to counterparts in other religious organizations. Ursula Wagner offered to share the conference video with her professor and with further contacts as ideas surface. Ehren Gruber plans to approach the Common Ground Scholar network of clergy to see who is willing to amplify the message in their own communities, and will create social media content from this and earlier Lyceums through the summer. Ehren will add and visualize connections to partner organizations on the website, and Chase Kubic will list past Lyceums there in digestible, searchable form with ways to volunteer. Shinrin-yoku flyers will be redrawn in bright hand-drawn nature art with the nature games named on them. A young participant suggested seeking permission to post nonprofit flyers at a school, and the circle put forward a Praxium podcast and short Lyceum clips as content to make next.",
+      "stewards": [
+        "Hez",
+        "Ehren",
+        "Larry",
+        "Ursula W.",
+        "Chase K."
+      ],
+      "storyboard": {
+        "logline": "After an eight-month pause, a Praxium circle spread from Lima to Los Angeles gave an evening, and then some, to one question: how to grow the learning community.",
+        "arcNotes": "The session opened tightly scripted - norms, pre-survey, land gratitude, introductions - and stayed personal longer than usual because eight months of life had piled up: a retirement, an 80-hour coaching certification, a thesis nearing its end, a family living abroad in Lima. The discussion opened up twice. First when the questions were handed to the young participants at the table, whose answers - a school fundraiser run drawing two hundred people, posters cleared with the school, bright hand-drawn nature pictures, games named on the flyer - reframed outreach from adult marketing into something a child would pick up. Second when Ehren Gruber asked why anyone should have to leave the country for cultural experience, which turned the room inward: Habitat for Humanity in Los Angeles, immigrants already arriving in America, one subway stop between worlds in the Bronx, an older neighbor's steps shoveled in Pittsburgh. Convergence came from Al Goshi's communications-theory frame - person to person, then groups, then broad social media, run simultaneously with tailored messaging - which Ehren adopted explicitly at the close. The last third narrowed to obstacles that are practical rather than ideological: crowded inboxes, complaint without solutions, scarce attention. The call to action was left deliberately undelegated, owned by everyone in their own sphere of influence with follow-up by email, and the closing circle ran past time through vulnerability, similarities over wedges, heart rather than regulation, and the website roadmap. Reviewer notes: speaker labels are unreliable from about @1:45:51 to the end, including the block at @1:50:25, so attribution there was read from context rather than from the label; contributions by the two minors are attributed to \"a young participant\" and they are not named, and one attendee's health remark and a guest veteran's identifying details were left out.",
+        "beats": [
+          {
+            "n": 1,
+            "title": "Reopening after eight months",
+            "timeRange": "@10:55 - @17:18",
+            "speakers": [
+              "Hez Jenkins",
+              "Ehren Gruber",
+              "Chase Kubic",
+              "a young participant"
+            ],
+            "summary": "Hez Jenkins opened as guide and secretary of the Praxium Foundation, welcoming the circle to the first Lyceum in about eight months, the last having been in November 2025. He read the structural norms for a shared purpose meeting - every person a peer, every voice welcome, safe and respectful comment, seek commonality while respecting difference - and asked that the young guests present be encouraged to speak. He walked the ninety-minute agenda and noted the question was pre-determined, so no time would go to deliberating what to discuss. A two-question pre-survey went up by QR code asking whether each person needed to be helped, hugged or heard and how the circle could help; answers were read aloud at one table, Ehren Gruber observed that his own responses were no longer anonymous, and Chase Kubic offered a hug across the call.",
+            "pullQuote": "Hey man, if you need a hug, we can give you a hug, you know?",
+            "slideHint": "Title slide plus Rules and Structural Norms for 'June Lyceum - 28 June 2026', an agenda strip (pre-survey, present circle, shared understanding, sequence of inquiry, post-survey, closing circle), then the pre-survey QR code with a short link fallback for the chat and both questions spelled out."
+          },
+          {
+            "n": 2,
+            "title": "Present circle and land gratitude",
+            "timeRange": "@17:18 - @21:36",
+            "speakers": [
+              "Hez Jenkins"
+            ],
+            "summary": "Hez led the opening presence as a deliberate stop to the day's hustle, Monday's meetings and tomorrow's problems, orienting the circle toward place, family, self and children. Standing in for the usual Canadian land acknowledgement, he gave gratitude for the Allegheny, Ohio and Monongahela rivers in Pennsylvania, translated Monongahela as 'fallen banks', and invited each person to consider the heritage of their own ground. He then modeled the shared understanding round himself: Army service, and three months in Europe in support of Ukraine since the last gathering. He defined home as the people he feels connected to rather than a fixed address.",
+            "pullQuote": "Home means something different to her, but home is just people that I feel connected to.",
+            "slideHint": "Opening / Present Circle slide: land acknowledgement text naming the Allegheny, Ohio and Monongahela watershed with the 'fallen banks' translation, and the three shared-understanding prompts (cultural background, where you call home, what has happened since the last Lyceum)."
+          },
+          {
+            "n": 3,
+            "title": "Lima, young voices, and coaching",
+            "timeRange": "@21:36 - @26:21",
+            "speakers": [
+              "Ehren Gruber",
+              "a young participant",
+              "Chase Kubic",
+              "Hez Jenkins"
+            ],
+            "summary": "Ehren Gruber introduced the group joining from Lima, Peru, where a two-day conference on spirituality and religion in society had just finished, and framed the stay as a chance to build community in Latin America. He then gave the young participants space to introduce themselves in their own words, and one answered the cultural identity prompt by claiming many cultures and putting home wherever the family is. Chase Kubic reported from Texas on completing an 80-hour executive, life and goal-setting coaching course he had first been skeptical of, valuing it for drawing out people's own realizations. He also named Parents in Action as the newest channel, focused on developing children for what is coming, and reported more allies and network since the last Lyceum.",
+            "pullQuote": "thank you, Hez, for putting this on and creating the space for us to practice the Lyceum as this endeavor for shared purpose",
+            "slideHint": "Shared Understanding slide: the three prompts small in the corner, a Lima photo strip for the conference on spirituality and religion in society, and a callout box for the two newer channels - coaching (80-hour certification) and Parents in Action."
+          },
+          {
+            "n": 4,
+            "title": "Retirement, service, and a thesis",
+            "timeRange": "@26:21 - @31:34",
+            "speakers": [
+              "Larry",
+              "Al Goshi",
+              "Ursula Wagner",
+              "Ehren Gruber",
+              "Hez Jenkins"
+            ],
+            "summary": "Larry announced his retirement, recommended it to anyone working toward it, and described taking over maintenance at his synagogue on the grounds that the congregation has plenty of lawyers, doctors and judges but few people who can drive a nail straight. Al Goshi named retired Army life as the strongest thread in a mixed cultural background and said he is still trying to make sense of a lot of uncertainty. An attendee showing only as an unrecognized string of letters was invited to come off mic and turned out to be Ursula Wagner, born in Belize and long settled in Los Angeles, entering the tail end of a thesis on Belizean women and mother-daughter bonding. Every introduction converged on the same answer to where home is.",
+            "pullQuote": "No matter where I am, my family is where home is.",
+            "slideHint": "Shared Understanding continued: round-robin name list with one line each, the repeated answer 'home is where the family is' pulled out as a large callout, and a small footnote that a device name hid an attendee until she introduced herself on mic."
+          },
+          {
+            "n": 5,
+            "title": "The map and the question",
+            "timeRange": "@31:34 - @36:28",
+            "speakers": [
+              "Hez Jenkins"
+            ],
+            "summary": "A colored world map placed the circle across the United States, Europe, the Caribbean and South America, used to make the point that what is a problem for one person may not be a problem for another. Hez walked the sequence of inquiry the evening would follow: theories and concepts, application, sources and inputs, opportunities and challenges, then a call to action. He tied the topic to the Praxium's first annual meeting at the beginning of June, called that a milestone, and set the single question for the night. He noted his own arc from wondering two years ago what he could add to guiding this Lyceum.",
+            "pullQuote": "how do we grow the Praxium learning community? How do we get more people involved?",
+            "slideHint": "Two slides: colored world map with attendee locations pinned and the Caribbean inset called out, then Today's Inquiry - 'How do we grow the Praxium learning community?' - with the sequence of inquiry listed down the side as the evening's roadmap."
+          },
+          {
+            "n": 6,
+            "title": "Lived experience and trusted conduits",
+            "timeRange": "@36:28 - @43:56",
+            "speakers": [
+              "Chase Kubic",
+              "Ehren Gruber",
+              "a young participant",
+              "Larry",
+              "Hez Jenkins"
+            ],
+            "summary": "Chase Kubic argued the message can grow because it is fundamentally about humanity, and that the group's lived experience carries further than theory does; he reported consistently warm reception with no substantive pushback, especially for coaching aimed at veterans moving into civilian communities. Ehren Gruber put the same question to the young participants at the table, asking where they had seen families and community members show up at school rather than only students. One named the Terry Fox run, a lap-based school fundraiser for cancer research drawing roughly two hundred people, which produced the night's first concrete channel: local events and schools. Larry then described discussing the video of Ehren's presentation with his rabbi that day and forwarding it that evening, treating the rabbi as a conduit to counterparts in other religious organizations, while Hez pointed to the existing Facebook and LinkedIn work and short clips cut from Lyceums.",
+            "pullQuote": "We're tired of sitting in the passenger seat getting told, hey, this is where we're going. No, we want to get in the driver's seat and we want to lead.",
+            "slideHint": "Theories and Concepts slide: bullets for message rooted in humanity, lived experience over theory, reception to date, veteran transition coaching, and local events and schools as an untapped audience (Terry Fox run, about 200 attendees), with 'driver's seat, not passenger seat' as the banner line."
+          },
+          {
+            "n": 7,
+            "title": "Flyers a kid would read",
+            "timeRange": "@43:56 - @50:43",
+            "speakers": [
+              "Ehren Gruber",
+              "a young participant",
+              "Hez Jenkins",
+              "Ursula Wagner"
+            ],
+            "summary": "Ehren asked the young participants how to reach children about the Shinrin Yoku forest bathing offering, a six-month project whose flyers and email lists only reach adults. Their answers were specific: posters put up at school with permission, bright hand-drawn nature pictures instead of adult-oriented documents, and naming the nature games on the flyer so children know games are part of the immersion. Ehren noted that learners in their sixties and seventies already run alongside children at these events, and a further suggestion that the material include everyone led him back to the mission language of fellowship through diversity. Hez Jenkins added mediums beyond social media - a scoreboard advertisement at a Pirates game, radio, a Praxium podcast running interviews - and Ursula Wagner asked permission to share Ehren's conference video with her professor, which he granted without restriction.",
+            "pullQuote": "if you're talking about making hand-drawn images of things that kids would naturally want to see, you're right",
+            "slideHint": "Channels and Amplifiers slide: two columns, trusted conduits (clergy, professors, veteran networks, shared video) and mediums (Facebook, LinkedIn, shorts, podcast, radio, event advertising), plus a mock kid-facing Shinrin Yoku flyer - bright colors, hand-drawn nature, games named, multiple generations shown."
+          },
+          {
+            "n": 8,
+            "title": "Framing outward, building in Lima",
+            "timeRange": "@50:43 - @56:00",
+            "speakers": [
+              "Hez Jenkins",
+              "Ehren Gruber",
+              "a young participant"
+            ],
+            "summary": "Hez opened the application section on making a message land outside America, using Pittsburgh dialect ('yinz' where others say 'y'all') and World Cup visitors discovering ranch dressing as examples of how accidentally local a message can be. Ehren described Alternative Peru, the nonprofit Rachel Gruber found, whose guided excursions deliberately skip the standard Cusco and Machu Picchu itinerary. Young participants recounted a week of community building in Lima: homework help and play at a children's library, a dance hall mixing indigenous and Latin music, a meal in a local family's home where the hosts asked what the visitors made of Peru, and a boatyard where they met the man who builds most of the boats. Ehren drew the summarizing point that these are the things residents actually do, and that curiosity and broken Spanish were enough to start the conversations.",
+            "pullQuote": "we've gone to a children's library to help out with, like, their homework, and we've been playing with them",
+            "slideHint": "Application slide: 'how is this handled around the world' with the Alternative Peru non-tourist model listed against the standard tourist itinerary, four Lima examples as icons (library, dance hall, shared meal, boatyard), and a caption on messaging that travels past its own dialect."
+          },
+          {
+            "n": 9,
+            "title": "Citizens of the world",
+            "timeRange": "@56:00 - @1:01:14",
+            "speakers": [
+              "Hez Jenkins",
+              "Ehren Gruber",
+              "Ursula Wagner"
+            ],
+            "summary": "Hez described meeting nonprofit organizations while in Europe that act as a central hub between donors and people in need, and using those conversations to introduce the Praxium's work with veterans and across generations. Asked how the family explains ending up in Peru, Ehren said he tells people they are citizens of the world, learning and loving together by doing it physically rather than talking about it. He framed travel as resilience practice and suggested that a family who travels can role model the practice for families who have not considered it. Ursula Wagner and Hez both affirmed the shaping effect of such experience, Hez recalling helping build houses in Mexico and needing a translator to connect.",
+            "pullQuote": "I've been really telling people that we're citizens of the world, and that we're trying to learn and love together",
+            "slideHint": "Application continued: 'citizens of the world' as the header, with a three-step ladder (exposure, experience, resilience) and a side panel on nonprofits as donor-to-resource hubs and interconnecting older and younger generations."
+          },
+          {
+            "n": 10,
+            "title": "The next neighborhood over",
+            "timeRange": "@1:01:14 - @1:08:28",
+            "speakers": [
+              "Ehren Gruber",
+              "Hez Jenkins",
+              "Ursula Wagner",
+              "Larry"
+            ],
+            "summary": "Prompted by the land acknowledgement being brought home to Pennsylvania, Ehren turned the inquiry inward and asked how to encourage people into a different neighborhood in their own city instead of a foreign country. Hez framed members as ambassadors for a better community and proposed using social media to show where each person is and how they are connected to the land they live on. Ursula Wagner described volunteering with Habitat for Humanity on the west side of Los Angeles and argued that immigrants already arriving in America should be made to feel welcome, because the communities needing help are right here. Hez matched that with shoveling snow and helping older neighbors without vehicles reach appointments through a hard Pittsburgh winter, and Larry with Pelham Parkway in the Bronx, where one subway stop moved you between Jewish, Italian and Chinese neighborhoods.",
+            "pullQuote": "you really only had to go a subway stop down the way and you were in a different world",
+            "slideHint": "Application - Cultural exchange at home: reframe banner 'you do not have to leave the country to cross a culture', with three worked examples (Habitat for Humanity in Los Angeles, welcoming immigrants already here, a Bronx subway stop between neighborhoods) and a small prompt asking each attendee to name one neighborhood they have never visited."
+          },
+          {
+            "n": 11,
+            "title": "Three fronts at once",
+            "timeRange": "@1:08:28 - @1:13:01",
+            "speakers": [
+              "Al Goshi",
+              "Hez Jenkins"
+            ],
+            "summary": "Al Goshi supplied the evening's organizing frame from communications theory: person-to-person engagement as the building block, then groups and affinity groups, then the much broader community reachable through social media. He assessed the Praxium as working mostly person-to-person with some group and social media effect, and argued the three have to run simultaneously, with messaging tailored to each audience while the core message holds. Hez connected that to holding public Lyceums in a commonplace room that needs no Teams link, computer, tablet or internet, where a person can walk in and be helped, heard or hugged. That closed the loop back to the pre-survey question of how each person arrives.",
+            "pullQuote": "But doing all three simultaneously is probably the most effective way to grow the effort overall.",
+            "slideHint": "Scaling model slide: three-tier diagram (individual, group and affinity, broad social media) with 'run all three at once, tailor the messaging, hold the core message' beneath, and a side note on in-person public Lyceums with no technology barrier tied back to helped / heard / hugged."
+          },
+          {
+            "n": 12,
+            "title": "Common ground and veterans",
+            "timeRange": "@1:13:01 - @1:21:28",
+            "speakers": [
+              "Chase Kubic",
+              "Ehren Gruber",
+              "Ursula Wagner",
+              "Hez Jenkins",
+              "Al Goshi"
+            ],
+            "summary": "Chase Kubic recast the sources question as building the network and the team on top of several years of groundwork, and marketing the group's relevance and impact on communities. Ehren named the Common Ground Scholar collaborative, whose two-day conference drew over two hundred participants including Buddhist, Orthodox Christian, Muslim and Jewish clergy, as a network worth asking to amplify the message in their own communities. He recounted a dinner conversation with a veteran who keeps his military service off his professional profile but volunteered it once the Praxium's message came up, and the W. E. B. Du Bois challenge, written from Ghana, to veterans who fought for democracy abroad; his takeaway was the common ground network plus veterans groups, with service out of uniform as the framing. Ursula Wagner said the conversation kept generating more places she would share the video, Hez pointed to existing small groups such as his Saturday running group as ready-made openings, and Al Goshi called a group run forest bathing on the road.",
+            "pullQuote": "you fought for liberty abroad, but why can't you do it at home?",
+            "slideHint": "Sources and Inputs slide: who and what is needed - Common Ground Scholar and interfaith clergy, veteran service organizations, the Kintsugi campaign, existing affinity groups such as running and fellowship groups - with the Du Bois challenge as the pull quote and 'service, just not in uniform' as the framing line."
+          },
+          {
+            "n": 13,
+            "title": "Complaint, universality, and saying hello",
+            "timeRange": "@1:21:28 - @1:29:19",
+            "speakers": [
+              "Hez Jenkins",
+              "Ursula Wagner",
+              "Chase Kubic"
+            ],
+            "summary": "Hez described the military family skill of getting a household linked into a community, a religious group or some fellowship on arrival so nobody sits staring at four walls, and noted how much the younger generation struggles to build that kind of connection. He named a habit he sees in military culture and beyond - complaining without solutions - and proposed answering it by asking people how they would actually fix the problem if handed authority for a day, with community as the honest answer. Ursula Wagner held that the human experience is universal wherever you go, the same fear, joy, need for belonging and wanting the best for your family, and only the difficulty varies; she described greeting strangers in the street in her country of birth, missing that for years, and now saying hello first even when nobody answers, because she has done her part. Chase Kubic added that a first hello can open an entire dialogue, and that whatever problem someone is stuck on, somebody out there has already lived it and holds wisdom worth asking for.",
+            "pullQuote": "most of the time it's more of just complaining without solutions",
+            "slideHint": "Opportunities slide split in two: on the left the pattern to break (complaint without solutions, four walls on arrival, younger generation out of practice), on the right the low-cost moves (say hello first, ask how they would fix it, assume someone has already solved it), under the header 'the human experience is universal'."
+          },
+          {
+            "n": 14,
+            "title": "Inbox noise and priorities",
+            "timeRange": "@1:29:19 - @1:35:11",
+            "speakers": [
+              "Larry",
+              "Hez Jenkins",
+              "Ursula Wagner"
+            ],
+            "summary": "Hez turned to opportunities and challenges and named communicating meaningfully with people who are all in a hurry as the hardest of them. Larry sharpened it to inboxes full of people demanding attention and competing for time and resources, and asked how anything rises above that noise. Hez answered that no magical filter exists, and that three months away from his phone had shown him how few things actually matter; he retold a lecture demonstration in which golf balls stand for the few big priorities, gravel and sand for everything that fills the gaps, and a poured beer for the room left to have fun. His own practice is writing down a top three and slowing down deliberately - forest bathing, a walk with a podcast, a quiet cup of coffee - and Ursula Wagner said writing things down and forest bathing both work for her.",
+            "pullQuote": "how do you separate the wheat from the chaff",
+            "slideHint": "Challenges slide: bullets for attention scarcity, inbox noise, busy schedules and the difficulty of being heard, paired with a jar graphic (golf balls, gravel, sand, beer) and the practices column - top three written down, mindfulness, time in nature."
+          },
+          {
+            "n": 15,
+            "title": "A collective call to action",
+            "timeRange": "@1:35:11 - @1:38:21",
+            "speakers": [
+              "Hez Jenkins",
+              "Ursula Wagner",
+              "Ehren Gruber"
+            ],
+            "summary": "Rather than naming one champion for the topic, Hez made the call to action collective and said it would come as a follow-up email: each person decides how they will contribute to building the community in their own sphere of influence. He pointed to what the room had already offered - sharing Ehren's video, inviting people to a Lyceum, reaching out locally, posting to social media - and challenged everyone to make the difference where they are. Ursula Wagner answered that she would do it. Ehren Gruber adopted Al Goshi's three fronts explicitly for the summer, noted that families off school spend more time on social media, and committed to creating Lyceum content for the Facebook and LinkedIn presence heading into fall.",
+            "pullQuote": "it almost seems like it's a collective responsibility and a collective call to action",
+            "slideHint": "Way Ahead / Call to Action slide: 'In what way can you contribute to building this community?' with the four offers already on the table listed beneath, the follow-up email named as the mechanism, and a summer-into-fall timeline strip for the social media content."
+          },
+          {
+            "n": 16,
+            "title": "Reflection survey and gratitude",
+            "timeRange": "@1:38:21 - @1:45:38",
+            "speakers": [
+              "Hez Jenkins",
+              "Ursula Wagner"
+            ],
+            "summary": "The learning reflection questionnaire went out as the last slide, answered anonymously and explicitly not used to track anyone down, with the link dropped into chat for whoever could not scan it. Opening the final round himself, Hez thanked the circle for the chance to guide the evening after eight months apart, and noted who was joining from where, including a family in Peru and a colleague coming off a field rotation. He recalled working with international communities that had drifted from what they could build together toward what they could get out of it, and telling them to imagine instead what they could all do together. He credited the Lyceum's mix of places and experiences for both its camaraderie and its reach, then joked about sour Pittsburgh first impressions and the steel companies that left.",
+            "pullQuote": "if you could do this by yourself, like, imagine what we could all do together",
+            "slideHint": "Post-Survey slide: learning reflection QR code with the chat-link fallback, the two prompts (what spoke to you today, what should the next Lyceum take up), a note that answers are anonymous, and a closing-round marker underneath."
+          },
+          {
+            "n": 17,
+            "title": "Vulnerability and shared similarities",
+            "timeRange": "@1:45:38 - @1:49:06",
+            "speakers": [
+              "Hez Jenkins",
+              "Ursula Wagner",
+              "Chase Kubic"
+            ],
+            "summary": "Ursula Wagner named pride and the human wish to be seen as good enough as the material the circle is working with, and said the hard part is holding love and vulnerability alongside the work of meeting people where they are; asked to repeat it, he said it again. Ursula Wagner, still working through the questionnaire on a shifted screen, asked forgiveness for being a little technically challenged. Invited to give closing remarks, she picked up Larry's earlier story: two blocks over in New York City is another world, so you do not have to travel around the world to see the world, and much of the change the group wants can happen inside America. Chase Kubic agreed and argued that focusing on similarities and mutual help, rather than driving wedges, is what keeps a collective from breaking into smaller groups that argue and bicker.",
+            "pullQuote": "you don't have to travel around the world to actually see the world",
+            "slideHint": "Closing Circle slide one: two facing panels - 'be vulnerable, meet people where they are' and 'similarities over wedges' - with the restated reframe across the bottom, that seeing the world can start two blocks away."
+          },
+          {
+            "n": 18,
+            "title": "Heart, and the website roadmap",
+            "timeRange": "@1:49:06 - @1:53:15",
+            "speakers": [
+              "Hez Jenkins",
+              "Ursula Wagner",
+              "Chase Kubic",
+              "Ehren Gruber"
+            ],
+            "summary": "Hez observed that when the person in charge is the one handing out division cards, looking past the divisions gets harder, and Ursula Wagner answered that a community should not need laws and regulations to behave decently; Hez named heart for service as the thing underneath. Ursula also said she has been reserved but feels more and more comfortable in her share each time she comes back, and the circle told her it was glad to have her experience and her studies on the calls. Chase Kubic called the group's real contribution the creation of space for dialogue, where people who sit at different points on the political spectrum can air differences without cutting each other's throats, and Hez added that technology has cost some of the younger generation the mannerisms for starting such a conversation. Hez closed on the Praxium's calls to action through the Kintsugi campaign, the Lyceum and social media; Ehren Gruber added the website work on visualizing connections to partner organizations and Chase the plan to list previous Lyceums in a digestible, searchable form with ways for people to volunteer, before thanks and goodnights slightly over time.",
+            "pullQuote": "We shouldn't need laws and regulations.",
+            "slideHint": "Final slide pair: the Praxium offerings as calls to action (Lyceum, Kintsugi, Shinrin Yoku, social media), then the website roadmap - partner organization map, searchable archive of previous Lyceums, volunteer sign-up - with a goodnight line and the next Lyceum placeholder."
+          }
+        ]
+      },
+      "provenance": {
+        "source": "the meeting recording transcript and the platform meeting summary",
+        "extractedOn": "2026-08-08",
+        "reviewedBy": ""
+      }
     }
   ]
 }

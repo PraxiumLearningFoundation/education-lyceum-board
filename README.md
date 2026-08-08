@@ -97,8 +97,8 @@ goes into the record, and the two-pass ingestion process that keeps it accurate.
 
 ## Branching
 
-`main` is the deploy trigger: a push to it changes what the public sees, so it is
-protected and takes changes only by pull request.
+`main` is the deploy trigger: a push to it changes what the public sees within a
+couple of minutes. It is protected and takes changes only by pull request.
 
 ```text
 feature/*  fix/*  chore/*   ->  PR into dev
@@ -108,6 +108,41 @@ main                         ->  publishes the site
 
 One concern per branch. The pull request body says what changed and how it was
 verified.
+
+### What is enforced on main
+
+Settings, not intentions:
+
+- a pull request is required, and direct pushes are refused
+- **including for organization admins** - without that, the rule is advisory for
+  the only people who use it
+- both CI checks must pass, and the branch must be up to date with `main`
+- linear history; no force pushes; no branch deletion
+
+### After every promotion, fast-forward dev to main
+
+```sh
+git checkout dev && git fetch origin
+git reset --hard origin/main && git push --force-with-lease origin dev
+```
+
+This is not optional housekeeping. Because `main` requires linear history,
+promotions are squashed, which puts a commit on `main` that `dev` never receives.
+Skip this and the two branches end up holding identical content on unrelated
+history - and the *next* promotion reports add/add and rename/delete conflicts
+that have nothing to do with any real disagreement. It happened once already.
+
+`dev` is a staging branch, not a parallel line of development. Keeping it equal to
+`main` between promotions costs nothing and removes the whole failure mode.
+
+### Signing
+
+Commits are signed with the foundation's SSH key. If signing starts failing, the
+key is simply not loaded:
+
+```sh
+ssh-add ~/.ssh/keys/client/github_praxium
+```
 
 ## Roadmap
 
@@ -119,9 +154,9 @@ the reasoning behind them, is the companion planning document. In short:
    metrics view moved to a private repository, and the CDN styling is vendored.
 3. **Content leaves the code** - done: the archive is `data/lyceum.json` at schema
    version 2, fetched at runtime, so adding a gathering never touches HTML.
-4. **The June 2026 gathering** *(next)* - plus the new meeting tile and Storyboard view.
-5. **Go live** on GitHub Pages.
-6. **The editor** - a form that writes the record for a human to review and commit.
+4. **The June 2026 gathering** - done: the record, plus the meeting tile and Storyboard view.
+5. **Go live** on GitHub Pages - done.
+6. **The editor** *(next)* - a form that writes the record for a human to review and commit.
    No API tokens anywhere in the system.
 7. **Metrics on real numbers** - facilitator-recorded, replacing the sample data.
 8. **Runbook and the Squarespace embed.**
