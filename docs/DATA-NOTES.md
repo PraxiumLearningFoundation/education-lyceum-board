@@ -56,6 +56,41 @@ carry forward.
 - Every quote must be verified character by character against the source before
   it is committed. A quote stitched from two moments is not a quote.
 
+## Never publish the audit trail
+
+The June 2026 ingestion produced a working record with per-item evidence snippets and
+a change log explaining every correction. Every published bullet was clean. The
+minors' names survived anyway - in the change log, because it quoted the correction
+briefing, which quoted the transcript.
+
+So the rule is structural rather than editorial: **the record that ships carries only
+archive fields.** Evidence snippets, change logs, per-item notes, rejected-addition
+lists and verification working are audit material. They stay out of the committed
+file entirely, and they are not sanitised for publication, because sanitising is a
+judgement that can be got wrong once per field.
+
+Concretely, these never reach `data/lyceum.json`: `evidence`, `applied`, `notes`,
+`rejected_additions`, `corroborated`, `quoteEvidence`, `alternates`.
+
+## Identification by combination
+
+No single field named a child. The exposure came from three that were individually
+defensible: the shinrin-yoku bullet named a city, another bullet named an annual
+school event, and an attendee role named a parent. City plus school plus parent
+identifies a child as surely as a name does.
+
+Check combinations, not fields. Anything removed for this reason so far:
+
+- the city a young participant lives in
+- an attendee's paternity, which was a second route to the same children
+- a forward-looking travel arrangement for the two young participants
+- a young participant's own words about their own school
+- the school-staff role in "posters cleared with the principal" - the obstacle is
+  worth recording, the role narrows it to one school
+- a metro area inferred from a participant's on-screen device label rather than
+  anything they said
+- a serving participant's pending change of home, published alongside a deployment
+
 ## Ingestion process
 
 Two passes, never one:
