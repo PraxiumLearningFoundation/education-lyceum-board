@@ -227,6 +227,35 @@
     return '<span class="text-xs rounded-full bg-amber-100 text-amber-800 px-2 py-0.5 font-medium">Help Wanted</span>';
   }
 
+  // ------------------------------------------- the gathering as an event (v2)
+  // Schema v2 records carry a `meeting` block and a `storyboard`. Older records
+  // carry neither, so each of these returns nothing rather than an empty shell.
+
+  function beatsOf(d){ return (d.storyboard && d.storyboard.beats) || []; }
+
+  // How many people were in the circle. Minors are counted but never named -
+  // see the privacy rules in docs/DATA-NOTES.md.
+  function circleSize(m){
+    if (!m) return 0;
+    return (m.attendees || []).length + (Number(m.minorsPresent) || 0);
+  }
+
+  function plural(n, one, many){ return n === 1 ? one : (many || one + 's'); }
+
+  // The extra line on a card for a gathering we hold a real record of.
+  function cardMetaHTML(d){
+    const m = d.meeting, beats = beatsOf(d), bits = [];
+    const people = circleSize(m);
+    if (people)                    bits.push(people + ' in the circle');
+    if (m && (m.locations||[]).length) bits.push((m.locations.length) + ' ' + plural(m.locations.length, 'location'));
+    if (beats.length)              bits.push(beats.length + '-part storyboard');
+    if (!bits.length) return '';
+    return `
+        <div class="mt-3 pt-3 border-t border-lyceum-100 text-xs text-stone-500">
+          ${bits.map(esc).join(' / ')}
+        </div>`;
+  }
+
   function cardHTML(d){
     return `
       <a href="#/inquiry/${d.id}" class="block rounded-xl bg-white border border-lyceum-100 p-5 shadow-sm hover:shadow-md hover:border-lyceum-700/40 transition">
@@ -238,8 +267,71 @@
         <div class="mt-3 flex flex-wrap gap-1.5">
           ${(d.tags||[]).map(t => `<span class="text-xs bg-lyceum-50 border border-lyceum-100 text-lyceum-800 rounded px-2 py-0.5">${esc(t)}</span>`).join('')}
         </div>
+        ${cardMetaHTML(d)}
         ${isQuest(d) ? `<div class="mt-3 flex items-center gap-1.5 text-xs font-medium text-amber-700">Open quest - help explore this inquiry</div>` : ''}
       </a>`;
+  }
+
+  // ------------------------------------------------------------- storyboard
+  // The beat-by-beat arc of the gathering. This is what the six static sections
+  // cannot convey: the order things happened in, and where the discussion turned.
+  function storyboardHTML(d){
+    const sb = d.storyboard, beats = beatsOf(d);
+    if (!beats.length) return '';
+    return `
+      <section id="storyboard" class="mt-10">
+        <h2 class="font-serif text-2xl text-lyceum-900">How the evening unfolded</h2>
+        ${sb.logline ? `<p class="mt-2 text-stone-600">${esc(sb.logline)}</p>` : ''}
+        <ol class="mt-5 border-l border-lyceum-100 pl-5 space-y-6">
+          ${beats.map(b => `
+            <li>
+              <div class="flex flex-wrap items-baseline gap-x-3">
+                ${b.timeRange ? `<span class="text-xs text-stone-400 whitespace-nowrap">${esc(b.timeRange)}</span>` : ''}
+                <h3 class="font-serif text-lg text-lyceum-900">${esc(b.title || '')}</h3>
+              </div>
+              ${b.summary ? `<p class="mt-1 text-sm text-stone-700">${esc(b.summary)}</p>` : ''}
+              ${b.pullQuote ? `<blockquote class="mt-2 border-l-2 border-lyceum-700 pl-3 text-sm italic text-lyceum-800">"${esc(b.pullQuote)}"</blockquote>` : ''}
+              ${(b.speakers||[]).length ? `<p class="mt-1 text-xs text-stone-400">${esc(b.speakers.join(', '))}</p>` : ''}
+            </li>`).join('')}
+        </ol>
+        ${sb.arcNotes ? `
+          <p class="mt-5 rounded-xl bg-lyceum-50 border border-lyceum-100 p-4 text-sm text-stone-700">${esc(sb.arcNotes)}</p>` : ''}
+      </section>`;
+  }
+
+  // -------------------------------------------------- about this gathering
+  // Collapsed by default: it is reference material about the occasion, not the
+  // substance of the inquiry, and the page should open on the substance.
+  function aboutMeetingHTML(d){
+    const m = d.meeting;
+    if (!m) return '';
+    const rows = [];
+    if (m.facilitator) rows.push(['Guided by', esc(m.facilitator)]);
+
+    const names = (m.attendees||[]).map(a =>
+      esc(a.name) + (a.role ? ` <span class="text-stone-400">${esc(a.role)}</span>` : ''));
+    if (names.length || m.minorsPresent){
+      const minors = Number(m.minorsPresent) || 0;
+      const tail = minors ? `${names.length ? ', and ' : ''}${minors} young ${plural(minors, 'participant')}` : '';
+      rows.push(['In the circle', names.join(', ') + tail]);
+    }
+    if ((m.locations||[]).length)   rows.push(['Joining from', m.locations.map(esc).join(', ')]);
+    if (m.landAcknowledgement)      rows.push(['Land acknowledgement', esc(m.landAcknowledgement)]);
+    if ((m.agenda||[]).length)      rows.push(['Running order', m.agenda.map(esc).join('; ')]);
+    if ((m.surveyPre||[]).length)   rows.push(['Opening survey', m.surveyPre.map(s => '"' + esc(s) + '"').join(' ')]);
+    if ((m.surveyPost||[]).length)  rows.push(['Closing survey', m.surveyPost.map(s => '"' + esc(s) + '"').join(' ')]);
+    if ((m.contextNotes||[]).length) rows.push(['Notes', m.contextNotes.map(esc).join(' ')]);
+    if (!rows.length) return '';
+
+    return `
+      <details class="mt-8 rounded-xl bg-white border border-lyceum-100 shadow-sm">
+        <summary class="cursor-pointer px-5 py-4 font-serif text-lg text-lyceum-900">About this gathering</summary>
+        <dl class="px-5 pb-5 grid gap-x-5 gap-y-2 sm:grid-cols-[10rem_1fr] text-sm">
+          ${rows.map(([k,v]) => `
+            <dt class="text-stone-500">${esc(k)}</dt>
+            <dd class="text-stone-700">${v}</dd>`).join('')}
+        </dl>
+      </details>`;
   }
 
   // -------------------------------------------------------------- detail page
@@ -254,12 +346,17 @@
           <div class="mt-4 flex flex-wrap gap-1.5">
             ${(d.tags||[]).map(t => `<span class="text-xs bg-white/10 rounded px-2 py-0.5">${esc(t)}</span>`).join('')}
           </div>
+          ${detailMetaHTML(d)}
         </div>
       </header>
 
       <main class="max-w-3xl mx-auto px-6 py-8 fade-in">
         ${!transcribed ? notYetHTML(d) : ''}
-        ${d.quote ? `<blockquote class="font-serif text-xl italic text-lyceum-800 border-l-4 border-lyceum-700 pl-5 my-2">"${esc(d.quote)}"</blockquote>` : ''}
+        ${d.quote ? `
+          <blockquote class="font-serif text-xl italic text-lyceum-800 border-l-4 border-lyceum-700 pl-5 my-2">
+            "${esc(d.quote)}"
+            ${d.quoteBy ? `<cite class="block mt-2 font-sans text-sm not-italic text-stone-500">${esc(d.quoteBy)}</cite>` : ''}
+          </blockquote>` : ''}
 
         <div class="grid gap-4 sm:grid-cols-2 mt-6">
           ${SECTIONS.map(([k,t,sub]) => sectionHTML(d[k]||[], t, sub)).join('')}
@@ -272,11 +369,43 @@
             ${(d.stewards||[]).length ? `<p class="mt-2 text-sm text-amber-800">Stewards: ${d.stewards.map(esc).join(', ')}</p>` : ''}
           </section>` : ''}
 
+        ${storyboardHTML(d)}
+        ${aboutMeetingHTML(d)}
+        ${provenanceHTML(d)}
+
         ${suggestHTML(d)}
         ${commentsHTML(d)}
       </main>`;
 
     wireDetail(d);
+  }
+
+  // The line under the title on a detail page: who guided it, how many took part.
+  function detailMetaHTML(d){
+    const m = d.meeting, beats = beatsOf(d), bits = [];
+    if (m && m.facilitator)  bits.push('Guided by ' + m.facilitator);
+    const people = circleSize(m);
+    if (people)              bits.push(people + ' in the circle');
+    if (beats.length)        bits.push('storyboard below');
+    if (!bits.length) return '';
+    return `
+          <p class="mt-4 text-sm text-lyceum-100/80">${bits.map(esc).join(' / ')}</p>`;
+  }
+
+  // Where this record came from and who checked it. An unreviewed record says so
+  // rather than presenting itself as verified - see docs/DATA-NOTES.md.
+  function provenanceHTML(d){
+    const p = d.provenance;
+    if (!p) return '';
+    const bits = [];
+    if (p.source)      bits.push('Compiled from ' + p.source + '.');
+    if (p.extractedOn) bits.push('Extracted ' + p.extractedOn + '.');
+    bits.push(p.reviewedBy
+      ? 'Checked against the recording by ' + p.reviewedBy + '.'
+      : 'Not yet checked against the recording by a second person.');
+    if (p.note) bits.push(p.note);
+    return `
+        <p class="mt-6 text-xs text-stone-400">${bits.map(esc).join(' ')}</p>`;
   }
 
   function sectionHTML(items, title, sub){
