@@ -21,7 +21,7 @@ to.
 index.html            The public board - this repository serves exactly this
 board.css             Vendored stylesheet, generated and committed (see below)
 data/
-  inquiries.js        The archive - still a JS file, becoming JSON next phase
+  lyceum.json         The archive - schema v2, the single source of truth
 styles/
   tailwind-input.css  Source for board.css
 tailwind.config.js    Theme for the CSS build
@@ -37,8 +37,20 @@ because the internal pages are not in this repository at all.
 
 ## Run it
 
-Open `index.html` in any browser. No build step, no server, **no internet
-connection required**.
+The published board needs nothing: <https://praxiumlearningfoundation.github.io/education-lyceum-board/>
+
+To preview a change locally, serve the folder rather than double-clicking the file:
+
+```sh
+python3 -m http.server 8000
+```
+
+then open <http://localhost:8000>. The board reads its content from
+`data/lyceum.json`, and browsers refuse that when a page is opened directly off
+disk. Opening the file directly does not fail silently - the page explains this
+and gives you the command.
+
+There is still no build step and no internet connection required.
 
 ## Styling
 
@@ -105,9 +117,9 @@ the reasoning behind them, is the companion planning document. In short:
 1. **Repository hygiene** - done: clean history, guardrails, branch protection.
 2. **Split public from admin** - done: the board is the site root, the editor and
    metrics view moved to a private repository, and the CDN styling is vendored.
-3. **Content leaves the code** *(next)* - the archive becomes `data/lyceum.json` at schema
+3. **Content leaves the code** - done: the archive is `data/lyceum.json` at schema
    version 2, fetched at runtime, so adding a gathering never touches HTML.
-4. **The June 2026 gathering** - plus the new meeting tile and Storyboard view.
+4. **The June 2026 gathering** *(next)* - plus the new meeting tile and Storyboard view.
 5. **Go live** on GitHub Pages.
 6. **The editor** - a form that writes the record for a human to review and commit.
    No API tokens anywhere in the system.
