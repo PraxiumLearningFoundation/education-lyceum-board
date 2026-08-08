@@ -4,6 +4,51 @@ Decisions and carried-forward details about the archive content itself. Anything
 here that is still marked TODO needs to land before the record is considered
 final.
 
+## A paraphrase is not a quote
+
+The 2025-03-23 record carried this in its `quote` field, presented inside quotation
+marks:
+
+> What does a government care about? The US government cares about taxes and
+> military. Dissolving the Department of Education shows US citizens that we value
+> education less than we think we do.
+
+**Nobody said that.** When the recording was located, it turned out to be a
+note-taker's compression of about thirty-six seconds of speech (@1:02:34 to
+@1:03:10) covering the IRS and taxes, the Department of Defense and the military,
+and a closing thought. Accurate in substance, wrong as a set of quotation marks -
+and it had been made *longer* during the schema migration, on the strength of an
+older data file, which made it worse rather than better.
+
+It is now Larry at @40:44, verified verbatim as a single contiguous cue:
+
+> The child that doesn't get educated may be the one that can cure the common cold,
+> but we don't know that because we didn't educate him or her.
+
+The lesson generalises past this one field. **A record hand-authored from notes may
+contain things nobody said**, and that is not dishonesty by whoever wrote it - notes
+compress, and the compression is invisible once the recording is filed away. So:
+
+- Never lengthen or "restore" a quote from a secondary source. If the primary source
+  is not to hand, leave it short or drop it.
+- A quote is publishable only if it appears as ONE CONTIGUOUS utterance in the
+  recording. Check by searching for the exact string, not by reading around it.
+- Where a record predates its recording, mark the quote's status explicitly rather
+  than letting quotation marks imply verification.
+
+## Named identifiers are often imported, not spoken
+
+Comparing the 2025-03-23 record against its recording showed that three of its four
+policy and application identifiers were never said aloud: **Section 256**, the
+**National Defense Education Act**, and Chile's **Gratuidad**. All three are real,
+all three are correct, and all three came from the note-taker's own knowledge rather
+than the room.
+
+This is genuinely valuable - a reader searching the board for "National Defense
+Education Act" should find it - but it must not masquerade as something a
+participant said. Enrichment of this kind belongs in a separate pass, marked as
+external, keeping the spoken evidence alongside the canonical name.
+
 ## Carried forward from the retired `src/data/lyceum_2025_03.json`
 
 That file was the original single-record data sketch. It has been superseded by
@@ -14,15 +59,11 @@ Before archiving it, both copies were compared field by field after normalising
 punctuation and stripping the dead `<a href='#'>` link wrappers. Everything in
 the old file is present in the board data with two exceptions:
 
-1. **TODO - the highlight quote was truncated.** The board data currently carries
-   only the last sentence. The full quote from the original file is:
-
-   > What does a government care about? The US government cares about taxes and
-   > military. Dissolving the Department of Education shows US citizens that we
-   > value education less than we think we do.
-
-   Restore the full three-sentence version when the record is migrated to schema
-   version 2, normalised to ASCII.
+1. **RESOLVED, and it was the wrong instruction.** This note previously asked for the
+   full three-sentence version of the highlight quote to be restored from the old
+   file. That was done, and it was a mistake: the recording later showed the sentence
+   was a note-taker's paraphrase that nobody uttered. See "A paraphrase is not a
+   quote" above. The field now carries a verified verbatim line instead.
 
 2. The old file's call to action read "volunteered for the Call to Action to
    research more on this inquiry"; the board data reads "volunteered to research
