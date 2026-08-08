@@ -7,15 +7,140 @@
   <link rel="stylesheet" href="./board.css" />
 </head>
 <body class="bg-lyceum-50 text-stone-800 antialiased">
+  <div id="notice"></div>
   <div id="app"></div>
 
-  <!-- data source of truth -->
-  <script src="./data/inquiries.js"></script>
 
   <script>
   // ------------------------------------------------------------------ helpers
   const $app = document.getElementById('app');
-  const DATA = (window.LYCEUM_DATA || []).slice().sort((a,b) => b.date.localeCompare(a.date));
+  const $notice = document.getElementById('notice');
+
+  // ---------------------------------------------------------------- the archive
+  // data/lyceum.json is the single source of truth. It is fetched at runtime so
+  // that adding a gathering never means editing this file.
+  const DATA_URL  = './data/lyceum.json';
+  const CACHE_KEY = 'lyceum.archive.v2';
+
+  let DATA = [];
+
+  // Accepts the v2 envelope {schemaVersion, inquiries} and a bare array, so an
+  // older or newer file shape cannot blank the page.
+  function normalise(payload){
+    const list = Array.isArray(payload) ? payload
+               : (payload && Array.isArray(payload.inquiries)) ? payload.inquiries
+               : [];
+    return list.slice().sort((a,b) => String(b.date).localeCompare(String(a.date)));
+  }
+
+  // A section item is either a plain string (v1) or {text, attribution, at} (v2).
+  // Item text is trusted, curated HTML - some records carry reference links.
+  function itemText(i){
+    if (i == null) return '';
+    return (typeof i === 'object') ? String(i.text || '') : String(i);
+  }
+  function itemAttribution(i){
+    return (i && typeof i === 'object' && i.attribution) ? String(i.attribution) : '';
+  }
+  function sectionItems(d){
+    return SECTIONS.flatMap(([k]) => (d[k] || []).map(itemText));
+  }
+
+  function readCache(){
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      if (!raw) return null;
+      const c = JSON.parse(raw);
+      return (c && c.payload) ? c : null;
+    } catch { return null; }
+  }
+
+  async function loadArchive(){
+    // Opened straight off disk, fetch is blocked by the browser, not by us.
+    // Say so plainly instead of rendering an empty board.
+    if (location.protocol === 'file:'){
+      renderNeedsServer();
+      return false;
+    }
+    try {
+      const resp = await fetch(DATA_URL, { cache: 'no-cache' });
+      if (!resp.ok) throw new Error('the archive returned HTTP ' + resp.status);
+      const payload = await resp.json();
+      const list = normalise(payload);
+      if (!list.length) throw new Error('the archive loaded but contains no gatherings');
+      DATA = list;
+      try {
+        localStorage.setItem(CACHE_KEY, JSON.stringify({ at: new Date().toISOString(), payload }));
+      } catch { /* private browsing, or storage full - not worth failing over */ }
+      clearNotice();
+      return true;
+    } catch (err) {
+      const cached = readCache();
+      if (cached){
+        DATA = normalise(cached.payload);
+        if (DATA.length){ renderStale(cached.at); return true; }
+      }
+      renderUnavailable(err);
+      return false;
+    }
+  }
+
+  // ------------------------------------------------------------------- notices
+  function clearNotice(){ $notice.innerHTML = ''; }
+
+  function renderStale(at){
+    let when = 'earlier';
+    try { when = new Date(at).toLocaleString(); } catch {}
+    $notice.innerHTML = `
+      <div role="status" class="bg-amber-50 border-b border-amber-300 px-6 py-3 text-sm text-amber-900">
+        <strong>Showing a saved copy.</strong> The live archive could not be reached just now,
+        so this is the version last loaded on ${esc(when)}. Anything added since is missing.
+        <button id="notice-retry" class="underline font-medium ml-1">Try again</button>
+      </div>`;
+    wireRetry();
+  }
+
+  function renderUnavailable(err){
+    $app.innerHTML = `
+      <main class="max-w-2xl mx-auto px-6 py-20 text-center">
+        <h1 class="font-serif text-3xl text-lyceum-900">The archive could not be loaded</h1>
+        <p class="mt-4 text-stone-600">
+          The Lyceum's gatherings are stored in a file this page reads when it opens, and that
+          file could not be reached. Nothing has been lost - this is a loading problem, not a
+          data problem.
+        </p>
+        <p class="mt-4 text-sm text-stone-500">Reported reason: ${esc(err && err.message || String(err))}</p>
+        <button id="notice-retry"
+          class="mt-6 rounded-lg bg-lyceum-800 text-white px-4 py-2 text-sm hover:bg-lyceum-900">
+          Try again
+        </button>
+      </main>`;
+    wireRetry();
+  }
+
+  function renderNeedsServer(){
+    $app.innerHTML = `
+      <main class="max-w-2xl mx-auto px-6 py-20">
+        <h1 class="font-serif text-3xl text-lyceum-900">This page needs to be served, not opened</h1>
+        <p class="mt-4 text-stone-600">
+          The board reads its content from a separate file, and browsers refuse that when a page
+          is opened directly off the disk. It is a browser security rule, not a fault in the page.
+        </p>
+        <p class="mt-4 text-stone-600">To preview it locally, run this in the project folder:</p>
+        <pre class="mt-3 rounded-lg bg-lyceum-100 text-lyceum-900 p-4 text-sm overflow-x-auto">python3 -m http.server 8000</pre>
+        <p class="mt-3 text-stone-600">
+          then open <span class="font-mono text-sm">http://localhost:8000</span>.
+        </p>
+        <p class="mt-6 text-sm text-stone-500">
+          The published board needs none of this - it is already being served.
+        </p>
+      </main>`;
+  }
+
+  function wireRetry(){
+    const b = document.getElementById('notice-retry');
+    if (b) b.addEventListener('click', async () => { if (await loadArchive()) route(); });
+  }
   const fmtDate = iso => new Date(iso + 'T00:00:00').toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
   const esc = s => (s == null ? '' : String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])));
   // sections that hold list content, in display order
@@ -53,7 +178,7 @@
     const q = query.trim().toLowerCase();
     const matches = DATA.filter(d => {
       if (!q) return true;
-      const hay = [d.inquiry, ...(d.tags||[]), ...SECTIONS.flatMap(([k]) => d[k]||[]), d.quote, d.callToAction].join(' ').toLowerCase();
+      const hay = [d.inquiry, ...(d.tags||[]), ...sectionItems(d), d.quote, d.callToAction].join(' ').toLowerCase();
       return hay.includes(q);
     });
     const done = DATA.filter(isTranscribed).length;
@@ -159,7 +284,10 @@
       <section class="rounded-xl bg-white border border-lyceum-100 p-4 shadow-sm">
         <h3 class="font-semibold text-lyceum-900">${title}</h3>
         ${items.length
-          ? `<ul class="mt-2 space-y-1.5 text-sm list-disc list-inside marker:text-lyceum-700">${items.map(i => `<li>${i}</li>`).join('')}</ul>`
+          ? `<ul class="mt-2 space-y-1.5 text-sm list-disc list-inside marker:text-lyceum-700">${items.map(i => {
+              const who = itemAttribution(i);
+              return `<li>${itemText(i)}${who ? ` <span class="text-stone-400">- ${esc(who)}</span>` : ''}</li>`;
+            }).join('')}</ul>`
           : `<p class="mt-2 text-sm text-stone-400 italic">${sub} - not captured yet.</p>`}
       </section>`;
   }
@@ -244,7 +372,7 @@
   }
 
   // ------------------------------------------------------------------- launch
-  route();
+  loadArchive().then(ok => { if (ok) route(); });
   </script>
 </body>
 </html>
