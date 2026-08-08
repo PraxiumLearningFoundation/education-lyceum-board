@@ -1,0 +1,194 @@
+# Guardrails for a PUBLIC repository holding a nonprofit's meeting record.
+#
+# Two of these checks exist because intentions do not survive: the repository is
+# public, so anything committed is world-readable forever, and the raw meeting
+# transcripts contain personal data about named participants including minors.
+# A machine refusing the commit is a control; remembering the rule is not.
+#
+# actions/checkout is pinned to v5 deliberately. GitHub runners defaulted to
+# Node 24 in June 2026 and remove the older runtime in autumn 2026; actions that
+# still declare node16 or node20 fail once that lands. If a future runner change
+# breaks this workflow, the fix is to raise this version number.
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+permissions:
+  contents: read
+
+jobs:
+  guardrails:
+    name: Private material and character set
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: No transcripts, decks, or office documents
+        run: |
+          # -z / tr: this project has filenames containing spaces.
+          # The transcript pattern is deliberately narrow - Lyceum<date>.md, the
+          # naming the recordings actually use - so that ordinary documentation
+          # such as docs/lyceum-schema.md is not caught by it.
+          if git ls-files -z \
+            | tr '\0' '\n' \
+            | grep -iE '\.(pptx?|docx?|xlsx?|vtt|srt|zip|pdf)$|(^|/)Lyceum[0-9]{6,8}[^/]*\.md$|(^|/)transcripts/' \
+            > offenders.txt; then
+              echo "::error::Private or non-source material is committed to a PUBLIC repository."
+              echo ""
+              echo "Offending paths:"
+              sed 's/^/  /' offenders.txt
+              echo ""
+              echo "Raw transcripts name participants including minors, and the source"
+              echo "decks carry speaker notes, embedded photographs, and author metadata."
+              echo "This material belongs in ../lyceum-sources/, never in git."
+              echo "See .gitignore and docs/DATA-NOTES.md."
+              exit 1
+          fi
+          echo "OK: no transcripts, decks, or archives are tracked."
+
+      - name: Plain ASCII only
+        run: |
+          rc=0
+          while IFS= read -r -d '' file; do
+            # -I skips binary files; there should not be any, but be safe.
+            if hits=$(grep -nIP '[^\x00-\x7F]' -- "$file"); then
+              rc=1
+              echo "::error file=$file::Non-ASCII characters found"
+              printf '%s\n' "$hits" | head -5 | sed 's/^/    /'
+            fi
+          done < <(git ls-files -z)
+
+          if [ "$rc" -ne 0 ]; then
+            echo ""
+            echo "Use straight quotes, plain hyphens, and three periods for an ellipsis."
+            echo "Gotcha: replacing a curly DOUBLE quote inside a double-quoted JS or JSON"
+            echo "string breaks the string. Switch the inner pair to single quotes instead."
+            exit 1
+          fi
+          echo "OK: every tracked file is plain ASCII."
+
+  syntax:
+    name: Data and syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: JavaScript parses
+        run: |
+          rc=0
+          while IFS= read -r -d '' file; do
+            node --check "$file" || rc=1
+          done < <(git ls-files -z '*.js')
+          [ "$rc" -eq 0 ] && echo "OK: all JavaScript parses." || exit 1
+
+      - name: JSON parses
+        run: |
+          rc=0
+          while IFS= read -r -d '' file; do
+            # Pass the path as an argument, never interpolated into the script.
+            node -e 'JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"))' "$file" \
+              || { echo "::error file=$file::Invalid JSON"; rc=1; }
+          done < <(git ls-files -z '*.json')
+          [ "$rc" -eq 0 ] && echo "OK: all JSON parses." || exit 1
+
+      - name: The archive loads and every record is well formed
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+
+          // data/lyceum.json is the single source of truth. Accept the v2
+          // envelope and a bare array, the same tolerance the page has.
+          const payload = JSON.parse(fs.readFileSync('data/lyceum.json', 'utf8'));
+          const data = Array.isArray(payload) ? payload
+                     : Array.isArray(payload.inquiries) ? payload.inquiries
+                     : null;
+
+          if (!Array.isArray(data) || data.length === 0) {
+            throw new Error('the archive is not a non-empty array of gatherings');
+          }
+          if (!Array.isArray(payload) && payload.schemaVersion !== 2) {
+            throw new Error(`unexpected schemaVersion: ${payload.schemaVersion}`);
+          }
+
+          const SECTIONS = ['theories', 'applications', 'sources',
+                            'policies', 'opportunities', 'challenges'];
+          const seen = new Set();
+          const problems = [];
+
+          data.forEach((rec, i) => {
+            const where = `record ${i} (${rec.id || 'no id'})`;
+            if (!rec.id) problems.push(`${where}: missing id`);
+            if (seen.has(rec.id)) problems.push(`${where}: duplicate id`);
+            seen.add(rec.id);
+
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(rec.date || '')) {
+              problems.push(`${where}: date is not YYYY-MM-DD`);
+            }
+            if (!rec.inquiry) problems.push(`${where}: missing inquiry question`);
+            if (!Array.isArray(rec.tags)) problems.push(`${where}: tags is not an array`);
+
+            SECTIONS.forEach((k) => {
+              const v = rec[k];
+              if (v === undefined) return;
+              if (!Array.isArray(v)) {
+                problems.push(`${where}: ${k} is present but not an array`);
+                return;
+              }
+              // v1 items are strings; v2 items are {text, attribution, at}.
+              v.forEach((item, j) => {
+                const ok = typeof item === 'string'
+                  || (item && typeof item === 'object' && typeof item.text === 'string' && item.text.length);
+                if (!ok) problems.push(`${where}: ${k}[${j}] is neither a string nor an object with text`);
+              });
+            });
+          });
+
+          if (problems.length) {
+            problems.forEach((p) => console.error(`::error::${p}`));
+            process.exit(1);
+          }
+          console.log(`OK: ${data.length} records, ${seen.size} unique ids, all well formed.`);
+          NODE
+
+      - name: Every inline script in the board page parses
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const pages = ['index.html'];
+          let failed = false;
+
+          for (const page of pages) {
+            const html = fs.readFileSync(page, 'utf8');
+            // Inline scripts only: a src attribute means there is no body to check.
+            const blocks = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)];
+            blocks.forEach((m, i) => {
+              try {
+                new Function(m[1]);
+              } catch (err) {
+                console.error(`::error file=${page}::inline script ${i + 1}: ${err.message}`);
+                failed = true;
+              }
+            });
+            console.log(`${page}: ${blocks.length} inline script block(s) checked`);
+          }
+          if (failed) process.exit(1);
+          console.log('OK: all inline scripts parse.');
+          NODE
+
+      - name: The board page references no external host
+        run: |
+          # localhost is exempt: the offline-help text tells the maintainer which
+          # URL to open after starting a local server.
+          if grep -nE 'https?://' index.html | grep -vE 'https?://(localhost|127\.0\.0\.1)'; then
+            echo "::error file=index.html::The board must not reference an external host."
+            echo ""
+            echo "The page has to render inside a Squarespace frame with a strict content"
+            echo "policy, and on locked-down networks. Styling is vendored into board.css"
+            echo "for exactly this reason - see the Styling section of the README."
+            exit 1
+          fi
+          echo "OK: the board page is self-contained."
