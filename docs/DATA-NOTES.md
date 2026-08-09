@@ -132,7 +132,52 @@ Check combinations, not fields. Anything removed for this reason so far:
   anything they said
 - a serving participant's pending change of home, published alongside a deployment
 
-## When to attach a name, and when not to
+## The record says what, not who
+
+**Participants are not named in the archive.** No attribution on items, no attendee
+list, no speaker names on storyboard beats, no named stewards. The record is of an
+inquiry, not of who performed well in it.
+
+This supersedes the earlier "attribute by default, anonymise by exception" policy,
+which is kept below because the reasoning about *categories* still governs what may
+be recorded at all. What changed is the default.
+
+The earlier policy did not survive contact with ten more transcripts:
+
+- **Ten further people would have been named for the first time**, without being
+  asked. Some speak a great deal - one contributes 326 cues across two gatherings -
+  so this was not a question about incidental mentions.
+- **Naming someone in one record un-redacted them in another.** A person identified
+  in one gathering made a deliberate category-level suppression in two later
+  gatherings reconstructible. That is identification by combination operating across
+  records rather than within one, and there is no per-record fix for it.
+- **The attributions were substantially wrong anyway.** The recording platform
+  credits roughly 226 cues across the corpus to the wrong person, because people
+  who share a room share a connection. Correcting that is possible but it means
+  publishing a confident claim about who said what, built on inference.
+- **Consent was never obtained for any of it.** Nobody in these circles agreed to be
+  quoted by name on a permanent public page.
+
+What is kept, because none of it identifies anyone:
+
+- how many were in the circle, and how many were young participants
+- where people joined from, at city or country level
+- the roles that are functions rather than people: "the facilitator opened", "the
+  guide read the norms"
+- every organisation, programme, place, book, campaign and country named in the room
+- the full substance of what was said
+
+Gendered pronouns for participants come out too. In a circle of eight, "she" plus one
+detail is an identification.
+
+### Engagement means the website, not the meeting
+
+A related decision, and the reason the metrics view had no data source. **Engagement
+is what people do on the published page** - reading, commenting, contributing - and it
+is external to the gathering. It is not a measure of who spoke, or how much, during
+the meeting. Any future metrics work reads from the site, never from the record.
+
+## Superseded: when to attach a name, and when not to
 
 The default is to name the adult who said something. Attribution is most of what
 makes the archive useful: a reader can see who brought what to the circle, and
