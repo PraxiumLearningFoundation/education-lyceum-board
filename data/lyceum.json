@@ -765,7 +765,7 @@
         "source": "the meeting recording transcript and chat log, merged with the foundation's hand-authored notes from the same gathering",
         "note": "Merged from two independent records of the same session. Where they disagreed the recording won on wording and attribution, and the notes won on canonical names, which are marked where they were not spoken.",
         "extractedOn": "2026-08-09",
-        "reviewedBy": ""
+        "reviewedBy": "Hezekiah Jenkins"
       }
     },
     {
@@ -1414,7 +1414,7 @@
       "provenance": {
         "source": "the meeting recording transcript and the platform meeting summary",
         "extractedOn": "2026-08-08",
-        "reviewedBy": ""
+        "reviewedBy": "Hezekiah Jenkins"
       }
     }
   ]
