@@ -132,6 +132,50 @@ Check combinations, not fields. Anything removed for this reason so far:
   anything they said
 - a serving participant's pending change of home, published alongside a deployment
 
+## When to attach a name, and when not to
+
+The default is to name the adult who said something. Attribution is most of what
+makes the archive useful: a reader can see who brought what to the circle, and
+participants can see their contribution recorded. So this is not a policy of
+anonymising by habit.
+
+But a name is not free. People say things in a circle of eight that they have not
+agreed to publish under their own name on the open internet, and the Lyceum
+deliberately invites exactly that kind of speaking. So:
+
+**Attribute to "a participant" when the item concerns any of these**, whoever said
+it and however freely:
+
+- a legal matter they are party to, ongoing or concluded
+- immigration status, or anything that bears on it
+- discrimination, racism or harassment they experienced
+- health, theirs or a family member's
+- a grievance, dismissal or dispute with an employer
+- personal money: debts, legal costs, what something cost them
+- the personal history of a first-time attendee, who has not yet had any chance
+  to understand that the circle becomes a public record
+- anything at all involving a minor - those stay "a young participant"
+
+**Drop the item entirely rather than anonymising it when:**
+
+- it identifies a person who was not in the room and cannot consent - a named
+  private individual, a third party's conviction, a prospective member named by a
+  friend
+- the transcript is unreliable for that name. Where a source garbles proper nouns
+  throughout, a name it supplies is not evidence, and publishing an allegation
+  against a garbled name is indefensible
+- anonymising does not actually anonymise. In a circle of eight, "a participant"
+  plus a specific employer, a court, a dollar figure and a case history is one
+  person. Either generalise until it is genuinely not identifying, or leave it out
+
+**Make suppressions visible.** This is the part that is easy to get wrong in the
+other direction. Removing a name is fine; silently changing a fact is not. The
+2025-03-23 record lists three stewards where the recording names four, because the
+fourth was a non-attendee and got dropped on a privacy rule - so the record now
+says something untrue about who carried the inquiry forward. A withheld name
+should leave a visible hole: "and one further steward, withheld", not a shorter
+list.
+
 ## Ingestion process
 
 Two passes, never one:

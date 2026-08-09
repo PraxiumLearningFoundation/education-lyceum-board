@@ -178,7 +178,9 @@
     const q = query.trim().toLowerCase();
     const matches = DATA.filter(d => {
       if (!q) return true;
-      const hay = [d.inquiry, ...(d.tags||[]), ...sectionItems(d), d.quote, d.callToAction].join(' ').toLowerCase();
+      // inquiryAliases carries an earlier wording of the question, so someone who
+      // remembers it the old way still finds the gathering.
+      const hay = [d.inquiry, ...(d.inquiryAliases||[]), ...(d.tags||[]), ...sectionItems(d), d.quote, d.callToAction].join(' ').toLowerCase();
       return hay.includes(q);
     });
     const done = DATA.filter(isTranscribed).length;
