@@ -164,7 +164,14 @@
   // ------------------------------------------------------------------ routing
   function route(){
     const m = (location.hash || '').match(/^#\/inquiry\/(.+)$/);
-    if (m){ const d = DATA.find(x => x.id === m[1]); if (d) return renderDetail(d); }
+    if (m){
+      // idAliases keeps a previously published link working when a record's id has to
+      // change - the 2025-04-27 gathering was dated 28 April until its recording was found.
+      const want = m[1];
+      const d = DATA.find(x => x.id === want)
+             || DATA.find(x => (x.idAliases || []).includes(want));
+      if (d) return renderDetail(d);
+    }
     renderIndex();
   }
   window.addEventListener('hashchange', route);
