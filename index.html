@@ -39,9 +39,6 @@
     if (i == null) return '';
     return (typeof i === 'object') ? String(i.text || '') : String(i);
   }
-  function itemAttribution(i){
-    return (i && typeof i === 'object' && i.attribution) ? String(i.attribution) : '';
-  }
   function sectionItems(d){
     return SECTIONS.flatMap(([k]) => (d[k] || []).map(itemText));
   }
@@ -235,11 +232,13 @@
 
   function beatsOf(d){ return (d.storyboard && d.storyboard.beats) || []; }
 
-  // How many people were in the circle. Minors are counted but never named -
-  // see the privacy rules in docs/DATA-NOTES.md.
+  // How many people were in the circle. The record does not name participants at
+  // all - see "The record says what, not who" in docs/DATA-NOTES.md - so this reads
+  // a count, and falls back to counting a legacy attendee list if one is present.
   function circleSize(m){
     if (!m) return 0;
-    return (m.attendees || []).length + (Number(m.minorsPresent) || 0);
+    const named = Array.isArray(m.attendees) ? m.attendees.length : 0;
+    return (Number(m.participants) || named) + (Number(m.minorsPresent) || 0);
   }
 
   function plural(n, one, many){ return n === 1 ? one : (many || one + 's'); }
@@ -293,7 +292,6 @@
               </div>
               ${b.summary ? `<p class="mt-1 text-sm text-stone-700">${esc(b.summary)}</p>` : ''}
               ${b.pullQuote ? `<blockquote class="mt-2 border-l-2 border-lyceum-700 pl-3 text-sm italic text-lyceum-800">"${esc(b.pullQuote)}"</blockquote>` : ''}
-              ${(b.speakers||[]).length ? `<p class="mt-1 text-xs text-stone-400">${esc(b.speakers.join(', '))}</p>` : ''}
             </li>`).join('')}
         </ol>
         ${sb.arcNotes ? `
@@ -308,14 +306,12 @@
     const m = d.meeting;
     if (!m) return '';
     const rows = [];
-    if (m.facilitator) rows.push(['Guided by', esc(m.facilitator)]);
-
-    const names = (m.attendees||[]).map(a =>
-      esc(a.name) + (a.role ? ` <span class="text-stone-400">${esc(a.role)}</span>` : ''));
-    if (names.length || m.minorsPresent){
+    const people = circleSize(m);
+    if (people){
       const minors = Number(m.minorsPresent) || 0;
-      const tail = minors ? `${names.length ? ', and ' : ''}${minors} young ${plural(minors, 'participant')}` : '';
-      rows.push(['In the circle', names.join(', ') + tail]);
+      rows.push(['In the circle',
+        `${people} ${plural(people, 'participant')}` +
+        (minors ? `, including ${minors} young ${plural(minors, 'participant')}` : '')]);
     }
     if ((m.locations||[]).length)   rows.push(['Joining from', m.locations.map(esc).join(', ')]);
     if (m.landAcknowledgement)      rows.push(['Land acknowledgement', esc(m.landAcknowledgement)]);
@@ -357,7 +353,6 @@
         ${d.quote ? `
           <blockquote class="font-serif text-xl italic text-lyceum-800 border-l-4 border-lyceum-700 pl-5 my-2">
             "${esc(d.quote)}"
-            ${d.quoteBy ? `<cite class="block mt-2 font-sans text-sm not-italic text-stone-500">${esc(d.quoteBy)}</cite>` : ''}
           </blockquote>` : ''}
 
         <div class="grid gap-4 sm:grid-cols-2 mt-6">
@@ -368,7 +363,6 @@
           <section class="mt-6 rounded-xl border border-amber-300 bg-amber-50 p-5">
             <h3 class="font-semibold text-amber-900">Way Ahead - Call to Action</h3>
             <p class="mt-1 text-amber-900/90">${esc(d.callToAction)}</p>
-            ${(d.stewards||[]).length ? `<p class="mt-2 text-sm text-amber-800">Stewards: ${d.stewards.map(esc).join(', ')}</p>` : ''}
           </section>` : ''}
 
         ${storyboardHTML(d)}
@@ -385,7 +379,6 @@
   // The line under the title on a detail page: who guided it, how many took part.
   function detailMetaHTML(d){
     const m = d.meeting, beats = beatsOf(d), bits = [];
-    if (m && m.facilitator)  bits.push('Guided by ' + m.facilitator);
     const people = circleSize(m);
     if (people)              bits.push(people + ' in the circle');
     if (beats.length)        bits.push('storyboard below');
@@ -415,10 +408,7 @@
       <section class="rounded-xl bg-white border border-lyceum-100 p-4 shadow-sm">
         <h3 class="font-semibold text-lyceum-900">${title}</h3>
         ${items.length
-          ? `<ul class="mt-2 space-y-1.5 text-sm list-disc list-inside marker:text-lyceum-700">${items.map(i => {
-              const who = itemAttribution(i);
-              return `<li>${itemText(i)}${who ? ` <span class="text-stone-400">- ${esc(who)}</span>` : ''}</li>`;
-            }).join('')}</ul>`
+          ? `<ul class="mt-2 space-y-1.5 text-sm list-disc list-inside marker:text-lyceum-700">${items.map(i => `<li>${itemText(i)}</li>`).join('')}</ul>`
           : `<p class="mt-2 text-sm text-stone-400 italic">${sub} - not captured yet.</p>`}
       </section>`;
   }
