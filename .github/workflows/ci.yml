@@ -154,6 +154,68 @@ jobs:
           console.log(`OK: ${data.length} records, ${seen.size} unique ids, all well formed.`);
           NODE
 
+      - name: Timestamps are well formed and inside the session
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          // The full grounding check needs the recording, which is private and never
+          // in this repository. What CAN be checked here is internal consistency, and
+          // that catches the class of error that actually shipped: an item citing
+          // @1:54:24 in a session that ended at 1:37:06.
+          const payload = JSON.parse(fs.readFileSync('data/lyceum.json', 'utf8'));
+          const data = Array.isArray(payload) ? payload : payload.inquiries;
+          const SECTIONS = ['theories', 'applications', 'sources',
+                            'policies', 'opportunities', 'challenges'];
+          const TS = /^@\d{1,2}:\d{2}(:\d{2})?$/;
+          const secs = (t) => {
+            const p = t.replace('@', '').split(':').map(Number);
+            return p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : p[0] * 60 + p[1];
+          };
+          // No Lyceum has run past three hours; anything beyond that is a slip, not a session.
+          const CEILING = 3 * 3600;
+          const problems = [];
+
+          data.forEach((rec) => {
+            const seen = [];
+            SECTIONS.forEach((k) => (rec[k] || []).forEach((it, j) => {
+              const at = typeof it === 'object' ? it.at : null;
+              if (!at) return;                       // synthesised items carry none
+              if (!TS.test(at)) return problems.push(`${rec.id} ${k}[${j}]: malformed timestamp "${at}"`);
+              const s = secs(at);
+              if (s > CEILING) problems.push(`${rec.id} ${k}[${j}]: timestamp ${at} is beyond any plausible session`);
+              seen.push(s);
+            }));
+
+            const sb = rec.storyboard;
+            if (sb && Array.isArray(sb.beats)) {
+              let prev = -1;
+              sb.beats.forEach((b) => {
+                const parts = String(b.timeRange || '').split('-').map((x) => x.trim());
+                const bad = parts.filter((x) => x && !TS.test(x));
+                if (bad.length) return problems.push(`${rec.id} beat ${b.n}: malformed range "${b.timeRange}"`);
+                if (parts.length !== 2) return problems.push(`${rec.id} beat ${b.n}: range is not two timestamps`);
+                const [lo, hi] = parts.map(secs);
+                if (hi < lo) problems.push(`${rec.id} beat ${b.n}: range runs backwards`);
+                if (hi > CEILING) problems.push(`${rec.id} beat ${b.n}: ends beyond any plausible session`);
+                // Beats are the narrative order of one session, so they must not go back in time.
+                if (lo < prev - 60) problems.push(`${rec.id} beat ${b.n}: starts before the previous beat`);
+                prev = lo;
+              });
+              // An item timestamped outside every beat means one of the two is wrong.
+              const covered = sb.beats.map((b) => String(b.timeRange).split('-').map((x) => secs(x.trim())));
+              const last = Math.max(...covered.map((c) => c[1]));
+              seen.filter((s) => s > last + 120).forEach((s) =>
+                problems.push(`${rec.id}: an item at ${s}s sits after the last storyboard beat ends`));
+            }
+          });
+
+          if (problems.length) {
+            problems.forEach((p) => console.error(`::error::${p}`));
+            process.exit(1);
+          }
+          console.log(`OK: timestamps well formed and internally consistent across ${data.length} records.`);
+          NODE
+
       - name: Every inline script in the board page parses
         run: |
           node - <<'NODE'
