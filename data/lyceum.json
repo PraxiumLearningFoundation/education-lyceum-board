@@ -769,8 +769,8 @@
       }
     },
     {
-      "id": "2025-04-28-tragedy",
-      "date": "2025-04-28",
+      "id": "2025-04-27-tragedy",
+      "date": "2025-04-27",
       "inquiry": "How can we discuss tragedy with our children?",
       "tags": [
         "family",
@@ -785,7 +785,15 @@
       "opportunities": [],
       "challenges": [],
       "quote": "",
-      "callToAction": ""
+      "callToAction": "",
+      "idAliases": [
+        "2025-04-28-tragedy"
+      ],
+      "provenance": {
+        "source": "the slide deck for the question and date; the recording for the corrected date",
+        "note": "Dated 2025-04-28 until the recording was located. The recording begins at 22:33 GMT on 27 April 2025, which is 3:33pm Pacific that afternoon, and 27 April was a Sunday like every other Lyceum. The deck filename said 28 April. The recording wins.",
+        "reviewedBy": ""
+      }
     },
     {
       "id": "2025-06-01-healthcare-balance",
