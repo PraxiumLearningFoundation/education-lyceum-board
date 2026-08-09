@@ -141,9 +141,13 @@
       "stewards": []
     },
     {
+      "schemaVersion": 2,
       "id": "2025-03-23-education",
       "date": "2025-03-23",
-      "inquiry": "What should leaders do to empower education in communities?",
+      "inquiry": "What should leaders do to empower education and communities?",
+      "inquiryAliases": [
+        "What should leaders do to empower education in communities?"
+      ],
       "tags": [
         "education",
         "leadership",
@@ -151,52 +155,841 @@
         "policy"
       ],
       "status": "transcribed",
+      "meeting": {
+        "facilitator": "Ehren Gruber",
+        "attendees": [
+          {
+            "name": "Ehren Gruber",
+            "role": "Lyceum host and guide; started the group with Chase Kubic and Hez Jenkins; graduate study in human development"
+          },
+          {
+            "name": "Rachel Gruber",
+            "role": "Participant, first Lyceum"
+          },
+          {
+            "name": "Chase Kubic",
+            "role": "Co-host; Army officer and former police officer; met Ehren Gruber in high school; joined from Virginia"
+          },
+          {
+            "name": "Hez Jenkins",
+            "role": "Co-host; serving military member in Pittsburgh, originally from Texas; ran the survey links in the chat"
+          },
+          {
+            "name": "Larry",
+            "role": "Participant; Navy veteran; joined from Virginia"
+          },
+          {
+            "name": "Al Goshi",
+            "role": "Participant; raised in Hawaii's Japanese American community; works in a federal department that cooperates with the Department of Education"
+          },
+          {
+            "name": "Marcia Lopez",
+            "role": "Participant, first Lyceum"
+          }
+        ],
+        "minorsPresent": 1,
+        "locations": [
+          "Vancouver, British Columbia",
+          "Virginia",
+          "Pittsburgh, Pennsylvania"
+        ],
+        "landAcknowledgement": "No spoken land acknowledgement was given; the opening was a breathing exercise with gratitude prompts for the Earth, ancestors, self, family, and the next generation. Marcia Lopez typed gratitude in the chat for living and learning on the stolen lands of the Squamish, Tsleil-Waututh and Musqueam Nations, and Larry added that he grew up in Ocean County, New Jersey learning about the Lenape. Canada's land acknowledgement practice and the Truth and Reconciliation Commission were later discussed as an example of a country teaching a fuller history.",
+        "agenda": [
+          "Welcome, rules and norms for an open forum of peers",
+          "Pre-survey learning conversation, by QR code or a link in the chat",
+          "Opening presence exercise: guided breaths with gratitude prompts",
+          "Shared understanding round on background, cultural background, family, and connection to the Lyceum",
+          "World map orientation using United Nations and World Bank regional maps",
+          "Sequence of Inquiry: choosing a topic by consensus, then working it through",
+          "Post-survey learning reflection questionnaire",
+          "Closing fellowship circle with a final round of sharing and Praxium updates"
+        ],
+        "contextNotes": [
+          "Scheduled for about an hour and a half as an open forum; participants free to come and go.",
+          "Held online across Canada and the United States, from Vancouver to Pittsburgh.",
+          "Two participants attended their first Lyceum and were welcomed as new guests.",
+          "Topic was chosen in the circle rather than set in advance.",
+          "Two candidate topics emerged; leadership and national messaging was set aside for education.",
+          "Discussion followed the March 2025 move to dismantle the United States Department of Education.",
+          "Sequence of Inquiry ran theories, application, shared understanding, opportunities and challenges, and call to action.",
+          "One participant shared a room and connection with another, so the transcript labels her speech as his.",
+          "Land gratitude was typed in the chat rather than spoken aloud.",
+          "A participant's young child appeared briefly on camera during introductions and did not speak.",
+          "Participants stepped away and returned mid-session; one stepped away near the close and did not speak again.",
+          "Chat carried content the audio did not, including the land gratitude and a closing point on non-traditional educators.",
+          "Recording began about six minutes after the meeting, so chat timestamps run ahead of the recording clock.",
+          "Next Lyceum announced for the following month, with a six-month reflection on open inquiries."
+        ]
+      },
       "theories": [
-        "Public schools (primary and secondary) have inconsistencies across local and state budgets.",
-        "Schools on military bases - federal funding available to enhance facilities and classrooms.",
-        "Private religious schools - facilities dependent on tuition.",
-        "Government role in empowering underserved communities and people with disabilities."
+        {
+          "text": "Canada's federal government stopped funding housing for people without means in the nineties.",
+          "attribution": "Marcia Lopez",
+          "at": "@17:25"
+        },
+        {
+          "text": "Public school facilities and equipment show degradation, unlike the federally funded schools.",
+          "attribution": "Chase Kubic",
+          "at": "@31:58"
+        },
+        {
+          "text": "Chile offers three school routes: public, part-subsidized, and private, the middle most sought.",
+          "attribution": "Marcia Lopez",
+          "at": "@35:04"
+        },
+        {
+          "text": "The Department of Education was a back-office body with little influence on schools.",
+          "attribution": "Chase Kubic",
+          "at": "@37:41"
+        },
+        {
+          "text": "Left to their own devices, states might not do what serves America best.",
+          "attribution": "Larry",
+          "at": "@40:39"
+        },
+        {
+          "text": "Federal grants and priorities reinforced underserved communities at primary and secondary level.",
+          "attribution": "Al Goshi",
+          "at": "@42:45"
+        },
+        {
+          "text": "Schools testing better on standardized tests receive more money, compounding the gap.",
+          "attribution": "Ehren Gruber",
+          "at": "@50:42"
+        },
+        {
+          "text": "With no national curriculum, competing ideas of the nation leave no common identity.",
+          "attribution": "Ehren Gruber",
+          "at": "@52:23"
+        },
+        {
+          "text": "Federal funding compensates underserved communities underfinanced by tax and property based systems.",
+          "attribution": "Al Goshi",
+          "at": "@56:47"
+        },
+        {
+          "text": "Inequality once formed may take two or three generations to rebalance.",
+          "attribution": "Ehren Gruber",
+          "at": "@57:59"
+        },
+        {
+          "text": "Desegregation of schools happened for the students but not for the teachers.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:01:15"
+        },
+        {
+          "text": "Programs a nation runs show what that country places most value on.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:02:45"
+        },
+        {
+          "text": "Part of an education can come from adults who are not technically educators.",
+          "attribution": "Larry",
+          "at": "@1:28:24"
+        },
+        {
+          "text": "A federal government withdrawing from provision leaves communities carrying it, housing then education.",
+          "attribution": "Ehren Gruber",
+          "at": "@18:35"
+        },
+        {
+          "text": "Sorting by money and address reproduces the segregation that law has already ended.",
+          "at": "@48:01"
+        }
       ],
       "applications": [
-        "Chile's 'Gratuidad' - free public university for qualified students.",
-        "Canada's StrongerBC Future Skills - money for access to education.",
-        "U.S. school zones - affluent areas lead to inequality.",
-        "<a href='https://en.wikipedia.org/wiki/Education_in_Asia' target='_blank' rel='noopener'>Competition in Asia</a> - entrance exams and high-stress culture.",
-        "Japan / Australia national curriculum expectations."
+        {
+          "text": "El Paso - the local independent district ran the on-post school, 99 percent military students.",
+          "attribution": "Chase Kubic",
+          "at": "@30:29"
+        },
+        {
+          "text": "Department of Defense schools on post - new smart boards and almost unlimited resources.",
+          "attribution": "Chase Kubic",
+          "at": "@31:14"
+        },
+        {
+          "text": "A private Christian school funded by tuition enrollment and parent volunteering.",
+          "attribution": "Chase Kubic",
+          "at": "@31:39"
+        },
+        {
+          "text": "Chile - three school options; the subvencion middle takes state money, families pay half.",
+          "attribution": "Marcia Lopez",
+          "at": "@34:50"
+        },
+        {
+          "text": "Gratuidad - Chile lets students with strong results attend university free of charge, while ordinary fees stand at about the minimum wage. Name from the foundation's notes, not spoken in the session.",
+          "attribution": "Marcia Lopez",
+          "at": "@35:32"
+        },
+        {
+          "text": "Alabama - the National Guard was mobilized over the state's hold on segregated schools.",
+          "attribution": "Larry",
+          "at": "@40:00"
+        },
+        {
+          "text": "Texas - an added district fee transfers a child out of a Title I school.",
+          "attribution": "Chase Kubic",
+          "at": "@47:22"
+        },
+        {
+          "text": "China and South Korea - placement schools drill students for make-or-break entrance exams.",
+          "attribution": "Ehren Gruber",
+          "at": "@49:50"
+        },
+        {
+          "text": "Japan and Australia - a national curriculum the ministry sets and prefectures tailor locally.",
+          "attribution": "Ehren Gruber",
+          "at": "@52:49"
+        },
+        {
+          "text": "Virginia SOL and Texas STAAR - each state sets its own standards and testing.",
+          "attribution": "Chase Kubic",
+          "at": "@53:27"
+        },
+        {
+          "text": "A federal STEM priority program, prompted by Sputnik, fostered state standards.",
+          "attribution": "Al Goshi",
+          "at": "@56:17"
+        },
+        {
+          "text": "Pittsburgh - desegregated in law in 1981, with a high school sited between two suburbs as the remedy rather than the source of the bias.",
+          "attribution": "Hez Jenkins",
+          "at": "@59:34"
+        },
+        {
+          "text": "Desegregation integrated the students but not the teachers; African American teachers were fired.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:01:50"
+        },
+        {
+          "text": "Canada - no federal oversight of education; every province runs its own.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:03:11"
+        },
+        {
+          "text": "International Baccalaureate programs sited in the lowest ranked high schools.",
+          "attribution": "Chase Kubic",
+          "at": "@1:05:20"
+        },
+        {
+          "text": "Teachers receive a stipend for working at schools with certain populations.",
+          "attribution": "Chase Kubic",
+          "at": "@1:06:16"
+        },
+        {
+          "text": "Homeschooling - math applied while buying things at the store, cooking as a class.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:08:45"
+        },
+        {
+          "text": "Land acknowledgement - naming the First Nations, Metis and Inuit peoples who came before.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:13:14"
+        },
+        {
+          "text": "Austria and Germany - almost anyone in the street can answer a question in English.",
+          "attribution": "Chase Kubic",
+          "at": "@1:15:36"
+        },
+        {
+          "text": "International agencies grant credit hours for education earned in another country.",
+          "attribution": "Chase Kubic",
+          "at": "@1:20:23"
+        }
       ],
       "sources": [
-        "Need for fiscal transparency (salaries, funding, grants).",
-        "Need for advocacy to guarantee human rights and education access.",
-        "Underfunding education weakens districts."
+        {
+          "text": "A comparison of provincial and state roles in education, Canada against the United States.",
+          "attribution": "Ehren Gruber",
+          "at": "@27:06"
+        },
+        {
+          "text": "Clarity on who will run student loans, scholarships and grants after disbandment.",
+          "attribution": "Chase Kubic",
+          "at": "@39:10"
+        },
+        {
+          "text": "Some level of standard, so all of the next generation gets equal access.",
+          "attribution": "Larry",
+          "at": "@41:02"
+        },
+        {
+          "text": "An accounting of whether money saved by disestablishment reaches schools and states.",
+          "attribution": "Larry",
+          "at": "@41:30"
+        },
+        {
+          "text": "Federal partner agencies whose interagency work gives visibility into education programs.",
+          "attribution": "Al Goshi",
+          "at": "@44:01"
+        },
+        {
+          "text": "Federal overarching guidance on curriculum, or at least a federal standard.",
+          "attribution": "Chase Kubic",
+          "at": "@55:12"
+        },
+        {
+          "text": "A 1960s federal STEM priority program, the single precedent for fostering state standards.",
+          "attribution": "Al Goshi",
+          "at": "@56:17"
+        },
+        {
+          "text": "Church and community organizations as a channel to families inside the school system.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:00:06"
+        },
+        {
+          "text": "A Malcolm Gladwell book on Ivy League schools and what culture says about education.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:01:15"
+        },
+        {
+          "text": "Clear standards for homeschooling, unknown in the arrangements seen in other homes.",
+          "attribution": "Chase Kubic",
+          "at": "@1:04:38"
+        },
+        {
+          "text": "Teachers themselves as a source on stipends and why staff choose a school.",
+          "attribution": "Chase Kubic",
+          "at": "@1:06:16"
+        },
+        {
+          "text": "A curriculum and specialty for English as a second language.",
+          "attribution": "Chase Kubic",
+          "at": "@1:15:18"
+        },
+        {
+          "text": "Levelling adult language provision, so long-settled newcomers can reach college.",
+          "attribution": "a participant",
+          "at": "@1:17:06"
+        },
+        {
+          "text": "A route for citizens and parents to shape the curriculum their children see.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:25:43"
+        },
+        {
+          "text": "A degree and thesis in human development already inside the group.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:25:59"
+        },
+        {
+          "text": "Migrant women's groups as a source on the newcomer experience.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:27:52"
+        },
+        {
+          "text": "Need for fiscal transparency: the department's budget, the claimed savings, and what reaches a student.",
+          "at": "@37:07"
+        },
+        {
+          "text": "Need to establish who inherits each department function and who enforces equal access.",
+          "at": "@34:04"
+        },
+        {
+          "text": "Need a plain account of what the department actually governs and administers.",
+          "attribution": "Chase Kubic",
+          "at": "@23:57"
+        },
+        {
+          "text": "Need to know what happens to special education and accessibility duties tied to federal grants.",
+          "attribution": "Al Goshi",
+          "at": "@43:15"
+        },
+        {
+          "text": "Need to test whether reported school scores measure the school or the program placed in it.",
+          "at": "@1:05:20"
+        },
+        {
+          "text": "Need first-hand accounts from teachers, parents and community groups, not news coverage alone.",
+          "attribution": "Ehren Gruber",
+          "at": "@58:26"
+        },
+        {
+          "text": "Need a comparison of how other countries hold a standard without a federal department.",
+          "attribution": "Ehren Gruber",
+          "at": "@27:06"
+        },
+        {
+          "text": "Need to map how curriculum is decided, and where parents and citizens can enter.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:25:36"
+        },
+        {
+          "text": "Need one national standard for what every state teaches, and equal access to it.",
+          "at": "@41:02"
+        },
+        {
+          "text": "Need visible standards behind homeschooling, and support for the families choosing it.",
+          "attribution": "Ehren Gruber",
+          "at": "@58:33"
+        },
+        {
+          "text": "Need education that closes the gap when a newcomer's credentials stop counting.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:18:21"
+        },
+        {
+          "text": "Need to draw on elders, tradespeople and community groups as teachers without credentials.",
+          "at": "@1:28:24"
+        },
+        {
+          "text": "Need to decide at what level to invest in children once federal support ends.",
+          "attribution": "Chase Kubic",
+          "at": "@1:11:56"
+        },
+        {
+          "text": "Need evidence on who teaches where, and how pay and placement shape it.",
+          "at": "@1:06:16"
+        }
       ],
       "policies": [
-        "Section 256 - 'separate, yet equal' laws in Alabama.",
-        "National Defense Education Act - U.S. STEM focus after Sputnik.",
-        "Woodland High School - bias in Pittsburgh schooling.",
-        "'I hate the Ivy League' - Malcolm Gladwell podcast."
+        {
+          "text": "Department of Education charter: equal access to education for all American students.",
+          "attribution": "Larry",
+          "at": "@39:39"
+        },
+        {
+          "text": "Department of Education created about 1979 to affirm equal attention across districts.",
+          "attribution": "Chase Kubic",
+          "at": "@46:58"
+        },
+        {
+          "text": "United States moves to dissolve the Department of Education.",
+          "attribution": "Rachel Gruber",
+          "at": "@16:19"
+        },
+        {
+          "text": "Department remit named: teachers union influence, student loans, funding for some schools.",
+          "attribution": "Chase Kubic",
+          "at": "@37:33"
+        },
+        {
+          "text": "Schools taking federal support must enforce equal opportunity and nondiscrimination standards.",
+          "attribution": "Al Goshi",
+          "at": "@43:03"
+        },
+        {
+          "text": "Special education programs meeting set criteria required of federal grant recipients.",
+          "attribution": "Al Goshi",
+          "at": "@43:15"
+        },
+        {
+          "text": "Federal government has not participated in education standards, with one exception.",
+          "attribution": "Al Goshi",
+          "at": "@55:53"
+        },
+        {
+          "text": "Soviet Sputnik launch preceded the first American space vehicle.",
+          "attribution": "Al Goshi",
+          "at": "@56:05"
+        },
+        {
+          "text": "National Defense Education Act - the Sputnik-era federal STEM priority later housed in the Education Department, which fostered state standards. Name from the foundation's notes, not spoken in the session.",
+          "attribution": "Al Goshi",
+          "at": "@56:17"
+        },
+        {
+          "text": "Section 256 - the 'separate but equal' provision behind Alabama's segregated schools, named in the circle as a familiar term that was never true. Name from the foundation's notes, not spoken in the session.",
+          "attribution": "Larry",
+          "at": "@40:19"
+        },
+        {
+          "text": "Alabama - National Guard mobilized over the state's hold on school segregation.",
+          "attribution": "Larry",
+          "at": "@40:00"
+        },
+        {
+          "text": "A high school placed between two suburbs to force new district lines.",
+          "attribution": "Hez Jenkins",
+          "at": "@59:34"
+        },
+        {
+          "text": "IRS and Department of Defense cited as programs showing national priorities.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:02:34"
+        },
+        {
+          "text": "Canada's Truth and Reconciliation Commission, instituted to address a gap in history.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:13:14"
+        },
+        {
+          "text": "Land acknowledgement of First Nations history now a mandate taught nationwide.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:13:47"
+        }
       ],
       "opportunities": [
-        "Create local dialogue on education.",
-        "Forge community identity around education.",
-        "Include language / morals in curriculum."
+        {
+          "text": "Home-based homeschool programs seen running very successfully, with children thriving.",
+          "attribution": "Chase Kubic",
+          "at": "@1:04:57"
+        },
+        {
+          "text": "Homeschooling frees a family to travel or finish the year early.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:08:31"
+        },
+        {
+          "text": "Communities could introduce the morals, ethics and cultural identity they value.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:10:02"
+        },
+        {
+          "text": "The dissolution debate has people talking about education and what matters.",
+          "attribution": "Chase Kubic",
+          "at": "@1:11:28"
+        },
+        {
+          "text": "Lyceum leans into the problem rather than political identity or ideology.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:12:43"
+        },
+        {
+          "text": "Education could help arriving professionals keep a similar quality of life.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:18:46"
+        },
+        {
+          "text": "Multilingual newcomers often speak three languages where critics barely speak one.",
+          "attribution": "Larry",
+          "at": "@1:22:12"
+        },
+        {
+          "text": "Later arrivals start from collected knowledge rather than from nothing.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:28:15"
+        }
       ],
       "challenges": [
-        "Safety concerns.",
-        "Lack of respect toward workers.",
-        "Language / cultural barriers for newcomers."
+        {
+          "text": "Left to their own devices, states may not serve the national interest.",
+          "attribution": "Larry",
+          "at": "@40:39"
+        },
+        {
+          "text": "Open forum means participants step away mid-inquiry and miss part of it.",
+          "attribution": "Larry",
+          "at": "@43:15"
+        },
+        {
+          "text": "Shutdown costs end up exceeding the cost of continuing the programs.",
+          "attribution": "Al Goshi",
+          "at": "@44:33"
+        },
+        {
+          "text": "Money left over after closures will not be put back into education.",
+          "attribution": "Al Goshi",
+          "at": "@45:05"
+        },
+        {
+          "text": "Empowering states enables retrogression on equal opportunity and non-discrimination.",
+          "attribution": "Al Goshi",
+          "at": "@45:57"
+        },
+        {
+          "text": "Families who can afford the transfer send children to the better school.",
+          "attribution": "Chase Kubic",
+          "at": "@48:01"
+        },
+        {
+          "text": "Schools that lose students slide into outdated textbooks and worn furniture.",
+          "attribution": "Ehren Gruber",
+          "at": "@51:04"
+        },
+        {
+          "text": "Curriculum gaps between states leave transferring students playing catch up.",
+          "attribution": "Chase Kubic",
+          "at": "@54:07"
+        },
+        {
+          "text": "Effects of eliminating programs ripple back slowly, like a pebble in water.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:00:41"
+        },
+        {
+          "text": "Minority students may have no teacher who looks like them to look up to.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:02:05"
+        },
+        {
+          "text": "Dissolving the department may show education is valued less than assumed.",
+          "attribution": "Rachel Gruber",
+          "at": "@1:03:06"
+        },
+        {
+          "text": "Growing move to homeschooling driven by dissatisfaction with schooling offered.",
+          "attribution": "Chase Kubic",
+          "at": "@1:04:12"
+        },
+        {
+          "text": "Special programs placed to change the statistics reported to the federal government.",
+          "attribution": "Chase Kubic",
+          "at": "@1:06:16"
+        },
+        {
+          "text": "Rumors of bad influences and negative peer groups raise safety concerns.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:07:36"
+        },
+        {
+          "text": "Without a basis for morals and ethics, conduct becomes a free for all.",
+          "attribution": "Hez Jenkins",
+          "at": "@1:08:16"
+        },
+        {
+          "text": "Communities left to address inequalities with no federal resourcing or support.",
+          "attribution": "Ehren Gruber",
+          "at": "@1:10:40"
+        },
+        {
+          "text": "Credentials do not transfer: a lawyer at home ends up cleaning houses.",
+          "attribution": "a participant",
+          "at": "@1:16:22"
+        },
+        {
+          "text": "Without the language, newcomers cannot enter university, college or other learning.",
+          "attribution": "a participant",
+          "at": "@1:17:19"
+        },
+        {
+          "text": "A country that claims not to be racist can still hold much racism.",
+          "attribution": "a participant",
+          "at": "@1:17:37"
+        }
       ],
       "quote": "The child that doesn't get educated may be the one that can cure the common cold, but we don't know that because we didn't educate him or her.",
-      "callToAction": "Rachel G. volunteered to research more on this inquiry. Ehren and Hez offered to support by gathering information. Ehren will speak with Marcia to learn more about her volunteer work helping female migrants integrate into Vancouver.",
+      "quoteBy": "Larry",
+      "quoteAt": "@40:44",
+      "callToAction": "Rachel Gruber volunteered to carry the inquiry forward, taking up how curriculum is developed and whether citizens and parents can be given a voice in what their children are taught in school. Ehren Gruber joined her immediately, said the team was not limited to two, and undertook to build a shared product the group can add to and circulate as more people become interested. Hez Jenkins volunteered to take part as well. The recording names four people on the inquiry team; one of them was not present at the gathering, so the record carries three named stewards and one further steward, withheld. Ehren Gruber also offered to follow up with a participant whose community work supports newcomer women, to learn from that experience for the inquiry. Larry proposed in the chat that the group take up further discussion on the topic, and Ehren Gruber accepted it into the six-month reflection, where the circle revisits six inquiries and those carrying each one report back for questions and input. Ehren Gruber, Chase Kubic and Hez Jenkins, as hosts, will develop products from the session and be in touch afterwards, with the next Lyceum set for the following month.",
       "stewards": [
         "Rachel G.",
         "Ehren",
         "Hez"
       ],
-      "quoteBy": "Larry",
+      "stewardsWithheld": 1,
+      "storyboard": {
+        "logline": "A seven-person Lyceum spanning Vancouver, Virginia and Pittsburgh took a live news item, the dissolving of the US Department of Education, and turned it into one question about what leaders owe education in their own communities.",
+        "arcNotes": "The session followed its script and still turned twice. It opened tightly - rules and norms, a pre-survey called the learning conversation, a breathing circle with gratitude to the Earth, to ancestors, to self, to family and to the next generation - and the shared understanding round showed a circle that is largely one extended family, held together by military service as much as by blood, plus two first-time guests. The first turn came when the topic arrived from the floor: not education in the abstract but the dissolving of the US Department of Education, which handed the group a live case with a Canadian comparison already in the room. The middle hour stayed unusually factual for a Lyceum, with participants supplying what they had seen rather than what they believed: every school type in one military family's life, Chile's three routes with a part-subsidized middle, a reported department budget and how little of it reaches a student, the department's real charter of equal access, its grants and non-discrimination enforcement, and the single federal intervention in standards after Sputnik. The second turn went inward, from policy to inheritance: Pittsburgh desegregated on paper in 1981 and not in fact, schools desegregated for students but not for teachers, a transfer fee that reopens sorting by income, International Baccalaureate programs sited to lift a weak school's reported scores, stipends that route teachers by need rather than fit. From there the circle asked what a government's national programs reveal about what it values, and answered that a community can decide morals, ethics and cultural identity for itself when the state will not. The last twenty minutes belonged to newcomers and to language: qualifications that stop counting at a border, language as both respect and gate, assimilation bought at the cost of a grandmother's German. The call to action was taken up rather than assigned - how curriculum is developed, and whether parents and citizens can have a voice in it - and the fellowship circle closed on the same theme from another angle, that much of the teaching that matters is done by people who are not teachers. Suppressions, all deliberate rather than accidental: three children's names withheld; the personal history of the two first-time guests withheld and their self-introductions attributed to a participant; one participant's account of immigration and of racism experienced attributed to a participant, with country and city removed; the names of four service colleagues and of two family members who were not in the room withheld, and with them a spouse's teaching anecdote and a spouse's credential story, whose substance is kept without them; a serving participant's pending relocation left out; a young child briefly on camera not recorded. Three stewards are named and a fourth, a family member who was never in the room, is withheld, so that list is one short on purpose. The chat log runs six minutes and twenty-six seconds ahead of the recording, and chat contributions are placed at their recording-clock equivalents. The title of the Malcolm Gladwell book is garbled in the source and is not corrected here.",
+        "beats": [
+          {
+            "n": 1,
+            "title": "Norms, survey, and the presence circle",
+            "timeRange": "@0:06 - @5:27",
+            "speakers": [
+              "Ehren Gruber",
+              "Al Goshi"
+            ],
+            "summary": "Ehren Gruber opened the Lyceum as an endeavor for shared purpose for families and communities, welcomed two new guests and ran an audio check with Al Goshi as he came on board. He set the norms: about an hour and a half, an open forum where people come and go as life dictates, hosted with Chase Kubic and Hez Jenkins, everyone a peer whatever their walk of life, difficult and sensitive topics approached with curiosity, commonality sought while difference is acknowledged. He walked the agenda and put up the pre-survey, called the learning conversation, by chat link or QR code, describing it as a way to ground where each person is emotionally and what they may need from the group. He then led the opening presence: turn sideways to open to the group and to the nature around it, lower the gaze, and five breaths, each with a prompt of gratitude.",
+            "pullQuote": "here, in this space, in the Lyceum we're all considered peers",
+            "slideHint": "Title slide 'Lyceum - an endeavor for shared purpose for families and communities' with rules and norms (peers, curiosity, commonality, open forum, hosts named), then an agenda strip, then the pre-survey QR code labeled Learning Conversation with a chat-link fallback, then a plain Presence slide listing the five gratitude prompts in order: Earth, ancestors, self, family and friends, the next generation."
+          },
+          {
+            "n": 2,
+            "title": "Shared understanding round",
+            "timeRange": "@5:27 - @13:07",
+            "speakers": [
+              "Ehren Gruber",
+              "Larry",
+              "Al Goshi",
+              "Hez Jenkins",
+              "Chase Kubic",
+              "a participant"
+            ],
+            "summary": "The circle went round on cultural background, family and connection to the Lyceum. Ehren Gruber gave a mixture of European and Asian descent, born and raised in the United States, now living in Vancouver, British Columbia, where his family took up community engagement locally. Larry introduced the European side of the family, born in America and living in Virginia, connected to everyone else through his son or through long friendship. Al Goshi was raised in Hawaii in a Japanese American community and claims Irish by marriage, and counts himself part of an extended family that reaches across three households. Hez Jenkins is serving in the military in Pittsburgh, originally from Texas, has been all over Europe and South Korea, homeschools his children, and came to the group through Chase Kubic, his former commander. Chase met Ehren in freshman year of high school and serves alongside Hez. Both first-time guests also introduced themselves; those introductions are recorded here as a participant and the personal detail in them is withheld. Ehren closed the round by restating that the forum is open and anyone who steps away will be brought back up to speed.",
+            "pullQuote": "Larry is my brother-in-law by military service and curmudgeonly perspective.",
+            "slideHint": "Shared Understanding slide with the three prompts small in the corner (cultural background, family composition, connection to the Lyceum) and a round-robin list of one line per person, the two guest lines left as 'guest' with a footnote that a first-time guest's personal detail is withheld from the record."
+          },
+          {
+            "n": 3,
+            "title": "A world map, and the question arrives",
+            "timeRange": "@13:07 - @18:24",
+            "speakers": [
+              "Ehren Gruber",
+              "Rachel Gruber",
+              "Marcia Lopez"
+            ],
+            "summary": "Ehren Gruber used the United Nations country map and a World Bank map that colors the world by region, suggesting the colors as a memory prompt so lived experience and cultural wisdom could be brought to bear on whatever the group chose. He explained the sequence of inquiry for the two newcomers: find a topic that matters to the group, build consensus on it, then work through theories, application in communities, what gets to the root, opportunities and challenges, and a call to action that somebody carries and reports back on, so the discussion becomes a quest rather than an evening. The floor opened. Rachel Gruber proposed the role of education in communities, prompted by moves to dissolve the US Department of Education, and asked what federal and state governments each do for educating youth, and what a state-led system loses without federal support. Marcia Lopez answered from Canada, where the federal government has not directly funded housing for people without means since the 1990s, and added a second worry, whether the US President's talk about Canada is a joke or serious.",
+            "pullQuote": "the role of education in our communities. In the Us. They're looking at dissolving the Department of education.",
+            "slideHint": "Two slides: the color-coded World Bank region map under 'consider where you have been and where you are now', then the Sequence of Inquiry ladder (topic by consensus, theories and concepts, application, root causes, opportunities and challenges, call to action) with a note that a call to action means somebody carries the inquiry and comes back with updates."
+          },
+          {
+            "n": 4,
+            "title": "Two candidate questions, and why community",
+            "timeRange": "@18:24 - @25:03",
+            "speakers": [
+              "Ehren Gruber",
+              "Chase Kubic"
+            ],
+            "summary": "Ehren Gruber drafted a question on screen and drew the parallel out loud: a federal government that once provided supportive housing withdrew from it, and a department the United States has relied on may go the same way. Two avenues sat on the table, education and leadership in how messages are conveyed across countries, and he invited the group to narrow either. He explained why the group keeps saying community: the Lyceum works at the scale of towns, cities, cultural and religious groups, not capitals, because that is where decisions land on families. Chase Kubic added the group's levels of impact, from individual to family to local community, with state and federal effect a longer-term goal, and argued that what shapes daily life is settled locally: taxes, housing, food and shelter, whether a big store closes, what the gas price is. On the first candidate question he admitted knowing the Department of Education only in outline, student loans, school nutrition, broad guidelines, and asked whether the leadership question could be narrowed before the group took it on.",
+            "pullQuote": "Now it starts to call into question, what does the government supposed to do, if anything, to empower education for communities.",
+            "slideHint": "Deliberation slide with the two candidate questions side by side and space to edit them live, next to a levels-of-impact diagram (individual, family, local community, state, federal) with the daily-life list beneath it: taxes, housing, food, shelter, local business, fuel prices."
+          },
+          {
+            "n": 5,
+            "title": "One question, chosen by consensus",
+            "timeRange": "@25:03 - @29:09",
+            "speakers": [
+              "Al Goshi",
+              "Ehren Gruber"
+            ],
+            "summary": "Al Goshi proposed folding leadership into the education question rather than dropping either, while refusing to dismiss the question of whether the President is serious about making Canada the 51st state. He said he cannot always tell how seriously to take what is said, that a worst-case threat analysis discounts nothing, and that weakening and disestablishing the Education Department is a long-stated aim now coming true with major effect. Analyzing that stated vision against what is actually happening in US education policy would limit the scope of both candidate questions, he suggested, before wondering aloud whether the framing was too US-centric. Ehren Gruber asked twice for objections, a raised hand or a thumbs up, took the silence as consent, and set the evening's question, noting that leaders could mean education administrators or anyone providing educational services. The theories section then opened with what people have experienced of education in a community, public, private, government or vocational.",
+            "pullQuote": "Looking at the question as written, what should leaders do to empower education and communities",
+            "slideHint": "Today's Inquiry slide - 'What should leaders do to empower education in communities?' - with a definition strip widening leaders to administrators, education services and non-formal educators, and the sequence of inquiry down the side as the evening's roadmap."
+          },
+          {
+            "n": 6,
+            "title": "One family, every kind of school",
+            "timeRange": "@29:09 - @33:43",
+            "speakers": [
+              "Chase Kubic"
+            ],
+            "summary": "Chase Kubic offered his own experience as the first theory: public elementary, middle and high school in Norfolk, Virginia, a public university left unfinished, then a second public institution with more private elements. As a parent he has seen a private Christian school funded by tuition, parent volunteering and small overheads, run by a board to a budget; a public district school serving an installation where about ninety-nine percent of students came from the military; and Department of Defense federal schools where the funding was visible in smart boards, screens, computers, integrated technology and modern buildings. Ordinary public schools showed the reverse, a degradation of facilities and equipment, with localities choosing very different shares of city or state budget to put into a school, a quarter in one place and half in another. He had also taught languages in post-secondary settings in other countries, which ran differently again, and he handed the question back to the group.",
+            "pullQuote": "So there's some major differences and some inconsistencies across the nation, at least, that I've seen",
+            "slideHint": "Theories and Concepts slide: a comparison table of school types (private religious, district school serving an installation, Department of Defense federal school, ordinary public school) scored on funding source, facilities, technology and oversight, with 'inconsistencies across the nation' as the banner line."
+          },
+          {
+            "n": 7,
+            "title": "Chile's three routes, and what the department does",
+            "timeRange": "@33:43 - @39:36",
+            "speakers": [
+              "Marcia Lopez",
+              "Ehren Gruber",
+              "Chase Kubic"
+            ],
+            "summary": "Marcia Lopez set out the Chilean system: twelve years of school then college or university, with three routes to choose from. Public schooling, a part-subsidized category where the government funds the school and the family pays half, and private, with most families reaching for the middle option because it is the affordable one. Students with strong results can attend university free, which she called the good part of the system, while ordinary university fees stand near the minimum wage. Her own question stayed open, what actually happens in the United States if the ministry is dissolved and the responsibility passes to governors or municipalities. Chase Kubic answered with what he had followed in the news, unverified but widely reported: overarching guidelines touching nutrition, influence with the teachers union, administration of student loans and some school funding, a back-office department with little direct influence on schools, with curriculum left to city, county or state. He cited a budget figure near 286 billion dollars with roughly a quarter reaching individual students, and said the rest of it remains unknown, an evolving issue nobody outside the department can call.",
+            "pullQuote": "the school receives money and you pay half.",
+            "slideHint": "Application slide 'how is this handled elsewhere': Chile's three routes as three columns (public, part-subsidized with the family paying half, private) with free university on results called out, next to a panel on what the US Department of Education actually administers and the disputed budget figure marked as unverified."
+          },
+          {
+            "n": 8,
+            "title": "Equal access, and who watches the states",
+            "timeRange": "@39:36 - @46:13",
+            "speakers": [
+              "Larry",
+              "Al Goshi",
+              "Ehren Gruber"
+            ],
+            "summary": "Larry named the department's real charter as equal access rather than dictation to local schools, and reached back to segregation, to Alabama holding so dearly to segregated schools that the National Guard was mobilized over it, and to the phrase separate yet equal, which he said was simply not true. Left to their own devices, he argued, states may not do what is in the country's interest, and the child who never gets educated may be the one who could have cured the common cold. He asked whether money saved by disestablishing the department will in fact cycle down to schools, states and local jurisdictions, and read Al Goshi's expression as one dissenting vote from the gentleman from Hawaii. Al agreed and set out the programs he sees through a federal department that cooperates with them: grants and priorities for underserved communities, enforced standards of equal opportunity and non-discrimination, special education criteria, developmental access, ramps and mobility devices. He argued that the claimed savings from shutdowns cost more than continuing the programs, that whatever remains will go to another pet project rather than back to education, and that empowering the states risks reversing fifty years of a common standard. Larry stepped away briefly, posting his thanks in the chat.",
+            "pullQuote": "The child that doesn't get educated may be the one that can cure the common cold, but we don't know that because we didn't educate him or her.",
+            "slideHint": "Sources and Inputs slide headed 'equal access is the charter': a list of the department's programs (grants to underserved schools, non-discrimination enforcement, special education criteria, physical access), a history strip (segregation, separate yet equal, the National Guard in Alabama), and a savings-versus-shutdown-cost pair of bars."
+          },
+          {
+            "n": 9,
+            "title": "Transfer fees, entrance exams, no national curriculum",
+            "timeRange": "@46:13 - @53:19",
+            "speakers": [
+              "Chase Kubic",
+              "Ehren Gruber",
+              "Larry"
+            ],
+            "summary": "Chase Kubic agreed the money would find another department rather than return to education, dated the department's creation to 1979 with a mandate for equal attention it has not fulfilled, and gave the mechanism he has used himself: in Texas a family that can pay an added district fee and drive their child can transfer out of a Title I school to any school they like. Those who can afford it choose the better school, its ratings keep improving, and a form of segregation persists, which he called disproportionate to the department's intent and mostly a state-level failure. Ehren Gruber widened the frame to China and South Korea, where entrance exams decide university places and later employment, and students study themselves almost to death for a score that can send a life either way. He then named the deeper gap: Japan and Australia teach a national curriculum and the United States does not, so history and what it means to be American are interpreted school by school, which he read as a national identity crisis underneath the polarization. Larry posted in the chat that this was the start of separate but equal.",
+            "pullQuote": "there's almost like there's a national identity crisis. It's like, Hey, what does it mean to be an American?",
+            "slideHint": "Two panels: 'shifting to the better school' with the added district fee, the ratings loop and the funding that follows the scores; and 'national curriculum' comparing Japan and Australia with the United States, with the entrance-exam cultures of China and South Korea shown as the extreme case of education deciding a life."
+          },
+          {
+            "n": 10,
+            "title": "State standards and one federal exception",
+            "timeRange": "@53:19 - @59:02",
+            "speakers": [
+              "Chase Kubic",
+              "Al Goshi",
+              "Ehren Gruber"
+            ],
+            "summary": "Chase Kubic pointed to Virginia's Standards of Learning and the Texas STAAR tests as proof that standards are set state by state, and described the cost of moving between them: children arriving from a high-performing state ahead of the local curriculum, then playing catch-up after the next move, with one of his children losing a year of math placement in the process. He would prefer a national curriculum, or at least a federal standard, because states are being treated almost as separate countries. Al Goshi answered that the federal government has kept out of education standards exactly once: after the Soviet Union launched Sputnik, a STEM priority program eventually housed in the Education Department fostered state standards at primary, secondary and post-secondary level. Beyond that, the federal role has been to insist that whatever standard a state sets is equally accessible across its population, and to fund underserved communities where property-tax-based school finance falls short. Ehren Gruber tied this back to Larry's chat line about separate but equal, and warned that inequality, once formed, takes two or three generations to unwind.",
+            "pullQuote": "We're almost treating each State as a different country based on, you know, their own curriculum",
+            "slideHint": "Policies slide: a strip contrasting state testing regimes (Standards of Learning in Virginia, STAAR in Texas, Department of Defense schools in the middle) with a timeline callout for the post-Sputnik STEM program as the single federal intervention in standards, and a footnote on property-tax-based school funding."
+          },
+          {
+            "n": 11,
+            "title": "Pittsburgh, and what a government values",
+            "timeRange": "@59:02 - @1:04:05",
+            "speakers": [
+              "Hez Jenkins",
+              "Rachel Gruber"
+            ],
+            "summary": "Hez Jenkins described Pittsburgh's particular case: legally desegregated in 1981, but the shape of the city and its suburbs left segregation standing, and a high school was placed between two suburbs to force new district lines, which people resented at the time and, he believes, resent still. Homeschooling his own children, he hears from church and community families about strong programs and troubled kids inside the same buildings, and warned that anything adopted now is a pebble dropped in water whose ripples take time to return. Rachel Gruber picked up the desegregation thread from a recent Malcolm Gladwell book on the Ivy League and what the culture says about education, its title garbled in the recording: schools were desegregated for students but not for teachers, African American teachers were largely dismissed, and minority students were left without a teacher who looked like them or saw things differently, an effect she said is still felt. That took her to what a government's national programs reveal about what it values, and to the worry that dissolving the department shows education is valued less than assumed. She noted Canada has no federal oversight of education at all; everything sits with the provinces.",
+            "pullQuote": "What? What does the Us. Government value? And it I feel like things that have a national program are kind of like showing what our country places most value on.",
+            "slideHint": "Root Causes slide: a Pittsburgh timeline (legal desegregation in 1981, a high school sited between two suburbs, tension that outlasted the order) beside a 'desegregated for students, not for teachers' panel, with the pebble-in-the-water image for lag time and a one-line comparison of where oversight sits in Canada and the United States."
+          },
+          {
+            "n": 12,
+            "title": "School districts, stipends, and homeschooling",
+            "timeRange": "@1:04:05 - @1:09:09",
+            "speakers": [
+              "Hez Jenkins",
+              "Chase Kubic",
+              "Ehren Gruber"
+            ],
+            "summary": "Hez Jenkins relayed a teacher's account from a school on a base: staff could tell, without testing, whether a student arriving from a given state would be ahead or behind. Chase Kubic said his family chose their rented house for its school district, knowing which schools it fed before the move, and named a growing turn to homeschooling among families dissatisfied with what their children were getting, with quality varying sharply from one household to the next. He then described an engineered kind of sorting: International Baccalaureate programs placed in the lowest-ranked high school in each of three Virginia cities, which lifts that school's reported scores, and stipends that draw teachers to the most challenged schools, so that where a teacher works carries its own stigma or status. Hez set out why his family homeschools: safety, rumors about the next school, bad influences and peer groups, and a felt absence of structure in morals and ethics, alongside the freedom to travel and to substitute practical life learning, cooking, shopping, applying math in the shop, for book knowledge alone.",
+            "pullQuote": "So teachers, if they need money or they need to be paid more, are going to work at some of the the more challenged schools.",
+            "slideHint": "Challenges slide split three ways - choosing a home by school district, International Baccalaureate placement lifting a weak school's numbers, stipends and stigma following teachers - with a fourth column on homeschooling motives: safety, morals and ethics, flexibility, practical learning."
+          },
+          {
+            "n": 13,
+            "title": "Communities as curriculum",
+            "timeRange": "@1:09:09 - @1:15:53",
+            "speakers": [
+              "Ehren Gruber",
+              "Chase Kubic",
+              "Marcia Lopez"
+            ],
+            "summary": "Ehren Gruber turned to opportunities. If education falls to states and communities, then morals and ethics need not be left to an institution to define, and the diversity of the United States means communities could shape cultural identity themselves, with Hispanic, Black, Asian, Jewish and other voices saying what their own heritage means. Chase Kubic argued that the pot has been stirred: immigration went almost unspoken until it was raised, education may be the same, and polarized argument beats stagnation if it reinvigorates the question of how to invest in children and at what level. Ehren replied that the Lyceum holds difficult conversations by leaning into the problem rather than into political identity or ideology, and offered Canada as a worked example, the land acknowledgement and a Truth and Reconciliation Commission he dated to 2016 making First Nations, Metis and Inuit history a taught mandate, filling a gap in the national story. Marcia Lopez posted her own gratitude in the chat for living and learning on the stolen lands of the Squamish, Tsleil-Waututh and Musqueam Nations. Chase then opened the language question: states with heavy immigration, a curriculum delivered in English, English as a second language, refugees arriving already at school age.",
+            "pullQuote": "We don't lean into ideology, we lean into the problem that exists.",
+            "slideHint": "Opportunities slide 'communities as curriculum': three bullets (morals and ethics decided locally, cultural voices naming their own heritage, difficult conversation better than stagnation) beside a Canada panel on land acknowledgement and the Truth and Reconciliation teaching mandate as a model for filling a gap in national history."
+          },
+          {
+            "n": 14,
+            "title": "What a border does to a qualification",
+            "timeRange": "@1:15:53 - @1:21:20",
+            "speakers": [
+              "a participant",
+              "Ehren Gruber",
+              "Chase Kubic",
+              "Larry"
+            ],
+            "summary": "A participant working on a project with migrant women named the challenge the group had not touched: a lawyer in their own country, cleaning houses here. Speaking the local language is a matter of respect and the gate to everything else, they said, since a person cannot live twenty years in a country without it and, without it, college and university stay closed, though keeping one's own culture was never in question. They also named the harder disappointment, arriving in a country that says it is not racist and finding racism anyway, with going back not an option. Ehren Gruber summarized the gap: a professional license or degree stops counting on arrival, a successful life restarts from the bottom, and language itself blocks both the new culture and the next job, so education is needed to close it. Chase Kubic added the soldiers he has met who hold the equivalent of a master's degree and enlisted because nobody would recognize their qualifications, and noted that international agencies exist to credit prior study. Larry posted in the chat that he grew up in New Jersey learning everything there is to know about the Lenape.",
+            "pullQuote": "It's almost like they're starting their life all over again, and they're trying to build back up and the language barrier itself could be a huge obstacle",
+            "slideHint": "Challenges slide 'what a border does to a qualification': a three-step drop (qualified professional, unrecognized credential, entry-level work) with language shown as the gate across all three, and a side panel naming credential-evaluation agencies and language leveling as existing remedies."
+          },
+          {
+            "n": 15,
+            "title": "Assimilation, welcome, and a steward for the inquiry",
+            "timeRange": "@1:21:20 - @1:29:16",
+            "speakers": [
+              "Larry",
+              "Rachel Gruber",
+              "Ehren Gruber",
+              "Hez Jenkins"
+            ],
+            "summary": "Larry told of a well-educated colleague in the Navy, already speaking three languages while becoming an American citizen, and of shutting down shipmates who said the man did not even speak English. The welcoming instinct of some people in a great land, he said, often makes the immigration experience less than desirable, with each group assuming its rights supersede the next arrivals'. From his own family he traced the cost of speed: German-speaking parents who forbade German in the house so his grandmother would assimilate quickly, and two generations on, a descendant who cannot speak it and has lost the commonality with people of another country or religion. Al Goshi stepped away in the chat. Ehren Gruber then put the call to action, so that the evening's collective knowledge would not simply disperse. Rachel Gruber volunteered to look into how curriculum is developed and whether citizens and parents can be given a voice in what their children are taught. Ehren joined her, saying his thesis in human development sits in exactly that space and was part of the impetus for the group, and kept the team open to others. Hez Jenkins volunteered as well and offered to pass the inquiry on. Larry, declining to speak, wrote instead that part of his own education came from adults who were not technically educators, which Ehren read out and extended to elders and technical experts whose skill should not be dismissed for want of letters after a name.",
+            "pullQuote": "He speaks 3 languages. You barely speak one.",
+            "slideHint": "Way Ahead slide: the call to action stated as a continuing inquiry with a shared product that others can add to, the volunteers listed with one line each and the fourth name marked withheld, and a side panel headed 'educators without the title' drawn from the chat."
+          },
+          {
+            "n": 16,
+            "title": "Learning reflection and the fellowship circle",
+            "timeRange": "@1:29:16 - @1:37:06",
+            "speakers": [
+              "Ehren Gruber",
+              "Larry",
+              "Marcia Lopez",
+              "a participant",
+              "Hez Jenkins"
+            ],
+            "summary": "Hez Jenkins posted the closing survey, the learning reflection, into the chat with thanks for the group's participation, and Ehren Gruber put the QR code on screen and left it up rather than rushing anyone. He then opened the fellowship circle, where the floor goes round one last time and silence counts as an offering. Larry, trying to channel his inner Hez by writing his notes first, thanked everyone and pressed his point home: he learned as much from four named colleagues from his service years, whose names are withheld here, as from any year in any classroom. Marcia Lopez said the classroom format holds her attention, but she doubts it has a future, and that stories are how an adult learns best, while wondering what that means for children. A participant thanked the circle for the range of perspectives in a respectful environment. Ehren called the evening an example of what such conversations could look like in communities anywhere without descending into conflict, promised products from it, and named the next Lyceum for the following month. Answering Larry's chat proposal for further discussion, he explained the six-month reflection, when stewards report back on their inquiries and the group weighs in, and listed those carrying this one forward: three named in the room, and a fourth, a family member who was not present, withheld here.",
+            "pullQuote": "I learn here a lot from stories, and I think, as an adult, that is the best way to learn.",
+            "slideHint": "Post-Survey slide with the Learning Reflection QR code and a chat-link fallback, then a Fellowship Circle slide naming silence as an offering, then a closing slide with the six-month reflection cycle, the stewards for this inquiry with one place marked withheld, and a placeholder for next month's Lyceum."
+          }
+        ]
+      },
       "provenance": {
-        "source": "guild team notes, with the highlight quote verified against the meeting recording",
-        "note": "Sections were hand-authored from external notes rather than from the recording. The recording has since been located and shows the notes omit substantial contributions; a merge is pending.",
-        "extractedOn": "2026-08-08",
+        "source": "the meeting recording transcript and chat log, merged with the foundation's hand-authored notes from the same gathering",
+        "note": "Merged from two independent records of the same session. Where they disagreed the recording won on wording and attribution, and the notes won on canonical names, which are marked where they were not spoken.",
+        "extractedOn": "2026-08-09",
         "reviewedBy": ""
       }
     },
