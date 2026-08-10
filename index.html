@@ -245,6 +245,28 @@
   const fromRecap = d => !!d.recapOf;
   const isTranscribed = d => hasContent(d) && !fromRecap(d);
 
+  // ------------------------------------------------- where a suggestion goes
+  // A suggestion has to arrive somewhere a person will see it. The form used to write to
+  // localStorage while telling the member it was "recorded with your name and the date -
+  // the seed of community version control", which was not true: it stayed in their own
+  // browser, was invisible to everyone including us, and Safari deletes it after seven
+  // idle days. Somebody could have written a careful correction and watched it vanish.
+  //
+  // A GitHub issue is the honest destination. It needs no server, no token and no
+  // moderation queue, it notifies the stewards, and the reply is public and attributable.
+  // The cost is a free GitHub account, which the page says plainly rather than hiding.
+  const REPO = 'PraxiumLearningFoundation/education-lyceum-board';
+
+  function issueUrl(template, fields){
+    const q = new URLSearchParams({ template });
+    for (const [k, v] of Object.entries(fields)){
+      // A very long field would push the URL past what some browsers will follow, and a
+      // truncated suggestion is worse than a short one plus a note to expand it.
+      if (v) q.set(k, String(v).slice(0, 1200));
+    }
+    return `https://github.com/${REPO}/issues/new?${q.toString()}`;
+  }
+
   // --------------------------------------------------- local "living" storage
   // For the MVP, contributions + comments live in the browser (localStorage).
   // In production these become API calls - see README "Way Ahead".
@@ -252,7 +274,6 @@
     comments(id){ try { return JSON.parse(localStorage.getItem('lyc.comments.'+id)) || []; } catch { return []; } },
     addComment(id, c){ const all = store.comments(id); all.push(c); localStorage.setItem('lyc.comments.'+id, JSON.stringify(all)); },
     suggestions(id){ try { return JSON.parse(localStorage.getItem('lyc.suggest.'+id)) || []; } catch { return []; } },
-    addSuggestion(id, s){ const all = store.suggestions(id); all.push(s); localStorage.setItem('lyc.suggest.'+id, JSON.stringify(all)); },
   };
 
   // ------------------------------------------------------------------- search
@@ -773,58 +794,92 @@
   }
 
   // -------------------------------------------------- suggest-an-edit (living)
+  // Compose here, send on GitHub. The section list and the gathering are carried across
+  // so the member does not retype what the page already knows.
   function suggestHTML(d){
-    const subs = store.suggestions(d.id);
+    const opts = (isReflection(d) ? REFLECTION_BLOCKS : SECTIONS.map(([k,t]) => [k,t]))
+      .map(([k,t]) => [k, t]);
+    opts.push(['quote', 'The highlighted quote']);
+    opts.push(isReflection(d)
+      ? ['reviewed', 'A gathering revisited']
+      : ['callToAction', 'Way Ahead / Call to Action']);
     return `
       <section class="mt-10 rounded-xl bg-white border border-lyceum-100 p-5 shadow-sm">
-        <h3 class="font-serif text-lg text-lyceum-900">Suggest content or an edit</h3>
-        <p class="text-sm text-stone-500 mt-1">Propose an addition to any part of this inquiry. Suggestions are recorded with your name and the date - the seed of community version control.</p>
+        <h3 class="font-serif text-lg text-lyceum-900">Add to this record</h3>
+        <p class="text-sm text-stone-600 mt-1">
+          Something said that the record missed, or something in it wrong? Write it here and
+          the button will open it as a suggestion for the stewards, already filled in. It
+          needs a free GitHub account, and you will be able to read and change it before it
+          is sent.
+        </p>
+        <p class="text-sm text-stone-500 mt-2">
+          One thing to know first: this archive records <strong>what was said, not who said
+          it</strong>. Please leave out names, including your own account of your own
+          contribution, and anything about a participant's health, family, employer or
+          finances.
+        </p>
         <form id="suggest-form" class="mt-4 grid gap-3 sm:grid-cols-2">
-          <input name="name" placeholder="Your name" class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm" required />
-          <select name="section" class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm">
-            ${(isReflection(d) ? REFLECTION_BLOCKS : SECTIONS.map(([k,t]) => [k,t]))
-                .map(([k,t]) => `<option value="${k}">${t}</option>`).join('')}
-            <option value="quote">Highlighted quote</option>
-            ${isReflection(d)
-              ? '<option value="reviewed">A gathering revisited</option>'
-              : '<option value="callToAction">Way Ahead / Call to Action</option>'}
+          <select name="section" aria-label="Which part of the record"
+                  class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm">
+            ${opts.map(([k,t]) => `<option value="${esc(t)}">${esc(t)}</option>`).join('')}
           </select>
-          <textarea name="text" placeholder="Your suggested wording..." class="sm:col-span-2 rounded-lg border border-lyceum-100 px-3 py-2 text-sm" rows="3" required></textarea>
-          <div class="sm:col-span-2"><button class="rounded-lg bg-lyceum-800 text-white px-4 py-2 text-sm hover:bg-lyceum-900">Submit suggestion</button></div>
+          <select name="kind" aria-label="Addition or correction"
+                  class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm">
+            <option>An addition - this was said and the record missed it</option>
+            <option>A correction - the record says something inaccurate</option>
+            <option>A removal - something in the record should not be published</option>
+          </select>
+          <textarea name="text" rows="3" required
+            placeholder="What should the record say? Short and plain is better than polished."
+            class="sm:col-span-2 rounded-lg border border-lyceum-100 px-3 py-2 text-sm"></textarea>
+          <div class="sm:col-span-2 flex flex-wrap items-center gap-3">
+            <button class="rounded-lg bg-lyceum-800 text-white px-4 py-2 text-sm hover:bg-lyceum-900">
+              Open this as a suggestion
+            </button>
+            <a href="${issueUrl('suggest-content.yml', { gathering: d.id })}"
+               target="_blank" rel="noopener"
+               class="text-sm text-lyceum-700 hover:underline">or start from a blank form</a>
+          </div>
         </form>
-        ${subs.length ? `
-          <div class="mt-5 border-t border-lyceum-100 pt-4">
-            <h4 class="text-sm font-semibold text-stone-600 mb-2">Pending suggestions (${subs.length})</h4>
-            <ul class="space-y-2 text-sm">
-              ${subs.map(s => `<li class="rounded-lg bg-lyceum-50 p-3"><span class="font-medium">${esc(s.name)}</span> to <em>${esc(sectionLabel(s.section))}</em><br>${esc(s.text)}<div class="text-xs text-stone-400 mt-1">${esc(s.at)}</div></li>`).join('')}
-            </ul>
-          </div>` : ''}
       </section>`;
-  }
-  function sectionLabel(k){
-    const f = SECTIONS.find(s => s[0]===k) || REFLECTION_BLOCKS.find(s => s[0]===k);
-    if (f) return f[1];
-    return k==='callToAction' ? 'Way Ahead' : k==='reviewed' ? 'A gathering revisited' : k;
   }
 
   // ----------------------------------------------------------------- comments
+  // This was headed "Discussion", with a name field, a Post comment button and a thread
+  // beneath it. It looked like a forum and it was not one: every note stays in the
+  // browser that wrote it. Nobody else could see them, we could not see them, and Safari
+  // clears them after seven idle days.
+  //
+  // Public discussion needs somewhere to write, moderation before anything appears, spam
+  // handling and consent decisions that matter because minors take part in this
+  // community. That is its own project, not a field on this page. Until it exists, the
+  // feature is kept but described truthfully - a private note to yourself, which is
+  // genuinely useful while reading - and anything meant for the foundation is pointed at
+  // the route above, which actually arrives.
   function commentsHTML(d){
     const cs = store.comments(d.id);
     return `
       <section class="mt-8 rounded-xl bg-white border border-lyceum-100 p-5 shadow-sm">
-        <h3 class="font-serif text-lg text-lyceum-900">Discussion (${cs.length})</h3>
+        <h3 class="font-serif text-lg text-lyceum-900">Your notes on this gathering</h3>
+        <p class="text-sm text-stone-600 mt-1">
+          A scratchpad for reading. <strong>These stay in this browser</strong> - nobody
+          else can see them, not even us, and they are lost if you clear your browsing
+          data or open the page on another device. If you want the foundation to see it,
+          use <strong>Add to this record</strong> above instead.
+        </p>
         <form id="comment-form" class="mt-3 grid gap-3">
-          <input name="name" placeholder="Your name" class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm" required />
-          <textarea name="text" placeholder="Add your reflection or a Lima/Peru example..." class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm" rows="2" required></textarea>
-          <div><button class="rounded-lg bg-lyceum-700 text-white px-4 py-2 text-sm hover:bg-lyceum-800">Post comment</button></div>
+          <textarea name="text" rows="2" required
+            placeholder="A thought to come back to..."
+            class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm"></textarea>
+          <div><button class="rounded-lg bg-lyceum-700 text-white px-4 py-2 text-sm hover:bg-lyceum-800">Save note</button></div>
         </form>
         <ul class="mt-5 space-y-3">
           ${cs.length ? cs.map(c => `
             <li class="border-l-2 border-lyceum-100 pl-3">
-              <div class="text-sm"><span class="font-medium text-lyceum-900">${esc(c.name)}</span> <span class="text-xs text-stone-400">- ${esc(c.at)}</span></div>
+              <div class="text-xs text-stone-400">${esc(c.at)}</div>
               <p class="text-sm text-stone-700">${esc(c.text)}</p>
             </li>`).join('')
-          : '<li class="text-sm text-stone-400 italic">No comments yet - be the first to reflect.</li>'}
+          : '<li class="text-sm text-stone-400 italic">No notes yet.</li>'}
         </ul>
       </section>`;
   }
@@ -835,15 +890,28 @@
     cf && cf.addEventListener('submit', e => {
       e.preventDefault();
       const f = e.target;
-      store.addComment(d.id, { name: f.name.value.trim(), text: f.text.value.trim(), at: today });
+      store.addComment(d.id, { text: f.text.value.trim(), at: today });
       renderDetail(d);
     });
+
+    // The suggestion leaves the page. Opened in a new tab so the reader does not lose
+    // the gathering they were reading, and pre-filled so they are checking our summary
+    // of what they typed rather than typing it twice.
     const sf = document.getElementById('suggest-form');
     sf && sf.addEventListener('submit', e => {
       e.preventDefault();
       const f = e.target;
-      store.addSuggestion(d.id, { name: f.name.value.trim(), section: f.section.value, text: f.text.value.trim(), at: today });
-      renderDetail(d);
+      const url = issueUrl('suggest-content.yml', {
+        title: `Content: ${titleOf(d).slice(0, 60)}`,
+        gathering: `${d.date} - ${d.id}`,
+        section: f.section.value,
+        kind: f.kind.value,
+        text: f.text.value.trim(),
+      });
+      const w = window.open(url, '_blank', 'noopener');
+      // A blocked pop-up would look like the button did nothing, which is the failure this
+      // whole change exists to remove. Fall back to navigating this tab.
+      if (!w) location.href = url;
     });
   }
 
