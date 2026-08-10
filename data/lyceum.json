@@ -4,20 +4,91 @@
     {
       "id": "2024-05-24-founding",
       "date": "2024-05-24",
-      "inquiry": "Our founding gathering - establishing the Lyceum",
+      "inquiry": "How do we prepare ourselves and our families to handle emergencies?",
       "tags": [
         "community",
-        "founding"
+        "founding",
+        "family",
+        "emergency-preparedness",
+        "elder-care"
       ],
       "status": "founding",
-      "theories": [],
-      "applications": [],
-      "sources": [],
-      "policies": [],
-      "opportunities": [],
-      "challenges": [],
-      "quote": "An endeavor for shared purpose in families and communities.",
-      "callToAction": "First circle: we agreed on the rules, norms, and the Sequence of Inquiry that every gathering since has followed."
+      "theories": [
+        {
+          "text": "Ohana and Calabash, Hawaiian ideas of family that reach past blood relation, offered as a way of asking who genuinely counts as support in an emergency."
+        },
+        {
+          "text": "Godparents and a designated support network, named in advance rather than assumed to be there when the moment comes."
+        },
+        {
+          "text": "Extended relatives near and far, where distance changes not the willingness to help but what help can actually arrive in time."
+        },
+        {
+          "text": "The military family care plan and the bug out bag, two formal answers that already exist to the question the circle was asking."
+        },
+        {
+          "text": "Views differ within the United States on whether adult children are expected to care for aging parents, so the obligation is cultural before it is legal."
+        },
+        {
+          "text": "It is questionable to hold someone legally or financially responsible for what they may not be in a position to assume."
+        }
+      ],
+      "applications": [
+        {
+          "text": "A participant noted that something similar to filial responsibility law exists in China, which placed the question outside the United States for the first time."
+        }
+      ],
+      "sources": [
+        {
+          "text": "State law differs from federal law on family obligation. Virginia and Texas were contrasted as two states that answer it differently."
+        },
+        {
+          "text": "Medicaid was raised as part of what determines who pays when a family cannot."
+        },
+        {
+          "text": "How the Virginia statute came about, and who first pushed for it, was named as the next thing to research - no forensics had been done on its origins."
+        }
+      ],
+      "policies": [
+        {
+          "text": "Virginia filial responsibility law is real, and was confirmed by a participant who had disbelieved it until checking: an adult child who is able to earn income can be legally obliged to support a parent in need, and failure to support carries a fine of up to 500 dollars and up to 12 months in jail."
+        },
+        {
+          "text": "Virginia filial responsibility law dates back to the 1920s."
+        }
+      ],
+      "opportunities": [
+        {
+          "text": "The end-of-life conversations that get put off. The reasoning offered was that silence does not spare anyone: it transfers the stress and the financial burden to surviving family."
+        }
+      ],
+      "challenges": [
+        {
+          "text": "The cost of legal advice, which puts formal preparation out of reach for the families most exposed to the consequences of having none."
+        },
+        {
+          "text": "Advance care options vary by state or province, so what a family arranges in one place may not hold where they end up."
+        },
+        {
+          "text": "How responsibility is enforced when a death and the next of kin fall in different states was raised and not resolved, and the same question across an international border was further still from an answer."
+        },
+        {
+          "text": "A participant said the rule within one country was easy enough to grasp but the cross-border position was beyond them, and another said they disagree with the law and could give philosophical reasons for doing so."
+        }
+      ],
+      "callToAction": "Research the origin of the Virginia filial responsibility law - how it came to exist and who started it - jointly with the volunteer who first raised it. The facilitator undertook to carry the refined storyboard back to that volunteer, who was absent, so they would know the group was still working on it.",
+      "inquiryAliases": [
+        "Our founding gathering - establishing the Lyceum",
+        "the 24 May storyboard"
+      ],
+      "summary": "The first circle. It set the rules, the norms and the Sequence of Inquiry that every gathering since has followed, and it ran a full inquiry of its own on the same evening - an endeavor for shared purpose in families and communities, starting with who a family can actually count on when something goes wrong.",
+      "recapOf": "2024-11-17-reflection",
+      "withheld": "Material withheld under the archive's privacy rules: participants' names, relationships between participants, biographical and professional detail, family circumstances, health, personal finances, and the names of people who were not present and could not consent. This record is second-hand, so it also omits anything the recap reported about an individual rather than about the inquiry.",
+      "provenance": {
+        "source": "the 17 November 2024 reflection, where the circle walked this storyboard again section by section. No recording of the gathering itself exists",
+        "extractedOn": "2026-08-09",
+        "reviewedBy": "Hezekiah Jenkins"
+      }
     },
     {
       "id": "2024-06-30-work-ethic",
@@ -25,18 +96,77 @@
       "inquiry": "What should we strive for in a modern work ethic?",
       "tags": [
         "work",
-        "values",
-        "economy"
+        "mentorship",
+        "equity",
+        "technology",
+        "public-service"
       ],
-      "status": "needs-transcription",
-      "theories": [],
-      "applications": [],
-      "sources": [],
-      "policies": [],
-      "opportunities": [],
-      "challenges": [],
-      "quote": "",
-      "callToAction": ""
+      "status": "recap",
+      "theories": [
+        {
+          "text": "A military and a civilian case set side by side: on one small engineering team the women were the standouts while the men around them needed more of a guiding hand, against a medical field where women students were seen as ready and men less so."
+        },
+        {
+          "text": "From those two cases the circle asked why women are perceived as having to work twice as hard for the same success."
+        },
+        {
+          "text": "Where the instinct to step in comes from, put as an image: a slight man struggling with a box on the pier would be helped by everyone, and a woman of the same build would be walked past."
+        }
+      ],
+      "applications": [
+        {
+          "text": "Hiring is where a work ethic is actually selected for. The question put to the circle was whether interview panels and reference checks ask about soft skills, resilience and continuous learning, or only about duties performed."
+        }
+      ],
+      "sources": [
+        {
+          "text": "Intercultural skill and the ability to code switch on globalized teams, with a willingness to learn the other person's background treated as a team-building requirement rather than a courtesy."
+        },
+        {
+          "text": "Athena Rising, on how men can act as role models to open opportunity for women. It came up again later in the same session among mentorship reading."
+        },
+        {
+          "text": "An essay by the chief executive of Anthropic on AI and work, with a recorded interview with the same author, both posted to the chat as further reading and accepted for the storyboard."
+        }
+      ],
+      "policies": [
+        {
+          "text": "There was little regulation to draw on, beyond distinguishing what the private sector may do from what the public sector may do."
+        }
+      ],
+      "opportunities": [
+        {
+          "text": "Investment in human capital: paid time off, retirement contributions, and interviewing staff to inform how engagement is handled rather than governing by policies written long ago."
+        },
+        {
+          "text": "Ordinary mentorship, reported as the remedy that actually worked on a small engineering team - paying attention, asking questions other than yes or no, and taking genuine interest in professional development. The team was reported to be thriving afterwards and to need only keeping motivated."
+        }
+      ],
+      "challenges": [
+        {
+          "text": "The end of loyalty to a single employer, which removes the assumption a lot of older thinking about work ethic was built on."
+        },
+        {
+          "text": "A work environment described as less than supportive rather than toxic: nobody went out of their way to trip anyone up, and nobody was actively mentoring, which wrecked havoc on professional growth."
+        },
+        {
+          "text": "The persistent struggle named from government service was not AI but teleworking. The technology exists and the call itself proved it works across the world; smaller organizations have embraced it and found it effective, and larger ones remain slow."
+        },
+        {
+          "text": "Whether a modern work ethic requires overhauling company and organizational policies written before the rapid increase of technology."
+        },
+        {
+          "text": "How AI will influence a modern work ethic - what the threats are, what it could replace, and whether soft skills are what keep people ahead of it."
+        }
+      ],
+      "callToAction": "Two strands. The first was a book recommendation, Athena Rising, on how men can act as role models to open opportunity for women. The second was conversations with a small engineering team about their understanding of continued government service; that was reported on at length, but the specific question it had been set up to answer went unanswered.",
+      "recapOf": "2024-11-17-reflection",
+      "withheld": "Material withheld under the archive's privacy rules: participants' names, relationships between participants, biographical and professional detail, family circumstances, health, personal finances, and the names of people who were not present and could not consent. This record is second-hand, so it also omits anything the recap reported about an individual rather than about the inquiry.",
+      "provenance": {
+        "source": "the 17 November 2024 reflection, where the circle walked this storyboard again section by section. No recording of the gathering itself exists",
+        "extractedOn": "2026-08-09",
+        "reviewedBy": "Hezekiah Jenkins"
+      }
     },
     {
       "schemaVersion": 2,
@@ -632,7 +762,7 @@
       "provenance": {
         "source": "the meeting recording transcript and the chat log",
         "extractedOn": "2026-08-09",
-        "reviewedBy": ""
+        "reviewedBy": "Hezekiah Jenkins"
       }
     },
     {
@@ -682,7 +812,7 @@
           "Silence was named a form of sharing; nobody was compelled to speak.",
           "No pre-session or post-session survey; the close invited suggestions on format and flow.",
           "The group was working toward establishing a nonprofit at the time.",
-          "Recording is a trimmed cutfile; chat times run 22 minutes 45 seconds ahead."
+          "Recording is a trimmed cutfile, so it does not begin at the start of the meeting and the chat log covers more than the recording does."
         ]
       },
       "theories": [
@@ -1159,7 +1289,7 @@
       ],
       "quote": "You frame it as Hey, here's this cool thing I learned. What do you think?",
       "quoteAt": "@28:09",
-      "callToAction": "Two participants took the inquiry forward together, and the facilitator undertook to connect them offline. One undertook to research how different scientists and social engineers handle mentorship at the personal level, and how that connects at community, societal, and international levels. Another, who had proposed the question, undertook to look into social media age restrictions, including a European Union bill that would bar minors under 18 from some platforms, and to map which organizations already solicit mentors, among them Boy Scouts, Boys and Girls Clubs, YMCAs, and swim clubs, some of which recruit volunteers who have no child in the activity. The facilitator undertook to publish the storyboard from this inquiry as their starting point, to send it out once developed, and to pass on details of the next gathering by email. The circle was explicit that the pair do not carry it alone: questions come back to the open forum, members offered to reach into their own communities for answers, and two participants offered a Canadian and international vantage point on the research. A participant added implementation strategies in the chat, timed 01:56:06 on the meeting clock and @1:33:21 on the recording clock: one-on-one mentoring, group workshops such as art classes, peer mentoring, and family involvement. On the Lyceum itself, the circle undertook to send the website and previous storyboards with the meeting invitation, and the facilitator noted making past inquiries searchable so newcomers can use them as a launch pad.",
+      "callToAction": "Two participants took the inquiry forward together, and the facilitator undertook to connect them offline. One undertook to research how different scientists and social engineers handle mentorship at the personal level, and how that connects at community, societal, and international levels. Another, who had proposed the question, undertook to look into social media age restrictions, including a European Union bill that would bar minors under 18 from some platforms, and to map which organizations already solicit mentors, among them Boy Scouts, Boys and Girls Clubs, YMCAs, and swim clubs, some of which recruit volunteers who have no child in the activity. The facilitator undertook to publish the storyboard from this inquiry as their starting point, to send it out once developed, and to pass on details of the next gathering by email. The circle was explicit that the pair do not carry it alone: questions come back to the open forum, members offered to reach into their own communities for answers, and two participants offered a Canadian and international vantage point on the research. A participant added implementation strategies in the chat, timed @1:33:21: one-on-one mentoring, group workshops such as art classes, peer mentoring, and family involvement. On the Lyceum itself, the circle undertook to send the website and previous storyboards with the meeting invitation, and the facilitator noted making past inquiries searchable so newcomers can use them as a launch pad.",
       "storyboard": {
         "logline": "Five people across Canada and the United States, two of them new to the circle, built one question in the room and spent ninety minutes on it: who mentors adolescents toward adulthood when a family cannot do it alone.",
         "arcNotes": "The evening ran the full template - lineage and norms, a recap of the previous housing inquiry, a shared understanding round, the sequence of inquiry, then administration and a fellowship circle - and the question itself was built in the room rather than set beforehand. It arrived as a wide worry about the next generation and narrowed twice: first over the age band, where the voice that raised it argued for the years before a child leaves the house and another argued for fifteen or sixteen onwards, and second over whether the subject was preparation for legal adulthood or young adults still living at home. Theories rested on one concept and one counter-question: concerted cultivation, the shuttle from activity to activity scored as a checklist, and the demand that each person state their own family structure and definition of success before proposing a fix. Application went abroad to unsupervised walks to school in Japan and a streaming programme sending very young children out on errands, then came back to the harder domestic question of what a parent chooses to pass on and what to withhold. The turn of the evening was the shift from mentorship received to mentorship given: surrogate caregivers who filled an absent parent's place, third places where young people already gather, an open pickup game where anyone who asks is handed a jersey, and a volunteer shift that became a morning of teaching students to read a map. The last stretch moved outward to structure - whether employers leave any room for caregiving, and whether a four-day week is a mentorship policy - and closed with two people taking the inquiry forward together, a request to circulate the archive with the invitation, and the observation that failure taught more than instruction did. QUESTION AS ARCHIVED, CHECKED AGAINST THE RECORDING -",
@@ -1216,7 +1346,7 @@
             "n": 7,
             "title": "Concerted cultivation",
             "timeRange": "@36:07 - @41:16",
-            "summary": "The facilitator noted the theories section was already half built by the deliberation, and asked the circle to work from lived experience as parents and as the children of parents. The concept offered came from human development as a field of study, described as an interdisciplinary intersection of education, philosophy and psychology: concerted cultivation, glossed as organized chaos. Parents move children across the city from one activity to the next - swimming, computer science, languages - and the involvement is a checklist rather than shared participation; providing the resources and having the child acquire the skills is what counts as successful parenting, and many parents in Vancouver subscribe to it in the hope that whatever is learned sets a child up. The same term was posted to the chat as a working definition at 01:00:45 on the meeting clock, which is @38:00 on the recording, there described as a way of parenting becoming more common in the United States and Canada, shuttling to and from organized activities; another participant marked agreement with a reaction. The reply reframed the section as a question back to the room: before anyone proposes how to tackle this, each person should say how they would describe their own family structure and what their overarching goal for success actually is. One participant then described an upbringing that matched the pattern exactly - school, a required extracurricular, extra lessons in the morning or an instrumental lesson in the evening, language lessons after dinner, in an academically competitive area - and observed that the whole arrangement had been purposely pointed at college as the life path's ultimate goal, to the benefit and the detriment of an entire graduating class.",
+            "summary": "The facilitator noted the theories section was already half built by the deliberation, and asked the circle to work from lived experience as parents and as the children of parents. The concept offered came from human development as a field of study, described as an interdisciplinary intersection of education, philosophy and psychology: concerted cultivation, glossed as organized chaos. Parents move children across the city from one activity to the next - swimming, computer science, languages - and the involvement is a checklist rather than shared participation; providing the resources and having the child acquire the skills is what counts as successful parenting, and many parents in Vancouver subscribe to it in the hope that whatever is learned sets a child up. The same term was posted to the chat as a working definition at @38:00, there described as a way of parenting becoming more common in the United States and Canada, shuttling to and from organized activities; another participant marked agreement with a reaction. The reply reframed the section as a question back to the room: before anyone proposes how to tackle this, each person should say how they would describe their own family structure and what their overarching goal for success actually is. One participant then described an upbringing that matched the pattern exactly - school, a required extracurricular, extra lessons in the morning or an instrumental lesson in the evening, language lessons after dinner, in an academically competitive area - and observed that the whole arrangement had been purposely pointed at college as the life path's ultimate goal, to the benefit and the detriment of an entire graduating class.",
             "pullQuote": "How would you describe what your overarching goal is for success before we can even think of ways to address it?",
             "slideHint": "Theories and Concepts: 'concerted cultivation (organized chaos)' defined, with a shuttle diagram of activities across a city and the checklist framing beside it, plus a counter-prompt panel asking each attendee to state their family structure and their definition of success. Chat callout carrying the posted definition."
           },
@@ -1288,7 +1418,7 @@
             "n": 16,
             "title": "Making it findable, and the fellowship circle",
             "timeRange": "@1:26:35 - @1:33:46",
-            "summary": "Closing administration began with the archive. Three earlier inquiries now carry storyboards - the affordable housing question shown at the start, a question on how to prepare ourselves and our families for emergencies raised by a member of the circle, and a question about what to expect from a modern work ethic raised in a previous inquiry - and the aim of the Lyceum's expansion was stated as making those products readily available and searchable, so that a curious person can type in keywords, find the topic and use it as a launch pad for their own investigation. Asked for technical improvements to formatting, presentation or flow, one participant proposed sending a link to the website and the previous storyboards along with the invitation, so that people can see what the group is doing before they arrive and so the group walks the walk as well as talking the talk; the nonprofit being established was described as being in it for humanity's sake rather than to add money to the coffers, so that people climb the ladder of success instead of struggling on their own. The fellowship circle followed. Thanks went to those attending for the first time, on the grounds that new people do not only grow the organisation but challenge it with information and perspectives it would not otherwise get; the website link suggestion was seconded; and one participant offered that although much of what they had learned in life came through others, failure has been the greatest teacher both as a child and as an adult, so it is never a bad idea to let someone fail in a safe, controlled manner if it helps them learn. The facilitator noted that silence is itself a way of sharing, thanked the circle for giving ninety minutes of a Sunday to something that mattered rather than anything else, framed the forum as democratic education that reaches hearts and minds and asked people to spread the word so that collective knowledge grows as the circle widens, and promised the storyboard and an email route to the next gathering. As the call closed, one participant added a written list of implementation strategies to the chat, at 01:56:06 on the meeting clock and @1:33:21 on the recording, which the audio never carried: one-on-one mentoring, group workshops such as art classes, peer mentoring, and family involvement.",
+            "summary": "Closing administration began with the archive. Three earlier inquiries now carry storyboards - the affordable housing question shown at the start, a question on how to prepare ourselves and our families for emergencies raised by a member of the circle, and a question about what to expect from a modern work ethic raised in a previous inquiry - and the aim of the Lyceum's expansion was stated as making those products readily available and searchable, so that a curious person can type in keywords, find the topic and use it as a launch pad for their own investigation. Asked for technical improvements to formatting, presentation or flow, one participant proposed sending a link to the website and the previous storyboards along with the invitation, so that people can see what the group is doing before they arrive and so the group walks the walk as well as talking the talk; the nonprofit being established was described as being in it for humanity's sake rather than to add money to the coffers, so that people climb the ladder of success instead of struggling on their own. The fellowship circle followed. Thanks went to those attending for the first time, on the grounds that new people do not only grow the organisation but challenge it with information and perspectives it would not otherwise get; the website link suggestion was seconded; and one participant offered that although much of what they had learned in life came through others, failure has been the greatest teacher both as a child and as an adult, so it is never a bad idea to let someone fail in a safe, controlled manner if it helps them learn. The facilitator noted that silence is itself a way of sharing, thanked the circle for giving ninety minutes of a Sunday to something that mattered rather than anything else, framed the forum as democratic education that reaches hearts and minds and asked people to spread the word so that collective knowledge grows as the circle widens, and promised the storyboard and an email route to the next gathering. As the call closed, one participant added a written list of implementation strategies to the chat, at @1:33:21, which the audio never carried: one-on-one mentoring, group workshops such as art classes, peer mentoring, and family involvement.",
             "pullQuote": "silence is a way of sharing. So please don't feel compelled that you have to say something just because there's a void in the conversation.",
             "slideHint": "Closing pair. Archive slide: the previous storyboards listed with a keyword search bar mock-up and the invitation-link improvement noted beside it. Then Fellowship Circle: final round of sharing, thanks to first-time attendees, failure as the greatest teacher, and a chat panel holding the four implementation strategies posted at the close."
           }
@@ -1298,7 +1428,7 @@
       "provenance": {
         "source": "the meeting recording transcript and the chat log",
         "extractedOn": "2026-08-09",
-        "reviewedBy": ""
+        "reviewedBy": "Hezekiah Jenkins"
       }
     },
     {
@@ -1908,7 +2038,7 @@
       "provenance": {
         "source": "the meeting recording transcript and the chat log",
         "extractedOn": "2026-08-09",
-        "reviewedBy": ""
+        "reviewedBy": "Hezekiah Jenkins"
       },
       "inquiryAliases": [
         "How do we cultivate a culture of sustainability and reciprocity within our communities?",
@@ -1967,7 +2097,7 @@
           "No survey was run. A survey tool was still in development, with feedback invited through the website or directly to either host.",
           "Administrative notes covered the group's website, theendeavor.net, storyboards published with hyperlinked sources, and social media on Facebook, Instagram, Twitter and Quora.",
           "Chat carried material the audio did not: a follow-up placing Virginia's filial responsibility laws in the 1920s, a Los Angeles nonprofit working on housing rights, and reading on AI and the future of work posted near the close and read out by the facilitator.",
-          "Chat timestamps run about sixteen and a half minutes ahead of the recording clock; the meeting was open before recording began.",
+          "The meeting was open before recording began, so the recording starts partway in.",
           "The recording continues for about four minutes after the forum closed, with the hosts discussing how to onboard newer members onto the group's collaboration tools; that stretch is administrative and is not part of the record.",
           "No date was announced for the next Lyceum; the hosts stayed on afterwards for follow-up questions."
         ]
@@ -2142,7 +2272,7 @@
       "quoteAt": "@1:10:31",
       "storyboard": {
         "logline": "A reflection rather than an inquiry: five gatherings from May to November 2024 were put back on screen in order, the volunteers who had carried each one said what had come of it, and every pass closed by collecting questions instead of answering them.",
-        "arcNotes": "This gathering has no inquiry question and must not be given one. It was announced from the first minute as a reflection on past inquiries, and its structure is a loop repeated five times: a storyboard put up and narrated for about three minutes, a report-back from whoever had taken that inquiry's call to action, then a questions-only round in which each participant asks one open-ended question that nobody answers. The questions are recorded, used to refine the storyboard, republished, and left as prompts for the person carrying the work. The evening's shape is therefore an opening, five review passages, a short administrative passage, a fellowship circle, and a close.\n\nThe reflection covered 24 May, 30 June, 4 August, 15 September and 20 October 2024. The May gathering, recorded elsewhere as the founding circle, carried an inquiry of its own on preparing families for emergencies. Of the five calls to action, two had moved substantially (the housing volunteer's first year in a new city and its nonprofits, and the mentorship volunteer's survey of organizations), one had moved a short distance (a legal finding on filial responsibility, reported on behalf of an absent volunteer), one had not moved at all (a planned conversation with a local beekeeper, missed because both parties were on leave), and one was held by a participant who was not present. The facilitators named this openly as the accountability function of gathering: life gets in the way, and the circle exists partly to keep each other to what was said.\n\nThe questions-only discipline is visible in its failure mode as well as its intent. A question about what incentives a city offers a private multifamily owner to open units drew no answer at all, a long silence, and then a general commitment to keep updating the storyboard; the questioner assumed the mute button had been on, and had in fact been heard. The record keeps the question standing, because the format is built to absorb questions rather than resolve them.\n\nChat contributions are placed where the circle took them up aloud, not at chat-clock time. The chat clock runs ahead of the recording clock by at least 990 seconds, which the transcript itself confirms: a reading on AI and work posted in chat is acknowledged aloud at @1:14:51. One chat contribution that dates the Virginia filial responsibility laws to the 1920s is deliberately not placed in any beat, because the moment the circle received it cannot be fixed from the recording; it belongs to the emergencies inquiry and should be carried on that storyboard instead.\n\nSource quality: the transcript garbles proper nouns consistently, including the facilitator's own name, the word Lyceum, and Hampton Roads (rendered once as \"Panther Roads\"). One participant joined on a poor connection and several of that person's sentences are only partly recoverable; the substance recorded in beat 11 is what could be established from the surrounding exchange, not from the broken cues alone.\n\nSuppressions, described without disclosing them. No participant is named anywhere, and roles that would identify one person are dropped, including a family relationship between two people in the circle. The personal name of a non-attendee who may be invited to a future gathering is withheld and the role kept. One participant's family composition is left out, as is a school-affiliated activity belonging to a participant's child, which together would narrow the family to a single school. A contact email address posted in chat for an outside organization is not reproduced, though the organization's purpose is. The identities of two absent volunteers are withheld and recorded as participants not present. From the informal stretch after the close, three things are left out: a private individual named in passing, an on-screen device label and background image, and account-provisioning details attached to named individuals; the substantive onboarding problem is kept.",
+        "arcNotes": "This gathering has no inquiry question and must not be given one. It was announced from the first minute as a reflection on past inquiries, and its structure is a loop repeated five times: a storyboard put up and narrated for about three minutes, a report-back from whoever had taken that inquiry's call to action, then a questions-only round in which each participant asks one open-ended question that nobody answers. The questions are recorded, used to refine the storyboard, republished, and left as prompts for the person carrying the work. The evening's shape is therefore an opening, five review passages, a short administrative passage, a fellowship circle, and a close.\n\nThe reflection covered 24 May, 30 June, 4 August, 15 September and 20 October 2024. The May gathering, recorded elsewhere as the founding circle, carried an inquiry of its own on preparing families for emergencies. Of the five calls to action, two had moved substantially (the housing volunteer's first year in a new city and its nonprofits, and the mentorship volunteer's survey of organizations), one had moved a short distance (a legal finding on filial responsibility, reported on behalf of an absent volunteer), one had not moved at all (a planned conversation with a local beekeeper, missed because both parties were on leave), and one was held by a participant who was not present. The facilitators named this openly as the accountability function of gathering: life gets in the way, and the circle exists partly to keep each other to what was said.\n\nThe questions-only discipline is visible in its failure mode as well as its intent. A question about what incentives a city offers a private multifamily owner to open units drew no answer at all, a long silence, and then a general commitment to keep updating the storyboard; the questioner assumed the mute button had been on, and had in fact been heard. The record keeps the question standing, because the format is built to absorb questions rather than resolve them.",
         "beats": [
           {
             "n": 1,
@@ -2262,46 +2392,1197 @@
       "provenance": {
         "source": "the meeting recording transcript and the chat log",
         "extractedOn": "2026-08-09",
-        "reviewedBy": ""
+        "reviewedBy": "Hezekiah Jenkins"
       }
     },
     {
+      "schemaVersion": 2,
       "id": "2025-01-12-humanitarian",
       "date": "2025-01-12",
       "inquiry": "How can we embody the values of a humanitarian in our communities?",
       "tags": [
+        "humanitarian",
         "values",
+        "community",
+        "empathy",
         "service",
-        "community"
+        "volunteering"
       ],
-      "status": "needs-transcription",
-      "theories": [],
-      "applications": [],
-      "sources": [],
-      "policies": [],
-      "opportunities": [],
-      "challenges": [],
-      "quote": "",
-      "callToAction": ""
+      "status": "transcribed",
+      "meeting": {
+        "participants": 7,
+        "locations": [
+          "Los Angeles, California",
+          "Northern Virginia",
+          "Hampton Roads, Virginia",
+          "Canada"
+        ],
+        "landAcknowledgement": "None was given. In its place the opening presence circle offered five guided breaths of gratitude, the first of them to the earth, the planet that nourishes and sustains life both human and within the natural world, followed by gratitude to ancestors, to self, to families and friends, and to children as the next generation. The practice was credited to an indigenous group in Hawaii called Awakened Aloha and was described as a way of expressing spirituality and connection rather than as a land acknowledgement.",
+        "agenda": [
+          "Welcome and reminder of the rules and norms for a ninety-minute online Lyceum",
+          "Pre-survey learning conversation, two questions by QR code, one to two minutes to complete",
+          "Presence circle of five guided breaths of gratitude, from an indigenous Hawaiian practice",
+          "Recap of the November six-month reflection and how carried inquiries are supported",
+          "Shared understanding round on introductions, cultural identity, and connection to the group",
+          "Framing slides: a United Nations world map and World Bank regions by color",
+          "Identify the inquiry from what the group raises, drafted live on an editable slide",
+          "Theories and concepts, with lived experience valued above theory alone",
+          "Application around the world, then sources and inputs toward shared understanding",
+          "What is favorable and what works against turning the inquiry into action",
+          "Call to action, with one member taking responsibility for carrying the inquiry forward",
+          "Post-survey learning reflection, three short questions by QR code",
+          "Closing fellowship circle, one final round of sharing, silence counted as a contribution"
+        ],
+        "surveyPre": [
+          "Two questions, described as a check-in on how each person is entering the Lyceum",
+          "Wording not read aloud on the recording; the form was reached by QR code or a chat link"
+        ],
+        "surveyPost": [
+          "Three short questions, called the learning reflection, for takeaways and feedback on the format",
+          "One question asked for a single word to share; an answer offered aloud was 'humbled'",
+          "Wording not otherwise read aloud; the form stayed open after the close, with no time crunch"
+        ],
+        "contextNotes": [
+          "First online Lyceum of 2025; the previous gathering was a six-month reflection on 17 November 2024.",
+          "Planned for about an hour and a half and closed near the top of the hour, as intended.",
+          "A pre-survey and a post-survey by QR code were new additions to the format this session.",
+          "The topic was not pre-determined; a question was drafted live on the slide and put to consensus.",
+          "Former President Jimmy Carter's death at one hundred, and his funeral days earlier, supplied the opening example.",
+          "The Los Angeles wildfires were burning during the session and entered the discussion of suffering.",
+          "Framing slides used a United Nations world map and a World Bank map of regions by color.",
+          "The Lyceum was described as a revival of a nineteenth-century American form of adult education.",
+          "Cultural identities named in the round spanned Central America, the Caribbean, Hawaii, Europe, and Asia.",
+          "A few invited people could not attend; the circle expected to grow at the next session."
+        ]
+      },
+      "theories": [
+        {
+          "text": "Lived experience counts for more than theory when framing an inquiry.",
+          "at": "@20:33"
+        },
+        {
+          "text": "Remove the presidential title and the same humanitarian activity would likely have happened anyway.",
+          "at": "@28:41"
+        },
+        {
+          "text": "Cultural awareness of who is engaged, rather than promoting one way of thinking.",
+          "at": "@34:59"
+        },
+        {
+          "text": "Humanitarian values can be carried into an official job, not only into volunteering.",
+          "at": "@38:04"
+        },
+        {
+          "text": "One theory: the disposition is innate, simply who the person already was.",
+          "at": "@40:25"
+        },
+        {
+          "text": "Counter-theory: life experiences and how a person was taught produce the humanitarian.",
+          "at": "@40:56"
+        },
+        {
+          "text": "Mothers have a large impact on men, illustrated by a prison card-sending ratio.",
+          "at": "@42:55"
+        },
+        {
+          "text": "Nature and nurture combine: experiences, family and community example, personality, genetics.",
+          "at": "@43:42"
+        },
+        {
+          "text": "Approachability rather than hero worship keeps a figure inside the community.",
+          "at": "@50:40"
+        },
+        {
+          "text": "Pillar of society reframed as pillar of community, a local equivalent to look toward.",
+          "at": "@54:38"
+        },
+        {
+          "text": "Two aligned partners sharing one passion multiply what a community effort achieves.",
+          "at": "@55:12"
+        },
+        {
+          "text": "Seeing others suffer brings out the wish to help and leave the comfort zone.",
+          "at": "@1:00:48"
+        },
+        {
+          "text": "Disaster shows a kind of equality: rich and poor alike can lose everything.",
+          "at": "@1:05:48"
+        },
+        {
+          "text": "Economic circumstances, not money itself, decide who has time to engage community.",
+          "at": "@1:12:41"
+        },
+        {
+          "text": "Counter-position: economic status does not matter to the disposition itself.",
+          "at": "@1:15:20"
+        },
+        {
+          "text": "An example transmits only when it is close enough to imitate.",
+          "at": "@54:38"
+        },
+        {
+          "text": "Means widen a person's reach; the disposition comes first.",
+          "at": "@1:15:20"
+        },
+        {
+          "text": "The shared trait across examples is crossing a line others treat as fixed.",
+          "at": "@52:25"
+        },
+        {
+          "text": "Equality is reframed from access to opportunity into shared vulnerability.",
+          "at": "@1:06:56"
+        },
+        {
+          "text": "Values transmit by being lived in front of others.",
+          "at": "@1:09:43"
+        },
+        {
+          "text": "The first example is a parent's conduct, followed or refused.",
+          "at": "@42:16"
+        },
+        {
+          "text": "The innate-or-learned argument settles only far enough to permit action.",
+          "at": "@1:08:35"
+        },
+        {
+          "text": "Every scale of example produced a working pair, world stage to neighborhood.",
+          "at": "@55:12"
+        }
+      ],
+      "applications": [
+        {
+          "text": "Habitat for Humanity - volunteer housebuilding for people who lack quality housing otherwise.",
+          "at": "@26:48"
+        },
+        {
+          "text": "Guinea worm eradication took cleaner water and collective buy-in, not pharmaceuticals.",
+          "at": "@28:07"
+        },
+        {
+          "text": "A former president and his wife oversaw local elections in impoverished areas abroad.",
+          "at": "@28:58"
+        },
+        {
+          "text": "United States service academies integrated women on a president's demand.",
+          "at": "@33:22"
+        },
+        {
+          "text": "A student volunteered to room with an academy's first African American entrant.",
+          "at": "@27:20"
+        },
+        {
+          "text": "Canada - a junior officer volunteered to be lowered into a reactor in meltdown.",
+          "at": "@31:59"
+        },
+        {
+          "text": "Canada - Terry Fox ran coast to coast raising cancer awareness after losing a leg.",
+          "at": "@45:34"
+        },
+        {
+          "text": "Jamaica - a returning musician left the doors open to the poor neighborhood of origin.",
+          "at": "@49:18"
+        },
+        {
+          "text": "Los Angeles - Father Boyle stands as a local humanitarian in the Boyle Heights area.",
+          "at": "@57:51"
+        },
+        {
+          "text": "A college course took students out to community events, meeting local humanitarians in person.",
+          "at": "@58:19"
+        },
+        {
+          "text": "California - Cesar Chavez and Dolores Huerta organized a movement around farm workers' plight.",
+          "at": "@1:18:26"
+        },
+        {
+          "text": "United Farm Workers of America - the cry 'Yes, we can' later became a presidential slogan.",
+          "at": "@1:17:58"
+        },
+        {
+          "text": "Hampton Roads, Virginia - a local pillar of community, name withheld, crossed religious, cultural and economic lines.",
+          "at": "@52:25"
+        },
+        {
+          "text": "Bring people together to solve a local problem; act alone when they cannot be brought.",
+          "at": "@53:28"
+        },
+        {
+          "text": "World Bank color regions help place a story when the country escapes memory.",
+          "at": "@19:59"
+        }
+      ],
+      "sources": [
+        {
+          "text": "A local pillar of community in the Hampton Roads area of Virginia, individual withheld.",
+          "at": "@52:54"
+        },
+        {
+          "text": "Further local examples of community pillars requested from every member's own area.",
+          "at": "@55:52"
+        },
+        {
+          "text": "National examples from outside the United States sought, Canada asked about first.",
+          "at": "@44:37"
+        },
+        {
+          "text": "Father Boyle in Los Angeles, offered as a west-coast figure to research.",
+          "at": "@1:20:26"
+        },
+        {
+          "text": "Cultural figures and religious leaders named as routes to local community pillars.",
+          "at": "@1:20:26"
+        },
+        {
+          "text": "An academic institution connected a learner to a local humanitarian in person.",
+          "at": "@58:30"
+        },
+        {
+          "text": "Institutions asked what they do to bridge theory and living community examples.",
+          "at": "@59:07"
+        },
+        {
+          "text": "Examples from outside the upper economic strata needed to test the question.",
+          "at": "@1:13:18"
+        },
+        {
+          "text": "A shared document to collect east-coast and west-coast findings.",
+          "at": "@1:21:10"
+        },
+        {
+          "text": "A second researcher to support whoever carries the inquiry forward.",
+          "at": "@1:20:26"
+        },
+        {
+          "text": "Eulogies and memorial accounts surfaced humanitarian work that headline knowledge had missed.",
+          "at": "@26:56"
+        },
+        {
+          "text": "Awakened Aloha, an indigenous Hawaiian group, source of the opening breathing practice.",
+          "at": "@7:32"
+        },
+        {
+          "text": "Survey delivery needs a web link; QR codes exclude phone-only participants.",
+          "at": "@5:43"
+        },
+        {
+          "text": "Pre-survey and post-survey web links posted in chat for phone-only access.",
+          "at": "@1:23:30"
+        },
+        {
+          "text": "Post-survey feedback in participants' own words requested to improve the format.",
+          "at": "@4:40"
+        },
+        {
+          "text": "Claims raised from memory need verification before the archive carries them.",
+          "at": "@29:24"
+        },
+        {
+          "text": "A composite humanitarian assembled from many regions, not from one exemplar.",
+          "at": "@59:39"
+        },
+        {
+          "text": "Wanted from members: the building blocks, not portraits of the already formed.",
+          "at": "@1:00:18"
+        },
+        {
+          "text": "A carried inquiry needs a second member and a shared record.",
+          "at": "@1:19:13"
+        },
+        {
+          "text": "One delivery route is not access; the same gap reappeared at the close.",
+          "at": "@6:27"
+        }
+      ],
+      "policies": [
+        {
+          "text": "The lyceum existed in the United States in the 1800s as adult education for active citizenship.",
+          "at": "@18:15"
+        },
+        {
+          "text": "United Nations world map, produced annually, frames the highest level of human organization.",
+          "at": "@19:02"
+        },
+        {
+          "text": "World Bank color groupings organize the world by region and by economy.",
+          "at": "@19:49"
+        },
+        {
+          "text": "Sequence of Inquiry: inquiry, theories, application, sources, favorable and opposing forces, then call to action.",
+          "at": "@20:33"
+        },
+        {
+          "text": "Maya Angelou: people remember how they were made to feel, not what was said.",
+          "at": "@22:15"
+        },
+        {
+          "text": "Carter's claim, repeated as unverified: no missile dropped, no bullet fired during his tenure.",
+          "at": "@29:41"
+        },
+        {
+          "text": "Terry Fox sought one dollar from every Canadian, about 20 million, to raise awareness.",
+          "at": "@45:47"
+        },
+        {
+          "text": "House norm restated in chat: mute when not speaking, feedback is entering the audio.",
+          "at": "@1:02:37"
+        },
+        {
+          "text": "'Experience is the best teacher', offered as possibly an African proverb.",
+          "at": "@1:04:06"
+        }
+      ],
+      "opportunities": [
+        {
+          "text": "Empathy is the favorable quality separating help from indifference to another's suffering.",
+          "at": "@1:08:09"
+        },
+        {
+          "text": "Empathy can develop later in life, so a decision can change it.",
+          "at": "@1:08:35"
+        },
+        {
+          "text": "A core group of adults willing to be the example is favorable.",
+          "at": "@1:10:31"
+        },
+        {
+          "text": "Conditions that let people choose to help for themselves are favorable.",
+          "at": "@1:10:52"
+        },
+        {
+          "text": "A local figure, unnamed here, did Jimmy Carter-like work at neighborhood scale.",
+          "at": "@53:02"
+        },
+        {
+          "text": "Aligned pairs working in harmony multiply what either could do alone.",
+          "at": "@55:40"
+        },
+        {
+          "text": "Academic institutions can connect learners to community figures, not only to theory.",
+          "at": "@58:40"
+        },
+        {
+          "text": "Cesar Chavez organized farm workers while poor, so affluence is not required.",
+          "at": "@1:17:21"
+        },
+        {
+          "text": "Witnessing nearby devastation wakes people to ask how suffering can be reduced.",
+          "at": "@1:06:23"
+        },
+        {
+          "text": "Approaching retirement opens time for volunteering and for carrying an inquiry forward.",
+          "at": "@1:19:37"
+        },
+        {
+          "text": "The circle is growing, with more people expected next time from varied cultures.",
+          "at": "@16:56"
+        },
+        {
+          "text": "Reflection rounds supply an inquiry's carrier with questions and fresh reference points.",
+          "at": "@12:01"
+        },
+        {
+          "text": "Examples appear across cultures and contexts, so the message travels beyond one country.",
+          "at": "@1:27:38"
+        },
+        {
+          "text": "Peer status regardless of background makes difficult conversations possible in the circle.",
+          "at": "@1:48"
+        },
+        {
+          "text": "One arranged encounter still produced contributions years afterward.",
+          "at": "@58:56"
+        }
+      ],
+      "challenges": [
+        {
+          "text": "Specialists who will not cross into another trade keep theory apart from practice.",
+          "at": "@34:18"
+        },
+        {
+          "text": "If the disposition is innate rather than learned, it cannot be taught.",
+          "at": "@39:07"
+        },
+        {
+          "text": "Language barriers left the cause unexplained to drivers who grew angry.",
+          "at": "@46:18"
+        },
+        {
+          "text": "Local humanitarian work lacks the headline reach of nationally known figures.",
+          "at": "@52:08"
+        },
+        {
+          "text": "Having suffered can harden a person into expecting others to endure their turn.",
+          "at": "@1:05:07"
+        },
+        {
+          "text": "The circle could not name the further layer that turns witness into help.",
+          "at": "@1:05:35"
+        },
+        {
+          "text": "Resentment of wealth invites dismissing another household's total loss as affordable.",
+          "at": "@1:06:56"
+        },
+        {
+          "text": "Adults who argue instead of dialogue teach children that disagreement descends into madness.",
+          "at": "@1:09:43"
+        },
+        {
+          "text": "Dividing the world by economic system dismantles the sense of connection.",
+          "at": "@1:11:39"
+        },
+        {
+          "text": "Surviving paycheck to paycheck leaves no time or energy for community.",
+          "at": "@1:12:18"
+        },
+        {
+          "text": "Every humanitarian example the circle raised came from an upper economic stratum.",
+          "at": "@1:13:18"
+        },
+        {
+          "text": "Passing aircraft interrupted contributions and kept one participant's camera and microphone off.",
+          "at": "@1:13:40"
+        },
+        {
+          "text": "Economic security gave those examples flexibility that struggling households lack.",
+          "at": "@1:14:48"
+        },
+        {
+          "text": "Joining by phone inside Zoom prevents scanning the on-screen survey QR code.",
+          "at": "@1:22:44"
+        },
+        {
+          "text": "Fear of judgment and of overstepping holds people back from offering help.",
+          "at": "@1:29:05"
+        },
+        {
+          "text": "The recurring obstacle is invisibility, not unwillingness.",
+          "at": "@1:00:48"
+        },
+        {
+          "text": "Every figure named was a man; women entered the examples as partners.",
+          "at": "@1:13:18"
+        }
+      ],
+      "quote": "I think the difference is, the favorable quality is empathy.",
+      "quoteAt": "@1:08:09",
+      "callToAction": "One participant undertook to research what volunteering looks like in their own region on the east coast and to bring the findings back to the group, describing the inquiry as arriving at the right moment in their own life. Another participant offered to support that work from the west coast, sending across parallel examples of local figures already raised in the circle. The facilitator undertook to connect the two and to open a shared document, framing the result as an east-coast and west-coast comparison of what a pillar of community looks like. Nothing further was delegated to an individual: the wider prompt stayed collective, to look for the pillars of community close to home, notice how they speak and act and interact with people, and carry those values into everyday work rather than treat humanitarian conduct as a title or a single volunteer shift. The circle also holds carried inquiries open at six-month intervals, with a reflection sequence planned for the summer, so that whoever takes an inquiry forward is questioned and supported by the group rather than left alone with it.",
+      "storyboard": {
+        "logline": "A circle takes a former president who had just died as its starting example, then works the scale downward until it is naming the pillars of its own neighborhoods and agreeing to go looking for more.",
+        "arcNotes": "Sixteen beats over @0:06 to @1:30:38, every range inside the recording length. Three movements: about eighteen minutes of frame (norms, presence, introductions, the world maps), about an hour of inquiry, and about eight minutes of reflection and closing. The inquiry itself is one continuous zoom: a world figure at @21:59, other countries at @43:59, a neighborhood figure at @51:32, and by @1:16:43 a figure who was poor for most of his life. The turn at @51:32 is the hinge of the session, and the facilitator marks it by renaming \"pillar of society\" as \"pillar of community\". A second, quieter arc runs underneath: the group keeps trying to decide whether the disposition is innate, learned, or bought by circumstance, and never fully settles it, which is why the same argument reappears at @39:53, at @55:40, and again at @1:09:09.",
+        "beats": [
+          {
+            "n": 1,
+            "title": "Opening, norms, and a survey at both ends",
+            "timeRange": "@0:06-@7:16",
+            "summary": "First online Lyceum of 2025 opens on the rules and norms slide. About ninety minutes set aside for deep discourse on families and communities. Diversity is valued and the similarities that bind are named alongside it. Everyone is a peer here regardless of background, including for difficult conversations. Two additions to the agenda: a pre-survey and a post-survey, a couple of questions each. Instructions clarified twice - open the phone camera on the QR code, spend two minutes at most. One participant is joining by phone from inside Zoom and cannot leave it to scan. The group agrees the links can go in the chat instead, and notes it as a lesson.",
+            "slideHint": "Rules and Norms, then the Agenda with new pre-survey and post-survey tabs and a QR code.",
+            "pullQuote": "Once we're here, we're all peers and willing to have these conversations that may be difficult"
+          },
+          {
+            "n": 2,
+            "title": "Presence circle, and the reflection cadence",
+            "timeRange": "@7:16-@13:14",
+            "summary": "Presence opens the circle with breathing borrowed from an indigenous Hawaiian group, awakened Aloha. Breath is offered as a way to express spirituality and shared connection. Five breaths of gratitude: the earth, ancestors, kindness to oneself, families and friends, children. Stress and baggage are exhaled before the discourse begins. Recap of the November 17 gathering, a six-month reflection across five previous inquiries. That gathering questioned each steward rather than answering anything new. Reflection continues at six-month intervals; 2025 restarts the sequence from the top. Inquiries are described as individual journeys held up by a collective that may live elsewhere.",
+            "slideHint": "Presence slide with the five gratitude breaths, then a look back at the six-month reflection.",
+            "pullQuote": "It is to give them a chance to have a better future, and it is through our example that we set, that we can give them that chance to pursue their life of meaning and collective purpose."
+          },
+          {
+            "n": 3,
+            "title": "Shared understanding round",
+            "timeRange": "@13:21-@18:56",
+            "summary": "The floor opens for introductions on four prompts: name, cultural identity, home, and connection to the Lyceum. What the round establishes: a circle spanning Los Angeles, Belize and Central America, Hawaii, and Northern Virginia, which mostly describes itself as multicultural rather than as one nationality. Routes in vary, among them an online course, networking, and existing personal connection. Growth noted: further participants meant to attend and are expected next time, from more backgrounds. The Lyceum is placed in the 18 hundreds as an American form of adult education. Its subject then was active citizenship and what it means to be human; the aim now is to make that relevant again.",
+            "slideHint": "Shared Understanding prompts: name, cultural identity, where you live, connection to the Lyceum.",
+            "pullQuote": "it's something that had existed in the United States in the 18 hundreds."
+          },
+          {
+            "n": 4,
+            "title": "World framing, then a topic arrives",
+            "timeRange": "@18:58-@25:56",
+            "summary": "United Nations map shown as the highest level of human organization. Its borders are political lines that politics can smudge or erase quickly. People on the ground may perceive their world differently from the paper. World Bank region colors give the circle a way to place a story when the country is not named. Sequence of Inquiry recapped, with lived experience held to be more than theory. The slide then becomes editable, inviting a topic rather than a finished question. A former president's post-presidency is offered, days after his death at a hundred. Habitat for Humanity is already familiar in the room, from volunteering with it once. A line attributed to Maya Angelou anchors why the example still carries feeling.",
+            "slideHint": "UN world map and the World Bank region map, then Sequence of Inquiry and an empty inquiry box.",
+            "pullQuote": "probably better known as what he did after his presidency than what he did during his presidency."
+          },
+          {
+            "n": 5,
+            "title": "What the eulogies revealed",
+            "timeRange": "@25:57-@30:15",
+            "summary": "Habitat for Humanity was the surface knowledge; the eulogies filled in the rest. Guinea worm eradication surprises the circle, and one voice had seen the parasite's effects firsthand. No pharmaceutical heroics were needed - clean up the water, and everyone bought in. Minority status in his own Georgia hometown is raised as formative. He volunteered to room with the first African American student to enter the Academy. Election monitoring in impoverished areas is added, done as a couple rather than alone. Public image described as an instrument used for humanity's sake. A claim that no missile was dropped during his tenure is offered and flagged as unverified.",
+            "slideHint": "Inquiry slide filling with story fragments; the humanitarian work under discussion.",
+            "pullQuote": "It really just took, you know. Let's say, let's clean up the water folks, and everyone bought into it."
+          },
+          {
+            "n": 6,
+            "title": "Earlier evidence of the same character",
+            "timeRange": "@30:16-@34:43",
+            "summary": "The circle looks earlier than the presidency for the same disposition. Navy in World War Two, the Naval Academy, submarines, then the early nuclear program. Volunteered to be lowered into a melted-down reactor in Canada so it could be shut down. One voice doubts being willing to do the same, and calls the act crazy. He required the service academies to integrate women, the year before one class entered. Integration on gender followed integration on race, imperfectly but committed to. Genuineness and spiritual faith named as the constant under all of it. A racist father is countered by following a mother's example instead. Scientist and peanut farmer at once, with no separation between the two roles.",
+            "slideHint": "Theories and Concepts opening, tracing one life backward for its formative acts.",
+            "pullQuote": "You're a scientist as well as a farmer, so there is. There was no difference for him in those things, because he was doing something important."
+          },
+          {
+            "n": 7,
+            "title": "The question takes shape",
+            "timeRange": "@34:45-@39:49",
+            "summary": "Values are pulled out of the stories: doing what is right, being genuine, looking out for others' welfare. Cultural awareness noted - dialogue rather than dominating with one way of thinking. A question is typed into the box, explicitly not set in stone. One reading answers it with volunteering to give back. Impact is described as permeating outward from the individual to city, state, and federal levels. Sphere of influence should extend past the house into the local community. The facilitator offers a counterpoint: the same values can be carried inside an official capacity. Recognition without announcement - the title was never the credential. Consensus reached to proceed, with tweaks allowed as the sequence runs.",
+            "slideHint": "The inquiry box now filled in: how can we embody the values of a humanitarian in our communities?",
+            "pullQuote": "he didn't walk around saying, I am former president, Jimmy Carter. This is why I'm doing what I do."
+          },
+          {
+            "n": 8,
+            "title": "Theories: innate, learned, or mixed",
+            "timeRange": "@39:53-@43:56",
+            "summary": "One theory holds the disposition innate - simply who the person already was. Another asks what life experiences and what teaching produced it. The example's own father is raised as a spur toward becoming something different. The example's mother, active in the community, was noticed and became an influence. A prison card ratio is offered: mothers' day cards far outnumbered fathers' day cards. The facilitator declines to settle it on genetics alone. Personality, family example, community, and formative experience are folded together instead. Adolescence and the years after high school are named as the shaping window.",
+            "slideHint": "Theories and Concepts, listing innate nature, learned behavior, and formative experience.",
+            "pullQuote": "Mothers have a huge impact on, on, on men."
+          },
+          {
+            "n": 9,
+            "title": "Examples from other countries",
+            "timeRange": "@43:59-@51:30",
+            "summary": "The circle is asked for parallels from outside the United States. Terry Fox named for Canada: cancer, a lost leg, and a run coast to coast. The goal was one dollar from every Canadian, about twenty million at the time. Angry drivers who did not know what he was doing exposed a language barrier. He could not finish, and died without the cancer resources available today. Bob Marley named as a worldwide humanitarian, remembered through stories that circulated. Returning wealthy to the poor part of Jamaica, doors left open for anyone to come in. Never the type to say this is mine; a partner is credited with the legacy too. Approachability is contrasted with hero worship that lifts a person out of community.",
+            "slideHint": "Application slide gathering examples by country: Canada, Jamaica, the United States.",
+            "pullQuote": "The goal itself wasn't the important thing, because, like, unfortunately, Terry Fox didn't complete it. But that example inspired the nation, and it continues to inspire it today."
+          },
+          {
+            "n": 10,
+            "title": "From heroic stature to pillar of community",
+            "timeRange": "@51:32-@55:39",
+            "summary": "A recently deceased local figure is offered as the same pattern at neighborhood scale, no longer at heroic stature. The reach crossed religious, cultural, and economic lines wherever help was needed. Problems were brought to this person, who convened others and, when that failed, did the work directly. Local and colloquial rather than headline-grabbing, and with no interest in headlines. The circle stops wishing for such a person and finds one already named. The facilitator renames pillar of society as pillar of community. What to study is specified: what they do, how they speak, how they treat people. Pairs recur across the examples, and a pair aligned on one shared passion is described as multiplying what either could do alone.",
+            "slideHint": "Sources and Inputs, with local pillars of community listed beside the national figures.",
+            "pullQuote": "we've taken somebody that's almost, you know, a heroic stature like Jimmy Carter, and we've narrowed it. We've brought it down to our community"
+          },
+          {
+            "n": 11,
+            "title": "Nature and nurture, and institutions as bridges",
+            "timeRange": "@55:40-@1:00:23",
+            "summary": "Nature versus nurture is rejected as a false choice; both mold who a person becomes. Another pairing is added, crediting a musician's wife with carrying the legacy outward. Father Boyle named as a local humanitarian influencer in Los Angeles. The meeting came about through a class that its instructor took out into community events. Academic institutions are credited with connecting people to living examples, not only to papers. That encounter stayed with one participant and reached this circle years later. The facilitator proposes assembling a straw man of the humanitarian from across regions. Attention shifts from the finished person to the building blocks that made them.",
+            "slideHint": "Sources and Inputs, adding institutions and mentors, with nature and nurture paired not opposed.",
+            "pullQuote": "an academic institution is studying a particular subject, and they're connecting people from that institution with community."
+          },
+          {
+            "n": 12,
+            "title": "Suffering as the trigger",
+            "timeRange": "@1:00:26-@1:04:28",
+            "summary": "Seeing others suffer draws out the wish to help; not seeing it leaves the comfort zone intact. Discrimination by race and gender is recalled as moving the example under discussion even though it never touched him directly. The Los Angeles fires are named as a live wake-up call rather than an abstraction. Struggle is described as honing resilience that can then be lent to others. Failure is offered as the best teacher, and lived experience alongside it. An African proverb is cited - experience teaches once a thing has been felt. Own struggle and witnessed suffering are joined: empathy comes from both. Chat carries a reminder to mute microphones, as feedback is reaching the audio.",
+            "slideHint": "Theories and Concepts revisited, adding suffering, struggle, and failure as inputs.",
+            "pullQuote": "when we don't see it, then we just live in our comfort zone. But then we want to step out and help others."
+          },
+          {
+            "n": 13,
+            "title": "When suffering hardens instead",
+            "timeRange": "@1:04:28-@1:09:08",
+            "summary": "A harder question is put to the group: suffering can harden a person, not soften them. Some who came through it tell the next person to get through it too. Another layer must explain who steps in and helps rather than moving on. The fires answer part of it - loss reaches celebrities and apartment dwellers alike. Losing possessions also means losing the memories built into a home. Loss is named as universal among humans, independent of wealth. Equality is reframed from access to opportunity into shared vulnerability. Empathy is proposed as the favorable quality that makes the difference. Empathy has been seen developing later in life, so it may be changeable by decision.",
+            "slideHint": "Favorable and Unfavorable columns, with empathy entered on the favorable side.",
+            "pullQuote": "I think the difference is, the favorable quality is empathy."
+          },
+          {
+            "n": 14,
+            "title": "Modelling empathy, and the economics of time",
+            "timeRange": "@1:09:09-@1:16:42",
+            "summary": "The question turns to how parents and caregivers demonstrate empathy to the young. Children who watch adults tear at each other learn that dialogue is impossible. Pillars of community make themselves known, and are recognized regardless of age. Nobody can be forced into empathy, but conditions for choosing it can be created. Economic framing is named as itself divisive, arguing systems instead of connection. Survival paycheck to paycheck leaves no energy left over for community. The facilitator asks whether every example so far comes from the upper strata. One participant holds firmly that economic status does not matter at all. Another argues achieved status bought flexibility and freedom from worry. The two are reconciled: means widen the reach, but the disposition came first.",
+            "slideHint": "Favorable and Unfavorable, with economic circumstance and available time entered as challenges.",
+            "pullQuote": "people who want to help are going to help, because there's always somebody that is, who's down on their luck that can use some help."
+          },
+          {
+            "n": 15,
+            "title": "A counterexample, then the call to action",
+            "timeRange": "@1:16:43-@1:22:35",
+            "summary": "Cesar Chavez is offered as a humanitarian who was poor for most of his life. A farm worker who organized for workers' rights and union representation in California. His rallying cry is traced forward into a later presidential campaign. Dolores Huerta is added as the organizing partner, another pairing. Affluence makes the work easier but is judged not to be required. One participant volunteers to research what volunteering looks like in the Hampton Roads area. Another volunteers to support, sending parallel examples from California. A shared document is agreed for comparing pillars of community east and west. The facilitator frames it as an individual journey held up by the group.",
+            "slideHint": "Call to Action, recording a steward, a supporting member, and a shared east-west document.",
+            "pullQuote": "It could be a very nice experiment of East, East and West, right to see what's happening on the East coast versus what's happening on the west coast"
+          },
+          {
+            "n": 16,
+            "title": "Learning reflection and fellowship circle",
+            "timeRange": "@1:22:39-@1:30:38",
+            "summary": "The learning reflection opens with a three-question QR code on screen. Survey links are posted in the chat for the participant who cannot scan from a phone. The forms stay open, so nobody needs to finish before the closing. The fellowship circle opens for one final round, with silence counted as a contribution. Thanks offered for being allowed to bring a local example to the group. One post-survey answer is read out into the circle: humbled. Humbled by the humanitarians discussed, and by the wisdom of this group. The facilitator notes the examples span government, entertainment, and the local level. It has been done, so it can be done, and others can be inspired to it. The closing thought sets fear of overstepping against the courage to reach a hand out.",
+            "slideHint": "Learning Reflection QR code with three questions, then the Fellowship Circle closing slide.",
+            "pullQuote": "it could be nothing, you know silence is also a contribution"
+          }
+        ]
+      },
+      "withheld": "Material withheld under the archive's privacy rules: participants' names, relationships between participants, biographical and professional detail from the introductions round, family circumstances, immigration circumstances, health, personal finances, contact details, anything involving a minor, and the names of people who were not present and could not consent.",
+      "provenance": {
+        "source": "the meeting recording transcript and the chat log",
+        "extractedOn": "2026-08-09",
+        "reviewedBy": "Hezekiah Jenkins"
+      }
     },
     {
+      "schemaVersion": 2,
       "id": "2025-02-23-healthcare-equity",
       "date": "2025-02-23",
-      "inquiry": "How can we advocate for healthcare equity in our communities?",
+      "inquiry": "How do we advocate for healthcare equity in our communities?",
       "tags": [
         "healthcare",
         "equity",
+        "insurance",
+        "access",
+        "cost",
         "policy"
       ],
-      "status": "needs-transcription",
-      "theories": [],
-      "applications": [],
-      "sources": [],
-      "policies": [],
-      "opportunities": [],
-      "challenges": [],
-      "quote": "",
-      "callToAction": ""
+      "status": "transcribed",
+      "meeting": {
+        "participants": 6,
+        "locations": [
+          "United States",
+          "Canada"
+        ],
+        "landAcknowledgement": "None on the record. The recording begins after the opening the facilitator refers back to, and no land gratitude is spoken during the session.",
+        "agenda": [
+          "Open floor to surface topics and narrow the inquiry question for the day",
+          "Group confirmation of the agreed question by thumbs up before proceeding",
+          "Theories and concepts, drawing on lived experience rather than expert testimony",
+          "Applications, then sources and inputs: who to consult about the causes",
+          "Opportunities and challenges arising from the discussion",
+          "Call to action, with a volunteer and a second to carry the inquiry forward",
+          "Learning reflection questions on screen, answered by phone, with no deadline",
+          "Closing fellowship circle, where silence itself counts as a contribution"
+        ],
+        "contextNotes": [
+          "Held online over Zoom; the recording runs from the start of the inquiry to @1:09:22.",
+          "Recording begins after the opening; the norms round and any pre-survey are not on it.",
+          "Topic was not pre-determined; the circle surfaced and agreed the question in the first eight minutes.",
+          "Circle spanned two countries: three joined from Canada and two from the United States at the outset.",
+          "A sixth participant joined a few minutes in and was brought up to speed on the question.",
+          "One further person joined in the final minute, after the closing had begun, and is not counted.",
+          "The facilitator called the technical trouble a first and asked the circle's patience.",
+          "Sequence of Inquiry ran theories, lived experience, sources and inputs, opportunities and challenges, and call to action.",
+          "A storyboard of the inquiry was promised to the circle for use in later Lyceums.",
+          "Comparison across the United States, Canada, Japan, and England ran through the whole session.",
+          "Learning reflection questions were displayed on screen rather than read aloud, so their wording is not recoverable."
+        ]
+      },
+      "theories": [
+        {
+          "text": "Healthcare framed as a right rather than a privilege or a tiered social system.",
+          "at": "@5:03"
+        },
+        {
+          "text": "One insurance plan, unequal tiers: an extended dependent covered worse than the immediate family.",
+          "at": "@11:48"
+        },
+        {
+          "text": "Care regardless of finances is a World Health Organization and UN aim, not an enshrined right.",
+          "at": "@18:22"
+        },
+        {
+          "text": "In the United States, health insurance commercializes the provision of care.",
+          "at": "@18:39"
+        },
+        {
+          "text": "Many in the United States want the universal care Canada promises, staffing limits included.",
+          "at": "@39:20"
+        },
+        {
+          "text": "No standardization of medicine prices: hospitals set their own price points.",
+          "at": "@42:52"
+        },
+        {
+          "text": "Under full coverage, patients have no sense of what their own care costs.",
+          "at": "@53:35"
+        },
+        {
+          "text": "Enrollment is not access: both systems grant coverage they cannot always deliver.",
+          "at": "@39:34"
+        },
+        {
+          "text": "Both systems handle emergencies; failure concentrates in routine and non-emergent care.",
+          "at": "@32:35"
+        },
+        {
+          "text": "Information, not money alone, makes choice possible; without it patients accept what is offered.",
+          "at": "@45:38"
+        },
+        {
+          "text": "Upfront payment, more than the later bill, is what turns people away from care.",
+          "at": "@10:12"
+        },
+        {
+          "text": "Geography and plan tier decide access; a move can change the care available.",
+          "at": "@42:30"
+        },
+        {
+          "text": "Unresolved: whether commercial incentive raises standards or is itself the defect.",
+          "at": "@58:40"
+        },
+        {
+          "text": "Uncovered cost does not vanish; it shifts to public institutions or to forgone care.",
+          "at": "@47:49"
+        }
+      ],
+      "applications": [
+        {
+          "text": "European systems: care broadly free at the point of use, funded by government.",
+          "at": "@1:50"
+        },
+        {
+          "text": "Japan ranked third in the world for healthcare quality against cost.",
+          "at": "@9:02"
+        },
+        {
+          "text": "Japan: a Blue Cross Blue Shield letter of guarantee was not honored by the hospital.",
+          "at": "@9:48"
+        },
+        {
+          "text": "Japan: non-citizens outside the national insurance system faced narrower prescribing options.",
+          "at": "@25:08"
+        },
+        {
+          "text": "Japan: patients were seen quickly, without the long waits reported in Canada.",
+          "at": "@24:38"
+        },
+        {
+          "text": "Canada: universal coverage meant urgent, serious treatment carried no cost to the patient.",
+          "at": "@15:54"
+        },
+        {
+          "text": "England's National Health Service, relayed secondhand: about $50,000 a year for each person.",
+          "at": "@53:18"
+        },
+        {
+          "text": "Each visit draws that pot down, roughly $275 for a doctor, making costs visible.",
+          "at": "@53:25"
+        },
+        {
+          "text": "The pot is topped up when it empties, so nobody is turned away.",
+          "at": "@53:57"
+        }
+      ],
+      "sources": [
+        {
+          "text": "An economist or healthcare administrators could be brought in for expert perspective.",
+          "at": "@8:28"
+        },
+        {
+          "text": "A contact who can explain coverage for extended family members beyond the household.",
+          "at": "@27:20"
+        },
+        {
+          "text": "Personnel data: accreditation numbers, and whether nurses are leaving the medical field.",
+          "at": "@28:11"
+        },
+        {
+          "text": "A subject-matter expert from an insurance provider, or a practicing medical professional.",
+          "at": "@28:52"
+        },
+        {
+          "text": "A provincial data repository and the local health authority, instead of random clinic calls.",
+          "at": "@30:01"
+        },
+        {
+          "text": "Care navigation starts with a general practitioner who has connections and refers onward.",
+          "at": "@31:04"
+        },
+        {
+          "text": "Plain summaries of what coverage to expect later, instead of hours of research.",
+          "at": "@36:33"
+        },
+        {
+          "text": "Public education on universal healthcare, so a wider audience can weigh it.",
+          "at": "@42:05"
+        },
+        {
+          "text": "Hospitals and providers disclosing standard prices for procedures and medicines.",
+          "at": "@46:08"
+        },
+        {
+          "text": "Canadian versus American hospital billing overhead, a secondhand comparison needing verification.",
+          "at": "@52:36"
+        },
+        {
+          "text": "Anonymized cost data by age group, showing which interventions people typically need.",
+          "at": "@54:32"
+        },
+        {
+          "text": "Session notes shared with the volunteers as the starting point for research.",
+          "at": "@1:01:20"
+        },
+        {
+          "text": "Doctors Without Borders: how care is administered, and who pays for it.",
+          "at": "@1:01:28"
+        },
+        {
+          "text": "Contacts in other countries, including African countries, to be asked directly.",
+          "at": "@1:01:28"
+        },
+        {
+          "text": "Post-survey responses requested from participants by a link in the chat.",
+          "at": "@1:04:04"
+        },
+        {
+          "text": "A need for prices published before care, not an explanation of benefits weeks later.",
+          "at": "@46:08"
+        },
+        {
+          "text": "A need for plain-language coverage guidance, sparing families hours of unpaid research.",
+          "at": "@36:33"
+        },
+        {
+          "text": "A need for workforce evidence: why practitioners leave, and why general practice attracts few.",
+          "at": "@28:11"
+        },
+        {
+          "text": "Scope-of-practice rules by jurisdiction: who may serve as primary provider decides supply.",
+          "at": "@32:15"
+        },
+        {
+          "text": "Several of the comparisons rest on half-remembered figures and need verifying before use.",
+          "at": "@53:04"
+        },
+        {
+          "text": "A like-for-like comparison of how peer nations fund, price and deliver care.",
+          "at": "@51:41"
+        },
+        {
+          "text": "What coverage applies across a border, for travelers and for new residents alike.",
+          "at": "@3:58"
+        },
+        {
+          "text": "A standing shared document, so a later inquirer starts from collected knowledge.",
+          "at": "@1:00:58"
+        }
+      ],
+      "policies": [
+        {
+          "text": "Hippocratic oath - taught as a duty to treat regardless of socioeconomic status.",
+          "at": "@11:02"
+        },
+        {
+          "text": "TRICARE Plus - a dependent tier seen only at military facilities, not other hospitals or urgent care.",
+          "at": "@12:35"
+        },
+        {
+          "text": "TRICARE Select - permits care from providers outside the military system.",
+          "at": "@34:21"
+        },
+        {
+          "text": "Medicare becomes the primary provider in a retiree's sixties, with TRICARE reduced to a supplement.",
+          "at": "@37:18"
+        },
+        {
+          "text": "Medicare parts A, B, C and D - a split routinely confused with Medicaid.",
+          "at": "@35:38"
+        },
+        {
+          "text": "BC nurse line, 8-1-1 - a provincial program giving nurse guidance by phone.",
+          "at": "@55:51"
+        },
+        {
+          "text": "Health authorities - British Columbia divided into regions that set where care is sought.",
+          "at": "@30:26"
+        },
+        {
+          "text": "Provinces and states set their own health regulations; federal matters stay uniform.",
+          "at": "@21:43"
+        },
+        {
+          "text": "Scope of practice - some states will not accept a nurse practitioner as a general practitioner.",
+          "at": "@32:15"
+        },
+        {
+          "text": "Jails are required to provide and pay for the medical care of people in custody.",
+          "at": "@47:00"
+        },
+        {
+          "text": "Universal health care - Canada's promise, named as an aspiration for the United States.",
+          "at": "@42:52"
+        },
+        {
+          "text": "Stated doctrine: health care should carry no insurance and should not be commercialized.",
+          "at": "@52:29"
+        }
+      ],
+      "opportunities": [
+        {
+          "text": "Circle spanning two countries supplies an immediate comparison of two healthcare systems.",
+          "at": "@5:29"
+        },
+        {
+          "text": "Care navigation starts with a general practitioner who knows where and when to refer.",
+          "at": "@31:04"
+        },
+        {
+          "text": "Arriving with a written list of questions makes the appointment work.",
+          "at": "@31:43"
+        },
+        {
+          "text": "Nurse practitioners can hold the primary-care role where physicians are unavailable.",
+          "at": "@32:09"
+        },
+        {
+          "text": "Military coverage, examined openly, could show civilians a model that already works.",
+          "at": "@33:50"
+        },
+        {
+          "text": "Mixed ages in the circle surface later-life coverage questions before they arrive.",
+          "at": "@41:29"
+        },
+        {
+          "text": "Offered the choice, patients could weigh a shorter wait against surgical experience.",
+          "at": "@44:59"
+        },
+        {
+          "text": "Disclosed standard prices for procedures and medicines would end blind shopping for care.",
+          "at": "@46:08"
+        },
+        {
+          "text": "Other prosperous nations already standardize coverage, offering the United States a working model.",
+          "at": "@51:41"
+        },
+        {
+          "text": "A yearly notional care allowance would show costs while nobody gets turned away.",
+          "at": "@53:57"
+        },
+        {
+          "text": "Anonymized patterns of care by age group would let common needs be anticipated.",
+          "at": "@54:47"
+        },
+        {
+          "text": "The military health system runs a comparable nurse hotline, so the model exists twice.",
+          "at": "@57:14"
+        },
+        {
+          "text": "Video assessment by phone could route people to the right care, saving money.",
+          "at": "@57:50"
+        },
+        {
+          "text": "Public terminals, a library for instance, extend remote care to those without devices.",
+          "at": "@58:02"
+        },
+        {
+          "text": "Commercial incentive phases out weak doctors and keeps competent ones in the system.",
+          "at": "@58:40"
+        },
+        {
+          "text": "In-person Lyceums in local communities would sidestep the online platform barriers.",
+          "at": "@1:06:46"
+        },
+        {
+          "text": "Nurse-led phone triage, proven in two systems, is the cheapest relief for crowded emergency rooms.",
+          "at": "@57:14"
+        }
+      ],
+      "challenges": [
+        {
+          "text": "Health insurance held in one country may not cover care received in another.",
+          "at": "@3:28"
+        },
+        {
+          "text": "An unexpected medical expense can financially ruin a family's retirement and savings.",
+          "at": "@6:00"
+        },
+        {
+          "text": "Under one tier of Tricare, a dependent can be seen only for emergencies at military facilities.",
+          "at": "@12:35"
+        },
+        {
+          "text": "A non-emergency operation took six months to reach a surgeon and eight months to complete.",
+          "at": "@15:02"
+        },
+        {
+          "text": "Support may be lacking for treating access to medical care as a fundamental human right.",
+          "at": "@19:28"
+        },
+        {
+          "text": "A nationwide shortage of doctors leaves long emergency waiting lines across Canada.",
+          "at": "@21:43"
+        },
+        {
+          "text": "Commercial standards in health care fail to meet the actual ethical intent.",
+          "at": "@23:22"
+        },
+        {
+          "text": "Scarce doctors push routine cases into emergency rooms meant for life, limb and eyesight.",
+          "at": "@32:35"
+        },
+        {
+          "text": "End-of-life and long-term care costs more, and coverage must be taken in the right window.",
+          "at": "@38:25"
+        },
+        {
+          "text": "Upfront payments and copays keep better programs out of reach on lower incomes.",
+          "at": "@39:02"
+        },
+        {
+          "text": "Hospitals set their own prices: two across the street charged differently for the same medication.",
+          "at": "@42:38"
+        },
+        {
+          "text": "The shortest waiting time can mean the least experienced surgeon.",
+          "at": "@45:26"
+        },
+        {
+          "text": "Some are willing to commit a crime to get access to medical services.",
+          "at": "@49:16"
+        },
+        {
+          "text": "The bill arrives a week to a month after care, too late to weigh cost.",
+          "at": "@50:00"
+        },
+        {
+          "text": "Remote triage assumes cameras and connectivity that not everyone has.",
+          "at": "@57:14"
+        },
+        {
+          "text": "People do not go to the hospital simply because they have no money for it.",
+          "at": "@1:07:44"
+        },
+        {
+          "text": "Waiting is itself a health cost: pain, lost activity, lifetime impact.",
+          "at": "@15:09"
+        },
+        {
+          "text": "Two publicly funded programs, separately administered, must be reconciled by the patient.",
+          "at": "@41:18"
+        },
+        {
+          "text": "Named barriers: legal red tape, commercialization, personnel shortage, insurance friction deterring practitioners.",
+          "at": "@28:05"
+        }
+      ],
+      "quote": "There's people that don't go to the hospital just because they don't have money for it.",
+      "quoteAt": "@1:07:44",
+      "callToAction": "Two participants took the inquiry forward, both volunteering on the night. The participant who raised the question undertook to research it and start a document, with no fixed starting point: how healthcare is administered in other countries, including several in Africa, and how Doctors Without Borders delivers care and who funds it. That work is to stay general rather than follow every rabbit hole. The same participant asked that the facilitator's notes from the session be shared with the group on Teams. A second participant volunteered to partner on it and to act as a sounding board for questions between this Lyceum and the next. A shared collaborative document is to be created and the two volunteers connected to it, so that anyone arriving later with the same question starts from the circle's collected wisdom rather than a blank slate, and a storyboard of the session is to be produced for subsequent Lyceums. Survey links are to be emailed to anyone who could not reach the on-screen QR code or the chat. Three of those present undertook to note the evening's technical difficulties and refine how the online Lyceum is delivered.",
+      "storyboard": {
+        "logline": "Six voices in the United States and Canada spent an hour comparing two healthcare systems and asking whether care is a right, a privilege, or a commercial product.",
+        "arcNotes": "The recording starts after the meeting opened, so the introduction, the norms and the pre-survey are not on it, and neither is the first stretch of troubleshooting for a participant dialling in by phone, which is referred to later from memory. The question was not pre-determined: the first six minutes are the circle building one out of an opening story, a keywords round, and a right-versus-privilege framing, with agreement taken by thumbs up before the inquiry proper. The two-word phrase that names the whole session lands at a cue boundary the transcript attributes unreliably, so the record does not credit 'healthcare equity' to any voice. From there the evening ran the standard sequence: theories and concepts on lived experience, application across the United States, Canada, Japan and England, sources and inputs, opportunities and challenges, a call to action with two volunteers, then the learning reflection and the fellowship circle. Convergence came late and on process rather than ideology: disclose standard prices, give people the information to choose, and let a person see what their own care costs. The strongest disagreement in the room, and the most useful, was over commercialisation - one position wanted insurance abolished, another credited commercial incentive with the standards that draw medical students from other countries.",
+        "beats": [
+          {
+            "n": 1,
+            "title": "Opening the floor",
+            "timeRange": "@0:02 - @3:44",
+            "summary": "The facilitator framed the forum as the place to raise a question that has been mulling, and to problem solve it as collective wisdom rather than alone, then opened the floor with no topic set. The first proposal was a comparison of medical insurance and medical systems between countries, contrasting European systems where care is broadly free and subsidised by government with the American arrangement. Alongside it came a second-hand account of a visitor whose emergency treatment abroad was not covered by home-country insurance, offered as evidence that not knowing the financial system you are entering carries a real cost, on vacation or in residence. The facilitator accepted the story and asked for it to be narrowed to the level of families in a community.",
+            "pullQuote": "This is the Forum that we can raise a question, something that we've been mulling over.",
+            "slideHint": "Title slide for the February Lyceum, then the empty inquiry slide with the sequence of inquiry listed down the side and the question line left blank, showing that the topic was still being built."
+          },
+          {
+            "n": 2,
+            "title": "Building the question",
+            "timeRange": "@3:46 - @8:20",
+            "summary": "Asked for keywords, the circle moved from insurance to entitlement: healthcare as a human right, the right to survive, basic emergency coverage, and whether care is a right, a privilege, or a tiered system, at local level or worldwide. The phrase healthcare equity was landed on here. The facilitator noted the circle already spanned two countries, two participants in the United States and three in Canada, so a comparison of two national approaches was unavoidable, and framed the stakes in household terms, an unexpected medical expense being able to end a family's retirement and savings. A distinction between emergent and non-emergent care was flagged for later. A late arrival was brought up to speed, the question was stated back to the circle, and agreement was taken by thumbs up before the inquiry began. One participant made the stakes concrete with a surgery bill in five figures that insurance absorbed.",
+            "pullQuote": "How do we advocate for healthcare equity in our communities?",
+            "slideHint": "Inquiry slide with the question filled in, a keywords cloud from the deliberation (right, privilege, tiered system, emergency coverage, human right), and a two-country marker for the United States and Canada."
+          },
+          {
+            "n": 3,
+            "title": "Lived experience over theory",
+            "timeRange": "@8:20 - @11:00",
+            "summary": "The facilitator opened theories and concepts by setting lived experience above theory: an economist or a healthcare administrator could be brought in, but what the circle and the people around it have actually been through gives a truer sense of how these systems land. Experience of three national systems was put into the room, with perceived quality rising with each move, alongside a ranking placing Japan third in the world for healthcare quality at cost. That comparison produced the section's sharpest structural point: an American insurer's letter of guarantee was acknowledged but not honoured by a hospital abroad, which demanded cash up front and left reimbursement to be recovered afterwards through paperwork. The concern drawn from it was for any family told to pay a large sum before treatment, forced to weigh a payment against protecting a life.",
+            "pullQuote": "I wouldn't want that to be the norm for any family that had to decide between how you're going to make a payment.",
+            "slideHint": "Theories and Concepts slide: lived experience above theory, with a three-country strip for the United States, Japan and Canada, and a callout that a letter of guarantee is not the same thing as coverage."
+          },
+          {
+            "n": 4,
+            "title": "Coverage that changes with the address",
+            "timeRange": "@11:00 - @13:45",
+            "summary": "The Hippocratic oath, recalled as a duty to treat without regard to socioeconomic status, was offered as the reason care sits closer to a right than a privilege. Against that, the round set out how coverage changes inside one country: under the United States military health plan the tier a dependent is enrolled at decides what care is reachable, and a secondary dependent moved to a different region of the plan could not be registered with a primary care physician, could not get a hospital or service enrolment, and could be seen only at a military facility and only for emergencies, with a queue everywhere else. Conversations and phone calls did not shift it. The conclusion offered was that the system is overburdened rather than malicious, that where a person lives decides what care they can reach, and that the Canadian counterpart is a months-long wait for elective surgery.",
+            "pullQuote": "the system is, you know, seemingly overburdened.",
+            "slideHint": "Application slide comparing plan tiers within one country: what a primary enrollee gets against what a secondary dependent gets, with 'emergency only, at one facility' called out and a wait-time comparison against Canada."
+          },
+          {
+            "n": 5,
+            "title": "What waiting costs",
+            "timeRange": "@13:45 - @17:10",
+            "summary": "Asked directly whether long waits are real, the Canadian side of the circle confirmed them from experience: roughly six months to see a surgeon and around eight to reach a non-emergency operation, with pain limiting ordinary activity throughout the interval, so the wait is itself a health cost rather than a delay. The circle also noted that the same system produces wildly different waits, apparently tracking which provider and which surgeon is available rather than need alone. Two persistent problems were named as the substance of the Canadian experience: finding a primary care physician and then holding on to one before that physician retires, and getting non-emergency surgery done in a reasonable time, with the least waiting and the least lifetime impact.",
+            "pullQuote": "finding your your doctor, your your primary care physician, and then holding on to them.",
+            "slideHint": "Challenges slide on access: a timeline bar showing six months to consultation and eight to operation, beside the two named problems - find and keep a primary physician, and get non-urgent surgery in reasonable time."
+          },
+          {
+            "n": 6,
+            "title": "A right, or a commercial product",
+            "timeRange": "@17:10 - @20:20",
+            "summary": "The provision of care regardless of financial circumstance was put forward as a good norm and as what the World Health Organization and the United Nations strive for, with the honest caveat that it may not be enshrined as a human right and that many countries do not provide it as a matter of course. In the United States, the argument ran, the health insurance system commercialises the provision of care, and whatever ethical goal medical providers subscribe to through the Hippocratic oath does not trump how the profession operates commercially. The problem was placed alongside the lack of housing for the unhoused as a challenge of the same order. Doubt was expressed that enough support exists for access to care without either a third-party insurer or out-of-pocket payment, and broadening coverage for those most in need was offered as the realistic target.",
+            "pullQuote": "our health insurance system is commercializing the provision of care.",
+            "slideHint": "Theories and Concepts slide two: is care a right - World Health Organization and United Nations aspiration on one side, commercialised provision on the other, with the unhoused comparison as a footnote and 'broaden coverage for those most in need' as the landing line."
+          },
+          {
+            "n": 7,
+            "title": "Shortage across a whole country",
+            "timeRange": "@20:20 - @24:20",
+            "summary": "The facilitator asked whether care differs by region, coast to coast in the United States and province to province in Canada. The answer distinguished the two layers: provinces and states regulate, mandate and organise differently, while federal matters should be uniform, but a shortage of physicians and long emergency waiting lines are common right across the country rather than local. That shortage was traced through to its consequences inside clinics and community health centres, which reorganise and reshuffle roles to keep providing service, with burnout, missed detail and incidents of accident as the foreseeable result if the burden is not relieved. A line posted in the chat added that the commercial reality of healthcare standards fails to meet the actual ethical intent, logged at chat clock 00:28:07, which is @23:22 on the recording.",
+            "pullQuote": "one thing across Canada is that there is a shortage of of doctors that we have",
+            "slideHint": "Sources and Inputs slide on structure: federal against provincial and state regulation, with a national shortage banner across both and a consequence chain from shortage to reshuffled roles to burnout and error."
+          },
+          {
+            "n": 8,
+            "title": "Five candidate causes",
+            "timeRange": "@24:20 - @29:10",
+            "summary": "A cross-country comparison of prescribing opened the stretch: not paying into a national insurance system limited which medications could be prescribed, a later move allowed a better fit, and the quality of care was comparable in both countries while ease of navigation and payment was not. The inquiry then turned to sources and inputs, on the premise that a call to action needs to know who to talk to and which organisations to consult first. One participant asked what the actual causes are and listed five: political and legal ramifications, bureaucratic red tape, the commercialisation of healthcare throwing up barriers, a personnel and accreditation shortage with nurses leaving the field, and insurance friction that keeps practitioners out of it. Subject-matter experts at an insurer and clinicians in private practice were proposed as the people to ask, with the list to be folded into the Lyceum summary.",
+            "pullQuote": "What are the actual possible causes that would put us in this situation",
+            "slideHint": "Sources and Inputs slide: five candidate causes as numbered boxes (political and legal, red tape, commercialisation, personnel and accreditation, insurance friction), with a who-to-ask column naming insurers and private practice clinicians."
+          },
+          {
+            "n": 9,
+            "title": "Where a person starts looking",
+            "timeRange": "@29:10 - @33:05",
+            "summary": "Asked where a family should actually look for reliable information rather than calling clinics at random, the circle named the provincial health authority a person belongs to as the structure that determines which services apply. The stronger answer was the general practitioner: the first person to go to, the knowledge base, the one with connections and the judgement about when and where to refer, with the relationship and a written list of questions doing most of the work. The same answer carried its own shortage, since general practice was described as less attractive than hospital-based practice. A nurse practitioner filling the role in one country was set against scope-of-practice rules in some American states that require a medical doctor to prescribe and to see patients, which concentrates demand on too few physicians and pushes routine cases into emergency departments meant for threats to life, limb and eyesight.",
+            "pullQuote": "For me myself. It all starts with the Gp.",
+            "slideHint": "Sources and Inputs slide two: a referral ladder from general practitioner to specialist to hospital, with provincial health authorities as the enclosing box, and a side panel on scope of practice and the nurse practitioner question."
+          },
+          {
+            "n": 10,
+            "title": "Coverage as a moving target",
+            "timeRange": "@33:05 - @39:54",
+            "summary": "Asked how insurance works inside the comparatively closed world of military healthcare, the circle set out how the plan runs: it permits out-of-network providers, which makes choosing a doctor easier, alongside ordinary copays and dental bought separately. Public programmes were described as convoluted: Medicare and Medicaid are widely confused for each other, the lettered parts have to be learned, and understanding any of it takes hours of unpaid self-directed research that most people do not have. A second account followed the same coverage forward in time: a lifetime entitlement that runs until an age at which Medicare becomes primary and the military plan becomes a supplement, monthly fees paid up front, copays, and tiers from basic to generous, generally better than what is commercially available but ending at a point that leaves whatever an employer or Medicare provides. Long-term and end-of-life care were named as costlier and more complex, with enrolment windows that have to be hit exactly. Commercial plans were described as caring less about taking care of people, and many in the United States were said to wish for the universal promise Canada makes, even acknowledging its shortage of primary care providers and staff.",
+            "pullQuote": "it's all convoluted like a lot of people don't know the difference between Medicare and Medicaid",
+            "slideHint": "Application slide on coverage over a lifetime: a timeline from enrolment through retirement to older age, showing where a military plan becomes a supplement and Medicare becomes primary, with fees, copays and enrolment windows marked and long-term care at the far end."
+          },
+          {
+            "n": 11,
+            "title": "No standard price",
+            "timeRange": "@39:55 - @46:30",
+            "summary": "Two government-funded programmes run by separate organisations were described meeting at a single bedside, one picking up what the other does not cover, which puts bureaucracy at the point of care. Because the circle spanned ages, end-of-life questions were abstract for some and near for others, and education about universal healthcare was offered as the need rather than waiting for a threshold age to change everything at once. Access was said to vary by state, by city and by economic station. The concrete illustration was pricing: two hospitals across the street from one another quoted different prices for the same prescription, with hospitals effectively setting their own prices and no standardisation, so a patient who did not know to ask simply paid what the provider said. The same variation was reported for procedures, sometimes within a single hospital, so insurers are not the only cause of overpricing. A counter-argument held that a surgeon of thirty years and one newly qualified are not paid the same, so one price is not obvious; the reply was that patients are rarely told who will operate and should be offered the choice, and one participant reported having had the less experienced surgeon purely because that was the shortest wait. Disclosure of standard prices was offered as the common-sense mitigation, on the ground that information is what lets a person choose.",
+            "pullQuote": "there was no standardization of medicine.",
+            "slideHint": "Opportunities and Challenges slide on price: same prescription, two hospitals, two prices, with the gas station analogy as a visual and a standardisation-versus-experience balance beneath it."
+          },
+          {
+            "n": 12,
+            "title": "Care of last resort, and the game of surprise",
+            "timeRange": "@46:30 - @51:20",
+            "summary": "One participant, from experience in law enforcement, raised the part of the system most citizens never see: people with no coverage sometimes reach care only by entering a public institution that is legally required to provide and pay for treatment, which absorbs a five-figure cost, has no way to recover it from someone without income, and writes it off. The point offered was that this is a small share of the population but a real route to care, and that nobody encounters it without professional contact. The insured contrast came from the same section: after a hospital delivery the bill arrives a week to a month later as an explanation of benefits with a five-figure share, so no informed choice about anaesthesia or an extra night in hospital is possible at the moment it would matter, standard stays being two days for a natural delivery and three for a caesarean. A $300 ambulance charge outside the plan made the same point smaller and sharper. Nobody, it was argued, can weigh a $1 apple against a $2 one when the price is disclosed only afterwards.",
+            "pullQuote": "it's almost like the game of surprise",
+            "slideHint": "Challenges slide on price opacity: a timeline showing service first and price weeks later, with an explanation of benefits mock-up, the ambulance charge as a small line item, and institutions of last resort noted as the fallback route to care."
+          },
+          {
+            "n": 13,
+            "title": "Take the insurance out",
+            "timeRange": "@51:20 - @56:00",
+            "summary": "Opening opportunities and challenges formally, the facilitator set paying for experience against standardisation, and asked whether the United States should aspire to the universal systems already running in Canada and Japan or continue as it is. The strongest position of the evening answered that there should be no insurance and that care should not be commercialised at all, illustrated by a described contrast between a Canadian hospital's billing function of one person emailing government for payment and an American hospital's room full of people chasing payment. A more unusual proposal followed, attributed to England's National Health Service and offered without certainty that it is true: give everyone an annual notional pot, say $50,000, and let them watch it draw down, a doctor visit taking $275, so people gain a personal sense of what their care costs, with the pot topped up rather than anyone turned away for serious illness. The facilitator reframed it as an anonymised view of what people of a given age typically need; the reply held the simpler purpose, personal understanding of cost, with fewer emergency visits for minor illness as a side effect.",
+            "pullQuote": "There should be no insurance. It should not be commercialized.",
+            "slideHint": "Opportunities slide: two billing departments side by side, one desk against a full room, beside a mock annual healthcare pot drawing down by visit, with 'universal care as an aspiration' as the header question."
+          },
+          {
+            "n": 14,
+            "title": "Triage by phone, and the case for the market",
+            "timeRange": "@56:00 - @1:00:05",
+            "summary": "A provincial nurse line reachable by phone was named as a working intervention: a nurse gives guidance on whether a symptom warrants an emergency visit or can be managed at home. It exists partly because physicians are scarce and people without a doctor default to emergency departments, so the first answer, go see your doctor, is unavailable to many. A military nurse hotline was named as the same mechanism inside another system. Telehealth was proposed as the next step, with assessment over a phone camera and a prescription where that is all that is needed, saving time, staff and money, and with a library terminal offered as an access point for people without a camera of their own. Against the evening's drift, one participant then made the case that commercialisation buys standards: a large share of elective surgery, medical students sent from other countries to train, and malpractice exposure and insurance filtering out poor practitioners. Government-employed military doctors were offered as the contrast, with service members who prefer civilian providers, and out-of-network choices made for ease of scheduling.",
+            "pullQuote": "we have a lot of people don't have a doctor. So you go to emergency.",
+            "slideHint": "Opportunities slide two: a triage funnel from nurse line and telehealth through primary care to emergency, with a facing panel listing the pros claimed for a commercial system - elective capacity, training destination, malpractice filtering."
+          },
+          {
+            "n": 15,
+            "title": "A call to action, and two volunteers",
+            "timeRange": "@1:00:05 - @1:03:12",
+            "summary": "The facilitator closed the sequence by explaining what the call to action is for: so that collective wisdom is carried forward rather than left to disappear into the ether, with a storyboard produced for later gatherings. One participant volunteered to research the inquiry and start a document, without claiming to know where it would lead, and named the questions already in hand - how other countries administer care, including African countries, who funds Doctors Without Borders and where that money comes from, and what opportunities exist for people elsewhere. A second participant volunteered to partner on it as a topic worth learning more about. The host was to connect the two and open a shared document, so that a person arriving later with the same question starts from the circle's baseline rather than from nothing.",
+            "pullQuote": "They don't have to start with a blank slate.",
+            "slideHint": "Call to Action slide: the inquiry restated at the top, two volunteer slots filled, the open questions listed beneath (comparative national systems, African countries, Doctors Without Borders funding), and the shared document named as the mechanism."
+          },
+          {
+            "n": 16,
+            "title": "Reflection, fellowship, and the close",
+            "timeRange": "@1:03:12 - @1:09:22",
+            "summary": "The learning reflection questionnaire went up for phones, and the session's running tech problem surfaced as a procedural finding: a participant dialling in by phone could reach neither the on-screen QR code nor the chat, so the link had to be offered by email as a fallback. It had also been posted in the chat, logged at chat clock 01:08:49, which is @1:04:04 on the recording. No deadline was attached to the survey, and answering it later was explicitly allowed. The fellowship circle then opened as a final round, with the reminder that silence itself is a contribution and that nobody need speak to complete their time. Thanks were given for patience through the tech issues, a first for the facilitator, to be noted for refining how the online Lyceum is delivered and eventually for holding these in person. One participant closed on the stake behind the question, that people do not go to hospital because they have no money for it, and welcomed participants back for future gatherings. A late arrival in the final minute apologised for coming in at the end and was asked to stay on after the close, and the recording ended at @1:09:22.",
+            "pullQuote": "There's people that don't go to the hospital just because they don't have money for it.",
+            "slideHint": "Learning Reflection slide with the post-survey QR code and a short link fallback for the chat, then the Fellowship Circle closing slide carrying the 'silence is a contribution' line and a placeholder for the next Lyceum."
+          }
+        ]
+      },
+      "withheld": "Material withheld under the archive's privacy rules: participants' names, relationships between participants, biographical and professional detail from the introductions round, family circumstances, immigration circumstances, health, personal finances, contact details, anything involving a minor, and the names of people who were not present and could not consent.",
+      "provenance": {
+        "source": "the meeting recording transcript and the chat log",
+        "extractedOn": "2026-08-09",
+        "reviewedBy": "Hezekiah Jenkins"
+      }
     },
     {
       "schemaVersion": 2,
@@ -2349,7 +3630,7 @@
           "A participant's young child appeared briefly on camera during introductions and did not speak.",
           "Participants stepped away and returned mid-session; one stepped away near the close and did not speak again.",
           "Chat carried content the audio did not, including the land gratitude and a closing point on non-traditional educators.",
-          "Recording began about six minutes after the meeting, so chat timestamps run ahead of the recording clock.",
+          "Recording began about six minutes after the meeting itself.",
           "Next Lyceum announced for the following month, with a six-month reflection on open inquiries."
         ],
         "participants": 7
@@ -2939,30 +4220,616 @@
       }
     },
     {
+      "schemaVersion": 2,
       "id": "2025-04-27-tragedy",
       "date": "2025-04-27",
       "inquiry": "How can we discuss tragedy with our children?",
       "tags": [
         "family",
         "children",
+        "resilience",
+        "grief",
         "wellbeing"
       ],
-      "status": "needs-transcription",
-      "theories": [],
-      "applications": [],
-      "sources": [],
-      "policies": [],
-      "opportunities": [],
-      "challenges": [],
-      "quote": "",
-      "callToAction": "",
-      "idAliases": [
-        "2025-04-28-tragedy"
+      "status": "transcribed",
+      "meeting": {
+        "participants": 5,
+        "locations": [
+          "Vancouver, British Columbia",
+          "United States, at country level only"
+        ],
+        "landAcknowledgement": "Newly added to the opening presence and read in full, with the practice explained first: the organization exists on the traditional and unceded territories of the Squamish, Musqueam, and Tsleil-Waututh nations, its lineage traced to the Coast Salish peoples of Vancouver, British Columbia, in the hope that the day's work builds reconciliation with the people who have inherited this land since time immemorial. Canada's truth and reconciliation practice was given as the reason for adding it, and it will be repeated more briefly in future gatherings.",
+        "agenda": [
+          "Welcome and a reminder of the rules and norms for about ninety minutes online",
+          "Learning conversation check-in on mobile devices or by a link in the chat",
+          "Opening presence circle, with a land acknowledgement newly added at its start",
+          "Guided deep breaths with gratitude for Earth, ancestors, self, family, and children",
+          "Shared understanding round of introductions and a fact others might not know",
+          "World map orientation, colors used to place regions and recall travels",
+          "Sequence of Inquiry on a question raised from the floor and agreed by the circle",
+          "Learning reflection questionnaire by chat link or QR code",
+          "Closing circle of fellowship with a final round of sharing"
+        ],
+        "surveyPost": [
+          "What was a highlight from today's forum?",
+          "What would you like to talk about in an upcoming forum?"
+        ],
+        "contextNotes": [
+          "Held the afternoon after a driver drove an SUV through a crowd at a Filipino cultural festival in Vancouver.",
+          "The toll stated in the room was that an initial report suggested nine people were killed; that is the figure known that evening, not the final one.",
+          "The suspect was said to be in custody; no name was spoken in the room and none is supplied here.",
+          "The festival honored Lapu-Lapu, a chieftain of the central Philippines who resisted Magellan's colonization.",
+          "Members of the circle had attended that festival the previous day and learned of the attack that night.",
+          "The topic was not pre-determined; it was offered from the floor and adopted after the circle agreed it was worth taking.",
+          "Recording begins 22:33 GMT on 27 April 2025, mid-afternoon Pacific, and runs one hour fifteen.",
+          "Scheduled for about an hour and a half; the circle reached its call to action just over an hour in.",
+          "A circle of five, named in the close as effective precisely because it was small and intimate.",
+          "The closing round observed the group's closeness as a commonality that aided understanding of each other's views.",
+          "Held in the week of Earth Day and just after the Easter and Passover season."
+        ]
+      },
+      "theories": [
+        {
+          "text": "Parents skilled at compartmentalising emotion may explain why children showed little visible reaction.",
+          "at": "@17:37"
+        },
+        {
+          "text": "Timing of the telling outweighs the exact words chosen; when matters more than how.",
+          "at": "@21:39"
+        },
+        {
+          "text": "Proximity of the person or the event shapes how a loss is discussed.",
+          "at": "@24:38"
+        },
+        {
+          "text": "The receiver's own circumstances decide whether news can be shared or must be set aside.",
+          "at": "@25:56"
+        },
+        {
+          "text": "How adults handle bad news teaches children how they will one day deliver it.",
+          "at": "@29:29"
+        },
+        {
+          "text": "Scripture serves both as grounding taught in advance and as comfort sought after an event.",
+          "at": "@31:27"
+        },
+        {
+          "text": "School and peers reach children first, so the conversation happens regardless.",
+          "at": "@32:36"
+        },
+        {
+          "text": "Tragedy moves outward in rings: family, then community, then city, then nation.",
+          "at": "@37:10"
+        },
+        {
+          "text": "Setting feelings aside suits an emergency, not the family norm afterwards.",
+          "at": "@38:19"
+        },
+        {
+          "text": "Children learn vulnerability only where adults role model it openly.",
+          "at": "@38:55"
+        },
+        {
+          "text": "A whole world cannot be taught empathy; a single child can.",
+          "at": "@47:20"
+        },
+        {
+          "text": "No hierarchy of who had it worse; suffering is suffering.",
+          "at": "@48:45"
+        },
+        {
+          "text": "Vaccine refusal and the public health case coexisted as competing truths.",
+          "at": "@48:57"
+        },
+        {
+          "text": "Explaining a contested issue without steering leaves room for the view to change.",
+          "at": "@53:20"
+        },
+        {
+          "text": "People notice different things in the same event, so rigid processing rules stifle.",
+          "at": "@54:23"
+        },
+        {
+          "text": "Empathy attempted only during crisis reads as insincere without prior trust.",
+          "at": "@1:01:19"
+        },
+        {
+          "text": "Each generation peels away inherited stoicism and the armor of manhood.",
+          "at": "@1:02:26"
+        },
+        {
+          "text": "Children are never shielded from the news; the only choice is who frames it first.",
+          "at": "@32:36"
+        },
+        {
+          "text": "Tragedy scales outward through rings; understanding scales inward, one child at a time.",
+          "at": "@47:20"
+        },
+        {
+          "text": "A late first encounter with death is fortune, not the worldwide norm.",
+          "at": "@20:11"
+        },
+        {
+          "text": "Resilience becomes hope, and hope reaches children through adults who demonstrate it.",
+          "at": "@1:12:41"
+        },
+        {
+          "text": "Naming an adult's own fear aloud to a child belongs in the telling.",
+          "at": "@16:27"
+        }
       ],
+      "applications": [
+        {
+          "text": "Canada - organizations and academic spaces acknowledge traditional and unceded lands before formal meetings.",
+          "at": "@4:07"
+        },
+        {
+          "text": "Lapu-Lapu Day, Vancouver - a Filipino festival honoring a chieftain who resisted Magellan's colonization.",
+          "at": "@13:43"
+        },
+        {
+          "text": "Europe - trucks driven into crowds recalled in France and in Germany.",
+          "at": "@28:28"
+        },
+        {
+          "text": "Germany - a Christmas market closed after a driver hit the crowd, barricades notwithstanding.",
+          "at": "@28:48"
+        },
+        {
+          "text": "Red Cross messages deliver news of a family death to service members overseas.",
+          "at": "@29:59"
+        },
+        {
+          "text": "United States, 2001 - classroom televisions carried the coverage and lessons stopped.",
+          "at": "@32:52"
+        },
+        {
+          "text": "Parents tell children at home first, so peers at school are not the source.",
+          "at": "@36:20"
+        },
+        {
+          "text": "News outlets now withhold pictures of perpetrators and victims; 2001 coverage showed everything.",
+          "at": "@36:43"
+        },
+        {
+          "text": "Shipboard response in 2001 - crews readied to get underway, with no discussion of feelings.",
+          "at": "@37:25"
+        },
+        {
+          "text": "COVID-19 - a vaccine researched, developed, and distributed quickly to stave off a pandemic.",
+          "at": "@40:04"
+        },
+        {
+          "text": "Nursing homes - visitors barred; residents died without seeing grandchildren, contact only through windows.",
+          "at": "@42:12"
+        },
+        {
+          "text": "Hospital wards - staff held an iPad up so dying patients could say goodbye.",
+          "at": "@44:34"
+        },
+        {
+          "text": "Older children asked to pass the news to younger siblings in terms they grasp.",
+          "at": "@51:29"
+        },
+        {
+          "text": "China - reported lockdowns confined residents to apartments for a month while streets were bleached.",
+          "at": "@51:56"
+        },
+        {
+          "text": "A parent explained a pro-life bumper sticker and both sides of it, without steering the child.",
+          "at": "@53:20"
+        },
+        {
+          "text": "Earth Day - an interfaith gathering asked how faith groups can spur climate action.",
+          "at": "@1:11:12"
+        },
+        {
+          "text": "A child asked why more children were absent; the interfaith room noticed only two attended.",
+          "at": "@1:12:03"
+        }
+      ],
+      "sources": [
+        {
+          "text": "Scripture and faith tradition, referenced in advance or once the event happens.",
+          "at": "@31:27"
+        },
+        {
+          "text": "Reaching children before peers at school deliver the news to them.",
+          "at": "@36:20"
+        },
+        {
+          "text": "Current research on tragedy and children, changed from 20 years ago.",
+          "at": "@39:05"
+        },
+        {
+          "text": "Scale cited in the room: upwards of 4 million documented pandemic deaths.",
+          "at": "@42:01"
+        },
+        {
+          "text": "Skill of hearing another's story without ranking it against your own.",
+          "at": "@46:34"
+        },
+        {
+          "text": "A chapter in every parenting book on how to discuss tragic events.",
+          "at": "@50:43"
+        },
+        {
+          "text": "The Passover story's four children - address each at their own level.",
+          "at": "@55:58"
+        },
+        {
+          "text": "Talmudic reading: the young child cannot ask, so ask the question for them.",
+          "at": "@56:27"
+        },
+        {
+          "text": "Role models from the community rather than celebrity figures for children to follow.",
+          "at": "@57:17"
+        },
+        {
+          "text": "Skill of sitting with an emotion, not only recognizing that it is there.",
+          "at": "@1:03:13"
+        },
+        {
+          "text": "Men modeling vulnerability - strength shown by being yourself, not by stoicism.",
+          "at": "@1:04:45"
+        },
+        {
+          "text": "A brainstorming document gathering input, with people asked to contribute to it.",
+          "at": "@1:05:29"
+        },
+        {
+          "text": "A starting point for families who otherwise have nowhere to turn.",
+          "at": "@1:05:48"
+        },
+        {
+          "text": "One participant offered a tragedy of their own for the storyboard.",
+          "at": "@1:06:32"
+        },
+        {
+          "text": "Post-meeting survey circulated as a chat link, for reflections and next topics.",
+          "at": "@1:07:30"
+        },
+        {
+          "text": "Faith-based groups across traditions as partners for community action.",
+          "at": "@1:11:12"
+        },
+        {
+          "text": "Children present where adults discuss the next generation; a child asked why not.",
+          "at": "@1:11:42"
+        },
+        {
+          "text": "A shared body of guidance for telling children about tragedy, since no parenting book carries one.",
+          "at": "@50:43"
+        },
+        {
+          "text": "A practice for the days after the telling, missing from every era the circle recalled.",
+          "at": "@41:18"
+        },
+        {
+          "text": "A method for pitching one telling across a household of widely different ages.",
+          "at": "@51:15"
+        },
+        {
+          "text": "Session links that reach every arrival, on any device, at any point in the meeting.",
+          "at": "@2:34"
+        },
+        {
+          "text": "Verified reference cases; the precedents named in the room came from memory alone.",
+          "at": "@27:47"
+        },
+        {
+          "text": "Guidance split two ways: the emergent event, and the loss seen on the horizon.",
+          "at": "@22:05"
+        },
+        {
+          "text": "Adult groundwork before the event: existing trust, and practice at showing emotion.",
+          "at": "@1:01:19"
+        }
+      ],
+      "policies": [
+        {
+          "text": "Truth and reconciliation - acknowledging land in relation to the people who were there before.",
+          "at": "@4:07"
+        },
+        {
+          "text": "Opening land acknowledgement of the unceded Squamish, Musqueam, and Tsleil-Waututh territories.",
+          "at": "@5:15"
+        },
+        {
+          "text": "This Lyceum series is scoped to the family and community level.",
+          "at": "@18:52"
+        },
+        {
+          "text": "COVID-19 framed as this generation's bubonic plague, met by rapid vaccine science.",
+          "at": "@40:04"
+        },
+        {
+          "text": "Contested mask mandates left households teaching their children opposite lessons about COVID-19.",
+          "at": "@48:22"
+        },
+        {
+          "text": "Scientists led by Dr. Fauci urged mass vaccination to stave off the coronavirus.",
+          "at": "@49:05"
+        },
+        {
+          "text": "No parenting book covers tragedy; it belongs as a chapter in every one.",
+          "at": "@50:43"
+        },
+        {
+          "text": "News from China recalled - stay in the apartment, the streets to be bleached.",
+          "at": "@51:56"
+        },
+        {
+          "text": "Passover story of the four children, offered as a model for age-appropriate telling.",
+          "at": "@55:58"
+        },
+        {
+          "text": "Praxium mission - connecting the past to the present to shape a future of hope.",
+          "at": "@57:07"
+        },
+        {
+          "text": "Andrew Tate cited as fame and money mistaken for a role model - a participant's characterization.",
+          "at": "@57:42"
+        }
+      ],
+      "opportunities": [
+        {
+          "text": "Space left after the telling lets children turn the news over themselves.",
+          "at": "@16:19"
+        },
+        {
+          "text": "Community losses give ground to teach children what tragedy looks like.",
+          "at": "@21:29"
+        },
+        {
+          "text": "A loss seen coming leaves room to choose when and how to share it.",
+          "at": "@21:39"
+        },
+        {
+          "text": "One child at a time is doable, and that child explains it onward.",
+          "at": "@47:32"
+        },
+        {
+          "text": "Children can listen and understand without having to agree on everything.",
+          "at": "@49:31"
+        },
+        {
+          "text": "A space of cultural diversity and acceptance lets each person process on their own terms.",
+          "at": "@55:04"
+        },
+        {
+          "text": "Passover's four children: the same news pitched from the wise child to the simple child.",
+          "at": "@55:58"
+        },
+        {
+          "text": "Empowering community role models rather than famous figures children might copy.",
+          "at": "@58:39"
+        },
+        {
+          "text": "Other families gain a starting point instead of working it out alone.",
+          "at": "@1:00:08"
+        },
+        {
+          "text": "Faith-based groups across traditions convene to move communities into climate action.",
+          "at": "@1:11:12"
+        },
+        {
+          "text": "A child's question about absent children shifted an adult room's energy.",
+          "at": "@1:11:42"
+        },
+        {
+          "text": "Children included in the dialogue about their own future, not protected out of it.",
+          "at": "@1:12:31"
+        }
+      ],
+      "challenges": [
+        {
+          "text": "Participants joining from phones could not reach the check-in survey.",
+          "at": "@2:34"
+        },
+        {
+          "text": "A child's frame of reference differs, so a calm reaction is hard to read.",
+          "at": "@16:50"
+        },
+        {
+          "text": "Sudden death removes the timeline that lets hard news be delivered gradually.",
+          "at": "@24:25"
+        },
+        {
+          "text": "Children come home already told by peers, before a parent is ready to talk.",
+          "at": "@32:24"
+        },
+        {
+          "text": "In 2001 lessons stopped for the news, but children got no space to talk about it.",
+          "at": "@34:05"
+        },
+        {
+          "text": "Saturated by tragedy from everywhere online, parents cannot get out in front of the message.",
+          "at": "@35:40"
+        },
+        {
+          "text": "A national tragedy was never brought home and discussed with the children.",
+          "at": "@37:50"
+        },
+        {
+          "text": "The prevailing response twenty years ago was to do the job and deal with it.",
+          "at": "@38:03"
+        },
+        {
+          "text": "No global processing of the pandemic; societies moved on without reckoning with it.",
+          "at": "@41:18"
+        },
+        {
+          "text": "Ranking whose loss was worse builds a hierarchy of trauma and stops listening.",
+          "at": "@46:17"
+        },
+        {
+          "text": "Shared understanding requires accepting accounts of the pandemic one rejects.",
+          "at": "@48:04"
+        },
+        {
+          "text": "Siblings at different stages need the same news addressed at each level.",
+          "at": "@51:15"
+        },
+        {
+          "text": "Culture and religion differ, so no single way of breaking news travels.",
+          "at": "@51:36"
+        },
+        {
+          "text": "Rigid rules for processing an event would stifle a person's own way through it.",
+          "at": "@55:04"
+        },
+        {
+          "text": "The figures children look up to are often famous without being role models.",
+          "at": "@58:35"
+        },
+        {
+          "text": "Families meeting a first tragedy start from nothing, with nowhere to turn.",
+          "at": "@1:05:48"
+        }
+      ],
+      "quote": "That child can explain it to the next person, and so on, and so on. And that's how you're going to change the world.",
+      "quoteAt": "@47:32",
+      "callToAction": "One participant volunteered to carry the inquiry forward, and the facilitator undertook to support the work rather than leave it with one person. The facilitator undertook to open a further brainstorming document to gather input, and to build it into a storyboard other families can reach for when tragedy arrives. Another participant asked for the storyboard to be shared with them and offered their own experience of tragedy into it, which the circle received as the whole point of a shared record. The stated purpose was that no family should start from nothing: a parent with nowhere to turn can use the record as a starting point for their own household and their own children. The hosts undertook to circulate the storyboard as it develops and to keep developing this topic alongside the other inquiries. One practical item was left with the group: participants on mobile devices could not reach the check-in survey, and the facilitator noted it for fixing.",
+      "storyboard": {
+        "logline": "The day after a driver drove into a crowd at a Filipino cultural festival some of them had attended, a circle of five opened the floor for a topic and got the hardest one available: how can we discuss tragedy with our children?",
+        "arcNotes": "The session had no pre-set question. It opened on the standard template - norms, a mobile check-in that did not reach everyone, a newly added land acknowledgement, gratitude breaths, introductions, the world map - and the topic arrived only when the floor opened and nobody offered one: the previous day a driver had taken a vehicle through a crowd at a Filipino cultural festival in Vancouver, at an event some of those present had been at, and children in one household had been told over breakfast that morning. From there the inquiry widened in visible rings. First outward from the household: whether the harder question is when a child is told rather than how, then how the proximity of a person and the distance of an event change the telling, then a list of comparable attacks assembled from memory, then 9/11 as the case every adult in the circle had lived through. Second outward to a whole society, when COVID-19 was brought in as a tragedy that reached every family and was never collectively processed. That produced the evening's strongest theory - shared understanding is built by hearing another account without ranking it against your own - and named its failure mode, the hierarchy of trauma. Convergence came from two places: the claim that a whole world cannot be made to empathise but one child can, and that a child taught adequately teaches the next person; and the Passover story of the four children as a template for pitching one telling across a household of different ages. The last third stayed on what adults model - taking off inherited armour, naming discomfort aloud, sitting with an emotion rather than only recognising it, choosing community role models over famous ones - and closed on an Earth Day interfaith panel where a child's question about why no children were present made the circle's point for it. One volunteer took the inquiry forward, with a brainstorming document feeding a storyboard for families who would otherwise face this alone, and a second participant offered an account of their own to it.",
+        "beats": [
+          {
+            "n": 1,
+            "title": "Opening, and a land acknowledgement added",
+            "timeRange": "@0:11 - @7:49",
+            "summary": "The facilitator welcomed the circle to the month's Lyceum, framed as an endeavour for shared purpose in families and communities, and declined to belabour the rules and norms as familiar: about ninety minutes online, seeking commonality while respecting the diversity each person brings. The agenda was walked through with one addition flagged at the opening. The learning-conversation check-in went out by mobile device and a link in the chat, which surfaced a practical gap: a participant joining by phone could not reach the survey, the chat link was not visible to anyone joining later, and the circle asked both how to reach mobile participants and whether a welcome banner could appear on entry. The addition was a land acknowledgement, explained as the practice in Canada around truth and reconciliation of naming the land in relation to the people who were there before, as academic bodies and businesses do before formal meetings. Because the organisation was founded in Vancouver, British Columbia, the acknowledgement traced to the Coast Salish peoples and named the Musqueam, Squamish and Tsleil-Waututh nations, with the hope that the day's work would build reconciliation with those who have inherited the land since time immemorial. The opening presence then ran as guided breaths, with gratitude given in turn to Earth, to ancestors, to ourselves, to family and friends, and to children.",
+            "pullQuote": "let's give gratitude to our children the ones that we do this, for to give them a chance to shape the future that they want",
+            "slideHint": "Title slide plus Rules and Norms for the month's Lyceum, the standard agenda strip with the new opening item marked, the check-in survey slide with QR code and a chat-link fallback, then an Opening Circle slide carrying the land acknowledgement naming the Coast Salish peoples and the Musqueam, Squamish and Tsleil-Waututh nations, with the five gratitudes listed beneath."
+          },
+          {
+            "n": 2,
+            "title": "Introductions, and one space on the earth",
+            "timeRange": "@7:56 - @12:43",
+            "summary": "The shared understanding round ran on the usual prompts, in a circle already at ease with one another, with each person invited to add a fact the others might not know. What the round established was a group willing to offer something small and personal when asked - things done for pleasure, things being looked forward to - rather than credentials or histories, and one participant offered a motivation in place of a fact: friends, family, making things better, looking out for humanity. One participant joined from outdoors and was told that being in nature was the best space already. The facilitator then put up the world map, framed as how the United Nations sees the same single earth, and suggested colour as a way to fix regions in memory so that places travelled to, or only heard about, can be located; the point drawn was that where a person sits on that map frames how they will approach the topic. The sequence of inquiry was shown as a reminder rather than explained, the group having run it many times.",
+            "pullQuote": "looking out for humanity and seeing how we can better the world",
+            "slideHint": "Shared Understanding slide with the standard prompts, shown as a round with no per-person detail carried into the record, then the United Nations world map with regions colour-coded and attendee locations pinned at country level, and the Sequence of Inquiry list shown small as a reminder."
+          },
+          {
+            "n": 3,
+            "title": "The question arrives",
+            "timeRange": "@12:43 - @15:14",
+            "summary": "The slideshow moved into writing mode and the floor opened to anyone with a topic they were mulling over and wanted taken through to a call to action. With nobody offering, the facilitator named suffering, in the sense of distressing events in a life or a community, and then gave the reason. The day before, some of those present had been at Lapu Lapu Day, a Filipino cultural event in Vancouver honouring a chieftain from the central Philippines who resisted Magellan's effort to colonise the islands; hundreds attended, with businesses and organisations out in support. Late that night the news came that a driver had taken an SUV through a crowd of people. The initial report available that evening put the toll at nine killed, and a suspect had been taken into custody. That morning the household had talked it through with its children, having stood on the same street the day before. The facilitator put the resulting question to the room - how to discuss tragic events with children in a way that builds resilience - and invited the circle to expand it or take it in another direction.",
+            "pullQuote": "how do we discuss tragic events with our children",
+            "slideHint": "Writing-mode slide with the floor open for topics, then the same slide with the inquiry being drafted live, beside a context panel naming Lapu Lapu Day, the chieftain who resisted Magellan, and the attack as reported that evening."
+          },
+          {
+            "n": 4,
+            "title": "The breakfast telling",
+            "timeRange": "@15:14 - @18:43",
+            "summary": "A participant asked the obvious first question rather than a theoretical one: how the news was actually broken, how it was led into, and what the first responses were, age appropriately. The account was plain. At breakfast, a reminder of the festival they had all been to the day before, then that somebody had driven a car through a crowd, that a lot of people were hurt and some were killed, then space to turn it over. The adult telling it had also said aloud to the children that it was frightening for a parent, because the family had been on that same street. The account described the children's reaction as quieter than it had been to other hard news the household had had to share. Asked whether the topic was of use to the whole circle rather than only to the household it had happened to, the room called it a good topic, and the facilitator began drafting the question, noting that this run of Lyceums is aimed deliberately at the family and community level.",
+            "pullQuote": "why don't you start the conversation with like, How did you break that news with your children",
+            "slideHint": "Sequence of Inquiry slide in writing mode with the question typed live, and a note that the round opened from lived experience - how the news was broken, and what came back - rather than from theory."
+          },
+          {
+            "n": 5,
+            "title": "When, not how",
+            "timeRange": "@18:43 - @22:45",
+            "summary": "The circle tested the question before accepting it. One participant argued that the harder variable is not how a child is told but when: everyone meets sorrow before adulthood, and a first encounter that arrives late, through a death in the ordinary course of things, is the fortunate case rather than the general one, since children elsewhere grow up early with death, disease and famine. Another agreed on the personal level, then pointed out there is always enough tragedy to work with, and traced the previous day's attack outward through rings of community - the city, the country, Filipino Canadians, Filipinos in general - to argue that a loss which is not personal to anyone on the call is still a loss people can align themselves with, and therefore an opportunity to teach children what tragedy looks like and how resilience gets built. The facilitator accepted timing as critical and split it in two: the emergent event that happened yesterday, and the foreseeable one, where a loved one is visibly moving toward the end of life and the question becomes when to say so. Getting caught up in which particular words are best was set aside.",
+            "pullQuote": "it's kind of like a matter of like when, not how.",
+            "slideHint": "Theories and Concepts slide: when versus how as the first split, rings of community drawn as concentric circles from a family out to a whole people, and two columns for the emergent event against the foreseeable one."
+          },
+          {
+            "n": 6,
+            "title": "Proximity shapes the telling",
+            "timeRange": "@22:45 - @27:47",
+            "summary": "Asked for a lived example, a participant described a grandparent's death that arrived when the children of that household were still too young to be told much at all. Set against that, a family member's medical emergency in the present, someone woven into the children's daily lives, unfolded slowly enough to be given to them in stages - in hospital, doctors doing everything they can, the outcome not yet known - which a sudden death would not have allowed. The facilitator drew the principle out: the proximity of the person and the distance of the event shape how it is discussed, whether a distant relative or someone living in the house, whether an event in the local community or one across the world that lands anyway through shared ancestry or a sense of human rights. A second consideration was added, that the circumstances of the person receiving the news matter too; one participant recalled a bereavement that reached them only after the funeral, while far from home, with nothing to be done but put it away and no room to share it. Another described reading the report of the attack early that morning, knowing at once that people close to them would have been at the festival, and needing to make contact before anything else; once they were safe the personal fear gave way to a wider grief at a joyful gathering being attacked.",
+            "pullQuote": "It really sounds like the proximity of the person or the event shapes how you discuss it.",
+            "slideHint": "Application slide: a proximity axis running from the household to a distant relative crossed with a distance axis from the local street to another continent, plus a side panel on the circumstances of whoever is receiving the news."
+          },
+          {
+            "n": 7,
+            "title": "Precedents, and the next messenger",
+            "timeRange": "@27:47 - @32:02",
+            "summary": "The facilitator asked whether the room could remember comparable attacks, and the circle assembled a list from memory rather than from any source: a stabbing on the Las Vegas strip, two vehicle attacks in Europe placed in France and Germany, a Christmas market in Germany shut down after a driver drove into a crowd despite barricades, and a pickup truck of combustible chemicals in Times Square that was stopped before it detonated. The uncertainty in the recollections was left in rather than resolved. A participant whose time was running short then made a point ahead of leaving: how bad news is handled with a child is how that child learns to interpret it, and that same child may one day be the one delivering such news to an adult or to another child, so how it is taught matters as much as how it is told. One participant also described a bereavement that arrived while far from home as a formal notification with no preparation - called in, told the fact, then left to digest it - and named sensitivity, openness and giving other people space as what should be learned. The facilitator asked whether faith is socialised with children as they grow or reached for only once an event has happened, noting the mixture of faiths in the circle; the answer offered was a mixture of both.",
+            "pullQuote": "how we handle the news with them is how they interpret it",
+            "slideHint": "Sources and Inputs slide listing the precedents named in the room - Las Vegas, France, Germany, a German Christmas market, Times Square - marked as recalled in the room and unverified, beside a prompt on faith and scripture as a source of language for loss."
+          },
+          {
+            "n": 8,
+            "title": "They hear it somewhere else first",
+            "timeRange": "@32:02 - @36:03",
+            "summary": "A participant reported the common case from the other direction: children come home from school already carrying something they heard from other students, at a moment the parent did not choose and may not be ready for, so the conversation happens whether or not it was planned. The circle compared the previous day's attack with 9/11, said explicitly not to diminish it - a normal school day interrupted, every television in the building showing the same thing, lessons abandoned while students absorbed it. One participant, a schoolchild at the time, described the lesson stopping, the television going on, classmates speculating about what would be hit next, and a letter written that day to a future self; what stayed from it was that nobody afterwards gave children space to say what it had been like to watch people fall from the World Trade Center. The facilitator turned that forward to social media: where one generation watched a single event unfold, children now have every community's version of a tragic event continuously available, which saturates them with negative news and leaves parents and caregivers unable to get out in front of the message, hearing about it only when a child reports what they heard today.",
+            "pullQuote": "that conversation was going to happen regardless",
+            "slideHint": "Challenges slide with two eras side by side: one classroom television in 2001 against a continuous feed of every community's tragedy, and the parent's position marked as behind the news rather than ahead of it."
+          },
+          {
+            "n": 9,
+            "title": "Old drills, new research",
+            "timeRange": "@36:03 - @39:44",
+            "summary": "The digital space was named as the session's first clear challenge, information sent and received faster than any parent can precede it, and that pressure was given as the reason the household chose to tell its children at all, on the reasoning that they should not learn it from peers at school. One participant credited the media with improving, contrasting the wild west of 2001, when all sorts of things were shown, with current practice of not publishing pictures of perpetrators or of victims. Another traced the outward rings again from family to community to city and named 9/11 as the break in the sequence, the thing that was never supposed to happen here: the response at the time was to get to work and keep moving, with adults barely able to speak to one another, no discussion of how anyone felt, and none carried home afterwards either. One participant called the mindset of twenty years ago no longer their own. The facilitator declined to judge it harshly, allowing that a crisis in progress requires putting feeling aside, while arguing it cannot be the norm once family and community are safe, because children learn to be comfortable with their own emotions from adults who model vulnerability. The circle also noted that the research has changed in twenty years, no differently from the era before car seats. One participant left the call around this point, thanking the circle in the chat for the discussion.",
+            "pullQuote": "20 years ago that was the mindset. Now that I'm enlightened. That's not my mindset anymore.",
+            "slideHint": "Opportunities and Challenges slide: on the left the inherited response (get to work, deal with it, no discussion at home), on the right modelling vulnerability and giving children room to name emotion, with a footnote that practice changes as evidence does, the way car seats did."
+          },
+          {
+            "n": 10,
+            "title": "A pandemic nobody processed",
+            "timeRange": "@39:44 - @44:00",
+            "summary": "The facilitator moved the inquiry into sources and brought in a different form of tragedy: COVID-19, framed as a generation surviving the equivalent of a bubonic plague, with credit to a level of science able to research, develop and distribute a vaccine fast enough to blunt it. The question put was why an event that reached every family and community has been processed so unevenly and largely forgotten - suffering at a scale that got no global reckoning, only a return to normal, as though the years in between had not happened. A participant agreed, put the documented deaths at upwards of four million, then multiplied that by the families behind each one, recalling nursing homes closed to visitors and residents who died having said goodbye through a window. The same voice noted there had been little conversation about how any of it was digested, and that nothing about it could be hidden from children who knew about masks, hand sanitiser, curbside collection and not going out. The facilitator then drew the shape of the session so far: a personal event dropped in like a pebble, ripples moving outward, and what looked like one household's experience turning out to be a shared one, experienced uniquely by each person.",
+            "pullQuote": "It's like you're dropping a pebble in the pond, and you're starting to see the ripples go out",
+            "slideHint": "Sources and Inputs slide: COVID-19 as the second case, the documented death toll as stated in the room, a short list of what children could not be shielded from, and a ripple diagram running from one household outward to a society."
+          },
+          {
+            "n": 11,
+            "title": "The front line, and the hierarchy of trauma",
+            "timeRange": "@44:00 - @48:02",
+            "summary": "One participant, from experience on the pandemic front line, described the number of patients cared for who did not make it, holding up an iPad so a dying person could say goodbye to a wife or a mother, and families who still would not accept that the vaccine was safe or that it slowed transmission, alongside the effort of staying hopeful with someone whose odds were already known. The same account named the double difficulty at home: fear of carrying the infection back, and being present but unavailable, while the rest of the household carried everything. Out of that came the session's clearest theory: shared understanding is built by hearing another person's story without ranking it against your own, and the failure mode was named exactly, the impulse to answer a hard account by arguing that anyone who only had to wear a mask and use grocery pickup has nothing to compare. Empathy, and not judging one experience against another, was offered as the thing to teach children. Another participant took that further: getting a whole world to empathise is not achievable, and the country cannot even agree on what the pandemic was, but a single child can be taught, and a child taught adequately explains it to the next person, which is how it scales.",
+            "pullQuote": "But you can get a child to empathize. That's easier, not easy, but easier.",
+            "slideHint": "Theories and Concepts slide: hearing the story without ranking it, with the hierarchy of trauma drawn as the anti-pattern beneath it, and the scaling claim at the foot - one child, then the next person, and so on."
+          },
+          {
+            "n": 12,
+            "title": "Multiple truths, and children who decide for themselves",
+            "timeRange": "@48:02 - @55:45",
+            "summary": "The caveat came immediately: shared understanding requires accepting somebody else's account of the same event, and the mask mandates showed a country that could not, with parents teaching their children the opposite of what other parents taught. The facilitator returned to the hierarchy of trauma and refused it - suffering is suffering, and the point is not to establish who had it worse - then set a refusal to take a vaccine of unknown contents, out of distrust of government, alongside the scientific case put publicly by Dr. Fauci, calling them multiple ideas of truth running at the same time. What is asked of an adult is holding space, listening and empathising; what children take from watching that is an ability to understand without needing to agree, which was offered as where wounds across a society begin to mend. Turning to opportunities and challenges, the circle named the conversation itself as the opportunity, and against it the difficulty of pitching one telling across a household whose children are years apart, sometimes by asking an older child to leave the youngest to a parent. Cultural difference was named as a further challenge, with other countries' pandemic measures as the example - stay in the apartment, the streets will be bleached - and the story a parent then tells about a different government's decisions. One participant argued for giving children knowledge and a perspective while leaving the decision to them, recalling a bumper sticker explained in childhood by an adult who set out what abortion was and that some people believed in it and some did not, without ever indicating a preference; that view had since changed, and the matter was now doubted to be legislable at all. The facilitator closed the stretch with an image of everyone wearing a headset onto the same street scene and attending to different things, concluding that a rigid set of rules for processing an event would be wasted effort and would stifle the person, and that what is needed instead is a space of cultural diversity and acceptance.",
+            "pullQuote": "We're not trying to create this hierarchy of who had it worse. We're just acknowledging that suffering is suffering.",
+            "slideHint": "Opportunities and Challenges slide in two columns - opportunity: the conversation itself, knowledge given with the decision left to the child; challenge: multiple truths, the age spread inside one household, cultural and religious difference - with the same-street-different-attention image as the closing panel."
+          },
+          {
+            "n": 13,
+            "title": "Four children, and role models over celebrities",
+            "timeRange": "@55:45 - @58:50",
+            "summary": "With the Easter and Passover season just finished, a participant offered the Passover story of the four children as a template for the age problem: the wise child can be addressed one way, down through to the simple child, read in older commentary as somebody developmentally limited but in more modern Talmudic thinking as a child too young to know how to ask, so the adult has to ask the question on their behalf. The facilitator tied that to the foundation's mission of connecting the past to the present to shape a future of hope, and to an intergenerational duty: the torch is being passed, so the question is what is being modelled to whoever receives it. The contrast drawn was between somebody in a child's own community worth emulating and a celebrity whose wealth, prestige and fame lead an audience to assume that success is character; such figures were judged unlikely to answer honestly about loss, having a reputation to manage. One participant named Andrew Tate as their example of the difference, in strongly negative terms of their own. The opportunity the facilitator took from it was empowering ordinary people to be role models in their families and wider communities, on the grounds that being famous and being a role model are not the same thing.",
+            "pullQuote": "The child doesn't understand how to ask the question, so you have to ask it for him.",
+            "slideHint": "Sources and Inputs slide: the four children of the Passover story as a ladder of address with the modern reading called out, beside a Praxium mission panel on past to present to future, and a famous-versus-role-model split at the foot."
+          },
+          {
+            "n": 14,
+            "title": "The inquiry taken up",
+            "timeRange": "@58:50 - @1:06:14",
+            "summary": "Just over an hour in, the facilitator noted the circle had already arrived at the call to action, credited practice for how seamlessly it had moved, and asked who wanted to carry the inquiry further; a participant volunteered. Asked to restate what exactly was being taken on, the facilitator went back to the beginning and fixed the question - how can we discuss tragedy with our children - and described the output: a storyboard summarising what the circle covered, so that a family facing the inevitable tragic event has somewhere to look instead of racking their brains alone, and can try what fits. A participant agreed and added a condition drawn from their own upbringing, by role models who were not touchy-feely and did what they thought best at the time: without an existing relationship of mutual trust and empathy, arriving as a different person at the moment of tragedy reads as insincere. The facilitator answered that a generation formed by formally declared war has a constant state of war as its point of reference, and that each generation since has been able to peel away more of the armour, adding that naming the discomfort aloud is itself honest and is what rising adults need to see. Another participant described learning to sit with an emotion rather than only recognising it, and the gap between naming sadness and letting it show, including the reflex to tell a child to stop crying. The room also took up men modelling vulnerability to the women and girls in a family, with a book passed between two participants on that point, and located strength in being oneself rather than in stoicism. The volunteer was then confirmed with support offered, a brainstorming document was promised to feed the storyboard and the products built from it, and a further participant asked for it to be shared their way and offered an account of their own to contribute.",
+            "pullQuote": "If they have nowhere to turn, they can at least turn to us and use this as a starting point",
+            "slideHint": "Way Ahead and Call to Action slide: the question written out as agreed, one volunteer marked as owning the inquiry, the brainstorming document and the storyboard shown as the deliverables, and an open invitation for others to add their own accounts."
+          },
+          {
+            "n": 15,
+            "title": "Reflection, and a small circle",
+            "timeRange": "@1:06:14 - @1:11:01",
+            "summary": "The learning reflection slide went up with a request that anyone unable to open it on a phone still take the pause to think about the highlight of the session and about anything they would want a future forum to take up, so the answers could shape the next Lyceums. The survey link was posted again in the chat once it proved hard to reach, and the circle worked through it on phones and by QR code. The closing circle of fellowship then opened for a final round, with a reminder that silence is itself a form of sharing. One participant called the topic important, thanked everyone for putting thoughts and experiences into a smaller, intimate group, and credited that scale and the amount of shared experience in it for how directly people had spoken and how well the different points of view were understood. Another framed the whole exercise as parenting work: any time spent on how to respond to children and improve their quality of life is time spent building them to better the next generation, and reflecting on what was missed the first time, and on a better way to handle it, brings value to any parent.",
+            "pullQuote": "I would like to remind you all that silence itself is also a form of sharing",
+            "slideHint": "Learning Reflection slide with the two prompts - the highlight of today's forum, and the topic for an upcoming one - a QR code and a chat-link fallback, then a Closing Circle of Fellowship slide carrying the note that silence is also sharing."
+          },
+          {
+            "n": 16,
+            "title": "Earth Day, and hope as the outcome",
+            "timeRange": "@1:11:01 - @1:13:29",
+            "summary": "The facilitator closed with a deliberate turn from suffering and distress to resilience and hope. In the past week, on Earth Day, an interfaith gathering had asked how faith-based groups can get communities involved in climate action in any capacity; Christian, Muslim, Jewish, Unitarian and Buddhist groups all took part. When the panel opened the floor at the end, a child took the microphone and asked why there were not more children present. The lesson drawn became the session's conclusion. Building hope and resilience has to be modelled rather than described, children have to be included in the dialogue rather than protected out of it, and adults should not be afraid to share the concerns and the worries alongside what they are doing to help fulfil a child's dreams. Resilience was framed as turning into hope for the future, which children get from role models who demonstrate it. Thanks followed, with a promise to share the storyboard as it develops and to keep the topic running alongside the Lyceum's other inquiries, and the circle said goodnight.",
+            "pullQuote": "resilience turns into hope for the future. And so we want our children to feel like they have hope.",
+            "slideHint": "Final slide pair: the Earth Day interfaith panel as the worked example of resilience and hope, with the child's question rendered as the turn of the slide, then a closing panel on role models who demonstrate resilience, the storyboard named as the follow-up, and a next-Lyceum placeholder."
+          }
+        ]
+      },
+      "withheld": "Material withheld under the archive's privacy rules: participants' names, relationships between participants, biographical and professional detail from the introductions round, family circumstances, immigration circumstances, health, personal finances, contact details, anything involving a minor, and the names of people who were not present and could not consent.",
       "provenance": {
-        "source": "the slide deck for the question and date; the recording for the corrected date",
-        "note": "Dated 2025-04-28 until the recording was located. The recording begins at 22:33 GMT on 27 April 2025, which is 3:33pm Pacific that afternoon, and 27 April was a Sunday like every other Lyceum. The deck filename said 28 April. The recording wins.",
-        "reviewedBy": ""
+        "source": "the meeting recording transcript and the chat log",
+        "extractedOn": "2026-08-09",
+        "reviewedBy": "Hezekiah Jenkins"
       }
     },
     {
@@ -3433,7 +5300,7 @@
       "callToAction": "The call to action stayed with the whole circle rather than one champion: each participant is asked to find a way to build the community in their own sphere of influence, from inviting someone to a Lyceum to watching for local events where the work can be introduced, and the facilitator will follow up by email. One participant volunteered to forward the recorded conference presentation to a rabbi, a conduit to counterparts in other religious organizations. Another offered to share that same conference video with a university professor and with further contacts as ideas surface. A third plans to approach the Common Ground Scholar network of clergy to see who is willing to amplify the message in their own communities, will create social media content from this and earlier Lyceums through the summer, and will add and visualize connections to partner organizations on the website. A fourth will list past Lyceums there in digestible, searchable form with ways to volunteer. Shinrin-yoku flyers will be redrawn in bright hand-drawn nature art with the nature games named on them. A young participant suggested seeking permission to post nonprofit flyers at a school, and the circle put forward a Praxium podcast and short Lyceum clips as content to make next.",
       "storyboard": {
         "logline": "After an eight-month pause, a Praxium circle spread from Lima to Los Angeles gave an evening, and then some, to one question: how to grow the learning community.",
-        "arcNotes": "The session opened tightly scripted - norms, pre-survey, land gratitude, introductions - and stayed personal longer than usual because eight months of life had piled up: a retirement, an 80-hour coaching certification, a thesis nearing its end, a family living abroad in Lima. The discussion opened up twice. First when the questions were handed to the young participants at the table, whose answers - a school fundraiser run drawing two hundred people, posters cleared with the school, bright hand-drawn nature pictures, games named on the flyer - reframed outreach from adult marketing into something a child would pick up. Second when a participant asked why anyone should have to leave the country for cultural experience, which turned the room inward: Habitat for Humanity in Los Angeles, immigrants already arriving in America, one subway stop between worlds in the Bronx, an older neighbor's steps shoveled in Pittsburgh. Convergence came from a communications-theory frame offered late in the evening - person to person, then groups, then broad social media, run simultaneously with tailored messaging - which the participant who had opened the inward turn adopted explicitly at the close. The last third narrowed to obstacles that are practical rather than ideological: crowded inboxes, complaint without solutions, scarce attention. The call to action was left deliberately undelegated, owned by everyone in their own sphere of influence with follow-up by email, and the closing circle ran past time through vulnerability, similarities over wedges, heart rather than regulation, and the website roadmap. Reviewer notes: speaker labels are unreliable from about @1:45:51 to the end, including the block at @1:50:25, so who said what in that stretch was read from context rather than from the label; contributions by the two minors are recorded only as coming from a young participant, and one attendee's health remark and a visiting veteran's identifying details were left out.",
+        "arcNotes": "The session opened tightly scripted - norms, pre-survey, land gratitude, introductions - and stayed personal longer than usual because eight months of life had piled up: a retirement, an 80-hour coaching certification, a thesis nearing its end, a family living abroad in Lima. The discussion opened up twice. First when the questions were handed to the young participants at the table, whose answers - a school fundraiser run drawing two hundred people, posters cleared with the school, bright hand-drawn nature pictures, games named on the flyer - reframed outreach from adult marketing into something a child would pick up. Second when a participant asked why anyone should have to leave the country for cultural experience, which turned the room inward: Habitat for Humanity in Los Angeles, immigrants already arriving in America, one subway stop between worlds in the Bronx, an older neighbor's steps shoveled in Pittsburgh. Convergence came from a communications-theory frame offered late in the evening - person to person, then groups, then broad social media, run simultaneously with tailored messaging - which the participant who had opened the inward turn adopted explicitly at the close. The last third narrowed to obstacles that are practical rather than ideological: crowded inboxes, complaint without solutions, scarce attention. The call to action was left deliberately undelegated, owned by everyone in their own sphere of influence with follow-up by email, and the closing circle ran past time through vulnerability, similarities over wedges, heart rather than regulation, and the website roadmap.",
         "beats": [
           {
             "n": 1,

@@ -113,6 +113,88 @@ judgement that can be got wrong once per field.
 Concretely, these never reach `data/lyceum.json`: `evidence`, `applied`, `notes`,
 `rejected_additions`, `corroborated`, `quoteEvidence`, `alternates`.
 
+### And it comes back as prose, not as fields
+
+Dropping the audit FIELDS was not enough. Every ingestion pass since has appended its
+working notes to the end of a field that does ship - usually `arcNotes`, once
+`callToAction` - and it arrives in whatever shape that pass invented:
+
+- Under an all-caps heading: `SUPPRESSED, BY RULE.`, `CHAT CLOCK.`, `QUOTE STATUS.`
+- Under a mixed-case one: `Reviewer notes:`, `Withheld by category:`
+- As plain lowercase prose running straight on from the narrative: "Clock and source
+  notes: the chat log runs 424 seconds ahead of the recording..."
+
+A blocklist of heading names was tried first and it does not hold. Across three records
+the passes produced ten distinct headings and used each exactly **once**, so the list
+always lags whatever the next pass invents. Two things replaced it:
+
+1. **An allowlist, not a blocklist.** Only `ARC`, `SHAPE` and the like are narrative;
+   everything from the next heading onward goes. Plus a sentence-level cut on the
+   semantic lead-ins ("withheld", "the chat log runs", "speaker labels"), in any casing,
+   because the worst offender used no heading at all.
+2. **A CI step that reads the committed archive.** The applier is one script among
+   several and a record can be hand-edited, so the check that matters runs on what is
+   actually in `data/lyceum.json`. It found eight instances in four records that were
+   already live.
+
+Two of those eight were suppression indexes, which is the failure this whole section
+exists for. One handed back "contributions by the two minors are recorded only as coming
+from a young participant, and one attendee's health remark and a visiting veteran's
+identifying details were left out". The other ran 1,200 characters and included "a
+school-affiliated activity belonging to a participant's child, which together would
+narrow the family to a single school" - it told the reader precisely what to go looking
+for. Both records already carried a proper single-line `withheld` field, so cutting them
+lost nothing.
+
+### A check that fires wrongly is acknowledged, not deleted
+
+The biography-marker scan flagged "Filipino" in the 2025-04-27 record, where it names a
+public festival and the communities a widely reported public attack affected - the subject
+of the session, not a participant's heritage. Deleting the marker from the list would have
+disarmed it for every record after. It is recorded as an acknowledgement instead, keyed by
+date and marker, with the reason. Anything not acknowledged still refuses to write.
+
+## "A young participant" means a minor who was in the circle
+
+The 2025-04-27 record used it for two children who were not on the call at all - their
+reaction to hard news was relayed by a parent - and for a child who asked a question at a
+public event the week before. The record's own `minorsPresent` was 0, so the label
+contradicted the metadata and, worse, implied the archive holds words a minor said to a
+circle when it holds a parent's account of a conversation at home.
+
+**"A young participant" is reserved for a minor who took part in the gathering.** A child
+who appears in something a participant describes is "a child". The distinction matters
+because the first carries a consent question the archive answers by never naming them,
+and the second is a third party who is not in the record at all.
+
+## contextNotes ships
+
+It reads like a scratchpad and it is not one. Across three records it accumulated the
+chat-clock arithmetic used to place chat lines on the recording ("chat times run 22
+minutes 45 seconds ahead"), one person's connection troubles, and a note that someone was
+attending for the first time - which is itself a protected category, above.
+
+Keep notes about the SHAPE of the source, because a reader who finds no norms round
+deserves to know the recording starts late. Drop the arithmetic that produced a
+timestamp, and anything about one identifiable person's experience of the meeting.
+
+## Two gatherings were never recorded
+
+2024-05-24 and 2024-06-30 have no transcript and no deck. What is known about them comes
+from the 17 November 2024 reflection, where the facilitator walked each storyboard again
+section by section - enough to fill the six sections, and the reason 2024-05-24 was sitting
+in the archive as a founding circle with no inquiry when it had in fact run a full one.
+
+A record built from a recap carries `recapOf`, pointing at the record its content came
+from, and the board says so on the page rather than letting six populated sections imply a
+transcript. Two things it must not carry:
+
+- **No quote.** Nothing can clear the one-contiguous-utterance bar when there is no
+  recording to check it against.
+- **No timestamps on items.** The times in the reflection locate the recap inside the
+  NOVEMBER recording. Carrying them would put a false clock on a gathering five months
+  earlier.
+
 ## Identification by combination
 
 No single field named a child. The exposure came from three that were individually
