@@ -64,6 +64,27 @@ came out of that meeting.
 
 ---
 
+## Pick up here next
+
+Agreed on 10 August as the resume point. Nothing below is in progress; this is the queue,
+roughly in the order it makes sense to take it.
+
+1. **Where the recordings live** - a decision, and the privacy question under it.
+2. **The Squarespace plan tier**, so the iframe can go in a Code block.
+3. **Look at a gathering page** and decide whether the six sections still read as too long
+   now that the storyboard band is at the top.
+4. **Lyceums tied to the Shinrin Yoku and Kintsugi campaigns**, cross-linked from each
+   campaign page.
+5. **The editor** - a form that writes a record for a human to review and commit.
+6. **The single Praxium admin page**, with the editor as its first tab.
+7. **Azure Static Web App** as the longer-term host.
+8. **Engagement metrics**, as its own project.
+9. **The Lyceum podcast.**
+
+Each has its own section below.
+
+---
+
 ## Decisions needed
 
 ### Where the recordings live **[9 Aug]**
@@ -101,12 +122,34 @@ Framing itself was tested and works. GitHub Pages sends **no** `X-Frame-Options`
 framing restriction in its CSP, and the live board was loaded inside an iframe from a
 different origin and rendered fully - all cards, the search box, and its runtime fetch of
 `data/lyceum.json`. **So an iframe is the right instrument**, in a **Code block** rather
-than an Embed block:
+than an Embed block.
+
+Use this, in a Code block:
 
 ```html
-<iframe src="https://praxiumlearningfoundation.github.io/education-lyceum-board/"
-        width="100%" height="900" style="border:0" title="The Lyceum"></iframe>
+<iframe
+  src="https://praxiumlearningfoundation.github.io/education-lyceum-board/"
+  title="The Lyceum - Praxium Learning Foundation"
+  style="width:100%; height:85vh; border:0"
+  loading="lazy">
+  <p>Your browser does not support iframes.
+     <a href="https://praxiumlearningfoundation.github.io/education-lyceum-board/">Open
+     The Lyceum in a new tab</a>.</p>
+</iframe>
 ```
+
+Four things differ from the obvious version, and each one matters:
+
+- **`width:100%`, not `width="600"`.** A fixed 600 pixels is narrower than a phone in
+  landscape, so the board would scroll sideways inside the frame on top of the page
+  already scrolling - two scrollbars, and the two-column card grid never gets to open out.
+- **`height:85vh`, not `height="400"`.** 400 pixels shows roughly one card. `85vh` gives
+  the frame most of the viewport whatever the device, without swallowing the page's own
+  header and footer.
+- **`border:0`.** The default border draws a box around it and makes the board read as an
+  advert rather than part of the site.
+- **A link inside the fallback.** "Your browser does not support iframes" tells a reader
+  there is a problem and gives them nowhere to go; the link gives them the board.
 
 Code blocks are a paid-tier Squarespace feature, so check the plan. This route is the one
 to prefer: the embed always shows the current board, with nothing to re-copy when a
@@ -122,11 +165,28 @@ problem, not a Squarespace problem.
 The board now tries the relative path first and falls back to the canonical copy on Pages
 if that fails. GitHub Pages answers with `access-control-allow-origin: *`, so the
 cross-origin read is allowed, and a normal visit costs no extra request because the
-fallback is only reached after the first attempt fails. Verified by serving the markup
-from a different origin with no `data/` directory at all: all 14 gatherings load.
+fallback is only reached after the first attempt fails.
 
-**So both routes now work.** The iframe is still the better one - it needs no re-copying -
-but pasting the markup is no longer broken.
+**`board.css` had exactly the same problem, and it was the more visible one.** Copied
+markup cannot reach `./board.css` either, so the page came up as raw HTML: tag names
+running together with no spacing, the beat strip falling back to a browser-numbered list,
+nothing laid out. The stylesheet now gets the same treatment - a probe checks whether one
+of this project's own theme colours actually applied, and appends the canonical stylesheet
+if it did not.
+
+Verified by serving the markup from a different origin with **neither** `data/` nor
+`board.css`: all 14 gatherings load and the page comes up styled.
+
+**So both routes now work.** The iframe is still the better one - nothing to re-copy when
+a gathering is added - but pasting the markup is no longer broken.
+
+#### Failure 3: "Read it in full" went back to the main page
+
+Not an embed problem at all, and it would have happened anywhere. The router treats a
+hash change as navigation, and its guard for in-page anchors recognised `#beat-N` but not
+`#storyboard`, which is where that link points - so it fell through to the index and threw
+away the page. The guard now matches the *shape* of an in-page anchor rather than a list of
+known ids: any hash that is not a route and does name an element on the page is left alone.
 
 ### How much detail belongs on a page
 
