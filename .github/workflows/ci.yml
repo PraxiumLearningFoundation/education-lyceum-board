@@ -128,7 +128,11 @@ jobs:
             if (!/^\d{4}-\d{2}-\d{2}$/.test(rec.date || '')) {
               problems.push(`${where}: date is not YYYY-MM-DD`);
             }
-            if (!rec.inquiry) problems.push(`${where}: missing inquiry question`);
+            // A reflection revisits earlier gatherings rather than posing a question,
+            // so it carries a title instead. One or the other is required.
+            if (!rec.inquiry && !rec.title) {
+              problems.push(`${where}: has neither an inquiry question nor a title`);
+            }
             if (!Array.isArray(rec.tags)) problems.push(`${where}: tags is not an array`);
 
             SECTIONS.forEach((k) => {
@@ -164,8 +168,11 @@ jobs:
           // @1:54:24 in a session that ended at 1:37:06.
           const payload = JSON.parse(fs.readFileSync('data/lyceum.json', 'utf8'));
           const data = Array.isArray(payload) ? payload : payload.inquiries;
+          // A reflection carries its own blocks, and they were not being validated -
+          // which is how a range string in a single-timestamp field reached the archive.
           const SECTIONS = ['theories', 'applications', 'sources',
-                            'policies', 'opportunities', 'challenges'];
+                            'policies', 'opportunities', 'challenges',
+                            'learned', 'carried', 'changed', 'openQuestions'];
           const TS = /^@\d{1,2}:\d{2}(:\d{2})?$/;
           const secs = (t) => {
             const p = t.replace('@', '').split(':').map(Number);
@@ -185,6 +192,12 @@ jobs:
               if (s > CEILING) problems.push(`${rec.id} ${k}[${j}]: timestamp ${at} is beyond any plausible session`);
               seen.push(s);
             }));
+
+            (rec.reviewed || []).forEach((e, j) => {
+              if (e.at && !TS.test(e.at)) {
+                problems.push(`${rec.id} reviewed[${j}]: malformed timestamp "${e.at}"`);
+              }
+            });
 
             const sb = rec.storyboard;
             if (sb && Array.isArray(sb.beats)) {
