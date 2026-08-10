@@ -36,6 +36,33 @@ compress, and the compression is invisible once the recording is filed away. So:
 - Where a record predates its recording, mark the quote's status explicitly rather
   than letting quotation marks imply verification.
 
+## The published question is checked against the recording
+
+Every record's inquiry wording was compared with what was actually said in the room. Six
+disagreed with the archive, and the pattern behind them is worth keeping: the wording in
+the archive usually came from a slide or from later note-taking, and the recording does not
+always support it.
+
+| Date | Decision |
+| --- | --- |
+| 2024-08-04 | "in their communities" to **"in their community"** - the singular is spoken twice, the plural nowhere |
+| 2024-09-15 | "mentor adolescents (15+) into legal adulthood" to **"increase mentorship for adolescents nearing adulthood"** - "legal adulthood" was a scoping boundary, not the aim; nobody proposed it as the purpose |
+| 2024-10-20 | restored **"a culture of sustainability"**, which the last full spoken wording and the session title both keep. The published version was the facilitator's proposal to trim, which drew agreement but was never restated as a whole question |
+| 2025-01-12 | agrees character for character. No change |
+| 2025-02-23 | "How can we" to **"How do we"** - no spoken form of the question uses "can" |
+| 2025-06-01 | "healthcare needs and social expectations" to **"individual need and social expectation"**. The old pairing is spoken once in the session, by a participant describing how British Columbia balances its system - so publishing it credited an answer as the question |
+
+Two things generalise from this:
+
+- **A superseded wording becomes an `inquiryAliases` entry, not a deletion.** It is what
+  the board published for two years and often what a reader remembers, so it stays
+  searchable.
+- **Say when the published question is a merge.** 2025-11-30 keeps its archive wording
+  deliberately: the circle never said the settled question as one sentence, so every
+  alternative would be a fourth string nobody uttered. The published string joins a spoken
+  draft to a spoken amendment. That is defensible, and it is not verbatim - the same
+  distinction as "A paraphrase is not a quote", applied to the question itself.
+
 ## Named identifiers are often imported, not spoken
 
 Comparing the 2025-03-23 record against its recording showed that three of its four
@@ -145,6 +172,37 @@ school-affiliated activity belonging to a participant's child, which together wo
 narrow the family to a single school" - it told the reader precisely what to go looking
 for. Both records already carried a proper single-line `withheld` field, so cutting them
 lost nothing.
+
+### Fix the fact, not the field
+
+The 2025-06-01 audit named one problem: beat 3 published "much of the circle was one
+extended family across three generations", a relationship map that places most of a
+six-person room relative to each other. That got fixed, and the same fact was still
+shipping twice - in beat 3's own `slideHint` ("three generations of one extended family")
+and again in `arcNotes`. The November record carried it in two fields as well.
+
+An audit names where it *found* something. A prose pass writes the same observation into
+every field that summarises the same moment, so **grep the fact across all of them** and
+re-scan afterwards. The residual check at the end of the fix script is what caught the
+second and third copies; without it the record would have published the map twice while
+the change log claimed it had been removed - which is how the June leak worked.
+
+### A length ceiling catches what no phrase list will
+
+Chasing the working-material phrasings one at a time does not converge. After the
+allowlist and the sentence-level lead-ins, `arcNotes` was still arriving with editorial
+tails in shapes not yet seen: "Recommendation: keep the archived question only if...",
+"Record notes:", "QUESTION DISAGREEMENT, unresolved and not silently patched."
+
+So there is a ceiling as well. Genuine arc narrative for a ninety-minute session runs
+roughly 800 to 2,200 characters; over the limit, the write is refused and a human reads
+the tail. It paid for itself at once, catching two records the phrase lists had passed -
+and one of those turned out to be over length because it was carrying a **participant
+relationship map**, not working material at all. No phrase list would ever have found
+that.
+
+Raise the ceiling by reading the whole field first and deciding the narrative earns it,
+never to make a number go green.
 
 ### A check that fires wrongly is acknowledged, not deleted
 
