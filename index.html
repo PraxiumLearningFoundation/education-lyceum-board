@@ -149,7 +149,21 @@
     ['opportunities', 'Opportunities',           'What is favourable for us'],
     ['challenges',    'Challenges',              'The obstacles, perceived or real'],
   ];
-  const isTranscribed = d => SECTIONS.some(([k]) => (d[k] || []).length);
+  // A reflection revisits earlier gatherings rather than working one question, so it
+  // carries different blocks and a title instead of an inquiry. Treating it as an
+  // inquiry with six empty sections would label the fullest record in the archive
+  // "Help Wanted".
+  const REFLECTION_BLOCKS = [
+    ['learned',       'What the circle learned'],
+    ['carried',       'What is being carried forward'],
+    ['changed',       'What changed'],
+    ['openQuestions', 'Questions left open'],
+  ];
+  const isReflection = d => d.kind === 'reflection';
+  const titleOf = d => d.inquiry || d.title || '';
+  const isTranscribed = d => isReflection(d)
+    ? (d.reviewed || []).length > 0 || REFLECTION_BLOCKS.some(([k]) => (d[k] || []).length)
+    : SECTIONS.some(([k]) => (d[k] || []).length);
 
   // --------------------------------------------------- local "living" storage
   // For the MVP, contributions + comments live in the browser (localStorage).
@@ -184,7 +198,12 @@
       if (!q) return true;
       // inquiryAliases carries an earlier wording of the question, so someone who
       // remembers it the old way still finds the gathering.
-      const hay = [d.inquiry, ...(d.inquiryAliases||[]), ...(d.tags||[]), ...sectionItems(d), d.quote, d.callToAction].join(' ').toLowerCase();
+      const reflectionText = isReflection(d)
+        ? [...(d.reviewed || []).flatMap(r => [r.topic, r.discussion, r.progress]),
+           ...REFLECTION_BLOCKS.flatMap(([k]) => (d[k] || []).map(itemText)), d.summary]
+        : [];
+      const hay = [titleOf(d), ...(d.inquiryAliases||[]), ...(d.tags||[]), ...sectionItems(d),
+                   ...reflectionText, d.quote, d.callToAction].join(' ').toLowerCase();
       return hay.includes(q);
     });
     const done = DATA.filter(isTranscribed).length;
@@ -228,6 +247,7 @@
 
   function isQuest(d){ return d.status !== 'founding' && !isTranscribed(d); }
   function badge(d){
+    if (isReflection(d)) return '<span class="text-xs rounded-full bg-lyceum-100 text-lyceum-800 px-2 py-0.5">Reflection</span>';
     if (d.status === 'founding') return '<span class="text-xs rounded-full bg-lyceum-100 text-lyceum-800 px-2 py-0.5">Founding</span>';
     if (isTranscribed(d))        return '<span class="text-xs rounded-full bg-emerald-100 text-emerald-800 px-2 py-0.5">Transcribed</span>';
     return '<span class="text-xs rounded-full bg-amber-100 text-amber-800 px-2 py-0.5 font-medium">Help Wanted</span>';
@@ -271,7 +291,7 @@
           <time class="text-xs uppercase tracking-wide text-stone-400">${fmtDate(d.date)}</time>
           ${badge(d)}
         </div>
-        <h3 class="font-serif text-lg leading-snug text-lyceum-900">${esc(d.inquiry)}</h3>
+        <h3 class="font-serif text-lg leading-snug text-lyceum-900">${esc(titleOf(d))}</h3>
         <div class="mt-3 flex flex-wrap gap-1.5">
           ${(d.tags||[]).map(t => `<span class="text-xs bg-lyceum-50 border border-lyceum-100 text-lyceum-800 rounded px-2 py-0.5">${esc(t)}</span>`).join('')}
         </div>
@@ -346,8 +366,8 @@
       <header class="bg-lyceum-900 text-lyceum-50">
         <div class="max-w-3xl mx-auto px-6 py-10">
           <a href="#/" class="text-sm text-lyceum-100/80 hover:text-white">Back to all inquiries</a>
-          <p class="mt-4 uppercase tracking-[0.25em] text-xs text-lyceum-100/70">${fmtDate(d.date)} - Sequence of Inquiry</p>
-          <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">${esc(d.inquiry)}</h1>
+          <p class="mt-4 uppercase tracking-[0.25em] text-xs text-lyceum-100/70">${fmtDate(d.date)} - ${isReflection(d) ? 'Reflection' : 'Sequence of Inquiry'}</p>
+          <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">${esc(titleOf(d))}</h1>
           <div class="mt-4 flex flex-wrap gap-1.5">
             ${(d.tags||[]).map(t => `<span class="text-xs bg-white/10 rounded px-2 py-0.5">${esc(t)}</span>`).join('')}
           </div>
@@ -362,15 +382,21 @@
             "${esc(d.quote)}"
           </blockquote>` : ''}
 
+        ${isReflection(d) ? reflectionHTML(d) : `
         <div class="grid gap-4 sm:grid-cols-2 mt-6">
           ${SECTIONS.map(([k,t,sub]) => sectionHTML(d[k]||[], t, sub)).join('')}
-        </div>
+        </div>`}
 
         ${d.callToAction ? `
           <section class="mt-6 rounded-xl border border-amber-300 bg-amber-50 p-5">
             <h3 class="font-semibold text-amber-900">Way Ahead - Call to Action</h3>
             <p class="mt-1 text-amber-900/90">${esc(d.callToAction)}</p>
           </section>` : ''}
+
+        ${d.withheld ? `
+          <p class="mt-8 rounded-xl bg-lyceum-50 border border-lyceum-100 p-4 text-xs text-stone-600">
+            ${esc(d.withheld)}
+          </p>` : ''}
 
         ${storyboardHTML(d)}
         ${aboutMeetingHTML(d)}
@@ -410,6 +436,42 @@
         <p class="mt-6 text-xs text-stone-400">${bits.map(esc).join(' ')}</p>`;
   }
 
+  // A reflection's spine is the gatherings it revisited, each linking back to that
+  // record so the two are navigable together.
+  function reflectionHTML(d){
+    const rev = d.reviewed || [];
+    return `
+      ${d.summary ? `<p class="mt-2 text-lg text-stone-700">${esc(d.summary)}</p>` : ''}
+
+      ${rev.length ? `
+        <section class="mt-8">
+          <h2 class="font-serif text-2xl text-lyceum-900">The gatherings revisited</h2>
+          <div class="mt-4 space-y-4">
+            ${rev.map(r => {
+              const linked = r.date && DATA.find(x => x.date === r.date && x.id !== d.id);
+              return `
+              <article class="rounded-xl bg-white border border-lyceum-100 p-5 shadow-sm">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <h3 class="font-serif text-lg text-lyceum-900">${esc(r.topic || '')}</h3>
+                  ${linked
+                    ? `<a href="#/inquiry/${linked.id}" class="text-xs text-lyceum-700 hover:underline whitespace-nowrap">${fmtDate(r.date)} - open</a>`
+                    : (r.date ? `<time class="text-xs text-stone-400 whitespace-nowrap">${fmtDate(r.date)}</time>` : '')}
+                </div>
+                ${r.discussion ? `<p class="mt-2 text-sm text-stone-700">${esc(r.discussion)}</p>` : ''}
+                ${r.progress ? `
+                  <p class="mt-3 rounded-lg bg-lyceum-50 border border-lyceum-100 p-3 text-sm text-stone-700">
+                    <span class="font-semibold text-lyceum-900">What had happened since. </span>${esc(r.progress)}
+                  </p>` : ''}
+              </article>`;
+            }).join('')}
+          </div>
+        </section>` : ''}
+
+      <div class="grid gap-4 sm:grid-cols-2 mt-8">
+        ${REFLECTION_BLOCKS.map(([k, t]) => sectionHTML(d[k] || [], t, 'Nothing recorded')).join('')}
+      </div>`;
+  }
+
   function sectionHTML(items, title, sub){
     return `
       <section class="rounded-xl bg-white border border-lyceum-100 p-4 shadow-sm">
@@ -441,9 +503,12 @@
         <form id="suggest-form" class="mt-4 grid gap-3 sm:grid-cols-2">
           <input name="name" placeholder="Your name" class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm" required />
           <select name="section" class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm">
-            ${SECTIONS.map(([k,t]) => `<option value="${k}">${t}</option>`).join('')}
+            ${(isReflection(d) ? REFLECTION_BLOCKS : SECTIONS.map(([k,t]) => [k,t]))
+                .map(([k,t]) => `<option value="${k}">${t}</option>`).join('')}
             <option value="quote">Highlighted quote</option>
-            <option value="callToAction">Way Ahead / Call to Action</option>
+            ${isReflection(d)
+              ? '<option value="reviewed">A gathering revisited</option>'
+              : '<option value="callToAction">Way Ahead / Call to Action</option>'}
           </select>
           <textarea name="text" placeholder="Your suggested wording..." class="sm:col-span-2 rounded-lg border border-lyceum-100 px-3 py-2 text-sm" rows="3" required></textarea>
           <div class="sm:col-span-2"><button class="rounded-lg bg-lyceum-800 text-white px-4 py-2 text-sm hover:bg-lyceum-900">Submit suggestion</button></div>
@@ -457,7 +522,11 @@
           </div>` : ''}
       </section>`;
   }
-  function sectionLabel(k){ const f = SECTIONS.find(s => s[0]===k); return f ? f[1] : (k==='callToAction' ? 'Way Ahead' : k); }
+  function sectionLabel(k){
+    const f = SECTIONS.find(s => s[0]===k) || REFLECTION_BLOCKS.find(s => s[0]===k);
+    if (f) return f[1];
+    return k==='callToAction' ? 'Way Ahead' : k==='reviewed' ? 'A gathering revisited' : k;
+  }
 
   // ----------------------------------------------------------------- comments
   function commentsHTML(d){

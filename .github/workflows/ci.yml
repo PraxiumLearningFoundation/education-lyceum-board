@@ -128,7 +128,11 @@ jobs:
             if (!/^\d{4}-\d{2}-\d{2}$/.test(rec.date || '')) {
               problems.push(`${where}: date is not YYYY-MM-DD`);
             }
-            if (!rec.inquiry) problems.push(`${where}: missing inquiry question`);
+            // A reflection revisits earlier gatherings rather than posing a question,
+            // so it carries a title instead. One or the other is required.
+            if (!rec.inquiry && !rec.title) {
+              problems.push(`${where}: has neither an inquiry question nor a title`);
+            }
             if (!Array.isArray(rec.tags)) problems.push(`${where}: tags is not an array`);
 
             SECTIONS.forEach((k) => {
