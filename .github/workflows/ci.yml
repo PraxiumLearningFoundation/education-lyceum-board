@@ -229,6 +229,76 @@ jobs:
           console.log(`OK: timestamps well formed and internally consistent across ${data.length} records.`);
           NODE
 
+      - name: No working material in the prose the board publishes
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          // Three times now, an ingestion pass has appended its own working notes to a
+          // field that ships: a WITHHELD inventory, the chat-clock arithmetic used to
+          // place chat lines on the recording, and notes on which speaker labels could
+          // not be settled. The inventory is the dangerous one - describing a redaction
+          // precisely enough to audit describes it precisely enough to reverse, and one
+          // list handed back "one participant's home metro area" and "a childhood
+          // location inferable from the details stated around it".
+          //
+          // The applier strips these, but the applier is one script among several and a
+          // record can be hand-edited. This check runs on what is actually committed.
+          //
+          // `withheld` is exempt BY FIELD: it is the one place a suppression statement
+          // belongs, and it is required to be a single category line with no timestamps.
+          const payload = JSON.parse(fs.readFileSync('data/lyceum.json', 'utf8'));
+          const data = Array.isArray(payload) ? payload : payload.inquiries;
+          const WORKING = [
+            [/\bwithheld by category\b|\bsuppressed by rule\b/i, 'a withheld inventory'],
+            [/\bmeeting clock\b|\brecording clock\b|\bchat-clock\b|\bseconds ahead\b/i,
+             'chat-clock arithmetic'],
+            [/\bspeaker labels\b|\battribution was read from context\b/i, 'attribution working notes'],
+            [/\bchecked by exact string\b|\bquote status\b/i, 'quote-verification working notes'],
+            [/\b(?:QUESTION AS RECORDED|DISAGREEMENT|SUPPRESSED|VERIFICATION)\b/, 'a working heading'],
+          ];
+          const problems = [];
+
+          // Every string the board renders, except the fields whose job is to say what
+          // was withheld or where the record came from.
+          const prose = (rec) => {
+            const out = [];
+            const push = (where, v) => { if (typeof v === 'string' && v) out.push([where, v]); };
+            push('logline', rec.storyboard && rec.storyboard.logline);
+            push('arcNotes', rec.storyboard && rec.storyboard.arcNotes);
+            ((rec.storyboard || {}).beats || []).forEach((b) =>
+              ['title', 'summary', 'pullQuote', 'slideHint'].forEach((f) => push(`beat ${b.n} ${f}`, b[f])));
+            ['inquiry', 'title', 'summary', 'quote', 'callToAction'].forEach((f) => push(f, rec[f]));
+            ((rec.meeting || {}).contextNotes || []).forEach((c, i) => push(`contextNotes[${i}]`, c));
+            ['theories', 'applications', 'sources', 'policies', 'opportunities', 'challenges',
+             'learned', 'carried', 'changed', 'openQuestions'].forEach((k) =>
+              (rec[k] || []).forEach((it, i) => push(`${k}[${i}]`, it && it.text)));
+            (rec.reviewed || []).forEach((e, i) =>
+              ['topic', 'discussion', 'progress'].forEach((f) => push(`reviewed[${i}] ${f}`, e[f])));
+            return out;
+          };
+
+          data.forEach((rec) => prose(rec).forEach(([where, text]) =>
+            WORKING.forEach(([rx, what]) => {
+              const m = text.match(rx);
+              if (m) problems.push(`${rec.id} ${where}: ${what} ("${m[0]}")`);
+            })));
+
+          // The withheld line is allowed to exist, but not to become an index.
+          data.forEach((rec) => {
+            const w = rec.withheld;
+            if (typeof w !== 'string' || !w) return;
+            const ts = w.match(/@\d{1,2}:\d{2}/);
+            if (ts) problems.push(`${rec.id} withheld: carries a timestamp (${ts[0]}), which points at what it removed`);
+            if (/[;\n]\s*(?:at|around|beat)\b/i.test(w)) problems.push(`${rec.id} withheld: itemised rather than a single category line`);
+          });
+
+          if (problems.length) {
+            problems.forEach((p) => console.error(`::error::${p}`));
+            process.exit(1);
+          }
+          console.log(`OK: no working material in published prose across ${data.length} records.`);
+          NODE
+
       - name: Every inline script in the board page parses
         run: |
           node - <<'NODE'

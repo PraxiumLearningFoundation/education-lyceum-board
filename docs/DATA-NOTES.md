@@ -36,6 +36,33 @@ compress, and the compression is invisible once the recording is filed away. So:
 - Where a record predates its recording, mark the quote's status explicitly rather
   than letting quotation marks imply verification.
 
+## The published question is checked against the recording
+
+Every record's inquiry wording was compared with what was actually said in the room. Six
+disagreed with the archive, and the pattern behind them is worth keeping: the wording in
+the archive usually came from a slide or from later note-taking, and the recording does not
+always support it.
+
+| Date | Decision |
+| --- | --- |
+| 2024-08-04 | "in their communities" to **"in their community"** - the singular is spoken twice, the plural nowhere |
+| 2024-09-15 | "mentor adolescents (15+) into legal adulthood" to **"increase mentorship for adolescents nearing adulthood"** - "legal adulthood" was a scoping boundary, not the aim; nobody proposed it as the purpose |
+| 2024-10-20 | restored **"a culture of sustainability"**, which the last full spoken wording and the session title both keep. The published version was the facilitator's proposal to trim, which drew agreement but was never restated as a whole question |
+| 2025-01-12 | agrees character for character. No change |
+| 2025-02-23 | "How can we" to **"How do we"** - no spoken form of the question uses "can" |
+| 2025-06-01 | "healthcare needs and social expectations" to **"individual need and social expectation"**. The old pairing is spoken once in the session, by a participant describing how British Columbia balances its system - so publishing it credited an answer as the question |
+
+Two things generalise from this:
+
+- **A superseded wording becomes an `inquiryAliases` entry, not a deletion.** It is what
+  the board published for two years and often what a reader remembers, so it stays
+  searchable.
+- **Say when the published question is a merge.** 2025-11-30 keeps its archive wording
+  deliberately: the circle never said the settled question as one sentence, so every
+  alternative would be a fourth string nobody uttered. The published string joins a spoken
+  draft to a spoken amendment. That is defensible, and it is not verbatim - the same
+  distinction as "A paraphrase is not a quote", applied to the question itself.
+
 ## Named identifiers are often imported, not spoken
 
 Comparing the 2025-03-23 record against its recording showed that three of its four
@@ -112,6 +139,119 @@ judgement that can be got wrong once per field.
 
 Concretely, these never reach `data/lyceum.json`: `evidence`, `applied`, `notes`,
 `rejected_additions`, `corroborated`, `quoteEvidence`, `alternates`.
+
+### And it comes back as prose, not as fields
+
+Dropping the audit FIELDS was not enough. Every ingestion pass since has appended its
+working notes to the end of a field that does ship - usually `arcNotes`, once
+`callToAction` - and it arrives in whatever shape that pass invented:
+
+- Under an all-caps heading: `SUPPRESSED, BY RULE.`, `CHAT CLOCK.`, `QUOTE STATUS.`
+- Under a mixed-case one: `Reviewer notes:`, `Withheld by category:`
+- As plain lowercase prose running straight on from the narrative: "Clock and source
+  notes: the chat log runs 424 seconds ahead of the recording..."
+
+A blocklist of heading names was tried first and it does not hold. Across three records
+the passes produced ten distinct headings and used each exactly **once**, so the list
+always lags whatever the next pass invents. Two things replaced it:
+
+1. **An allowlist, not a blocklist.** Only `ARC`, `SHAPE` and the like are narrative;
+   everything from the next heading onward goes. Plus a sentence-level cut on the
+   semantic lead-ins ("withheld", "the chat log runs", "speaker labels"), in any casing,
+   because the worst offender used no heading at all.
+2. **A CI step that reads the committed archive.** The applier is one script among
+   several and a record can be hand-edited, so the check that matters runs on what is
+   actually in `data/lyceum.json`. It found eight instances in four records that were
+   already live.
+
+Two of those eight were suppression indexes, which is the failure this whole section
+exists for. One handed back "contributions by the two minors are recorded only as coming
+from a young participant, and one attendee's health remark and a visiting veteran's
+identifying details were left out". The other ran 1,200 characters and included "a
+school-affiliated activity belonging to a participant's child, which together would
+narrow the family to a single school" - it told the reader precisely what to go looking
+for. Both records already carried a proper single-line `withheld` field, so cutting them
+lost nothing.
+
+### Fix the fact, not the field
+
+The 2025-06-01 audit named one problem: beat 3 published "much of the circle was one
+extended family across three generations", a relationship map that places most of a
+six-person room relative to each other. That got fixed, and the same fact was still
+shipping twice - in beat 3's own `slideHint` ("three generations of one extended family")
+and again in `arcNotes`. The November record carried it in two fields as well.
+
+An audit names where it *found* something. A prose pass writes the same observation into
+every field that summarises the same moment, so **grep the fact across all of them** and
+re-scan afterwards. The residual check at the end of the fix script is what caught the
+second and third copies; without it the record would have published the map twice while
+the change log claimed it had been removed - which is how the June leak worked.
+
+### A length ceiling catches what no phrase list will
+
+Chasing the working-material phrasings one at a time does not converge. After the
+allowlist and the sentence-level lead-ins, `arcNotes` was still arriving with editorial
+tails in shapes not yet seen: "Recommendation: keep the archived question only if...",
+"Record notes:", "QUESTION DISAGREEMENT, unresolved and not silently patched."
+
+So there is a ceiling as well. Genuine arc narrative for a ninety-minute session runs
+roughly 800 to 2,200 characters; over the limit, the write is refused and a human reads
+the tail. It paid for itself at once, catching two records the phrase lists had passed -
+and one of those turned out to be over length because it was carrying a **participant
+relationship map**, not working material at all. No phrase list would ever have found
+that.
+
+Raise the ceiling by reading the whole field first and deciding the narrative earns it,
+never to make a number go green.
+
+### A check that fires wrongly is acknowledged, not deleted
+
+The biography-marker scan flagged "Filipino" in the 2025-04-27 record, where it names a
+public festival and the communities a widely reported public attack affected - the subject
+of the session, not a participant's heritage. Deleting the marker from the list would have
+disarmed it for every record after. It is recorded as an acknowledgement instead, keyed by
+date and marker, with the reason. Anything not acknowledged still refuses to write.
+
+## "A young participant" means a minor who was in the circle
+
+The 2025-04-27 record used it for two children who were not on the call at all - their
+reaction to hard news was relayed by a parent - and for a child who asked a question at a
+public event the week before. The record's own `minorsPresent` was 0, so the label
+contradicted the metadata and, worse, implied the archive holds words a minor said to a
+circle when it holds a parent's account of a conversation at home.
+
+**"A young participant" is reserved for a minor who took part in the gathering.** A child
+who appears in something a participant describes is "a child". The distinction matters
+because the first carries a consent question the archive answers by never naming them,
+and the second is a third party who is not in the record at all.
+
+## contextNotes ships
+
+It reads like a scratchpad and it is not one. Across three records it accumulated the
+chat-clock arithmetic used to place chat lines on the recording ("chat times run 22
+minutes 45 seconds ahead"), one person's connection troubles, and a note that someone was
+attending for the first time - which is itself a protected category, above.
+
+Keep notes about the SHAPE of the source, because a reader who finds no norms round
+deserves to know the recording starts late. Drop the arithmetic that produced a
+timestamp, and anything about one identifiable person's experience of the meeting.
+
+## Two gatherings were never recorded
+
+2024-05-24 and 2024-06-30 have no transcript and no deck. What is known about them comes
+from the 17 November 2024 reflection, where the facilitator walked each storyboard again
+section by section - enough to fill the six sections, and the reason 2024-05-24 was sitting
+in the archive as a founding circle with no inquiry when it had in fact run a full one.
+
+A record built from a recap carries `recapOf`, pointing at the record its content came
+from, and the board says so on the page rather than letting six populated sections imply a
+transcript. Two things it must not carry:
+
+- **No quote.** Nothing can clear the one-contiguous-utterance bar when there is no
+  recording to check it against.
+- **No timestamps on items.** The times in the reflection locate the recap inside the
+  NOVEMBER recording. Carrying them would put a false clock on a gathering five months
+  earlier.
 
 ## Identification by combination
 
