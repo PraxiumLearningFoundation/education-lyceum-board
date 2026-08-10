@@ -46,6 +46,37 @@
   const DATA_URL_FALLBACK =
     'https://praxiumlearningfoundation.github.io/education-lyceum-board/data/lyceum.json';
 
+  // The stylesheet has the same problem as the archive, and it is more visible: copied
+  // markup on another origin cannot reach "./board.css" either, so the page renders as
+  // raw HTML - tags running together with no spacing, the beat strip falling back to a
+  // numbered list, nothing laid out. Same fix, same reasoning.
+  const CSS_URL_FALLBACK =
+    'https://praxiumlearningfoundation.github.io/education-lyceum-board/board.css';
+
+  // Did our stylesheet actually apply? `bg-lyceum-900` is one of this project's own theme
+  // colours, so it exists in board.css and nowhere else - if a probe carrying it has no
+  // background, the stylesheet did not load and the fallback is appended.
+  //
+  // Safe to test synchronously: a <link rel="stylesheet"> in <head> is render-blocking,
+  // so by the time this inline script runs at the end of <body> the browser has already
+  // resolved it either way.
+  function ensureStylesheet(){
+    const probe = document.createElement('div');
+    probe.className = 'bg-lyceum-900';
+    probe.style.position = 'absolute';
+    probe.style.left = '-9999px';
+    document.body.appendChild(probe);
+    const bg = getComputedStyle(probe).backgroundColor;
+    probe.remove();
+    const applied = bg && bg !== 'transparent' && !/rgba\(0,\s*0,\s*0,\s*0\)/.test(bg);
+    if (applied) return false;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = CSS_URL_FALLBACK;
+    document.head.appendChild(link);
+    return true;
+  }
+
   let DATA = [];
 
   // Accepts the v2 envelope {schemaVersion, inquiries} and a bare array, so an
@@ -284,14 +315,16 @@
 
   // ------------------------------------------------------------------ routing
   function route(){
-    // A bare fragment is an in-page jump to a storyboard beat, not a route. Without this
-    // the router would fall through to renderIndex and throw away the page the reader is
-    // standing on. The click handler normally prevents the hash from changing at all;
-    // this covers a middle-click, a copied link, or the handler not having bound yet.
-    if (/^#beat-\d+$/.test(location.hash || '')){
-      if (document.getElementById(location.hash.slice(1))) return;
-    }
-    const m = (location.hash || '').match(/^#\/inquiry\/(.+)$/);
+    // A hash that is not a route and does name something on this page is an in-page jump,
+    // so leave the page alone and let the browser scroll. Without this the router falls
+    // through to renderIndex and throws away the page the reader is standing on - which
+    // is exactly what "Read it in full" did, because the first version of this guard only
+    // recognised #beat-N and that link points at #storyboard. Match the shape rather than
+    // a list of ids, so the next anchor added does not reintroduce the bug.
+    const hash = location.hash || '';
+    if (hash && !hash.startsWith('#/') && document.getElementById(hash.slice(1))) return;
+
+    const m = hash.match(/^#\/inquiry\/(.+)$/);
     if (m){
       // idAliases keeps a previously published link working when a record's id has to
       // change - the 2025-04-27 gathering was dated 28 April until its recording was found.
@@ -815,6 +848,9 @@
   }
 
   // ------------------------------------------------------------------- launch
+  // Styling first: if this page has been copied to another origin, the relative
+  // stylesheet is unreachable and everything below would render as raw HTML.
+  ensureStylesheet();
   loadArchive().then(ok => { if (ok) route(); });
   </script>
 </body>
