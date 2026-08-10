@@ -1,0 +1,122 @@
+name: Add a gathering that is not here yet
+description: A Lyceum took place and the archive has no record of it.
+title: "New gathering: "
+labels: ["content", "new gathering"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill in as much as you have. **A partial record is welcome** - a date and the
+        question is enough to start, and the rest can be added later by anyone. Nothing
+        here needs code.
+
+        **The one rule that cannot be relaxed:** do not attach or paste a transcript,
+        a recording, or a slide deck. This repository is public and a file committed
+        here stays retrievable forever, even after it is deleted. Say in the last field
+        that a recording exists and a steward will collect it privately.
+
+  - type: input
+    id: date
+    attributes:
+      label: Date of the gathering
+      placeholder: 2026-09-06
+    validations:
+      required: true
+
+  - type: input
+    id: inquiry
+    attributes:
+      label: The question the circle worked on
+      description: >
+        As it was actually said in the room, if you can remember it. If the wording was
+        settled aloud and then typed onto a slide, the spoken version is the one we
+        want - a slide often says something slightly different.
+      placeholder: How do we ... in our communities?
+    validations:
+      required: true
+
+  - type: input
+    id: participants
+    attributes:
+      label: How many were in the circle
+      description: >
+        A count, not names. Say separately if any were under eighteen, because the
+        record then has to be handled differently.
+      placeholder: "7, none under eighteen"
+
+  - type: textarea
+    id: theories
+    attributes:
+      label: Theories and concepts
+      description: One point per line. What ideas the circle brought to the question.
+
+  - type: textarea
+    id: applications
+    attributes:
+      label: Application around the world
+      description: One point per line. How other places and communities handle it.
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources and inputs
+      description: >
+        One per line. Who could be asked, what is worth reading, what evidence was
+        wanted. Organisations, books, programmes and countries are all fine to name.
+
+  - type: textarea
+    id: policies
+    attributes:
+      label: Policies, laws and regulations
+      description: One per line. Anything formal that bears on the question.
+
+  - type: textarea
+    id: opportunities
+    attributes:
+      label: Opportunities
+      description: One per line. What is favourable, what could be built on.
+
+  - type: textarea
+    id: challenges
+    attributes:
+      label: Challenges
+      description: One per line. What works against turning this into action.
+
+  - type: textarea
+    id: cta
+    attributes:
+      label: Way Ahead - the call to action
+      description: >
+        What was undertaken, and roughly by whom in role terms - "one participant
+        undertook to", "the facilitator agreed to". No names.
+
+  - type: textarea
+    id: source
+    attributes:
+      label: What exists as a source for this
+      description: >
+        Is there a recording, a chat log, a deck, notes? Just say what exists and who
+        holds it. Do not attach any of it.
+      placeholder: >
+        There is a Zoom recording and chat log. Ehren has them. No deck was made.
+
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Before you send it
+      options:
+        - label: >
+            I have not attached or pasted a transcript, a recording, a chat log, or a
+            slide deck.
+          required: true
+        - label: >
+            Nothing I have written names a participant, and nothing identifies a minor
+            in any way - not a name, a school, a year group, or a town.
+          required: true
+        - label: >
+            Nothing I have written gives anyone's health, family circumstances,
+            immigration circumstances, employer or personal finances.
+          required: true
+        - label: >
+            Any words I put inside quotation marks were actually spoken in those words.
+          required: true

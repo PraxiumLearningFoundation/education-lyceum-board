@@ -24,9 +24,22 @@ data/
 styles/
   tailwind-input.css  Source for board.css
 tailwind.config.js    Theme for the CSS build
+CONTRIBUTING.md       How to add to the archive - start here, no code needed
 docs/
+  RUNBOOK.md          How to run it: publish, revert, access, the embed
   DATA-NOTES.md       Content decisions, source-quality issues, privacy rules
+  ROADMAP.md          What is built, what is next, what is deliberately not
+.github/
+  ISSUE_TEMPLATE/     The forms members use to propose content
+  pull_request_template.md   The review a steward clears before merging
 ```
+
+## Adding to the archive
+
+**Anyone who was in a circle can add to it, and it needs no code.** The gathering pages
+carry an *Add to this record* box, and
+[CONTRIBUTING.md](CONTRIBUTING.md) is the front door - three forms, a free GitHub account,
+nothing else. Stewards who publish want [docs/RUNBOOK.md](docs/RUNBOOK.md).
 
 Everything internal - the editor and the Engagement Metrics dashboard - lives in
 a separate **private** repository, not here. This repository is public and

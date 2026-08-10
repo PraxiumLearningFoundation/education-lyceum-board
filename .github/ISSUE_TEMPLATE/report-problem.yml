@@ -1,0 +1,48 @@
+name: Something on the site is broken
+description: A page will not load, a link goes to the wrong place, something looks wrong.
+title: "Problem: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for saying so. A description in your own words is enough - you do not
+        need to know what caused it.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, and what the site did instead of what you expected.
+      placeholder: >
+        I clicked "Read it in full" on the August gathering and it took me back to the
+        list of all gatherings instead of scrolling down.
+    validations:
+      required: true
+
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: The link, or the name of the gathering.
+      placeholder: The 2 August 2026 gathering
+
+  - type: dropdown
+    id: how
+    attributes:
+      label: How were you looking at it?
+      options:
+        - On the Praxium website
+        - On the board's own address (github.io)
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Phone or computer, and which browser
+      description: >
+        Worth saying even if it feels irrelevant. Several of these problems only happen
+        on one kind of device, and an iPhone behaves differently from everything else.
+      placeholder: iPhone, Safari
