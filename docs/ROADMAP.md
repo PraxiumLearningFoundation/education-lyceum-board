@@ -26,56 +26,41 @@ came out of that meeting.
    thing.
 7. **Favicon and star logo** **[9 Aug]** - wired into the page head and the board header.
 
----
+8. **The storyboard at the top of each gathering** **[9 Aug]** - the clearest request of
+   the night, made twice. A detail page now opens on "The shape of the evening": the
+   logline, then a sideways-scrolling strip of beat chips, each one jumping to that beat
+   in the full narrative further down.
 
-## Next
+   The meeting proposed exporting the deck slide to a PNG. This draws it from the beats
+   instead, which every record already carries, so it stays searchable, reads on a phone,
+   survives a record being edited without a re-export, and a screen reader can follow it.
+   `storyboard.image` is honoured if a deck PNG is added later, so both routes work.
 
-These three came directly out of the 9 August meeting and are in the order they were
-asked for.
+9. **Search across several words** **[9 Aug]** - the query is split on spaces, commas and
+   semicolons, and a gathering is kept only if **every** term appears in it. Each word
+   now narrows the list, which is what a search box implies.
 
-### 1. The storyboard at the top of each gathering **[9 Aug]**
+   The empty state carries its weight too. A multi-word search can come back blank for
+   two different reasons and only the difference is actionable, so it now says which:
+   either a word appears nowhere in the archive, or every word appears but never in the
+   same gathering. It lists the per-term counts so it is obvious which word to drop.
+   `community, DEI, Services` - the query that failed live - now reports that each word
+   is in the archive but no single gathering has all three.
 
-The clearest request of the night, made twice: someone landing on a gathering should meet
-the shape of it before the granular data, so they can decide whether to read on. Right
-now a detail page opens straight into the six sections.
+   The storyboard prose was added to what search reads at the same time. A word spoken in
+   the room but never lifted into a bullet was previously unfindable.
 
-Two ways to do it, and the second is better than what was discussed:
+10. **An item links to the moment it came from** **[9 Aug]** - the timestamp on a bullet is
+    now a link to the beat whose time range contains it, titled with that beat's name.
+    This is the part of the Fathom idea that needs no video: `at` on items and `timeRange`
+    on beats already joined, so it needed no new data.
 
-- **A PNG of the deck slide**, as proposed in the meeting: export the PowerPoint or PDF to
-  an image, size it to the viewport, let people pinch-zoom on a phone. Quick, and it
-  matches the format the circle already knows.
-- **Render the storyboard from the data we already hold.** Every record now carries
-  sixteen beats with a title, a time range, a summary and a pull quote. That is the
-  storyboard, in text. Drawing it as a visual band at the top of the page means it is
-  searchable, readable by a screen reader, sharp on any screen, needs no export step
-  when a record changes, and works properly on a phone - which an image of a slide never
-  will. A PNG of the deck can still sit below it for people who want the familiar layout.
+    Clicking one scrolls to the beat and briefly outlines it, without touching the URL
+    hash - the router treats a hash change as navigation, so a plain anchor would have
+    thrown the reader back to the index.
 
-Recommend the second, with the first as a fallback where a deck exists and the data does
-not.
-
-### 2. Search across several words at once **[9 Aug]**
-
-Tested live in the meeting and it failed. Typing `rabbi` works; typing
-`community, DEI, Services` returns nothing, because the search looks for that whole
-string as one phrase rather than for the words in it.
-
-The fix is small: split the query on spaces and commas, and keep a gathering only if
-**every** term appears somewhere in it. That makes the behaviour match what was
-described - a Google-like narrowing, where each word you add cuts the list down.
-
-Worth adding at the same time: show which terms matched nothing, so a search that comes
-back empty says why instead of just going blank.
-
-### 3. Link an item to the moment it came from **[9 Aug]**
-
-Ehren's refinement of the Fathom idea, and the part that needs no video: clicking a
-bullet should take you to the fuller context around it, "like it might be halfway down
-the page and somebody was talking about retirement, and then it goes to minute 26."
-
-We can already do this. Items carry an `at` timestamp and beats carry a `timeRange`, so
-each item can be matched to the beat whose range contains it and linked to it. No video,
-no transcript, no new data - only a join across two fields the records already have.
+11. **The archive loads even when the markup is copied elsewhere** **[9 Aug]** - see the
+    Squarespace note below.
 
 ---
 
@@ -101,33 +86,58 @@ participant, they include minors, and nobody consented to publication. Publishin
 recording undoes the whole naming policy in `DATA-NOTES.md` in one step. If recordings are
 shared at all it should be to members on request, not from a public page.
 
-### The true Squarespace embed **[9 Aug]**
+### The true Squarespace embed - two failures, both now understood **[9 Aug]**
 
-The iframe attempt failed on the night and the cause was guessed at. It has now been
-tested, and the guess was wrong:
+Two different things were tried and each failed for its own reason. Both are now
+diagnosed, and one is fixed in code.
 
-- GitHub Pages sends **no** `X-Frame-Options` and no framing restriction in its CSP.
-- The live board was loaded inside an iframe from a different origin and rendered fully -
-  all cards, the search box, and its runtime fetch of `data/lyceum.json`.
+#### Failure 1: the Embed block said "No embeddable content found"
 
-**The board frames fine.** What failed was Squarespace's *Embed* block, which only accepts
-URLs from providers it recognises - hence "there's no embed here". Raw iframe HTML needs a
-**Code block** instead, and Code blocks are a paid-tier Squarespace feature. So:
+That block only accepts URLs from providers it recognises - YouTube, Vimeo and the like -
+via oEmbed. A plain web page is not embeddable content to it. This is not a fault in the
+board.
 
-1. Check which Squarespace plan the site is on. Code blocks need Business or above.
-2. If the plan allows it, a Code block on the hidden Library page with
-   `<iframe src="https://praxiumlearningfoundation.github.io/education-lyceum-board/" width="100%" height="900" style="border:0" title="The Lyceum"></iframe>`
-   should work as-is.
-3. If it does not, the external link stays. It works, and it is not worth a plan upgrade
-   on its own.
+Framing itself was tested and works. GitHub Pages sends **no** `X-Frame-Options` and no
+framing restriction in its CSP, and the live board was loaded inside an iframe from a
+different origin and rendered fully - all cards, the search box, and its runtime fetch of
+`data/lyceum.json`. **So an iframe is the right instrument**, in a **Code block** rather
+than an Embed block:
+
+```html
+<iframe src="https://praxiumlearningfoundation.github.io/education-lyceum-board/"
+        width="100%" height="900" style="border:0" title="The Lyceum"></iframe>
+```
+
+Code blocks are a paid-tier Squarespace feature, so check the plan. This route is the one
+to prefer: the embed always shows the current board, with nothing to re-copy when a
+gathering is added.
+
+#### Failure 2: the Code block loaded the board, which then 404'd on the archive
+
+This one *was* ours, and it is fixed. The board's markup had been pasted into the Code
+block, which puts the HTML on squarespace.com while the data stays on Pages - so
+`./data/lyceum.json` resolved against the Squarespace page and 404'd. A relative path
+problem, not a Squarespace problem.
+
+The board now tries the relative path first and falls back to the canonical copy on Pages
+if that fails. GitHub Pages answers with `access-control-allow-origin: *`, so the
+cross-origin read is allowed, and a normal visit costs no extra request because the
+fallback is only reached after the first attempt fails. Verified by serving the markup
+from a different origin with no `data/` directory at all: all 14 gatherings load.
+
+**So both routes now work.** The iframe is still the better one - it needs no re-copying -
+but pasting the markup is no longer broken.
 
 ### How much detail belongs on a page
 
-Hez raised it and it was not resolved: the June 2026 record grew from short and succinct
-to "a ton of content" once the transcripts were worked. The storyboard-at-the-top item
-above is most of the answer - the summary carries the skim, the sections carry the depth -
-but if the sections still read as too long once that lands, the fix is to collapse them by
-default rather than to cut what was said.
+Raised and not resolved: the June 2026 record grew from short and succinct to "a ton of
+content" once the transcripts were worked.
+
+The storyboard band at the top is most of the answer - the band carries the skim, the
+sections carry the depth, and nobody has to scroll the depth to find out what the evening
+was about. **Look at a page now and decide whether that is enough.** If the sections still
+read as too long, collapse them behind a summary line rather than cutting what was said:
+the length is the record being complete, which is the point of it.
 
 ---
 

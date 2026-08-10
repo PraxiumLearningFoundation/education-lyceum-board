@@ -343,9 +343,23 @@ jobs:
 
       - name: The board page references no external host
         run: |
-          # localhost is exempt: the offline-help text tells the maintainer which
-          # URL to open after starting a local server.
-          if grep -nE 'https?://' index.html | grep -vE 'https?://(localhost|127\.0\.0\.1)'; then
+          # The point of this check is that the board must not DEPEND on a third party -
+          # no CDN, no font host, no analytics. Two exemptions, both deliberate:
+          #
+          #   localhost / 127.0.0.1 - the offline-help text tells the maintainer which
+          #   URL to open after starting a local server.
+          #
+          #   the project's own Pages origin - DATA_URL_FALLBACK, used only when the
+          #   relative path to data/lyceum.json fails, which is what happens when the
+          #   board's markup has been copied into a Squarespace code block and the data
+          #   is left behind on Pages. That is our own canonical copy, not a third party,
+          #   and it is never fetched on a normal visit.
+          #
+          # Anything else, including a different github.io site, still fails.
+          SELF='praxiumlearningfoundation\.github\.io/education-lyceum-board'
+          if grep -nE 'https?://' index.html \
+             | grep -vE "https?://(localhost|127\.0\.0\.1)" \
+             | grep -vE "https://$SELF"; then
             echo "::error file=index.html::The board must not reference an external host."
             echo ""
             echo "The page has to render inside a Squarespace frame with a strict content"
@@ -353,4 +367,4 @@ jobs:
             echo "for exactly this reason - see the Styling section of the README."
             exit 1
           fi
-          echo "OK: the board page is self-contained."
+          echo "OK: the board page depends on no third-party host."

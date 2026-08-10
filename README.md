@@ -174,17 +174,20 @@ Done - repository hygiene, the public/admin split, content moved out of the code
 `data/lyceum.json`, live on GitHub Pages, all 14 gatherings transcribed, and a link to
 the board from the foundation site.
 
-Next, in the order the 9 August 2026 administration meeting asked for them:
+The three things the 9 August 2026 administration meeting asked for are also done:
 
-1. **The storyboard at the top of each gathering**, so a visitor meets the shape of it
-   before the granular data.
-2. **Search across several words at once.** `community, DEI, Services` currently returns
-   nothing, because the query is matched as one phrase rather than as its words.
-3. **Link an item to the moment it came from** - a bullet to the beat whose time range
-   contains it, which the records already hold enough data to do.
+1. **The storyboard at the top of each gathering**, drawn from the beats rather than
+   exported as a slide image, so a visitor meets the shape of the evening first.
+2. **Search across several words.** Every term must match, so each word narrows the list,
+   and an empty result says whether a word is missing from the archive or simply never
+   appears alongside the others.
+3. **An item links to the moment it came from** - a bullet's timestamp jumps to the beat
+   whose time range contains it.
 
-Then the editor, the move to an Azure static web app, and the single Praxium admin page
-that the board's editor is the first tab of.
+Next: the editor, the move to an Azure static web app, and the single Praxium admin page
+that the board's editor is the first tab of. Two decisions are open - where the recordings
+live, and whether the Squarespace plan allows a code block - both in
+[docs/ROADMAP.md](docs/ROADMAP.md).
 
 Visitor interaction - public comments, likes, click tracking - is deliberately **not** in
 this roadmap. A static site cannot collect it, and doing it properly needs a place to
