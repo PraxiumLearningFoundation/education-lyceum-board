@@ -370,30 +370,62 @@ jobs:
           fi
           echo "OK: board.css is an exact rebuild of the classes used in index.html."
 
-      - name: The board page references no external host
+      - name: The board page loads nothing off-origin
         run: |
-          # The point of this check is that the board must not DEPEND on a third party -
-          # no CDN, no font host, no analytics. Two exemptions, both deliberate:
-          #
-          #   localhost / 127.0.0.1 - the offline-help text tells the maintainer which
-          #   URL to open after starting a local server.
-          #
-          #   the project's own Pages origin - DATA_URL_FALLBACK, used only when the
-          #   relative path to data/lyceum.json fails, which is what happens when the
-          #   board's markup has been copied into a Squarespace code block and the data
-          #   is left behind on Pages. That is our own canonical copy, not a third party,
-          #   and it is never fetched on a normal visit.
-          #
-          # Anything else, including a different github.io site, still fails.
-          SELF='praxiumlearningfoundation\.github\.io/education-lyceum-board'
-          if grep -nE 'https?://' index.html \
-             | grep -vE "https?://(localhost|127\.0\.0\.1)" \
-             | grep -vE "https://$SELF"; then
-            echo "::error file=index.html::The board must not reference an external host."
-            echo ""
-            echo "The page has to render inside a Squarespace frame with a strict content"
-            echo "policy, and on locked-down networks. Styling is vendored into board.css"
-            echo "for exactly this reason - see the Styling section of the README."
-            exit 1
-          fi
-          echo "OK: the board page depends on no third-party host."
+          node - <<'NODE'
+          const fs = require('fs');
+          // The board must not DEPEND on a third party: no CDN, no font host, no
+          // analytics. It has to render inside a Squarespace frame with a strict content
+          // policy and on locked-down networks, which is why the styling is vendored.
+          //
+          // The first version of this rejected any absolute URL anywhere in the file.
+          // That conflated two different things, and it blocked a link that is not a
+          // dependency at all: the "Add to this record" button sends a member to a
+          // GitHub issue form. The page renders perfectly whether or not anyone ever
+          // clicks it. A stylesheet is a dependency; a destination is not.
+          //
+          // So there are two rules now, and they say what they mean.
+          const html = fs.readFileSync('index.html', 'utf8');
+          const problems = [];
+
+          // Rule 1: nothing the page LOADS may come from anywhere but this origin.
+          // link/script/img/iframe/source with an absolute URL is a hard failure, full
+          // stop - including our own Pages origin, because a normal visit must not
+          // depend on the network reaching us.
+          const LOADERS = /<(?:link|script|img|iframe|source|audio|video)\b[^>]*?\b(?:src|href)\s*=\s*["']([^"']+)["'][^>]*>/gi;
+          for (const m of html.matchAll(LOADERS)) {
+            if (/^https?:\/\//i.test(m[1])) {
+              problems.push(`a subresource is loaded from an absolute URL: ${m[1]}`);
+            }
+          }
+
+          // Rule 2: any other absolute URL must be on this list, each for a stated
+          // reason. These are destinations and last-resort fallbacks, not page loads.
+          const ALLOWED = [
+            // Offline-help text: which URL to open after starting a local server.
+            [/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/, 'local preview instructions'],
+            // DATA_URL_FALLBACK and CSS_URL_FALLBACK. Reached only when the relative
+            // path fails, which happens when the markup has been copied to another
+            // origin. Our own canonical copy, never fetched on a normal visit.
+            [/^https:\/\/praxiumlearningfoundation\.github\.io\/education-lyceum-board\//,
+             'our own canonical copy, fallback only'],
+            // Where a member's suggestion goes. A navigation, not a load.
+            [/^https:\/\/github\.com\/\$\{REPO\}\//, 'the suggestion destination'],
+          ];
+          const urls = new Set([...html.matchAll(/https?:\/\/[^\s"'`<>)]+/g)].map((m) => m[0]));
+          for (const u of urls) {
+            if (!ALLOWED.some(([rx]) => rx.test(u))) {
+              problems.push(`unrecognised absolute URL: ${u}`);
+            }
+          }
+
+          if (problems.length) {
+            problems.forEach((p) => console.error(`::error file=index.html::${p}`));
+            console.error('');
+            console.error('If this is a new destination a reader navigates to, add it to');
+            console.error('ALLOWED in this step with the reason. If it is something the page');
+            console.error('LOADS, vendor it instead - see the Styling section of the README.');
+            process.exit(1);
+          }
+          console.log(`OK: no subresource loads off-origin; ${urls.size} absolute URL(s), all accounted for.`);
+          NODE

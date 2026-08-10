@@ -1,0 +1,114 @@
+name: Add to a gathering that is already here
+description: Something was said that the record missed, or something in it is wrong.
+title: "Content: "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You do not need to know any code or edit any files. Fill this in and a steward
+        will put it into the record and credit the correction.
+
+        **One thing to know before you start.** This archive deliberately records
+        **what was said, not who said it**. No participant is named anywhere in it, and
+        that is a settled decision rather than an oversight - nobody in those circles
+        agreed to be quoted by name on a permanent public page. So please write your
+        suggestion without names, including your own account of your own contribution.
+
+  - type: input
+    id: gathering
+    attributes:
+      label: Which gathering
+      description: The date, or paste the link to its page.
+      placeholder: 2026-08-02, or the /#/inquiry/... link
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Which part of the record
+      description: >
+        These are the headings as they appear on the gathering's page. The first six are
+        the Sequence of Inquiry; the four after them appear only on a reflection.
+      # These strings MUST match the board's own section labels character for character.
+      # The "Add to this record" box pre-fills this field by passing the label it is
+      # showing, and GitHub matches a dropdown by its text - so a wording difference here
+      # does not error, it just silently arrives blank. A test in board-tests.js compares
+      # the two lists for exactly this reason.
+      options:
+        - Theories / Concepts
+        - Application
+        - Source / Input
+        - Regulations / References
+        - Opportunities
+        - Challenges
+        - What the circle learned
+        - What is being carried forward
+        - What changed
+        - Questions left open
+        - The highlighted quote
+        - Way Ahead / Call to Action
+        - A gathering revisited
+        - The storyboard - how the evening unfolded
+        - Something about the gathering itself (who was there, where, the agenda)
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Is this an addition or a correction?
+      options:
+        - An addition - this was said and the record missed it
+        - A correction - the record says something inaccurate
+        - A removal - something in the record should not be published
+    validations:
+      required: true
+
+  - type: textarea
+    id: text
+    attributes:
+      label: What should the record say?
+      description: >
+        Write it as you would want it to read on the page. Short and plain is better
+        than polished. If you are correcting something, quote the current wording too so
+        we can find it.
+      placeholder: |
+        Currently: "..."
+        Should be: "..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: basis
+    attributes:
+      label: What is this based on?
+      description: >
+        Your memory of the evening is a perfectly good answer. If it is in the
+        recording and you know roughly when, a timestamp helps a lot.
+      placeholder: I was there, this came up shortly after the world map - around 40 minutes in.
+
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Before you send it
+      options:
+        - label: >
+            My suggestion names no participant, including me, and no minor in any way -
+            not a name, a school, a year group, or a town.
+          required: true
+        - label: >
+            It contains nobody's health, family circumstances, immigration
+            circumstances, employer or personal finances, mine included.
+          required: true
+        - label: >
+            If I have written anything inside quotation marks, those are the words
+            actually spoken, not my summary of them. (If you are unsure, leave the marks
+            off and we will check the recording.)
+          required: true
+        - label: >
+            I have not pasted in any part of a transcript or recording. This repository
+            is public and permanent.
+          required: true

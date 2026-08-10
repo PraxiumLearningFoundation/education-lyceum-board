@@ -1,0 +1,23 @@
+# Every issue goes through a form, so the privacy questions are always asked. A blank
+# issue box would let a well-meaning member paste a transcript excerpt into a public
+# repository, which is the one mistake here that cannot be undone.
+blank_issues_enabled: false
+
+contact_links:
+  - name: A privacy concern about something already published
+    # DELIBERATELY NOT AN ISSUE FORM. An issue saying "record X identifies me" is
+    # itself the disclosure - it would sit in a public repository, indexed, pointing
+    # at the thing it wants removed. This route has to be private.
+    url: https://praxiumfoundation.com/contact
+    about: >
+      If you recognise yourself or someone else in the archive, or think a gathering
+      can be traced to a person, please contact us privately rather than opening an
+      issue here. Everything in this repository is public, including issues, so an
+      issue about being identifiable would make it worse. We will take it seriously
+      and act quickly.
+
+  - name: Read the content rules first
+    url: https://github.com/PraxiumLearningFoundation/education-lyceum-board/blob/main/docs/DATA-NOTES.md
+    about: >
+      What the archive records and what it deliberately leaves out, and why. Worth
+      five minutes before proposing content - most of it was learned the hard way.
