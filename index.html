@@ -161,9 +161,17 @@
   ];
   const isReflection = d => d.kind === 'reflection';
   const titleOf = d => d.inquiry || d.title || '';
-  const isTranscribed = d => isReflection(d)
+  const hasContent = d => isReflection(d)
     ? (d.reviewed || []).length > 0 || REFLECTION_BLOCKS.some(([k]) => (d[k] || []).length)
     : SECTIONS.some(([k]) => (d[k] || []).length);
+
+  // Two gatherings were never recorded. What is known about them comes from the
+  // November 2024 reflection, which recapped each one section by section. They carry
+  // content, so they are not open quests - but they were never transcribed, and the
+  // badge and the counter must not claim otherwise. `recapOf` names the record the
+  // content came from, which is both the signal and the link.
+  const fromRecap = d => !!d.recapOf;
+  const isTranscribed = d => hasContent(d) && !fromRecap(d);
 
   // --------------------------------------------------- local "living" storage
   // For the MVP, contributions + comments live in the browser (localStorage).
@@ -245,10 +253,11 @@
 
   function placeCursorEnd(el){ if(!el) return; el.focus(); const v = el.value; el.value=''; el.value=v; }
 
-  function isQuest(d){ return d.status !== 'founding' && !isTranscribed(d); }
+  function isQuest(d){ return d.status !== 'founding' && !hasContent(d); }
   function badge(d){
     if (isReflection(d)) return '<span class="text-xs rounded-full bg-lyceum-100 text-lyceum-800 px-2 py-0.5">Reflection</span>';
     if (d.status === 'founding') return '<span class="text-xs rounded-full bg-lyceum-100 text-lyceum-800 px-2 py-0.5">Founding</span>';
+    if (fromRecap(d))            return '<span class="text-xs rounded-full bg-sky-100 text-sky-800 px-2 py-0.5">From recap</span>';
     if (isTranscribed(d))        return '<span class="text-xs rounded-full bg-emerald-100 text-emerald-800 px-2 py-0.5">Transcribed</span>';
     return '<span class="text-xs rounded-full bg-amber-100 text-amber-800 px-2 py-0.5 font-medium">Help Wanted</span>';
   }
@@ -361,7 +370,7 @@
 
   // -------------------------------------------------------------- detail page
   function renderDetail(d){
-    const transcribed = isTranscribed(d);
+    const transcribed = hasContent(d);
     $app.innerHTML = `
       <header class="bg-lyceum-900 text-lyceum-50">
         <div class="max-w-3xl mx-auto px-6 py-10">
@@ -377,6 +386,7 @@
 
       <main class="max-w-3xl mx-auto px-6 py-8 fade-in">
         ${!transcribed ? notYetHTML(d) : ''}
+        ${fromRecap(d) ? fromRecapHTML(d) : ''}
         ${d.quote ? `
           <blockquote class="font-serif text-xl italic text-lyceum-800 border-l-4 border-lyceum-700 pl-5 my-2">
             "${esc(d.quote)}"
@@ -490,6 +500,24 @@
           <h2 class="font-semibold text-amber-900">This inquiry is an open quest</h2>
         </div>
         <p class="mt-2 text-sm text-amber-900/90">This question was explored in the circle, but the notes still live in the old slide deck. Take up the quest: if you were there - or want to dig into it - use <strong>Suggest content</strong> below to start filling it in. Every contribution moves the inquiry forward and turns the archive into a living document.</p>
+      </div>`;
+  }
+
+  // No recording of this gathering exists, so its content is second-hand: the
+  // November 2024 reflection walked the storyboard section by section, and that recap
+  // is the whole source. Say so on the page rather than letting the sections imply a
+  // transcript that was never made.
+  function fromRecapHTML(d){
+    const src = d.recapOf
+      ? `<a class="underline hover:no-underline" href="#/inquiry/${esc(d.recapOf)}">the reflection that revisited it</a>`
+      : 'a later reflection';
+    return `
+      <div class="rounded-xl border border-sky-300 bg-sky-50 p-5 mb-6">
+        <div class="flex items-center gap-2">
+          <span class="text-xs rounded-full bg-sky-100 text-sky-800 px-2 py-0.5 font-medium">From recap</span>
+          <h2 class="font-semibold text-sky-900">This gathering was not recorded</h2>
+        </div>
+        <p class="mt-2 text-sm text-sky-900/90">Everything below is drawn from ${src}, where the circle walked this storyboard again section by section. It is a faithful summary rather than a transcript, so it is thinner than the recorded gatherings and carries no timestamps. If you were there and remember more, <strong>Suggest content</strong> below.</p>
       </div>`;
   }
 
