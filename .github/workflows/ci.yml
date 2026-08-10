@@ -30,12 +30,29 @@ jobs:
       - name: No transcripts, decks, or office documents
         run: |
           # -z / tr: this project has filenames containing spaces.
-          # The transcript pattern is deliberately narrow - Lyceum<date>.md, the
-          # naming the recordings actually use - so that ordinary documentation
-          # such as docs/lyceum-schema.md is not caught by it.
+          #
+          # The transcript pattern used to be narrow - Lyceum<date>.md, the naming the
+          # LYCEUM recordings use - to avoid catching ordinary documentation such as
+          # docs/lyceum-schema.md. That was not enough. A weekly ADMINISTRATION meeting
+          # transcript arrived as "20260809_meeting_transcript.md": it named five people,
+          # matched neither this check nor .gitignore, and sat untracked in the working
+          # tree where any "git add -A" would have committed it to a public repository.
+          #
+          # So match the words "transcript" and "meeting" anywhere in a .md filename.
+          # Real documentation in docs/ is named for its subject, not for the meeting it
+          # came from, so nothing legitimate collides - and the two roadmap/notes files
+          # are excluded by name below to keep it that way deliberately rather than by
+          # luck.
+          FORBIDDEN='\.(pptx?|docx?|xlsx?|vtt|srt|zip|pdf)$'
+          FORBIDDEN="$FORBIDDEN|(^|/)Lyceum[0-9]{6,8}[^/]*\.md$"
+          FORBIDDEN="$FORBIDDEN|[^/]*(transcript|meeting)[^/]*\.md$"
+          FORBIDDEN="$FORBIDDEN|(^|/)transcripts?/"
+          ALLOWED='(^|/)(ROADMAP|DATA-NOTES|README|CONTRIBUTING)\.md$'
+
           if git ls-files -z \
             | tr '\0' '\n' \
-            | grep -iE '\.(pptx?|docx?|xlsx?|vtt|srt|zip|pdf)$|(^|/)Lyceum[0-9]{6,8}[^/]*\.md$|(^|/)transcripts/' \
+            | grep -ivE "$ALLOWED" \
+            | grep -iE "$FORBIDDEN" \
             > offenders.txt; then
               echo "::error::Private or non-source material is committed to a PUBLIC repository."
               echo ""

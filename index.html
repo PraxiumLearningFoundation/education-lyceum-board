@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Lyceum - Community Inquiry Board</title>
+  <!-- Relative paths, because the board is served from a project subpath on GitHub
+       Pages (/education-lyceum-board/) and may later move to an Azure web app at the
+       root. An absolute "/favicon.webp" would 404 on Pages. -->
+  <link rel="icon" type="image/webp" href="./favicon.webp" />
+  <!-- Safari ignores WebP favicons in some versions, and Apple devices ask for this
+       name by default; the PNG serves as both the fallback and the touch icon. -->
+  <link rel="apple-touch-icon" href="./StarLogo.png" />
   <link rel="stylesheet" href="./board.css" />
 </head>
 <body class="bg-lyceum-50 text-stone-800 antialiased">
@@ -219,7 +226,14 @@
     $app.innerHTML = `
       <header class="bg-lyceum-900 text-lyceum-50">
         <div class="max-w-5xl mx-auto px-6 py-12">
-          <p class="uppercase tracking-[0.3em] text-xs text-lyceum-100/80 mb-3">Praxium Learning Foundation</p>
+          <div class="flex items-center gap-3 mb-3">
+            <!-- The star is white on transparent, so it reads on this dark header and
+                 nowhere else on the page. Decorative: the wordmark beside it already
+                 carries the name, so an alt text would just repeat it to a screen
+                 reader. -->
+            <img src="./StarLogo.png" alt="" width="28" height="27" class="shrink-0 opacity-90" />
+            <p class="uppercase tracking-[0.3em] text-xs text-lyceum-100/80">Praxium Learning Foundation</p>
+          </div>
           <h1 class="font-serif text-4xl sm:text-5xl font-bold">The Lyceum</h1>
           <p class="mt-3 text-lg text-lyceum-100/90 max-w-2xl">An endeavor for shared purpose in families and communities. Every gathering, we take a real question and work it through together - framing it, learning how the world handles it, and deciding who carries it forward.</p>
           <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-lyceum-100/80">
