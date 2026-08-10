@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Lyceum - Community Inquiry Board</title>
+  <!-- Relative paths, because the board is served from a project subpath on GitHub
+       Pages (/education-lyceum-board/) and may later move to an Azure web app at the
+       root. An absolute "/favicon.webp" would 404 on Pages. -->
+  <link rel="icon" type="image/webp" href="./favicon.webp" />
+  <!-- Safari ignores WebP favicons in some versions, and Apple devices ask for this
+       name by default; the PNG serves as both the fallback and the touch icon. -->
+  <link rel="apple-touch-icon" href="./StarLogo.png" />
   <link rel="stylesheet" href="./board.css" />
 </head>
 <body class="bg-lyceum-50 text-stone-800 antialiased">
@@ -21,6 +28,23 @@
   // that adding a gathering never means editing this file.
   const DATA_URL  = './data/lyceum.json';
   const CACHE_KEY = 'lyceum.archive.v2';
+
+  // Where the archive lives when this page is NOT being served from its own repository.
+  //
+  // Copying the board's markup into a Squarespace code block is a stated goal, and it
+  // separates the two halves: the HTML ends up on squarespace.com while the data stays
+  // on Pages, so the relative path above resolves against the host page and 404s. That
+  // is the exact failure reported from a working code block - "the archive returned
+  // HTTP 404" - and it is not a Squarespace problem, it is a relative-path problem.
+  //
+  // Safe to read cross-origin: GitHub Pages answers with "access-control-allow-origin: *",
+  // checked against the live host. Tried only after the relative path fails, so a normal
+  // visit costs no extra request.
+  //
+  // A fork should point this at its own Pages URL, or set it to null to disable the
+  // fallback entirely.
+  const DATA_URL_FALLBACK =
+    'https://praxiumlearningfoundation.github.io/education-lyceum-board/data/lyceum.json';
 
   let DATA = [];
 
@@ -52,6 +76,25 @@
     } catch { return null; }
   }
 
+  // The relative path first, because that is correct whenever the page is served from
+  // the repository. Only if it fails do we reach for the canonical copy, which covers
+  // the page having been copied somewhere else. Both failing reports the FIRST error,
+  // since a reader of a normal deployment cares about their own 404, not ours.
+  async function fetchArchive(){
+    const sources = [DATA_URL, DATA_URL_FALLBACK].filter(Boolean);
+    let first = null;
+    for (const url of sources){
+      try {
+        const resp = await fetch(url, { cache: 'no-cache' });
+        if (!resp.ok) throw new Error('the archive returned HTTP ' + resp.status);
+        return await resp.json();
+      } catch (err) {
+        if (!first) first = err;
+      }
+    }
+    throw first || new Error('the archive could not be reached');
+  }
+
   async function loadArchive(){
     // Opened straight off disk, fetch is blocked by the browser, not by us.
     // Say so plainly instead of rendering an empty board.
@@ -60,9 +103,7 @@
       return false;
     }
     try {
-      const resp = await fetch(DATA_URL, { cache: 'no-cache' });
-      if (!resp.ok) throw new Error('the archive returned HTTP ' + resp.status);
-      const payload = await resp.json();
+      const payload = await fetchArchive();
       const list = normalise(payload);
       if (!list.length) throw new Error('the archive loaded but contains no gatherings');
       DATA = list;
@@ -183,8 +224,73 @@
     addSuggestion(id, s){ const all = store.suggestions(id); all.push(s); localStorage.setItem('lyc.suggest.'+id, JSON.stringify(all)); },
   };
 
+  // ------------------------------------------------------------------- search
+  // One substring match over the whole record was the original behaviour, and it fails
+  // the way people actually search. Typing "rabbi" worked; typing "community, DEI,
+  // Services" returned nothing, because the whole phrase was looked for as one string.
+  //
+  // So the query is split into terms and EVERY term must appear somewhere in the record.
+  // Each word you add narrows the list, which is the behaviour a search box implies.
+  // Commas are separators rather than characters to match, because that is how people
+  // type a list.
+  function searchTerms(s){
+    return String(s || '').toLowerCase().split(/[\s,;]+/).filter(Boolean);
+  }
+
+  // Everything about a record that a search should see, lowercased once and cached -
+  // it is rebuilt on every keystroke otherwise, for every record, across 1,100 items.
+  const _hay = new WeakMap();
+  function haystackOf(d){
+    let h = _hay.get(d);
+    if (h !== undefined) return h;
+    // inquiryAliases carries earlier wordings of the question, so someone who remembers
+    // it the old way still finds the gathering.
+    const reflectionText = isReflection(d)
+      ? [...(d.reviewed || []).flatMap(r => [r.topic, r.discussion, r.progress]),
+         ...REFLECTION_BLOCKS.flatMap(([k]) => (d[k] || []).map(itemText)), d.summary]
+      : [];
+    const sb = d.storyboard || {};
+    h = [titleOf(d), ...(d.inquiryAliases||[]), ...(d.tags||[]), ...sectionItems(d),
+         ...reflectionText, d.quote, d.callToAction,
+         // The storyboard is where the narrative detail lives, so a word spoken in the
+         // room but not in a bullet was previously unfindable.
+         sb.logline, ...beatsOf(d).flatMap(b => [b.title, b.summary, b.pullQuote]),
+        ].filter(Boolean).join(' ').toLowerCase();
+    _hay.set(d, h);
+    return h;
+  }
+
+  // --------------------------------------------------- an item and its moment
+  // "@1:07:44" or "@47:32" as seconds. Returns null for a range or a malformed value,
+  // so a synthesised item that carries no single timestamp simply does not link.
+  function atSecs(s){
+    const m = String(s || '').match(/^@?(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
+    if (!m) return null;
+    const p = [m[1], m[2], m[3]].filter(x => x != null).map(Number);
+    return p.length === 3 ? p[0]*3600 + p[1]*60 + p[2] : p[0]*60 + p[1];
+  }
+
+  // The beat whose time range contains this moment. This is the whole of the
+  // "link a comment to its context" request: items already carry `at` and beats already
+  // carry `timeRange`, so the two join with no new data and no recording.
+  function beatAt(d, at){
+    const s = atSecs(at);
+    if (s == null) return null;
+    return beatsOf(d).find(b => {
+      const [lo, hi] = String(b.timeRange || '').split('-').map(x => atSecs(x.trim()));
+      return lo != null && hi != null && s >= lo && s <= hi;
+    }) || null;
+  }
+
   // ------------------------------------------------------------------ routing
   function route(){
+    // A bare fragment is an in-page jump to a storyboard beat, not a route. Without this
+    // the router would fall through to renderIndex and throw away the page the reader is
+    // standing on. The click handler normally prevents the hash from changing at all;
+    // this covers a middle-click, a copied link, or the handler not having bound yet.
+    if (/^#beat-\d+$/.test(location.hash || '')){
+      if (document.getElementById(location.hash.slice(1))) return;
+    }
     const m = (location.hash || '').match(/^#\/inquiry\/(.+)$/);
     if (m){
       // idAliases keeps a previously published link working when a record's id has to
@@ -198,28 +304,46 @@
   }
   window.addEventListener('hashchange', route);
 
+  // In-page jumps to a storyboard beat, handled here rather than natively so the hash
+  // never changes - the router treats a hash change as navigation. The links keep a real
+  // href, so they still mean something to a middle-click and to assistive technology.
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[data-jump]');
+    if (!a) return;
+    const el = document.getElementById(a.getAttribute('data-jump'));
+    if (!el) return;
+    e.preventDefault();
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' });
+    // Scrolling to a beat that looks like every other beat reads as nothing having
+    // happened, so mark where the reader landed and then get out of the way.
+    el.classList.add('ring-2', 'ring-lyceum-700', 'rounded-lg');
+    setTimeout(() => el.classList.remove('ring-2', 'ring-lyceum-700', 'rounded-lg'), 1800);
+  });
+
   // -------------------------------------------------------------- index page
   let query = '';
   function renderIndex(){
-    const q = query.trim().toLowerCase();
-    const matches = DATA.filter(d => {
-      if (!q) return true;
-      // inquiryAliases carries an earlier wording of the question, so someone who
-      // remembers it the old way still finds the gathering.
-      const reflectionText = isReflection(d)
-        ? [...(d.reviewed || []).flatMap(r => [r.topic, r.discussion, r.progress]),
-           ...REFLECTION_BLOCKS.flatMap(([k]) => (d[k] || []).map(itemText)), d.summary]
-        : [];
-      const hay = [titleOf(d), ...(d.inquiryAliases||[]), ...(d.tags||[]), ...sectionItems(d),
-                   ...reflectionText, d.quote, d.callToAction].join(' ').toLowerCase();
-      return hay.includes(q);
-    });
+    const terms = searchTerms(query);
+    const matches = DATA.filter(d => terms.every(t => haystackOf(d).includes(t)));
+
+    // Which terms found nothing anywhere. "DEI matched nothing" is a different message
+    // from "no gathering has all of these", and only the first tells a reader what to
+    // change about their search.
+    const missing = terms.filter(t => !DATA.some(d => haystackOf(d).includes(t)));
     const done = DATA.filter(isTranscribed).length;
 
     $app.innerHTML = `
       <header class="bg-lyceum-900 text-lyceum-50">
         <div class="max-w-5xl mx-auto px-6 py-12">
-          <p class="uppercase tracking-[0.3em] text-xs text-lyceum-100/80 mb-3">Praxium Learning Foundation</p>
+          <div class="flex items-center gap-3 mb-3">
+            <!-- The star is white on transparent, so it reads on this dark header and
+                 nowhere else on the page. Decorative: the wordmark beside it already
+                 carries the name, so an alt text would just repeat it to a screen
+                 reader. -->
+            <img src="./StarLogo.png" alt="" width="28" height="27" class="shrink-0 opacity-90" />
+            <p class="uppercase tracking-[0.3em] text-xs text-lyceum-100/80">Praxium Learning Foundation</p>
+          </div>
           <h1 class="font-serif text-4xl sm:text-5xl font-bold">The Lyceum</h1>
           <p class="mt-3 text-lg text-lyceum-100/90 max-w-2xl">An endeavor for shared purpose in families and communities. Every gathering, we take a real question and work it through together - framing it, learning how the world handles it, and deciding who carries it forward.</p>
           <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-lyceum-100/80">
@@ -232,13 +356,19 @@
 
       <main class="max-w-5xl mx-auto px-6 py-8">
         <div class="mb-6">
-          <input id="search" type="search" value="${esc(query)}" placeholder="Search inquiries, themes, ideas..."
+          <input id="search" type="search" value="${esc(query)}" placeholder="Search several words at once - community growth outreach"
             class="w-full rounded-lg border border-lyceum-100 bg-white px-4 py-3 text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-lyceum-700" />
-          <p class="mt-2 text-sm text-stone-500">${matches.length} of ${DATA.length} gatherings${q ? ` matching "${esc(query)}"` : ''}</p>
+          <p class="mt-2 text-sm text-stone-500">
+            ${matches.length} of ${DATA.length} gatherings${terms.length
+              ? ` matching ${terms.map(t => `<span class="font-medium text-lyceum-800">${esc(t)}</span>`).join(' + ')}`
+              : ''}${missing.length
+              ? ` - nothing in the archive mentions ${missing.map(t => `<span class="font-medium text-stone-700">${esc(t)}</span>`).join(' or ')}`
+              : ''}
+          </p>
         </div>
 
         <div class="grid gap-4 sm:grid-cols-2">
-          ${matches.map(cardHTML).join('') || '<p class="text-stone-500 col-span-2 py-12 text-center">No inquiries match that search.</p>'}
+          ${matches.map(cardHTML).join('') || noMatchHTML(terms, missing)}
         </div>
 
         <footer class="mt-16 border-t border-lyceum-100 pt-6 text-sm text-stone-500">
@@ -252,6 +382,34 @@
   }
 
   function placeCursorEnd(el){ if(!el) return; el.focus(); const v = el.value; el.value=''; el.value=v; }
+
+  // "No inquiries match that search" is true and useless. Because every term has to
+  // match, a search can go blank for two quite different reasons, and the reader can only
+  // act on the difference: either a word appears nowhere in the archive, or every word
+  // appears but never in the same gathering. Show the per-term counts and it is obvious
+  // which - and obvious which word to drop.
+  function noMatchHTML(terms, missing){
+    if (!terms.length) return '';
+    const counts = terms.map(t => ({
+      t, n: DATA.filter(d => haystackOf(d).includes(t)).length,
+    }));
+    return `
+      <div class="col-span-2 py-10 text-center text-stone-500">
+        <p class="text-stone-600">No single gathering mentions all of these.</p>
+        ${missing.length
+          ? `<p class="mt-2 text-sm">Nothing in the archive mentions
+               ${missing.map(t => `<strong class="text-stone-700">${esc(t)}</strong>`).join(' or ')}.</p>`
+          : `<p class="mt-2 text-sm">Each word appears on its own, just never together.</p>`}
+        <ul class="mt-4 inline-flex flex-wrap justify-center gap-2 text-sm">
+          ${counts.map(c => `
+            <li class="rounded-full border border-lyceum-100 bg-white px-3 py-1">
+              <span class="font-medium text-lyceum-800">${esc(c.t)}</span>
+              <span class="text-stone-500">${c.n === 0 ? 'not found' : c.n + ' ' + plural(c.n, 'gathering')}</span>
+            </li>`).join('')}
+        </ul>
+        <p class="mt-4 text-sm">Drop a word to widen the search.</p>
+      </div>`;
+  }
 
   function isQuest(d){ return d.status !== 'founding' && !hasContent(d); }
   function badge(d){
@@ -312,18 +470,59 @@
   // ------------------------------------------------------------- storyboard
   // The beat-by-beat arc of the gathering. This is what the six static sections
   // cannot convey: the order things happened in, and where the discussion turned.
+  // The storyboard, at the top, before any of the granular data.
+  //
+  // The ask was for an image of the deck slide up front, so a visitor meets the shape of
+  // the evening and can decide whether to read on. This draws it from the beats instead,
+  // which every record now carries: it stays searchable, reads on a phone, needs no
+  // export when a record changes, and a screen reader can follow it. `storyboard.image`
+  // is honoured if a deck PNG is ever added, so both routes work.
+  function storyboardTopHTML(d){
+    const sb = d.storyboard || {}, beats = beatsOf(d);
+    if (!beats.length && !sb.image) return '';
+    return `
+      <section class="mt-6 rounded-xl border border-lyceum-100 bg-white p-5 shadow-sm">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 class="font-serif text-xl text-lyceum-900">The shape of the evening</h2>
+          ${beats.length ? `<a href="#storyboard" data-jump="storyboard"
+            class="text-xs text-lyceum-700 hover:underline">Read it in full</a>` : ''}
+        </div>
+        ${sb.logline ? `<p class="mt-2 text-stone-700">${esc(sb.logline)}</p>` : ''}
+        ${sb.image ? `
+          <img src="${esc(sb.image)}" alt="Storyboard for this gathering"
+               class="mt-4 w-full rounded-lg border border-lyceum-100" />` : ''}
+        ${beats.length ? `
+          <ol class="mt-4 flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
+            ${beats.map(b => `
+              <li class="shrink-0 w-44">
+                <a href="#beat-${b.n}" data-jump="beat-${b.n}"
+                   class="block h-full rounded-lg border border-lyceum-100 bg-lyceum-50 p-3
+                          hover:border-lyceum-700/40 hover:bg-white transition">
+                  <span class="block text-[10px] uppercase tracking-wider text-stone-400 tabular-nums">
+                    ${b.n}${b.timeRange ? ' &middot; ' + esc(b.timeRange) : ''}
+                  </span>
+                  <span class="mt-1 block font-serif text-sm leading-snug text-lyceum-900">
+                    ${esc(b.title || '')}
+                  </span>
+                </a>
+              </li>`).join('')}
+          </ol>
+          <p class="mt-1 text-xs text-stone-400">${beats.length} beats - scroll sideways, or pick one to jump to it.</p>` : ''}
+      </section>`;
+  }
+
   function storyboardHTML(d){
     const sb = d.storyboard, beats = beatsOf(d);
     if (!beats.length) return '';
     return `
-      <section id="storyboard" class="mt-10">
+      <section id="storyboard" class="mt-10 scroll-mt-6">
         <h2 class="font-serif text-2xl text-lyceum-900">How the evening unfolded</h2>
         ${sb.logline ? `<p class="mt-2 text-stone-600">${esc(sb.logline)}</p>` : ''}
         <ol class="mt-5 border-l border-lyceum-100 pl-5 space-y-6">
           ${beats.map(b => `
-            <li>
+            <li id="beat-${b.n}" class="scroll-mt-6">
               <div class="flex flex-wrap items-baseline gap-x-3">
-                ${b.timeRange ? `<span class="text-xs text-stone-400 whitespace-nowrap">${esc(b.timeRange)}</span>` : ''}
+                ${b.timeRange ? `<span class="text-xs text-stone-400 whitespace-nowrap tabular-nums">${esc(b.timeRange)}</span>` : ''}
                 <h3 class="font-serif text-lg text-lyceum-900">${esc(b.title || '')}</h3>
               </div>
               ${b.summary ? `<p class="mt-1 text-sm text-stone-700">${esc(b.summary)}</p>` : ''}
@@ -392,9 +591,11 @@
             "${esc(d.quote)}"
           </blockquote>` : ''}
 
+        ${storyboardTopHTML(d)}
+
         ${isReflection(d) ? reflectionHTML(d) : `
         <div class="grid gap-4 sm:grid-cols-2 mt-6">
-          ${SECTIONS.map(([k,t,sub]) => sectionHTML(d[k]||[], t, sub)).join('')}
+          ${SECTIONS.map(([k,t,sub]) => sectionHTML(d, d[k]||[], t, sub)).join('')}
         </div>`}
 
         ${d.callToAction ? `
@@ -478,16 +679,33 @@
         </section>` : ''}
 
       <div class="grid gap-4 sm:grid-cols-2 mt-8">
-        ${REFLECTION_BLOCKS.map(([k, t]) => sectionHTML(d[k] || [], t, 'Nothing recorded')).join('')}
+        ${REFLECTION_BLOCKS.map(([k, t]) => sectionHTML(d, d[k] || [], t, 'Nothing recorded')).join('')}
       </div>`;
   }
 
-  function sectionHTML(items, title, sub){
+  // An item, with a link back to the moment it came from where one can be resolved.
+  // This is the "see the context that wrapped around it" request: the bullet is the
+  // finding, the beat is the stretch of the evening it was said in.
+  function itemHTML(d, i){
+    const at = (i && typeof i === 'object') ? i.at : null;
+    if (!at) return `<li>${itemText(i)}</li>`;
+    const b = beatAt(d, at);
+    const stamp = b
+      ? ` <a href="#beat-${b.n}" data-jump="beat-${b.n}"
+             title="In context: ${esc(b.title || ('beat ' + b.n))}"
+             class="whitespace-nowrap text-xs tabular-nums text-lyceum-700 hover:underline">${esc(at)}</a>`
+      // No beat covers it, so the timestamp still tells the reader when, but promises
+      // no destination.
+      : ` <span class="whitespace-nowrap text-xs tabular-nums text-stone-400">${esc(at)}</span>`;
+    return `<li>${itemText(i)}${stamp}</li>`;
+  }
+
+  function sectionHTML(d, items, title, sub){
     return `
       <section class="rounded-xl bg-white border border-lyceum-100 p-4 shadow-sm">
         <h3 class="font-semibold text-lyceum-900">${title}</h3>
         ${items.length
-          ? `<ul class="mt-2 space-y-1.5 text-sm list-disc list-inside marker:text-lyceum-700">${items.map(i => `<li>${itemText(i)}</li>`).join('')}</ul>`
+          ? `<ul class="mt-2 space-y-1.5 text-sm list-disc list-inside marker:text-lyceum-700">${items.map(i => itemHTML(d, i)).join('')}</ul>`
           : `<p class="mt-2 text-sm text-stone-400 italic">${sub} - not captured yet.</p>`}
       </section>`;
   }

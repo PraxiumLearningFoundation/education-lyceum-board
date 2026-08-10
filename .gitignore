@@ -16,8 +16,19 @@
 # rather than becoming permanent. Do not remove either the rules or the check.
 # =============================================================================
 
-# Raw meeting transcripts and recordings
+# Raw meeting transcripts and recordings.
+#
+# "Lyceum*.md" alone was not enough. A weekly ADMIN meeting transcript arrived as
+# "20260809_meeting_transcript.md" - named five people, matched none of these rules, and
+# sat untracked in the working tree where any "git add -A" would have committed it to a
+# public repository. Transcripts do not all come from a Lyceum and they do not all follow
+# one naming convention, so match the word rather than the prefix.
 Lyceum*.md
+*transcript*.md
+*Transcript*.md
+*meeting*.md
+*Meeting*.md
+*-summary.md
 transcripts/
 *.vtt
 *.srt
@@ -46,6 +57,10 @@ transcripts/
 
 # Claude Code session history (local working notes, not project source)
 .cc-history/
+
+# CI scratch. The forbidden-material step writes its grep output here, so running that
+# check locally leaves the file behind in the working tree.
+offenders.txt
 
 # Build and preview artifacts
 _site/

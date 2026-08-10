@@ -167,23 +167,29 @@ ssh-add ~/.ssh/keys/client/github_praxium
 
 ## Roadmap
 
-The full architecture and development plan, including the hosting decisions and
-the reasoning behind them, is the companion planning document. In short:
+**[docs/ROADMAP.md](docs/ROADMAP.md) is the working list**, with the detail and the
+reasoning. The short version:
 
-1. **Repository hygiene** - done: clean history, guardrails, branch protection.
-2. **Split public from admin** - done: the board is the site root, the editor and
-   metrics view moved to a private repository, and the CDN styling is vendored.
-3. **Content leaves the code** - done: the archive is `data/lyceum.json` at schema
-   version 2, fetched at runtime, so adding a gathering never touches HTML.
-4. **The June 2026 gathering** - done: the record, plus the meeting tile and Storyboard view.
-5. **Go live** on GitHub Pages - done.
-6. **The editor** *(next)* - a form that writes the record for a human to review and commit.
-   No API tokens anywhere in the system.
-7. **Metrics on real numbers** - facilitator-recorded, replacing the sample data.
-8. **Runbook and the Squarespace embed.**
+Done - repository hygiene, the public/admin split, content moved out of the code into
+`data/lyceum.json`, live on GitHub Pages, all 14 gatherings transcribed, and a link to
+the board from the foundation site.
 
-Visitor interaction - public comments, likes, click tracking - is deliberately
-**not** in this roadmap. A static site cannot collect it, and doing it properly
-needs a place to write, moderation before anything appears, spam handling, and
-consent decisions that matter because minors take part in this community. It is
-its own project.
+The three things the 9 August 2026 administration meeting asked for are also done:
+
+1. **The storyboard at the top of each gathering**, drawn from the beats rather than
+   exported as a slide image, so a visitor meets the shape of the evening first.
+2. **Search across several words.** Every term must match, so each word narrows the list,
+   and an empty result says whether a word is missing from the archive or simply never
+   appears alongside the others.
+3. **An item links to the moment it came from** - a bullet's timestamp jumps to the beat
+   whose time range contains it.
+
+Next: the editor, the move to an Azure static web app, and the single Praxium admin page
+that the board's editor is the first tab of. Two decisions are open - where the recordings
+live, and whether the Squarespace plan allows a code block - both in
+[docs/ROADMAP.md](docs/ROADMAP.md).
+
+Visitor interaction - public comments, likes, click tracking - is deliberately **not** in
+this roadmap. A static site cannot collect it, and doing it properly needs a place to
+write, moderation before anything appears, spam handling, and consent decisions that
+matter because minors take part in this community. It is its own project.
