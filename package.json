@@ -6,7 +6,8 @@
     "build:css": "tailwindcss -i styles/tailwind-input.css -o board.css --minify",
     "watch:css": "tailwindcss -i styles/tailwind-input.css -o board.css --watch",
     "test:e2e": "playwright test --project=chromium-desktop --project=mobile-360",
-    "test:e2e:demo": "playwright test --project=demo"
+    "test:e2e:demo": "playwright test --project=demo",
+    "demos": "playwright test --project=demo && node scripts/collect-demos.js"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
