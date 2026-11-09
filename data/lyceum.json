@@ -7766,6 +7766,528 @@
         "extractedOn": "2026-11-08",
         "reviewedBy": "Hezekiah Jenkins"
       }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "2026-11-01-kids-attention",
+      "date": "2026-11-01",
+      "inquiry": "How to keep kids' attention during the Lyceum?",
+      "tags": [
+        "children",
+        "attention",
+        "engagement",
+        "multi-generational",
+        "movement breaks",
+        "fidget tools",
+        "caregiving",
+        "Lyceum format"
+      ],
+      "status": "transcribed",
+      "meeting": {
+        "participants": 9,
+        "minorsPresent": 2,
+        "locations": [
+          "Canada",
+          "Virginia, United States",
+          "Texas, United States"
+        ],
+        "landAcknowledgement": "The Praxium exists on the ancestral, traditional, unceded territory of the Coast Salish peoples, the Musqueam, Squamish, and Tsleil-Waututh nations.",
+        "agenda": [
+          "Pre-survey by QR code",
+          "Presence circle",
+          "Shared understanding",
+          "Inquiry",
+          "Post-survey by QR code",
+          "Final round of sharing"
+        ],
+        "contextNotes": [
+          "First gathering run from a browser-based HTML board in place of the earlier slideshow.",
+          "Trial of a family format: one household joined from a single room with the board projected on a wall.",
+          "First trial of proposing several questions and voting; unchosen questions go to a rolling list for later gatherings.",
+          "Two young participants took part, each with a self-chosen activity at the table.",
+          "The facilitator aimed to finish in about an hour rather than the usual ninety minutes.",
+          "The pre-survey was described as two questions; neither survey's questions were read aloud."
+        ]
+      },
+      "theories": [
+        {
+          "text": "The circle treated the Lyceum as a metaphor for keeping children engaged while learning generally.",
+          "at": "@34:56"
+        },
+        {
+          "text": "Physical activity was named first by a young participant as what restores focus.",
+          "at": "@18:16"
+        },
+        {
+          "text": "Bursts of movement burn off high energy so a child can settle back into work.",
+          "at": "@19:05"
+        },
+        {
+          "text": "A quick walk around the building restored roughly 45 minutes of focus during office work.",
+          "at": "@19:54"
+        },
+        {
+          "text": "Tactile fidget tools help adults as well as children; one adult squeezed one during the call.",
+          "at": "@21:44"
+        },
+        {
+          "text": "Noise-canceling headphones and fidgets were described as ways to cope with a loud room.",
+          "at": "@20:34"
+        },
+        {
+          "text": "A breathing exercise can screen out audio distractions, though it does not always work.",
+          "at": "@22:26"
+        },
+        {
+          "text": "Some people find noise easy to tune out, so focus strategies differ person to person.",
+          "at": "@23:37"
+        },
+        {
+          "text": "Kinesthetic learners may need to get up, stretch or work out to clear their heads.",
+          "at": "@24:10"
+        },
+        {
+          "text": "Finding what children already know, then building on it, beats re-covering ground through lecture.",
+          "at": "@45:10"
+        },
+        {
+          "text": "Attention strategies are individual, so offering a range of options works better than one rule.",
+          "at": "@23:37"
+        }
+      ],
+      "applications": [
+        {
+          "text": "The American Lyceum of the 1800s, started by Josiah Holbrook, drew on communities' own expertise.",
+          "at": "@30:22"
+        },
+        {
+          "text": "Those early Lyceums ran children's activities, caregivers and even fairgrounds alongside the adult discussion.",
+          "at": "@30:39"
+        },
+        {
+          "text": "Historically the Lyceum was designed as a family and community activity, not only for adults.",
+          "at": "@31:24"
+        },
+        {
+          "text": "Japanese schooling was described as holding stronger group norms than schools in the United States.",
+          "at": "@33:06"
+        },
+        {
+          "text": "The Japanese pursuit of harmony can be taken far enough to stifle individuals.",
+          "at": "@33:17"
+        },
+        {
+          "text": "In US schools, recess usually continues to about 4th or 5th grade, then gradually fades.",
+          "at": "@32:14"
+        },
+        {
+          "text": "Montessori, private and outdoor experiential schools keep children engaged, but cost is a barrier for many families.",
+          "at": "@34:10"
+        },
+        {
+          "text": "A hands-on school in Texas, described in the circle as set up by Elon Musk, was cited as appealing but with exorbitant tuition.",
+          "at": "@33:46"
+        },
+        {
+          "text": "Beekeepers taught pollination to about 500 first graders over two days, with live bees.",
+          "at": "@43:32"
+        },
+        {
+          "text": "Short 20-minute sessions from outside presenters supported the teachers' own pollination curriculum.",
+          "at": "@43:42"
+        },
+        {
+          "text": "Social-emotional learning and restorative practices were named as approaches constrained teachers struggle to build in.",
+          "at": "@52:43"
+        }
+      ],
+      "sources": [
+        {
+          "text": "Parent Advisory Committees, the Canadian counterpart of the PTA, as a first stop for focus questions.",
+          "at": "@38:21"
+        },
+        {
+          "text": "Parents able to press school principals for resource supports for neurodivergent children.",
+          "at": "@38:45"
+        },
+        {
+          "text": "Retired teachers who understand curriculum and age-appropriate focus, and can set up a game plan.",
+          "at": "@39:51"
+        },
+        {
+          "text": "College students heading into teaching, possibly helping for class credit.",
+          "at": "@40:02"
+        },
+        {
+          "text": "Short training for teachers on giving options to children who cannot sit still.",
+          "at": "@40:32"
+        },
+        {
+          "text": "Alternative work for children who finish early and are ready to move on.",
+          "at": "@41:11"
+        },
+        {
+          "text": "An expectation rundown before a Lyceum, so children know the time and what is coming.",
+          "at": "@41:24"
+        },
+        {
+          "text": "Fidget spinners or small tactile toys welcomed at the table during a Lyceum.",
+          "at": "@41:33"
+        },
+        {
+          "text": "Outside presenters, passionate about a topic, to break up the usual classroom voice.",
+          "at": "@44:01"
+        },
+        {
+          "text": "Schools that share their curriculum so visiting experts can support what teachers already teach.",
+          "at": "@45:49"
+        },
+        {
+          "text": "An alternate caregiver for children too young to sit and contribute, so parents can attend.",
+          "at": "@49:14"
+        },
+        {
+          "text": "Teachers given time and policy room to build innovative focus tools into the curriculum.",
+          "at": "@51:25"
+        },
+        {
+          "text": "Lower-cost routes into experiential and outdoor schooling, so cost stops excluding families.",
+          "at": "@34:56"
+        },
+        {
+          "text": "Educators willing to share a nature-based class session with their peers.",
+          "at": "@58:17"
+        },
+        {
+          "text": "A need for children's programming or caregiving alongside sessions, so families with young children can attend.",
+          "at": "@48:48"
+        },
+        {
+          "text": "A need for teacher capacity: time, policy room and outside help to vary classroom routines.",
+          "at": "@51:20"
+        },
+        {
+          "text": "A volunteer bench of educators - retired teachers, education students, outside presenters - to support engagement.",
+          "at": "@39:51"
+        },
+        {
+          "text": "An ask for sessions that give children an expectation rundown and welcome fidget or tactile toys.",
+          "at": "@41:33"
+        }
+      ],
+      "policies": [
+        {
+          "text": "Josiah Holbrook founded the American Lyceum in the 1800s to raise community education.",
+          "at": "@30:22"
+        },
+        {
+          "text": "The historical Lyceum was designed as a family activity, then a community one.",
+          "at": "@31:24"
+        },
+        {
+          "text": "Equal Earth map, described as recently adopted by the UN, places Africa front and center.",
+          "at": "@10:55"
+        },
+        {
+          "text": "Circle norms: a judgment-free zone, with openness of heart and openness of mind.",
+          "at": "@2:44"
+        },
+        {
+          "text": "Inquiry archive: proposed questions are kept on a rolling list, never discarded.",
+          "at": "@16:09"
+        },
+        {
+          "text": "Some US public schools were described as barring teachers from leaving a classroom unattended.",
+          "at": "@28:21"
+        },
+        {
+          "text": "Virginia's late kindergarten cutoff puts four-year-olds in kindergarten classes.",
+          "at": "@29:17"
+        },
+        {
+          "text": "Servant leadership defined as preparing and serving the next generation.",
+          "at": "@1:03:52"
+        },
+        {
+          "text": "Praxium calls to action cultivate connection across individuals, communities, nature and transcendence.",
+          "at": "@1:04:32"
+        }
+      ],
+      "opportunities": [
+        {
+          "text": "Letting children choose their own quiet activity in advance, such as puzzles or Legos, builds agency.",
+          "at": "@46:32"
+        },
+        {
+          "text": "Children helped plan the session beforehand, picking the toys they would keep at the table.",
+          "at": "@42:09"
+        },
+        {
+          "text": "Short movement breaks restore focus for adults as well as children.",
+          "at": "@19:57"
+        },
+        {
+          "text": "Tactile tools such as fidgets and squeeze toys are already used across generations.",
+          "at": "@31:00"
+        },
+        {
+          "text": "A brief breathing exercise, like the opening mindful moment, helps screen out distracting noise.",
+          "at": "@22:43"
+        },
+        {
+          "text": "Homeschooling allows breaks whenever needed and lets children carry their work outdoors.",
+          "at": "@27:08"
+        },
+        {
+          "text": "Asking children what works for them, rather than segregating them, keeps them inside the inquiry.",
+          "at": "@31:00"
+        },
+        {
+          "text": "Parent Advisory Committees, Canada's PTA equivalent, offer a direct route to school decision-makers.",
+          "at": "@38:56"
+        },
+        {
+          "text": "Priming children with what will happen and how long it lasts sets expectations and works well.",
+          "at": "@50:10"
+        },
+        {
+          "text": "Passionate outside presenters with hands-on material, such as live bees, offer more than a lecture.",
+          "at": "@44:22"
+        },
+        {
+          "text": "The session tested its own advice live, sending a restless learner out for a movement break.",
+          "at": "@53:15"
+        },
+        {
+          "text": "A multigenerational Lyceum puts young, adult and mature learners on the same inquiry.",
+          "at": "@50:45"
+        },
+        {
+          "text": "The new browser-based format could let multiple Lyceums run in multiple communities at once.",
+          "at": "@1:01:56"
+        },
+        {
+          "text": "Archived inquiries let families facing the same question start from shared knowledge, not a blank slate.",
+          "at": "@59:12"
+        },
+        {
+          "text": "Progress toward charitable status in Canada could open more financial resources for offerings.",
+          "at": "@1:05:11"
+        },
+        {
+          "text": "Involving children in designing the session is itself an engagement strategy, not only preparation.",
+          "at": "@46:32"
+        }
+      ],
+      "challenges": [
+        {
+          "text": "US public school classrooms rarely allow children to leave for a movement break.",
+          "at": "@28:00"
+        },
+        {
+          "text": "Rules against leaving a class unattended may reflect liability more than educational need.",
+          "at": "@28:45"
+        },
+        {
+          "text": "Large classes of very young children, under late age cutoffs, compound supervision limits.",
+          "at": "@29:10"
+        },
+        {
+          "text": "Recess shrinks as children move up through school, removing an outlet for high energy.",
+          "at": "@32:26"
+        },
+        {
+          "text": "Strong conformity norms can hold attention but stifle individuals for the sake of group harmony.",
+          "at": "@33:25"
+        },
+        {
+          "text": "Engaging alternatives such as Montessori, private or outdoor schools carry high tuition.",
+          "at": "@34:29"
+        },
+        {
+          "text": "Children with neurodivergent needs risk exclusion when they do not fit the classroom norm.",
+          "at": "@35:13"
+        },
+        {
+          "text": "Attention fades after about an hour for adults too, against a usual ninety-minute Lyceum.",
+          "at": "@43:14"
+        },
+        {
+          "text": "Long stretches at a desk produce going through the motions rather than real engagement.",
+          "at": "@19:44"
+        },
+        {
+          "text": "Too many audio distractions from others in the room make sustained focus hard.",
+          "at": "@22:26"
+        },
+        {
+          "text": "Children who finish early sit idle while others are still working.",
+          "at": "@40:49"
+        },
+        {
+          "text": "Each child wants something different, and group settings may lack enough suitable materials.",
+          "at": "@48:04"
+        },
+        {
+          "text": "Families without an alternate caregiver for toddlers may be unable to take part at all.",
+          "at": "@48:48"
+        },
+        {
+          "text": "Hosts need to judge each child's capacity to sit and contribute before planning a session.",
+          "at": "@49:14"
+        },
+        {
+          "text": "Resource and policy constraints leave teachers too pressed to build in innovative tools.",
+          "at": "@51:20"
+        },
+        {
+          "text": "Many public school teachers cannot bring in outside instructors and must handle everything daily.",
+          "at": "@52:07"
+        },
+        {
+          "text": "Hands-on outside presentations proven with first graders may not carry over to high school.",
+          "at": "@56:11"
+        },
+        {
+          "text": "Institutions, not children, set most limits on movement and variety: supervision, liability, class size, recess.",
+          "at": "@28:45"
+        }
+      ],
+      "quote": "That's an old folks' thing as well. After about 60 minutes, my attention span is thinking about dinner.",
+      "quoteAt": "@43:14",
+      "callToAction": "The facilitator undertook to speak with a teacher about sharing an outdoor shinrin-yoku session with other educators. One participant will continue volunteer nature education in local schools as a different, hands-on presenter. No other owners were named.",
+      "storyboard": {
+        "logline": "A family-format circle asks how to keep children engaged in a Lyceum, then tests its own answers live.",
+        "arcNotes": "The gathering is both an inquiry and an experiment. It opens on a new board and a household gathered in one room, and a young participant's question wins the vote. The circle moves from personal techniques - movement, fidgets, breathing - to schooling contrasts across Japan, homeschooling and US public schools, then to the Lyceum's own history of running children's activities alongside adult learning. Cost and caregiving emerge as the real barriers. Sources of help range from parent committees to retired teachers and outside presenters. The arc closes on practice rather than theory: a young participant takes a movement break mid-session, the session aims for an hour, and calls to action stay personal and modest.",
+        "beats": [
+          {
+            "n": 1,
+            "title": "Welcome and a family format",
+            "timeRange": "@0:06 - @1:56",
+            "summary": "The facilitator opens by describing a trial: a family joining from one room, the board projected on a wall, and a new browser-based board replacing the slideshow.",
+            "pullQuote": "We're trying to test what it looks like to have a family do it, where we have this computer screen in front of us, but it's also up on the wall.",
+            "slideHint": "Title slide with the new HTML board and host and moderator roles"
+          },
+          {
+            "n": 2,
+            "title": "Norms, agenda and pre-survey",
+            "timeRange": "@1:56 - @5:21",
+            "summary": "Norms are restated for the young learners: no judging, let people finish, ask questions about ideas. The agenda follows and the pre-survey is taken by QR code.",
+            "pullQuote": "Ask questions about the ideas.",
+            "slideHint": "Rules and norms slide, agenda slide, then pre-survey QR code"
+          },
+          {
+            "n": 3,
+            "title": "Mindful moment and land acknowledgement",
+            "timeRange": "@5:21 - @8:07",
+            "summary": "A guided breathing round gives gratitude to the Earth, ancestors, ourselves, family and friends, and children; the land acknowledgement follows.",
+            "pullQuote": "It's good for us to pause before we move from one thing to another.",
+            "slideHint": "Mindful moment slide, then land acknowledgement"
+          },
+          {
+            "n": 4,
+            "title": "Presence circle",
+            "timeRange": "@8:07 - @10:43",
+            "summary": "Each person gives a first name, a culture and a home. Most faces are familiar; the circle spans Canada and the United States and includes newer participants.",
+            "pullQuote": "",
+            "slideHint": "Presence circle prompt: name, culture, home"
+          },
+          {
+            "n": 5,
+            "title": "Global frame and sequence",
+            "timeRange": "@10:43 - @12:07",
+            "summary": "The Equal Earth map, described as recently adopted by the UN, reminds the circle to think and act as global citizens before the sequence of inquiry.",
+            "pullQuote": "take this endeavor for social change, you have to think and act as global citizens.",
+            "slideHint": "Equal Earth world map with Africa centred"
+          },
+          {
+            "n": 6,
+            "title": "Proposing questions",
+            "timeRange": "@12:07 - @15:06",
+            "summary": "Two questions are proposed: ethical versus moral behaviour in real-world gray areas, and a young participant's question about keeping kids focused.",
+            "pullQuote": "When confronted with real-world dilemmas, And the gray area that most of us exist in.",
+            "slideHint": "Question board listing two proposals"
+          },
+          {
+            "n": 7,
+            "title": "Voting and setting up",
+            "timeRange": "@15:06 - @18:02",
+            "summary": "The board lets questions be promoted, ordered and locked. The ethics question is yielded and the vote is near unanimous; unchosen questions stay in a rolling list.",
+            "pullQuote": "So, no inquiry will be just discarded.",
+            "slideHint": "Voting view with the chosen question locked in"
+          },
+          {
+            "n": 8,
+            "title": "What keeps attention: personal experience",
+            "timeRange": "@18:02 - @24:51",
+            "summary": "Movement breaks, a squeeze toy or fidget, noise-canceling headphones, a breathing exercise against noise, and walks or workouts all help focus.",
+            "pullQuote": "Doesn't always work, but it sometimes helps.",
+            "slideHint": "Personal experience slide with a list of focus techniques"
+          },
+          {
+            "n": 9,
+            "title": "Schooling contrasts",
+            "timeRange": "@24:51 - @29:28",
+            "summary": "Japanese schooling is described as holding stronger group norms; homeschooling allows breaks at will; US public school rules forbidding unattended classes are noted, likely for liability.",
+            "pullQuote": "Like, a liability issue versus an actual educational issue.",
+            "slideHint": "Application slide: Japan, homeschool and US public school compared"
+          },
+          {
+            "n": 10,
+            "title": "Lyceum history and cost barriers",
+            "timeRange": "@29:28 - @37:52",
+            "summary": "The 1800s Lyceum of Josiah Holbrook ran children's activities alongside adult learning. Experiential and private schools help focus, but cost excludes many families and neurodivergent children.",
+            "pullQuote": "It was designed to be a family activity, and then by extension, a larger community activity.",
+            "slideHint": "Historical Lyceum note and a cost-barrier callout"
+          },
+          {
+            "n": 11,
+            "title": "Sources of help",
+            "timeRange": "@37:52 - @43:09",
+            "summary": "Parent Advisory Committees, retired teachers, education students earning credit, and short teacher training on alternatives for restless or fast-finishing kids; expectations and fidget toys suit the Lyceum.",
+            "pullQuote": "They already know how to set up a game plan for things like that.",
+            "slideHint": "Knowledge and wisdom slide listing PACs, retired teachers, students, training"
+          },
+          {
+            "n": 12,
+            "title": "Time limits and outside presenters",
+            "timeRange": "@43:09 - @46:17",
+            "summary": "An hour limit suits adults too. A short beekeeping lesson for first graders shows how a passionate outside presenter, prepped by teachers, refreshes a topic.",
+            "pullQuote": "An opportunity for the children to see more than just a lecture.",
+            "slideHint": "Knowledge slide with a time-limit note and outside-presenter example"
+          },
+          {
+            "n": 13,
+            "title": "Opportunities and challenges",
+            "timeRange": "@46:17 - @54:08",
+            "summary": "Children choosing their own activities builds agency. Children differ, resources are limited, families may lack caregivers, and teachers face time and policy limits. Priming kids for what to expect helps; a young participant takes a movement break as a live test.",
+            "pullQuote": "So, perhaps the challenge could be is if a family doesn't have a means for caregiving.",
+            "slideHint": "Opportunities and challenges two-column slide"
+          },
+          {
+            "n": 14,
+            "title": "Way ahead",
+            "timeRange": "@54:08 - @59:36",
+            "summary": "Calls to action are framed as personal. One participant continues hands-on nature education in local schools; the facilitator will speak with a teacher about sharing an outdoor shinrin-yoku session with peers.",
+            "pullQuote": "It's a start.",
+            "slideHint": "Way ahead slide with personal calls to action"
+          },
+          {
+            "n": 15,
+            "title": "Post-survey and closing circle",
+            "timeRange": "@59:36 - @1:06:13",
+            "summary": "The learning-reflection survey is taken and the new format is praised. Closing thanks centre on serving the next generation; announcements cover a participant milestone, charitable status and in-person offerings.",
+            "pullQuote": "Because children are our future as a society.",
+            "slideHint": "Post-survey QR code, then closing circle and announcements"
+          }
+        ]
+      },
+      "withheld": "Material withheld under the archive's privacy rules: participants' names, relationships between participants, biographical and professional detail from the introductions round, family circumstances, immigration circumstances, health, personal finances, contact details, anything involving a minor, and the names of people who were not present and could not consent.",
+      "provenance": {
+        "source": "the meeting recording transcript and the chat log",
+        "extractedOn": "2026-11-08",
+        "reviewedBy": "Hezekiah Jenkins"
+      }
     }
   ]
 }
