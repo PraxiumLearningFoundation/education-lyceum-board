@@ -164,6 +164,5 @@ test('no horizontal scroll at 360px on the board', async ({ page }) => {
 });
 
 test('no horizontal scroll at 360px on record pages', async ({ page }) => {
-  test.fixme(true, 'App bug: the "Add to this record" form selects size to their longest option and overflow 360px by ~130px');
   await expectNoSideScroll(page, [`/#/inquiry/${DEMOCRACY}`, `/#/inquiry/${ATTENTION}`, '/#/inquiry/2024-11-17-reflection']);
 });

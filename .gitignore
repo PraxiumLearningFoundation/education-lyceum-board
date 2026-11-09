@@ -84,3 +84,6 @@ playwright-report/
 blob-report/
 playwright/.cache/
 *.webm
+
+# Claude Code local state and agent worktrees
+.claude/
