@@ -170,6 +170,43 @@ jobs:
             });
           });
 
+          // Reflections and recaps carry their own shapes, and the links between records
+          // only work if they resolve. The data passed all of this by hand on
+          // 2026-11-08; these lines keep it that way.
+          const ids = new Set(data.map((r) => r.id));
+          const dates = data.map((r) => r.date);
+          data.forEach((rec, i) => {
+            const where = `record ${i} (${rec.id || 'no id'})`;
+            if (rec.kind === 'reflection') {
+              ['learned', 'carried', 'changed', 'openQuestions', 'reviewed'].forEach((k) => {
+                if (rec[k] !== undefined && !Array.isArray(rec[k])) {
+                  problems.push(`${where}: reflection field ${k} is not an array`);
+                }
+              });
+              (rec.reviewed || []).forEach((r, j) => {
+                const n = dates.filter((d) => d === r.date).length;
+                if (n !== 1) problems.push(`${where}: reviewed[${j}].date ${r.date} matches ${n} records, not 1`);
+              });
+            }
+            if (rec.recapOf !== undefined) {
+              if (!ids.has(rec.recapOf)) problems.push(`${where}: recapOf ${rec.recapOf} is not a record id`);
+              const stamped = SECTIONS.some((k) => (rec[k] || []).some((it) => it && it.at));
+              if (stamped || rec.quote) {
+                problems.push(`${where}: a recap carries no quote and no item timestamps; the recording does not exist`);
+              }
+            }
+            // The page renders storyboard.image as an <img>, so an absolute URL in the
+            // data would load from another host - which the off-origin step, reading only
+            // index.html, cannot see.
+            const img = (rec.storyboard || {}).image;
+            if (img && /^([a-z][a-z0-9+.-]*:|\/\/)/i.test(img)) {
+              problems.push(`${where}: storyboard.image must be a relative path, not ${img}`);
+            }
+            (rec.idAliases || []).forEach((a) => {
+              if (ids.has(a)) problems.push(`${where}: idAlias ${a} collides with a real id`);
+            });
+          });
+
           if (problems.length) {
             problems.forEach((p) => console.error(`::error::${p}`));
             process.exit(1);
@@ -415,7 +452,7 @@ jobs:
           // link/script/img/iframe/source with an absolute URL is a hard failure, full
           // stop - including our own Pages origin, because a normal visit must not
           // depend on the network reaching us.
-          const LOADERS = /<(?:link|script|img|iframe|source|audio|video)\b[^>]*?\b(?:src|href)\s*=\s*["']([^"']+)["'][^>]*>/gi;
+          const LOADERS = /<(?:link|script|img|iframe|source|audio|video)\b[^>]*?\b(?:src|href|srcset)\s*=\s*["']([^"']+)["'][^>]*>/gi;
           for (const m of html.matchAll(LOADERS)) {
             if (/^https?:\/\//i.test(m[1])) {
               problems.push(`a subresource is loaded from an absolute URL: ${m[1]}`);

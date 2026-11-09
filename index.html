@@ -270,12 +270,16 @@
   }
 
   // --------------------------------------------------- local "living" storage
-  // For the MVP, contributions + comments live in the browser (localStorage).
-  // In production these become API calls - see README "Way Ahead".
+  // Private notes stay in this browser only (localStorage). Suggestions to the shared
+  // record go to GitHub through the form below, not here.
   const store = {
     comments(id){ try { return JSON.parse(localStorage.getItem('lyc.comments.'+id)) || []; } catch { return []; } },
-    addComment(id, c){ const all = store.comments(id); all.push(c); localStorage.setItem('lyc.comments.'+id, JSON.stringify(all)); },
-    suggestions(id){ try { return JSON.parse(localStorage.getItem('lyc.suggest.'+id)) || []; } catch { return []; } },
+    // Returns false when the browser refuses to store (full, blocked, private mode), so
+    // the caller can say so instead of the note silently vanishing.
+    addComment(id, c){
+      try { const all = store.comments(id); all.push(c); localStorage.setItem('lyc.comments.'+id, JSON.stringify(all)); return true; }
+      catch { return false; }
+    },
   };
 
   // ------------------------------------------------------------------- search
@@ -308,7 +312,8 @@
          ...reflectionText, d.quote, d.callToAction,
          // The storyboard is where the narrative detail lives, so a word spoken in the
          // room but not in a bullet was previously unfindable.
-         sb.logline, ...beatsOf(d).flatMap(b => [b.title, b.summary, b.pullQuote]),
+         sb.logline, sb.arcNotes, ...beatsOf(d).flatMap(b => [b.title, b.summary, b.pullQuote]),
+         ...((d.meeting || {}).contextNotes || []),
         ].filter(Boolean).join(' ').toLowerCase();
     _hay.set(d, h);
     return h;
@@ -351,7 +356,8 @@
     if (m){
       // idAliases keeps a previously published link working when a record's id has to
       // change - the 2025-04-27 gathering was dated 28 April until its recording was found.
-      const want = m[1];
+      let want = m[1];
+      try { want = decodeURIComponent(want); } catch { /* malformed escape: match as typed */ }
       const d = DATA.find(x => x.id === want)
              || DATA.find(x => (x.idAliases || []).includes(want));
       if (d) { renderDetail(d); return arrive(); }
@@ -810,8 +816,7 @@
   // Compose here, send on GitHub. The section list and the gathering are carried across
   // so the member does not retype what the page already knows.
   function suggestHTML(d){
-    const opts = (isReflection(d) ? REFLECTION_BLOCKS : SECTIONS.map(([k,t]) => [k,t]))
-      .map(([k,t]) => [k, t]);
+    const opts = (isReflection(d) ? REFLECTION_BLOCKS : SECTIONS).map(([k,t]) => [k, t]);
     opts.push(['quote', 'The highlighted quote']);
     opts.push(isReflection(d)
       ? ['reviewed', 'A gathering revisited']
@@ -898,12 +903,24 @@
   }
 
   function wireDetail(d){
-    const today = new Date().toLocaleDateString();
     const cf = document.getElementById('comment-form');
     cf && cf.addEventListener('submit', e => {
       e.preventDefault();
       const f = e.target;
-      store.addComment(d.id, { text: f.text.value.trim(), at: today });
+      // Dated at submit time, not when the page was opened.
+      const saved = store.addComment(d.id, { text: f.text.value.trim(), at: new Date().toLocaleDateString() });
+      if (!saved) {
+        let msg = document.getElementById('comment-error');
+        if (!msg) {
+          msg = document.createElement('p');
+          msg.id = 'comment-error';
+          msg.setAttribute('role', 'alert');
+          msg.className = 'mt-2 text-sm text-red-700';
+          cf.appendChild(msg);
+        }
+        msg.textContent = 'This browser would not save the note (storage is full or blocked). Copy it somewhere safe before leaving the page.';
+        return;
+      }
       renderDetail(d);
     });
 
