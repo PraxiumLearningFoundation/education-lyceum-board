@@ -78,5 +78,9 @@ Thumbs.db
 .idea/
 .vscode/
 
-# Claude Code local state and agent worktrees
-.claude/
+# Playwright output: test results, traces, videos and reports are never committed.
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+*.webm
