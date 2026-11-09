@@ -89,7 +89,9 @@
   }
 
   // A section item is either a plain string (v1) or {text, attribution, at} (v2).
-  // Item text is trusted, curated HTML - some records carry reference links.
+  // Item text is plain text and is always escaped where it is rendered. Archive edits
+  // can start from public suggestions, so no field is ever treated as markup; CI also
+  // rejects tags in the data.
   function itemText(i){
     if (i == null) return '';
     return (typeof i === 'object') ? String(i.text || '') : String(i);
@@ -268,12 +270,16 @@
   }
 
   // --------------------------------------------------- local "living" storage
-  // For the MVP, contributions + comments live in the browser (localStorage).
-  // In production these become API calls - see README "Way Ahead".
+  // Private notes stay in this browser only (localStorage). Suggestions to the shared
+  // record go to GitHub through the form below, not here.
   const store = {
     comments(id){ try { return JSON.parse(localStorage.getItem('lyc.comments.'+id)) || []; } catch { return []; } },
-    addComment(id, c){ const all = store.comments(id); all.push(c); localStorage.setItem('lyc.comments.'+id, JSON.stringify(all)); },
-    suggestions(id){ try { return JSON.parse(localStorage.getItem('lyc.suggest.'+id)) || []; } catch { return []; } },
+    // Returns false when the browser refuses to store (full, blocked, private mode), so
+    // the caller can say so instead of the note silently vanishing.
+    addComment(id, c){
+      try { const all = store.comments(id); all.push(c); localStorage.setItem('lyc.comments.'+id, JSON.stringify(all)); return true; }
+      catch { return false; }
+    },
   };
 
   // ------------------------------------------------------------------- search
@@ -306,7 +312,8 @@
          ...reflectionText, d.quote, d.callToAction,
          // The storyboard is where the narrative detail lives, so a word spoken in the
          // room but not in a bullet was previously unfindable.
-         sb.logline, ...beatsOf(d).flatMap(b => [b.title, b.summary, b.pullQuote]),
+         sb.logline, sb.arcNotes, ...beatsOf(d).flatMap(b => [b.title, b.summary, b.pullQuote]),
+         ...((d.meeting || {}).contextNotes || []),
         ].filter(Boolean).join(' ').toLowerCase();
     _hay.set(d, h);
     return h;
@@ -349,12 +356,23 @@
     if (m){
       // idAliases keeps a previously published link working when a record's id has to
       // change - the 2025-04-27 gathering was dated 28 April until its recording was found.
-      const want = m[1];
+      let want = m[1];
+      try { want = decodeURIComponent(want); } catch { /* malformed escape: match as typed */ }
       const d = DATA.find(x => x.id === want)
              || DATA.find(x => (x.idAliases || []).includes(want));
-      if (d) return renderDetail(d);
+      if (d) { renderDetail(d); return arrive(); }
     }
     renderIndex();
+  }
+
+  // A route change replaces the whole page, so start the reader at the top and put
+  // keyboard and screen-reader focus on the new heading instead of a removed element.
+  function arrive(){
+    // 'instant' overrides the stylesheet's smooth scrolling: a new page should open
+    // at its top, not glide there from wherever the last one was left.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    const h = document.getElementById('page-title');
+    if (h) h.focus({ preventScroll: true });
   }
   window.addEventListener('hashchange', route);
 
@@ -431,8 +449,9 @@
       </main>`;
 
     const s = document.getElementById('search');
+    // Refocus only after typing re-rendered the page. Focusing on every render opened the
+    // phone keyboard over the cards and started screen readers in the box, not the heading.
     s.addEventListener('input', e => { query = e.target.value; renderIndex(); placeCursorEnd(document.getElementById('search')); });
-    placeCursorEnd(s);
   }
 
   function placeCursorEnd(el){ if(!el) return; el.focus(); const v = el.value; el.value=''; el.value=v; }
@@ -629,7 +648,7 @@
         <div class="max-w-3xl mx-auto px-6 py-10">
           <a href="#/" class="text-sm text-lyceum-100/80 hover:text-white">Back to all inquiries</a>
           <p class="mt-4 uppercase tracking-[0.25em] text-xs text-lyceum-100/70">${fmtDate(d.date)} - ${isReflection(d) ? 'Reflection' : 'Sequence of Inquiry'}</p>
-          <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">${esc(titleOf(d))}</h1>
+          <h1 id="page-title" tabindex="-1" class="font-serif text-3xl sm:text-4xl font-bold mt-2 focus:outline-none">${esc(titleOf(d))}</h1>
           <div class="mt-4 flex flex-wrap gap-1.5">
             ${(d.tags||[]).map(t => `<span class="text-xs bg-white/10 rounded px-2 py-0.5">${esc(t)}</span>`).join('')}
           </div>
@@ -742,7 +761,7 @@
   // finding, the beat is the stretch of the evening it was said in.
   function itemHTML(d, i){
     const at = (i && typeof i === 'object') ? i.at : null;
-    if (!at) return `<li>${itemText(i)}</li>`;
+    if (!at) return `<li>${esc(itemText(i))}</li>`;
     const b = beatAt(d, at);
     const stamp = b
       ? ` <a href="#beat-${b.n}" data-jump="beat-${b.n}"
@@ -751,7 +770,7 @@
       // No beat covers it, so the timestamp still tells the reader when, but promises
       // no destination.
       : ` <span class="whitespace-nowrap text-xs tabular-nums text-stone-400">${esc(at)}</span>`;
-    return `<li>${itemText(i)}${stamp}</li>`;
+    return `<li>${esc(itemText(i))}${stamp}</li>`;
   }
 
   function sectionHTML(d, items, title, sub){
@@ -797,8 +816,7 @@
   // Compose here, send on GitHub. The section list and the gathering are carried across
   // so the member does not retype what the page already knows.
   function suggestHTML(d){
-    const opts = (isReflection(d) ? REFLECTION_BLOCKS : SECTIONS.map(([k,t]) => [k,t]))
-      .map(([k,t]) => [k, t]);
+    const opts = (isReflection(d) ? REFLECTION_BLOCKS : SECTIONS).map(([k,t]) => [k, t]);
     opts.push(['quote', 'The highlighted quote']);
     opts.push(isReflection(d)
       ? ['reviewed', 'A gathering revisited']
@@ -820,11 +838,11 @@
         </p>
         <form id="suggest-form" class="mt-4 grid gap-3 sm:grid-cols-2">
           <select name="section" aria-label="Which part of the record"
-                  class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm">
+                  class="w-full min-w-0 rounded-lg border border-lyceum-100 px-3 py-2 text-sm">
             ${opts.map(([k,t]) => `<option value="${esc(t)}">${esc(t)}</option>`).join('')}
           </select>
           <select name="kind" aria-label="Addition or correction"
-                  class="rounded-lg border border-lyceum-100 px-3 py-2 text-sm">
+                  class="w-full min-w-0 rounded-lg border border-lyceum-100 px-3 py-2 text-sm">
             <option>An addition - this was said and the record missed it</option>
             <option>A correction - the record says something inaccurate</option>
             <option>A removal - something in the record should not be published</option>
@@ -885,12 +903,24 @@
   }
 
   function wireDetail(d){
-    const today = new Date().toLocaleDateString();
     const cf = document.getElementById('comment-form');
     cf && cf.addEventListener('submit', e => {
       e.preventDefault();
       const f = e.target;
-      store.addComment(d.id, { text: f.text.value.trim(), at: today });
+      // Dated at submit time, not when the page was opened.
+      const saved = store.addComment(d.id, { text: f.text.value.trim(), at: new Date().toLocaleDateString() });
+      if (!saved) {
+        let msg = document.getElementById('comment-error');
+        if (!msg) {
+          msg = document.createElement('p');
+          msg.id = 'comment-error';
+          msg.setAttribute('role', 'alert');
+          msg.className = 'mt-2 text-sm text-red-700';
+          cf.appendChild(msg);
+        }
+        msg.textContent = 'This browser would not save the note (storage is full or blocked). Copy it somewhere safe before leaving the page.';
+        return;
+      }
       renderDetail(d);
     });
 

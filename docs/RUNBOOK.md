@@ -21,7 +21,7 @@ one-click undo.
 
 | What | Where | Notes |
 | --- | --- | --- |
-| The archive | `data/lyceum.json` in this repo | The single source of truth. 14 records. |
+| The archive | `data/lyceum.json` in this repo | The single source of truth. Count the records there, not here - a number in this table goes stale with every gathering. |
 | The board page | `index.html` | Markup and script in one file, no build step. |
 | The stylesheet | `board.css` | **Built** from `index.html` by `npm run build:css`. Do not hand-edit. |
 | Branding | `favicon.webp`, `StarLogo.png` | Referenced by relative path. |
@@ -29,8 +29,13 @@ one-click undo.
 | The live site | <https://praxiumlearningfoundation.github.io/education-lyceum-board/> | Served from `main`, root folder. |
 | Raw transcripts, recordings, decks | `~/Documents/Praxium/lyceum-sources/` | **Outside git, permanently.** Never in this repo. |
 | The editor and metrics view | `praxium-console` (private repo) | Deliberately not on the internet. |
+| Ingesting a new gathering | `praxium-console`: `STEWARD.md`, then `lyceum/README.md` | The transcript-to-record pipeline. Private, because its working files are derived from transcripts. |
 
 ## How to change the archive
+
+**Adding a whole new gathering from its recording** is a different job: it goes through
+the ingestion pipeline in the private `praxium-console` repository, which ends by opening
+the same kind of pull request described below. Start with its `STEWARD.md` checklist.
 
 You do not need a terminal. The whole loop works in a browser.
 
