@@ -38,14 +38,16 @@ jobs:
           # matched neither this check nor .gitignore, and sat untracked in the working
           # tree where any "git add -A" would have committed it to a public repository.
           #
-          # So match the words "transcript" and "meeting" anywhere in a .md filename.
+          # So match the words "transcript" and "meeting" anywhere in a filename.
           # Real documentation in docs/ is named for its subject, not for the meeting it
           # came from, so nothing legitimate collides - and the two roadmap/notes files
           # are excluded by name below to keep it that way deliberately rather than by
           # luck.
           FORBIDDEN='\.(pptx?|docx?|xlsx?|vtt|srt|zip|pdf)$'
           FORBIDDEN="$FORBIDDEN|(^|/)Lyceum[0-9]{6,8}[^/]*\.md$"
-          FORBIDDEN="$FORBIDDEN|[^/]*(transcript|meeting)[^/]*\.md$"
+          # Any extension, not only .md: a transcript saved as .txt, .json or .csv is the
+          # same exposure, and the check used to wave those through.
+          FORBIDDEN="$FORBIDDEN|[^/]*(transcript|meeting)[^/]*$"
           FORBIDDEN="$FORBIDDEN|(^|/)transcripts?/"
           ALLOWED='(^|/)(ROADMAP|DATA-NOTES|README|CONTRIBUTING)\.md$'
 
@@ -173,6 +175,27 @@ jobs:
             process.exit(1);
           }
           console.log(`OK: ${data.length} records, ${seen.size} unique ids, all well formed.`);
+          NODE
+
+      - name: No markup in the archive
+        run: |
+          node - <<'NODE'
+          // The page escapes every field, and this keeps the data honest too: archive
+          // edits can start from public suggestions, so a tag in any string is refused.
+          const fs = require('fs');
+          const payload = JSON.parse(fs.readFileSync('data/lyceum.json', 'utf8'));
+          const bad = [];
+          (function walk(v, path) {
+            if (typeof v === 'string') { if (/<\s*\/?\s*[a-z!]/i.test(v)) bad.push(path); }
+            else if (Array.isArray(v)) v.forEach((x, i) => walk(x, path + '[' + i + ']'));
+            else if (v && typeof v === 'object') for (const k of Object.keys(v)) walk(v[k], path + '.' + k);
+          })(payload, 'archive');
+          if (bad.length) {
+            console.log('::error::HTML-like markup found in data/lyceum.json:');
+            bad.forEach(p => console.log('  ' + p));
+            process.exit(1);
+          }
+          console.log('OK: no markup in any archive string.');
           NODE
 
       - name: Timestamps are well formed and inside the session
