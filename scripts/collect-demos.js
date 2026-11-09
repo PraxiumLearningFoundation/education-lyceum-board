@@ -11,6 +11,8 @@ const OUT = path.join(ROOT, 'demos');
 const NAMES = [
   ['demo-browse-', 'lyceum-desktop-search-democracy-timestamp-to-storyboard.webm'],
   ['demo-phone-', 'lyceum-phone-360-kids-attention-record.webm'],
+  ['demo-walkthrough-desktop', 'lyceum-walkthrough-desktop.webm'],
+  ['demo-walkthrough-phone', 'lyceum-walkthrough-phone.webm'],
 ];
 
 fs.mkdirSync(OUT, { recursive: true });

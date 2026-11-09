@@ -21,4 +21,9 @@ npm run demos        # records, then copies the videos into this folder
 | File | Shows |
 | --- | --- |
 | `lyceum-desktop-search-democracy-timestamp-to-storyboard.webm` | Browse and search the board, open the 2026-10-04 record, follow a timestamp into the storyboard (1280x800). |
+| `lyceum-walkthrough-desktop.webm` | **Start here.** A captioned tour for new members: browse the board, search, open a gathering, explore its six sections, follow a timestamp into the storyboard, save a private note, and draft a suggestion to the record (1280x800, about a minute). |
+| `lyceum-walkthrough-phone.webm` | The same captioned tour on a phone (390x844). |
 | `lyceum-phone-360-kids-attention-record.webm` | The 2026-11-01 record on a 360px phone screen. |
+
+In the walkthroughs the suggestion step stops before GitHub: the demo catches the
+hand-off and shows a caption instead, so recording never opens a real issue.
